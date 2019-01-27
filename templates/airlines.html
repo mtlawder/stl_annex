@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Hello, World!</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/stlannex_style.css"/>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+
+	</head>
+	<body>
+    <center>
+    <div class="tophead">
+        <br>
+        <h1> STL Annex: Data Analysis of St. Louis Topics! </h1>
+        <h4>Matthew T. Lawder</h4>
+        <h5>mtlawder@gmail.com</h5>
+        <br>
+    </div>
+	<div>
+	<div class="col-sm-4">
+        <<%airline_table|safe%>>
+	</div>
+	<form class="form-horizontal" method='post' action="airlines">
+		<div class="form-group">
+			<label for="tags" class="col-sm-4 control-label">Destination</label>
+			<div class="col-sm-4">
+				<div class="ui-widget">
+					<input class="form-control" name="destination" placeholder="Choose a Destination" id="tags"/>
+				</div>
+				<div class="ui-qidget">
+					<input class="form-control" name="date" type="date"/>
+				</div>
+				<br/>
+				<div class="form-group">
+					<div class="col-sm-offset-4 col-sm-8">
+						<button type="submit" class="btn btn-primary btn-lg">  Submit Destination  </button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<form class="form-horizontal" method='post' action="airlines_types">
+		<div class="form-group">
+			<label for="tags" class="col-sm-4 control-label">Airline</label>
+			<div class="col-sm-4">
+				<select name="airline_type">
+				    {% for air in airs %}
+				    <option value= "<<%air%>>" SELECTED><<%air%>></option>"
+				    {% endfor %}
+				</select>
+				<div class="ui-widget">
+					<input class="form-control" name="airline_type" placeholder="Choose an Airline" id="tags"/>
+				</div>
+				<div class="ui-qidget">
+					<input class="form-control" name="date" type="date"/>
+				</div>
+				<br/>
+				<div class="form-group">
+					<div class="col-sm-offset-4 col-sm-8">
+						<button type="submit" class="btn btn-primary btn-lg">  Submit Destination  </button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	</div>
+<div>
+<<%date_look%>>
+</div>
+	<div>
+		<<%table|safe%>>
+
+	</div>
+	
+	
+    </center>
+	</body>
+</html>

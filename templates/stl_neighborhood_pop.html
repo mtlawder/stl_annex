@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>STL Annex</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/stlannex_style.css"/>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.13.min.css" rel="stylesheet">
+    <link href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.13.min.css" rel="stylesheet">
+  
+ 
+
+	</head>
+	<body>
+    <center>
+    <div class="tophead">
+        <br>
+        <h1> STL Annex: Data Analysis of St. Louis Topics! </h1>
+        <h4>Matthew T. Lawder</h4>
+        <h5>mtlawder@gmail.com</h5>
+        <br>
+    </div>
+        <div>
+STL Population Analysis
+<form class="form-horizontal" method='post' action="stl_pop">
+        <div class="col-sm-4">
+          <div class="ui-widget">
+            <input class="form-control" name="neighborhood" placeholder="Choose a Neighborhood"/>
+          </div>
+          <br/>
+          <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-8">
+              <button type="submit" class="btn btn-primary btn-lg">  Submit Neighborhood  </button>
+            </div>
+          </div>
+          
+        </div>
+      </form>
+        <div>
+            {{nbh_table|safe}}
+          </div>
+          {{plot_div|safe}}
+          <script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.13.min.js"></script>
+    <script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.13.min.js"></script>
+    {{ plot_script|safe }}
+        </div>
+    </center>
+	</body>
+</html>

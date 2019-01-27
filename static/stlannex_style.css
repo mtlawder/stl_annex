@@ -1,0 +1,24 @@
+/* CSS-Global */
+body {
+ background-color: #edeff2;
+}
+
+div.tophead {
+	background-color: #428bca;
+    color: White;}
+
+th {
+	cursor: pointer;
+}
+
+.click_sel {
+	cursor: pointer;	
+}
+
+.click_sel:hover {
+	font-weight: bold;
+}
+
+.hidden_submit {
+	display:none;
+}

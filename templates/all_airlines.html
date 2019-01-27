@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Airline Analysis</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/stlannex_style.css"/>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <script>
+    function sortTable(col) {
+      var table, rows, switching, i, x, y, shouldSwitch;
+      table = document.getElementsByClassName("my-table-all-air");
+      switching = true;
+
+      while (switching) {
+        //start by saying: no switching is done:
+        switching = false;
+        rows = table[0].rows;
+        /*Loop through all table rows (except the
+        first, which contains table headers):*/
+        for (i = 1; i < (rows.length - 1); i++) {
+          //start by saying there should be no switching:
+          shouldSwitch = false;
+          /*Get the two elements you want to compare,
+          one from current row and one from the next:*/
+          x = rows[i].getElementsByTagName("TD")[col];
+          y = rows[i + 1].getElementsByTagName("TD")[col];
+          //check if the two rows should switch place:
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        }
+        if (shouldSwitch) {
+          /*If a switch has been marked, make the switch
+          and mark that a switch has been done:*/
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+        }
+      }
+    }
+    function sortTable2(col) {
+      var table, rows, switching, i, x, y, shouldSwitch;
+      table = document.getElementsByClassName("my-table-all-air");
+      switching = true;
+
+      while (switching) {
+        //start by saying: no switching is done:
+        switching = false;
+        rows = table[0].rows;
+        /*Loop through all table rows (except the
+        first, which contains table headers):*/
+        for (i = 1; i < (rows.length - 1); i++) {
+          //start by saying there should be no switching:
+          shouldSwitch = false;
+          /*Get the two elements you want to compare,
+          one from current row and one from the next:*/
+          x = rows[i].getElementsByTagName("TD")[col];
+          y = rows[i + 1].getElementsByTagName("TD")[col];
+          //check if the two rows should switch place:
+          if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        }
+        if (shouldSwitch) {
+          /*If a switch has been marked, make the switch
+          and mark that a switch has been done:*/
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+        }
+      }
+    }
+  </script>
+  
+
+	</head>
+	<body>
+    <center>
+
+    <div class="tophead">
+        <br>
+        <h1> STL Annex: Data Analysis of St. Louis Topics! </h1>
+        <h4>Matthew T. Lawder</h4>
+        <h5>mtlawder@gmail.com</h5>
+        <br>
+    </div>
+    <!--
+	<div>
+		<button onclick="sortTable(3)">Sort by Airline</button>
+    <button onclick="sortTable(5)">Sort by Destination Code</button>
+  </div>
+    -->
+  <br>
+  <br>
+
+
+
+  <div id="dest" class="col-sm-4">
+      <div>
+    Selected Destination Code: {{var2}}
+    <br>
+    Selected Year:
+    <select v-model="year_sel">
+      <option v-for="yr in years_av" >{{yr}}</option>
+    </select>
+    <select v-model="month_sel">
+      <option v-for="mn in months_av" >{{mn}}</option>
+    </select>
+    <br>
+    <button v-on:click="updateDest('')">Clear Selection</button>
+  </div>
+    <!--
+    <form id="hidden_submit" class="hidden_submit" action="all_airlines" method="post">
+      <input name="dest_code" v-model="var2"/>
+      <button type="submit" class="btn btn-primary btn-lg">  Submit </button>
+    </form>
+    -->
+    <table border="1" class='table table-striped my-table-all-air'>
+      <thead>
+        <tr style="text-align: right;">
+          <th onclick="sortTable2(0)"><a>DEPARTURES</a></th>
+          <th onclick="sortTable2(1)"><a>TOTAL CAPACITY</a></th>
+          <th onclick="sortTable2(2)"><a>TOTAL PASSENGERS</a></th>
+          <th onclick="sortTable2(3)"><a>LOAD FACTOR</a></th>
+          <th onclick="sortTable(4)"><a>UNIQUE_CARRIER_NAME</a></th>
+          <th onclick="sortTable(5)"><a>Code</a></th>
+          <th onclick="sortTable(6)"><a>Destination</a></th>
+          <th onclick="sortTable2(7)"><a>YEAR</a></th>
+        </tr>
+      </thead>
+      <tbody>
+        
+         <tr v-for="d in dests">
+          <td>{{d[0]}}</td>
+          <td>{{d[1]}}</td>
+          <td>{{d[2]}}</td>
+          <td>{{d[3]}}</td>
+          <td>{{d[4]}}</td>
+          <td class="click_sel" v-on:click="updateDest(d[5])">{{d[5]}}</td>
+          <td>{{d[6]}}</td>
+          <td>{{d[7]}}</td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+  </div>
+
+	
+    </center>
+    <script>
+      new Vue ({
+        el: '#dest',
+        data: {
+          dests: <<%air_dest|safe%>>,
+          var2: '<<%var2|safe%>>',
+          var3: false,
+          years_av: ['All','2017','2018'],
+          months_av: ['All','Jan','Feb','Mar','Apr','May','June','July','Aug','Sep','Oct','Nov','Dec'],
+          year_sel: '2017',
+          month_sel: 'All'
+        },
+        methods: {
+          upD: function(dest){
+            this.var2=dest;
+            this.var3=true;
+          },
+          updateDest: function(x){
+            let form = document.createElement('form');
+            form.action = 'all_airlines';
+            form.method = 'POST';
+            form.innerHTML = '<input class="hidden_submit" name="dest_code" value="'+x+'">';
+            document.body.append(form);
+            form.submit();
+          }
+        }
+
+      })
+    </script>
+	</body>
+</html>

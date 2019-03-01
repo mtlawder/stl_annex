@@ -100,59 +100,96 @@
   </div>
     -->
   <br>
-  <br>
 
 
 
-  <div id="dest" class="col-sm-4">
-      <div>
-    Selected Destination Code: {{var2}}
-    <br>
-    Selected Year:
-    <select v-model="year_sel">
-      <option v-for="yr in years_av" >{{yr}}</option>
-    </select>
-    <select v-model="month_sel">
-      <option v-for="mn in months_av" >{{mn}}</option>
-    </select>
-    <br>
-    <button v-on:click="updateDest('')">Clear Selection</button>
-  </div>
+  <div id="dest">
+    <div class="container selection_header">
+      <div  class="col-sm-2 select-option-1">
+        <input type="radio" id="depart" value="depart" v-model="origin">
+        <label for="one">Departing from</label>
+        <br>
+        <input type="radio" id="arrive" value="arrive" v-model="origin">
+        <label for="two">Arriving at</label>
+        <br>
+        <input type="radio" id="combined" value="combined" v-model="origin">
+        <label for="two">Combined</label>
+      </div>
+      <div class="col-sm-3 center-drop">
+        <select v-model="airport_sel" class="btn dropdown-toggle">
+          <option class="dropdown-item" v-for="airport in airport_av" >{{airport}}</option>
+        </select>
+        <span v-if="origin === 'depart'">
+          and flying to: <em>{{dest}}</em>
+        </span>
+        <span v-else-if="origin === 'arrive'">
+          and flying from: <em>{{dest}}</em>
+        </span>
+        <span v-else>
+          Flying to/from: <em>{{dest}}</em>
+        </span>
+        
+      </div>
+      <div class="col-sm-2 center-drop">
+        Selected Year:
+        <select v-model="year_sel" class="btn dropdown-toggle">
+          <option class="dropdown-item" v-for="yr in years_av" >{{yr}}</option>
+        </select>
+        <select v-model="month_sel" class="btn dropdown-toggle">
+          <option class="dropdown-item" v-for="mn in months_av" v-bind:value="mn['value']">{{mn['label']}}</option>
+        </select>
+      </div>
+      <div class="col-sm-2 center-drop">
+        <button class="btn btn-primary" v-on:click="updateDest('ALL','ALL')">Clear Selection</button>
+      </div>
+      <div class="col-sm-3 select-option-1">
+        <input type="radio" value="regional" v-model="regional_sel">
+        <label for="one">Break out by Regional</label>
+        <br>
+        <input type="radio" value="mainline" v-model="regional_sel">
+        <label for="two">Roll up to Mainline</label>
+      </div>
+    </div>
     <!--
     <form id="hidden_submit" class="hidden_submit" action="all_airlines" method="post">
       <input name="dest_code" v-model="var2"/>
       <button type="submit" class="btn btn-primary btn-lg">  Submit </button>
     </form>
     -->
-    <table border="1" class='table table-striped my-table-all-air'>
-      <thead>
-        <tr style="text-align: right;">
-          <th onclick="sortTable2(0)"><a>DEPARTURES</a></th>
-          <th onclick="sortTable2(1)"><a>TOTAL CAPACITY</a></th>
-          <th onclick="sortTable2(2)"><a>TOTAL PASSENGERS</a></th>
-          <th onclick="sortTable2(3)"><a>LOAD FACTOR</a></th>
-          <th onclick="sortTable(4)"><a>UNIQUE_CARRIER_NAME</a></th>
-          <th onclick="sortTable(5)"><a>Code</a></th>
-          <th onclick="sortTable(6)"><a>Destination</a></th>
-          <th onclick="sortTable2(7)"><a>YEAR</a></th>
-        </tr>
-      </thead>
-      <tbody>
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-10">
+      <table border="1" class='table table-striped my-table-all-air'>
+        <thead>
+          <tr style="text-align: right;">
+            <th onclick="sortTable2(0)"><a>DEPARTURES</a></th>
+            <th onclick="sortTable2(1)"><a>TOTAL CAPACITY</a></th>
+            <th onclick="sortTable2(2)"><a>TOTAL PASSENGERS</a></th>
+            <th onclick="sortTable2(3)"><a>LOAD FACTOR</a></th>
+            <th onclick="sortTable(4)"><a>UNIQUE_CARRIER_NAME</a></th>
+            <th onclick="sortTable(5)"><a>Code</a></th>
+            <th onclick="sortTable(6)"><a>Destination</a></th>
+            <th onclick="sortTable2(7)"><a>YEAR</a></th>
+          </tr>
+        </thead>
+        <tbody>
+          
+           <tr v-for="d in dests">
+            <td>{{d[0]}}</td>
+            <td>{{d[1]}}</td>
+            <td>{{d[2]}}</td>
+            <td>{{d[3]}}</td>
+            <td class="click_sel" v-on:click="updateDest(d[4],'ALL')">{{d[4]}}</td>
+            <td class="click_sel" v-on:click="updateDest('ALL',d[5])">{{d[5]}}</td>
+            <td>{{d[6]}}</td>
+            <td>{{d[7]}}</td>
+          </tr>
         
-         <tr v-for="d in dests">
-          <td>{{d[0]}}</td>
-          <td>{{d[1]}}</td>
-          <td>{{d[2]}}</td>
-          <td>{{d[3]}}</td>
-          <td>{{d[4]}}</td>
-          <td class="click_sel" v-on:click="updateDest(d[5])">{{d[5]}}</td>
-          <td>{{d[6]}}</td>
-          <td>{{d[7]}}</td>
-        </tr>
-      
-    </tbody>
-  </table>
-
+      </tbody>
+    </table>
+  </div>  
+  <div class="col-sm-1">
+  </div>
   </div>
 
 	
@@ -162,23 +199,29 @@
         el: '#dest',
         data: {
           dests: <<%air_dest|safe%>>,
-          var2: '<<%var2|safe%>>',
+          dest: '<<%var2|safe%>>',
+          carrier: 'ALL',
+          carrier_av: ['WN', 'AA', 'DL', 'UA', 'F9', 'AS', '9K','0MQ',''],
           var3: false,
           years_av: ['All','2017','2018'],
-          months_av: ['All','Jan','Feb','Mar','Apr','May','June','July','Aug','Sep','Oct','Nov','Dec'],
+          months_av: [{'label':'All', 'value':0},{'label':'Jan', 'value':1},{'label':'Feb', 'value':2},{'label':'Mar', 'value':3},{'label':'Apr', 'value':4},{'label':'May', 'value':5},{'label':'June', 'value':6},{'label':'July', 'value':7},{'label':'Aug', 'value':8},{'label':'Sep', 'value':9},{'label':'Oct', 'value':10},{'label':'Nov', 'value':11},{'label':'Dec', 'value':12}],
+          airport_av: ['STL','IND'],
+          airport_sel: '<<%airport_sel|safe%>>',
           year_sel: '2017',
-          month_sel: 'All'
+          month_sel: '<<%month_sel|safe%>>',
+          origin: 'depart',
+          regional_sel: '<<%regional_sel|safe%>>'
         },
         methods: {
           upD: function(dest){
-            this.var2=dest;
+            this.dest=dest;
             this.var3=true;
           },
-          updateDest: function(x){
+          updateDest: function(carrier,x){
             let form = document.createElement('form');
             form.action = 'all_airlines';
             form.method = 'POST';
-            form.innerHTML = '<input class="hidden_submit" name="dest_code" value="'+x+'">';
+            form.innerHTML = '<input class="hidden_submit" name="dest_code" value="'+x+'"><input class="hidden_submit" name="airport_sel" value="'+this.airport_sel+'"><input class="hidden_submit" name="carrier_sel" value="'+carrier+'"><input class="hidden_submit" name="regional_sel" value="'+this.regional_sel+'"><input class="hidden_submit" name="month_value" value="'+this.month_sel+'">';
             document.body.append(form);
             form.submit();
           }

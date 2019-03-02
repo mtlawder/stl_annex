@@ -52,7 +52,7 @@ def all_airlines():
         carrier = "WN"
         airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS)\
             AS "TOTAL PASSENGERS", UNIQUE_CARRIER_NAME, DEST, DEST_CITY_NAME,YEAR FROM domestic_routes\
-            WHERE ORIGIN="STL" AND UNIQUE_CARRIER="{carrier}" GROUP BY DEST,UNIQUE_CARRIER ORDER BY "TOTAL PASSENGERS" DESC', conn)
+            WHERE ORIGIN="STL" AND YEAR=2017 AND UNIQUE_CARRIER="{carrier}" GROUP BY DEST,UNIQUE_CARRIER ORDER BY "TOTAL PASSENGERS" DESC', conn)
         airline_table=airline_table.loc[airline_table["TOTAL PASSENGERS"]>100]
         airline_table['LOAD FACTOR']=(airline_table['TOTAL PASSENGERS']/airline_table['TOTAL CAPACITY'])*100
         airline_table['LOAD FACTOR']=airline_table['LOAD FACTOR'].map('{:,.1f}%'.format)
@@ -69,16 +69,21 @@ def all_airlines():
         carrier_sel = request.form['carrier_sel']
         regional_sel = request.form['regional_sel']
         month_sel = request.form['month_value']
+        year_sel = request.form['year_value']
         month_insert =""
         carrier_insert =""
         dest_insert=""
+        year_insert="AND A.YEAR=2017"
         if month_sel!='0':
             month_insert="AND A.MONTH="+str(month_sel)
         if carrier_sel!='ALL' and carrier_sel!='ALL_SELECTED':
             carrier_insert='AND A.UNIQUE_CARRIER_NAME="'+str(carrier_sel)+'"'
         if dest_code!='' and dest_code!='ALL':
             dest_insert='AND A.DEST="'+str(dest_code)+'"'
-        
+        if year_sel=='All':
+            year_insert=""
+        else:
+            year_insert='AND A.YEAR="'+str(year_sel)+'"'
         if regional_sel=='mainline':
             airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES) AS DEPARTURES,SUM("TOTAL CAPACITY") AS "TOTAL CAPACITY",SUM("TOTAL PASSENGERS") \
                 AS "TOTAL PASSENGERS", UNIQUE_CARRIER_NAME, DEST, DEST_CITY_NAME,YEAR FROM \
@@ -86,24 +91,15 @@ def all_airlines():
                 AS "TOTAL PASSENGERS", COALESCE(mainline_desc,UNIQUE_CARRIER_NAME) AS UNIQUE_CARRIER_NAME, \
                 A.DEST, DEST_CITY_NAME,A.YEAR FROM domestic_routes AS A LEFT JOIN regional_conversion as B \
                 ON A.ORIGIN=B.origin AND A.DEST=B.destination AND A.UNIQUE_CARRIER=B.regional_code WHERE \
-                A.ORIGIN="{airport_sel}" {dest_insert} {carrier_insert} {month_insert} GROUP BY A.DEST,UNIQUE_CARRIER_NAME) \
+                A.ORIGIN="{airport_sel}" {year_insert} {dest_insert} {carrier_insert} {month_insert} GROUP BY A.DEST,UNIQUE_CARRIER_NAME) \
                 AS COMB GROUP BY DEST,UNIQUE_CARRIER_NAME ORDER BY "TOTAL PASSENGERS" DESC', conn)
         else:
             airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS) \
                 AS "TOTAL PASSENGERS", UNIQUE_CARRIER_NAME, \
                 A.DEST, DEST_CITY_NAME,A.YEAR FROM domestic_routes AS A LEFT JOIN regional_conversion as B \
                 ON A.ORIGIN=B.origin AND A.DEST=B.destination AND A.UNIQUE_CARRIER=B.regional_code WHERE \
-                A.ORIGIN="{airport_sel}" {dest_insert} {carrier_insert} {month_insert} GROUP BY A.DEST,UNIQUE_CARRIER_NAME ORDER BY "TOTAL PASSENGERS" DESC', conn)
+                A.ORIGIN="{airport_sel}" {year_insert} {dest_insert} {carrier_insert} {month_insert} GROUP BY A.DEST,UNIQUE_CARRIER_NAME ORDER BY "TOTAL PASSENGERS" DESC', conn)
 
-        #else:
-        #    if carrier_sel!='ALL' and carrier_sel!='ALL_SELECTED':
-        #        airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS)\
-        #            AS "TOTAL PASSENGERS", UNIQUE_CARRIER_NAME, DEST, DEST_CITY_NAME,YEAR FROM domestic_routes AS A\
-        #            WHERE ORIGIN="{airport_sel}" AND UNIQUE_CARRIER_NAME="{carrier_sel}" {month_insert} GROUP BY DEST,UNIQUE_CARRIER ORDER BY "TOTAL PASSENGERS" DESC', conn)
-        #    else:
-        #        airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS)\
-        #            AS "TOTAL PASSENGERS", UNIQUE_CARRIER_NAME, DEST, DEST_CITY_NAME,YEAR FROM domestic_routes AS A\
-        #            WHERE ORIGIN="{airport_sel}" {month_insert} GROUP BY DEST,UNIQUE_CARRIER ORDER BY "TOTAL PASSENGERS" DESC', conn)
         airline_table=airline_table.loc[airline_table["TOTAL PASSENGERS"]>100]
         airline_table['LOAD FACTOR']=(airline_table['TOTAL PASSENGERS']/airline_table['TOTAL CAPACITY'])*100
         airline_table['LOAD FACTOR']=airline_table['LOAD FACTOR'].map('{:,.1f}%'.format)

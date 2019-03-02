@@ -47,7 +47,7 @@ def stl_pop():
 
 @app.route('/all_airlines',methods=['GET','POST'])
 def all_airlines():
-    conn=sqlite3.connect('t_100_segments.db')
+    conn=sqlite3.connect('t_100_segments_forgit.db')
     if request.method =='GET':
         carrier = "WN"
         airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS)\

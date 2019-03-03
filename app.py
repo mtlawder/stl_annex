@@ -61,8 +61,9 @@ def all_airlines():
         air_dest = airline_table.values.tolist()
         carriers = list(set(airline_table["UNIQUE_CARRIER_NAME"].tolist()))
         print(carriers)
-        return render_template('/all_airlines.html',airline_table=airline_table.to_html(classes='table table-striped my-table-all-air',index=False),\
-            air_dest=air_dest,var2='ALL',airport_sel='STL',carriers=carriers,regional_sel='mainline',month_sel=0)
+        return render_template('/all_airlines.html',airline_table=airline_table.to_html(classes='table table-striped my-table-all-air', \
+            index=False),air_dest=air_dest,var2='ALL',airport_sel='STL',carriers=carriers,regional_sel='mainline',month_sel=0, \
+            year_sel=2017,depart_arrive='depart')
     else:
         dest_code = request.form['dest_code']
         airport_sel = request.form['airport_sel']
@@ -70,16 +71,35 @@ def all_airlines():
         regional_sel = request.form['regional_sel']
         month_sel = request.form['month_value']
         year_sel = request.form['year_value']
+        depart_arrive = request.form['depart_arrive']
         month_insert =""
         carrier_insert =""
         dest_insert=""
+        combined_insert = ""
+        #combined_org_insert=""
+        cols_insert="A.DEST, DEST_CITY_NAME"
+        groupby_insert="A.DEST"
+        origin_insert=f'A.ORIGIN="{airport_sel}"'
         year_insert="AND A.YEAR=2017"
         if month_sel!='0':
             month_insert="AND A.MONTH="+str(month_sel)
         if carrier_sel!='ALL' and carrier_sel!='ALL_SELECTED':
             carrier_insert='AND A.UNIQUE_CARRIER_NAME="'+str(carrier_sel)+'"'
-        if dest_code!='' and dest_code!='ALL':
-            dest_insert='AND A.DEST="'+str(dest_code)+'"'
+        if depart_arrive == 'depart':
+            if dest_code!='' and dest_code!='ALL':
+                dest_insert='AND A.DEST="'+str(dest_code)+'"'
+        elif depart_arrive == 'arrive':
+            if dest_code!='' and dest_code!='ALL':
+                dest_insert='AND A.ORIGIN="'+str(dest_code)+'"'
+            origin_insert=f'A.DEST="{airport_sel}"'
+            cols_insert="A.ORIGIN AS DEST, ORIGIN_CITY_NAME AS DEST_CITY_NAME"
+            groupby_insert="A.ORIGIN"
+        else:
+            pass
+        #    if dest_code!='' and dest_code!='ALL':
+        #        dest_insert='AND A.DEST="'+str(dest_code)+'"'
+        #        combined_org_insert='AND A.ORIGIN="'+str(dest_code)+'"'
+        #    combined_insert=f'OR (A.DEST="{airport_sel}" {combined_org_insert} {year_insert} {carrier_insert} {month_insert})'
         if year_sel=='All':
             year_insert=""
         else:
@@ -89,16 +109,16 @@ def all_airlines():
                 AS "TOTAL PASSENGERS", UNIQUE_CARRIER_NAME, DEST, DEST_CITY_NAME,YEAR FROM \
                 (SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS) \
                 AS "TOTAL PASSENGERS", COALESCE(mainline_desc,UNIQUE_CARRIER_NAME) AS UNIQUE_CARRIER_NAME, \
-                A.DEST, DEST_CITY_NAME,A.YEAR FROM domestic_routes AS A LEFT JOIN regional_conversion as B \
+                {cols_insert},A.YEAR FROM domestic_routes AS A LEFT JOIN regional_conversion as B \
                 ON A.ORIGIN=B.origin AND A.DEST=B.destination AND A.UNIQUE_CARRIER=B.regional_code WHERE \
-                A.ORIGIN="{airport_sel}" {year_insert} {dest_insert} {carrier_insert} {month_insert} GROUP BY A.DEST,UNIQUE_CARRIER_NAME) \
-                AS COMB GROUP BY DEST,UNIQUE_CARRIER_NAME ORDER BY "TOTAL PASSENGERS" DESC', conn)
+                ({origin_insert} {year_insert} {dest_insert} {carrier_insert} {month_insert}) {combined_insert} GROUP BY {groupby_insert}, \
+                UNIQUE_CARRIER_NAME) AS COMB GROUP BY DEST,UNIQUE_CARRIER_NAME ORDER BY "TOTAL PASSENGERS" DESC', conn)
         else:
             airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS) \
                 AS "TOTAL PASSENGERS", UNIQUE_CARRIER_NAME, \
-                A.DEST, DEST_CITY_NAME,A.YEAR FROM domestic_routes AS A LEFT JOIN regional_conversion as B \
+                {cols_insert},A.YEAR FROM domestic_routes AS A LEFT JOIN regional_conversion as B \
                 ON A.ORIGIN=B.origin AND A.DEST=B.destination AND A.UNIQUE_CARRIER=B.regional_code WHERE \
-                A.ORIGIN="{airport_sel}" {year_insert} {dest_insert} {carrier_insert} {month_insert} GROUP BY A.DEST,UNIQUE_CARRIER_NAME ORDER BY "TOTAL PASSENGERS" DESC', conn)
+                ({origin_insert} {year_insert} {dest_insert} {carrier_insert} {month_insert}) {combined_insert} GROUP BY {groupby_insert},UNIQUE_CARRIER_NAME ORDER BY "TOTAL PASSENGERS" DESC', conn)
 
         airline_table=airline_table.loc[airline_table["TOTAL PASSENGERS"]>100]
         airline_table['LOAD FACTOR']=(airline_table['TOTAL PASSENGERS']/airline_table['TOTAL CAPACITY'])*100
@@ -116,7 +136,8 @@ def all_airlines():
         #carriers='a'
         air_dest = total_df.values.tolist()
         return render_template('/all_airlines.html',airline_table=total_df.to_html(classes='table table-striped my-table-all-air',index=False)\
-            ,air_dest=air_dest,var2=dest_code,airport_sel=airport_sel,carriers=carriers,regional_sel=regional_sel,month_sel=month_sel)        
+            ,air_dest=air_dest,var2=dest_code,airport_sel=airport_sel,carriers=carriers,regional_sel=regional_sel,month_sel=month_sel,\
+            year_sel=year_sel,depart_arrive=depart_arrive)        
     
 
 

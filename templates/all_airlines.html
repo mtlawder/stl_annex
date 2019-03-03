@@ -167,8 +167,11 @@
             <th onclick="sortTable2(2)"><a>TOTAL PASSENGERS</a></th>
             <th onclick="sortTable2(3)"><a>LOAD FACTOR</a></th>
             <th onclick="sortTable(4)"><a>UNIQUE_CARRIER_NAME</a></th>
-            <th onclick="sortTable(5)"><a>Code</a></th>
-            <th onclick="sortTable(6)"><a>Destination</a></th>
+            <th onclick="sortTable(5)"><a>CODE</a></th>
+            <th onclick="sortTable(6)">
+              <a v-if="origin === 'depart'">Destination</a>
+              <a v-if="origin === 'arrive'">Origin</a>
+            </th>
             <th onclick="sortTable2(7)"><a>YEAR</a></th>
           </tr>
         </thead>
@@ -205,11 +208,11 @@
           var3: false,
           years_av: ['All','2017','2018'],
           months_av: [{'label':'All', 'value':0},{'label':'Jan', 'value':1},{'label':'Feb', 'value':2},{'label':'Mar', 'value':3},{'label':'Apr', 'value':4},{'label':'May', 'value':5},{'label':'June', 'value':6},{'label':'July', 'value':7},{'label':'Aug', 'value':8},{'label':'Sep', 'value':9},{'label':'Oct', 'value':10},{'label':'Nov', 'value':11},{'label':'Dec', 'value':12}],
-          airport_av: ['STL','IND'],
+          airport_av: ['STL','IND','DSM','MEM','MCI'],
           airport_sel: '<<%airport_sel|safe%>>',
-          year_sel: '2017',
+          year_sel: '<<%year_sel|safe%>>',
           month_sel: '<<%month_sel|safe%>>',
-          origin: 'depart',
+          origin: '<<%depart_arrive|safe%>>',
           regional_sel: '<<%regional_sel|safe%>>'
         },
         methods: {
@@ -221,7 +224,7 @@
             let form = document.createElement('form');
             form.action = 'all_airlines';
             form.method = 'POST';
-            form.innerHTML = '<input class="hidden_submit" name="dest_code" value="'+x+'"><input class="hidden_submit" name="airport_sel" value="'+this.airport_sel+'"><input class="hidden_submit" name="carrier_sel" value="'+carrier+'"><input class="hidden_submit" name="regional_sel" value="'+this.regional_sel+'"><input class="hidden_submit" name="year_value" value="'+this.year_sel+'"><input class="hidden_submit" name="month_value" value="'+this.month_sel+'">';
+            form.innerHTML = '<input class="hidden_submit" name="dest_code" value="'+x+'"><input class="hidden_submit" name="airport_sel" value="'+this.airport_sel+'"><input class="hidden_submit" name="carrier_sel" value="'+carrier+'"><input class="hidden_submit" name="regional_sel" value="'+this.regional_sel+'"><input class="hidden_submit" name="year_value" value="'+this.year_sel+'"><input class="hidden_submit" name="month_value" value="'+this.month_sel+'"><input class="hidden_submit" name="depart_arrive" value="'+this.origin+'">';
             document.body.append(form);
             form.submit();
           }

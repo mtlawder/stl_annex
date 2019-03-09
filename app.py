@@ -63,7 +63,7 @@ def all_airlines():
         print(carriers)
         return render_template('/all_airlines.html',airline_table=airline_table.to_html(classes='table table-striped my-table-all-air', \
             index=False),air_dest=air_dest,var2='ALL',airport_sel='STL',carriers=carriers,regional_sel='mainline',month_sel=0, \
-            year_sel=2017,depart_arrive='depart')
+            year_sel=2017,depart_arrive='depart',plot_air="",plot_air_script="")
     else:
         dest_code = request.form['dest_code']
         airport_sel = request.form['airport_sel']
@@ -135,9 +135,17 @@ def all_airlines():
         carriers = list(set(total_df["UNIQUE_CARRIER_NAME"].tolist()))
         #carriers='a'
         air_dest = total_df.values.tolist()
+        script=""
+        div=""
+        if dest_code!='' and dest_code!='ALL':
+            p_air_tab=pd.read_sql(f'SELECT SUM(PASSENGERS) AS PASS, YEAR, MONTH FROM domestic_routes AS A WHERE {origin_insert} \
+            {dest_insert} {carrier_insert} GROUP BY YEAR, MONTH', conn)
+            p1 = figure(title="Airline Passengers")
+            p1.line(pd.to_numeric(p_air_tab['YEAR']+(p_air_tab['MONTH']-1)/12), pd.to_numeric(p_air_tab['PASS']))
+            script, div = components(p1)
         return render_template('/all_airlines.html',airline_table=total_df.to_html(classes='table table-striped my-table-all-air',index=False)\
             ,air_dest=air_dest,var2=dest_code,airport_sel=airport_sel,carriers=carriers,regional_sel=regional_sel,month_sel=month_sel,\
-            year_sel=year_sel,depart_arrive=depart_arrive)        
+            year_sel=year_sel,depart_arrive=depart_arrive,plot_air=div,plot_air_script=script)        
     
 
 

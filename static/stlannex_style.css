@@ -28,6 +28,7 @@ th {
 }
 .selection_header {
 	max-width:1100px;
+	height:100%;
 	text-align:left;
 	background-color: #9b9b9b;
 	margin-bottom: 14px;
@@ -36,4 +37,27 @@ th {
 }
 .center-drop {
 	padding-top:20px;
+}
+.selection-group {
+	border:1px solid black;
+	padding:5px;
+}
+.remove-pad{
+	padding:0px;
+}
+.sub-pad {
+	padding-left:6px;
+	padding-right:0px;
+}
+.sub-pad-down {
+	padding-top:20px;
+	padding-left:2px;
+	padding-right:6px;
+}
+.center-group{
+	text-align:center;
+}
+.select-height{
+	height:100%;
+	min-height:137px;
 }

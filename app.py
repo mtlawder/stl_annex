@@ -140,8 +140,15 @@ def all_airlines():
         if dest_code!='' and dest_code!='ALL':
             p_air_tab=pd.read_sql(f'SELECT SUM(PASSENGERS) AS PASS, YEAR, MONTH FROM domestic_routes AS A WHERE {origin_insert} \
             {dest_insert} {carrier_insert} GROUP BY YEAR, MONTH', conn)
-            p1 = figure(title="Airline Passengers")
-            p1.line(pd.to_numeric(p_air_tab['YEAR']+(p_air_tab['MONTH']-1)/12), pd.to_numeric(p_air_tab['PASS']))
+            #p1 = figure(title="Airline Passengers")
+            #p1.line(pd.to_numeric(p_air_tab['YEAR']+(p_air_tab['MONTH']-1)/12), pd.to_numeric(p_air_tab['PASS']))
+            p1 = figure(x_range=list(p_air_tab['YEAR'].astype(str)+'-'+p_air_tab['MONTH'].astype(str)), plot_height=250,
+           title="Passenger Counts", toolbar_location=None, tools="")
+            p1.vbar(x=list(p_air_tab['YEAR'].astype(str)+'-'+p_air_tab['MONTH'].astype(str)), top=list(p_air_tab['PASS']/1000), width=0.9)
+            p1.xgrid.grid_line_color = None
+            p1.y_range.start = 0
+            p1.xaxis.major_label_orientation = 1.2
+            p1.yaxis.axis_label= "Thousands of Passengers"
             script, div = components(p1)
         return render_template('/all_airlines.html',airline_table=total_df.to_html(classes='table table-striped my-table-all-air',index=False)\
             ,air_dest=air_dest,var2=dest_code,airport_sel=airport_sel,carriers=carriers,regional_sel=regional_sel,month_sel=month_sel,\

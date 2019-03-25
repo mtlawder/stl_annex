@@ -107,52 +107,74 @@
 
 
 
-  <div id="dest">
-    <div class="container selection_header">
-      <div  class="col-sm-2 select-option-1">
-        <input type="radio" id="depart" value="depart" v-model="origin">
-        <label for="one">Departing from</label>
+  <div id="dest" class="select-height">
+    <div class="container selection_header remove-pad">
+      <div class="col-sm-5 remove-pad">
+        <div class=" col-sm-12 container remove-pad ">
+          <div  class="col-sm-12 select-option-1 selection-group">
+            <div class="col-sm-5 sub-pad">
+              <input type="radio" id="depart" value="depart" v-model="origin">
+              <label for="one">Departing from</label>
+              <br>
+              <input type="radio" id="arrive" value="arrive" v-model="origin">
+              <label for="two">Arriving at</label>
+              <br>
+              <input type="radio" id="combined" value="combined" v-model="origin">
+              <label for="two">Combined</label>
+            </div>
+            <div class="col-sm-7 sub-pad sub-pad-down">
+              <select v-model="airport_sel" class="btn dropdown-toggle">
+                <option class="dropdown-item" v-for="airport in airport_av" >{{airport}}</option>
+              </select>
+              <span v-if="origin === 'depart'">
+                and flying to: <em>{{dest}}</em>
+              </span>
+              <span v-else-if="origin === 'arrive'">
+                and flying from: <em>{{dest}}</em>
+              </span>
+              <span v-else>
+                Flying to/from: <em>{{dest}}</em>
+              </span>   
+            </div>
+          </div>
+          <div class="col-sm-12 selection-group center-group">
+            Selected Year:
+            <select v-model="year_sel" class="btn dropdown-toggle">
+              <option class="dropdown-item" v-for="yr in years_av" >{{yr}}</option>
+            </select>
+            <select v-model="month_sel" class="btn dropdown-toggle">
+              <option class="dropdown-item" v-for="mn in months_av" v-bind:value="mn['value']">{{mn['label']}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 selection-group select-height">
+        <div class="col-sm-12">
+          Choose Carrier:
+        </div>
+        <div>
+          <select  class="btn dropdown-toggle">
+            <option class="dropdown-item" v-for="carrier in carrier_sel" >{{carrier}}</option>
+          </select>
+        </div>
+        <div class="col-sm-12 select-option-1">
+          <input type="radio" value="regional" v-model="regional_sel">
+          <label for="one">Break out by Regional</label>
+          <br>
+          <input type="radio" value="mainline" v-model="regional_sel">
+          <label for="two">Roll up to Mainline</label>
+        </div>
+      </div>
+      <div class="col-sm-2 center-drop center-group selection-group select-height">
+        <div>
+          <button class="btn btn-primary" v-on:click="updateDest(carrier,airport_sel)">Choose Selections</button>
+        </div>
         <br>
-        <input type="radio" id="arrive" value="arrive" v-model="origin">
-        <label for="two">Arriving at</label>
-        <br>
-        <input type="radio" id="combined" value="combined" v-model="origin">
-        <label for="two">Combined</label>
+        <div>
+          <button class="btn btn-primary" v-on:click="updateDest('ALL','ALL')">Clear Selection</button>
+        </div>
       </div>
-      <div class="col-sm-3 center-drop">
-        <select v-model="airport_sel" class="btn dropdown-toggle">
-          <option class="dropdown-item" v-for="airport in airport_av" >{{airport}}</option>
-        </select>
-        <span v-if="origin === 'depart'">
-          and flying to: <em>{{dest}}</em>
-        </span>
-        <span v-else-if="origin === 'arrive'">
-          and flying from: <em>{{dest}}</em>
-        </span>
-        <span v-else>
-          Flying to/from: <em>{{dest}}</em>
-        </span>
-        
-      </div>
-      <div class="col-sm-2 center-drop">
-        Selected Year:
-        <select v-model="year_sel" class="btn dropdown-toggle">
-          <option class="dropdown-item" v-for="yr in years_av" >{{yr}}</option>
-        </select>
-        <select v-model="month_sel" class="btn dropdown-toggle">
-          <option class="dropdown-item" v-for="mn in months_av" v-bind:value="mn['value']">{{mn['label']}}</option>
-        </select>
-      </div>
-      <div class="col-sm-2 center-drop">
-        <button class="btn btn-primary" v-on:click="updateDest('ALL','ALL')">Clear Selection</button>
-      </div>
-      <div class="col-sm-3 select-option-1">
-        <input type="radio" value="regional" v-model="regional_sel">
-        <label for="one">Break out by Regional</label>
-        <br>
-        <input type="radio" value="mainline" v-model="regional_sel">
-        <label for="two">Roll up to Mainline</label>
-      </div>
+      
     </div>
     <!--
     <form id="hidden_submit" class="hidden_submit" action="all_airlines" method="post">
@@ -166,7 +188,7 @@
     <div class="col-sm-10">
       <table border="1" class='table table-striped my-table-all-air'>
         <thead>
-          <tr style="text-align: right;">
+          <tr style="text-a*lign: right;">
             <th onclick="sortTable2(0)"><a>DEPARTURES</a></th>
             <th onclick="sortTable2(1)"><a>TOTAL CAPACITY</a></th>
             <th onclick="sortTable2(2)"><a>TOTAL PASSENGERS</a></th>

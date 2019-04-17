@@ -62,8 +62,8 @@ def all_airlines():
         carriers = list(set(airline_table["UNIQUE_CARRIER_NAME"].tolist()))
         print(carriers)
         return render_template('/all_airlines.html',airline_table=airline_table.to_html(classes='table table-striped my-table-all-air', \
-            index=False),air_dest=air_dest,var2='ALL',airport_sel='STL',carriers=carriers,regional_sel='mainline',month_sel=0, \
-            year_sel=2017,depart_arrive='depart',plot_air="",plot_air_script="")
+            index=False),air_dest=air_dest,var2='ALL',airport_sel='STL',carriers=carriers,carrier_sel='Southwest Airlines Co.', \
+            regional_sel='mainline',month_sel=0, year_sel=2017,depart_arrive='depart',plot_air="",plot_air_script="")
     else:
         dest_code = request.form['dest_code']
         airport_sel = request.form['airport_sel']
@@ -104,6 +104,7 @@ def all_airlines():
             year_insert=""
         else:
             year_insert='AND A.YEAR="'+str(year_sel)+'"'
+            print(origin_insert,year_insert,dest_insert,carrier_insert,month_insert,combined_insert,groupby_insert,cols_insert)
         if regional_sel=='mainline':
             airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES) AS DEPARTURES,SUM("TOTAL CAPACITY") AS "TOTAL CAPACITY",SUM("TOTAL PASSENGERS") \
                 AS "TOTAL PASSENGERS", UNIQUE_CARRIER_NAME, DEST, DEST_CITY_NAME,YEAR FROM \
@@ -127,7 +128,8 @@ def all_airlines():
         total_df=pd.DataFrame(columns=['DEPARTURES','TOTAL CAPACITY','TOTAL PASSENGERS','LOAD FACTOR',\
         'UNIQUE_CARRIER_NAME','DEST','DEST_CITY_NAME','YEAR'\
         ],data=[[airline_table["DEPARTURES"].sum(),airline_table["TOTAL CAPACITY"].sum(),airline_table["TOTAL PASSENGERS"].sum(),\
-        (airline_table["TOTAL PASSENGERS"].sum()/airline_table["TOTAL CAPACITY"].sum())*100,"ALL SELECTED","ALL","ALL","ALL"]])
+        (airline_table["TOTAL PASSENGERS"].sum()/airline_table["TOTAL CAPACITY"].sum())*100 if airline_table["TOTAL CAPACITY"].sum()!=0 else 0\
+        ,"ALL SELECTED","ALL","ALL","ALL"]])
         total_df["LOAD FACTOR"]=total_df["LOAD FACTOR"].map('{:,.1f}%'.format)
         cols=airline_table.columns.tolist()
         airline_table=airline_table[cols[:3]+['LOAD FACTOR']+cols[3:-1]]
@@ -151,7 +153,7 @@ def all_airlines():
             p1.yaxis.axis_label= "Thousands of Passengers"
             script, div = components(p1)
         return render_template('/all_airlines.html',airline_table=total_df.to_html(classes='table table-striped my-table-all-air',index=False)\
-            ,air_dest=air_dest,var2=dest_code,airport_sel=airport_sel,carriers=carriers,regional_sel=regional_sel,month_sel=month_sel,\
+            ,air_dest=air_dest,var2=dest_code,airport_sel=airport_sel,carriers=carriers,carrier_sel=carrier_sel,regional_sel=regional_sel,month_sel=month_sel,\
             year_sel=year_sel,depart_arrive=depart_arrive,plot_air=div,plot_air_script=script)        
     
 
@@ -168,7 +170,6 @@ def airlines():
         airline_table.reset_index(inplace=True)
         airs=airlines['Airline_only'].drop_duplicates()
         return render_template('/airlines.html', airline_table=airline_table.to_html(classes='table table-striped',index=False),airs=airs)
-
     else:
         destination=request.form['destination']
         date=request.form['date']

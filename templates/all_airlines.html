@@ -153,8 +153,8 @@
           Choose Carrier:
         </div>
         <div>
-          <select  class="btn dropdown-toggle">
-            <option class="dropdown-item" v-for="carrier in carrier_sel" >{{carrier}}</option>
+          <select  class="btn dropdown-toggle" v-model="carrier_sel">
+            <option class="dropdown-item" v-for="carrier in carrier_av" v-bind:value="carrier['value']">{{carrier['label']}}</option>
           </select>
         </div>
         <div class="col-sm-12 select-option-1">
@@ -167,7 +167,7 @@
       </div>
       <div class="col-sm-2 center-drop center-group selection-group select-height">
         <div>
-          <button class="btn btn-primary" v-on:click="updateDest(carrier,airport_sel)">Choose Selections</button>
+          <button class="btn btn-primary" v-on:click="updateDest(carrier_sel,'ALL')">Choose Selections</button>
         </div>
         <br>
         <div>
@@ -236,8 +236,8 @@
         data: {
           dests: <<%air_dest|safe%>>,
           dest: '<<%var2|safe%>>',
-          carrier: 'ALL',
-          carrier_av: ['WN', 'AA', 'DL', 'UA', 'F9', 'AS', '9K','0MQ',''],
+          carrier_sel: '<<%carrier_sel|safe%>>',
+          carrier_av: [{'value':'ALL','label':'All Carriers'},{'value':'Southwest Airlines Co.','label':'Southwest'}, {'value':'American Airlines Inc.','label':'American'}, {'value':'Delta Air Lines Inc.','label':'Delta'}, {'value':'United Air Lines Inc.','label':'United'}, {'value':'Frontier Airlines Inc.','label':'Frontier'}, {'value':'Alaska Airlines Inc.','label':'Alaska'}, {'value':'Cape Air','label':'Cape Air'},{'value':'Multi-Aero, Inc. d/b/a Air Choice One','label':'Air Choice One'},{'value':'Air Canada','label':'Air Canada'},{'value':'','label':'other'}],
           var3: false,
           years_av: ['All','2017','2018'],
           months_av: [{'label':'All', 'value':0},{'label':'Jan', 'value':1},{'label':'Feb', 'value':2},{'label':'Mar', 'value':3},{'label':'Apr', 'value':4},{'label':'May', 'value':5},{'label':'June', 'value':6},{'label':'July', 'value':7},{'label':'Aug', 'value':8},{'label':'Sep', 'value':9},{'label':'Oct', 'value':10},{'label':'Nov', 'value':11},{'label':'Dec', 'value':12}],
@@ -253,11 +253,11 @@
             this.dest=dest;
             this.var3=true;
           },
-          updateDest: function(carrier,x){
+          updateDest: function(carrier,dest){
             let form = document.createElement('form');
             form.action = 'all_airlines';
             form.method = 'POST';
-            form.innerHTML = '<input class="hidden_submit" name="dest_code" value="'+x+'"><input class="hidden_submit" name="airport_sel" value="'+this.airport_sel+'"><input class="hidden_submit" name="carrier_sel" value="'+carrier+'"><input class="hidden_submit" name="regional_sel" value="'+this.regional_sel+'"><input class="hidden_submit" name="year_value" value="'+this.year_sel+'"><input class="hidden_submit" name="month_value" value="'+this.month_sel+'"><input class="hidden_submit" name="depart_arrive" value="'+this.origin+'">';
+            form.innerHTML = '<input class="hidden_submit" name="dest_code" value="'+dest+'"><input class="hidden_submit" name="airport_sel" value="'+this.airport_sel+'"><input class="hidden_submit" name="carrier_sel" value="'+carrier+'"><input class="hidden_submit" name="regional_sel" value="'+this.regional_sel+'"><input class="hidden_submit" name="year_value" value="'+this.year_sel+'"><input class="hidden_submit" name="month_value" value="'+this.month_sel+'"><input class="hidden_submit" name="depart_arrive" value="'+this.origin+'">';
             document.body.append(form);
             form.submit();
           }

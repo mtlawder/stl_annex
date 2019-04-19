@@ -134,7 +134,11 @@
               </span>
               <span v-else>
                 Flying to/from: <em>{{dest}}</em>
-              </span>   
+              </span>
+              <select v-model="dest" class="btn dropdown-toggle">
+                <option class="dropdown-item">ALL</option>
+                <option class="dropdown-item" v-for="going_to in dest_options[airport_sel]" >{{going_to}}</option>
+              </select>
             </div>
           </div>
           <div class="col-sm-12 selection-group center-group">
@@ -167,7 +171,7 @@
       </div>
       <div class="col-sm-2 center-drop center-group selection-group select-height">
         <div>
-          <button class="btn btn-primary" v-on:click="updateDest(carrier_sel,'ALL')">Choose Selections</button>
+          <button class="btn btn-primary" v-on:click="updateDest(carrier_sel,dest)">Choose Selections</button>
         </div>
         <br>
         <div>
@@ -236,6 +240,7 @@
         data: {
           dests: <<%air_dest|safe%>>,
           dest: '<<%var2|safe%>>',
+          dest_options: <<%dest_options|safe%>>,
           carrier_sel: '<<%carrier_sel|safe%>>',
           carrier_av: [{'value':'ALL','label':'All Carriers'},{'value':'Southwest Airlines Co.','label':'Southwest'}, {'value':'American Airlines Inc.','label':'American'}, {'value':'Delta Air Lines Inc.','label':'Delta'}, {'value':'United Air Lines Inc.','label':'United'}, {'value':'Frontier Airlines Inc.','label':'Frontier'}, {'value':'Alaska Airlines Inc.','label':'Alaska'}, {'value':'Cape Air','label':'Cape Air'},{'value':'Multi-Aero, Inc. d/b/a Air Choice One','label':'Air Choice One'},{'value':'Air Canada','label':'Air Canada'},{'value':'','label':'other'}],
           var3: false,

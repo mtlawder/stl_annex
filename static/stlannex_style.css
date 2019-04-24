@@ -38,6 +38,9 @@ th {
 .center-drop {
 	padding-top:20px;
 }
+.short-bottom {
+	padding-bottom: 3px !important;
+}
 .selection-group {
 	border:1px solid black;
 	padding:5px;

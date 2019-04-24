@@ -1,6 +1,6 @@
 dill==0.2.1
 
-Flask==0.10.1
+Flask==0.12.2
 
 gunicorn==19.3.0
 

@@ -151,7 +151,7 @@ def all_airlines():
             #p1 = figure(title="Airline Passengers")
             #p1.line(pd.to_numeric(p_air_tab['YEAR']+(p_air_tab['MONTH']-1)/12), pd.to_numeric(p_air_tab['PASS']))
             p1 = figure(x_range=list(p_air_tab['YEAR'].astype(str)+'-'+p_air_tab['MONTH'].astype(str)), plot_height=250,
-           title="Passenger Counts", toolbar_location=None, tools="")
+                title="Passenger Counts", toolbar_location=None, tools="")
             p1.vbar(x=list(p_air_tab['YEAR'].astype(str)+'-'+p_air_tab['MONTH'].astype(str)), top=list(p_air_tab['PASS']/1000), width=0.9)
             p1.xgrid.grid_line_color = None
             p1.y_range.start = 0

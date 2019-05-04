@@ -73,6 +73,33 @@
       height:100%;
       min-height:137px;
     }
+    .modal-window {
+      position: fixed;
+      z-index: 9998;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, .5);
+      display: table;
+      transition: opacity .3s ease;
+    }
+    .modal-wrapper {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .modal-container {
+      width: 750px;
+      margin: 0px auto;
+      padding: 20px 30px;
+      background-color: #fff;
+      border-radius: 2px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+      transition: all .3s ease;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+    [v-cloak]>*{display:none;}
     </style>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -152,7 +179,8 @@
       }
     }
   </script>
-  
+
+
 
 	</head>
 	<body>
@@ -191,19 +219,19 @@
               <label for="two">Combined</label>
             </div>
             <div class="col-sm-8 sub-pad sub-pad-down">
-              <select v-model="airport_sel" class="btn dropdown-toggle">
+              <select v-model="airport_sel" class="btn dropdown-toggle" >
                 <option class="dropdown-item" v-for="airport in airport_av" >{{airport}}</option>
               </select>
               <span v-if="origin === 'depart'">
                 flying to:
-                <select v-model="dest" class="btn dropdown-toggle">
-                  <option class="dropdown-item">ALL</option>
+                <select v-model="dest" class="btn dropdown-toggle" >
+                  <option class="dropdown-item" >ALL</option>
                   <option class="dropdown-item" v-for="going_to in dest_options[airport_sel]" >{{going_to}}</option>
                 </select>
               </span>
               <span v-else-if="origin === 'arrive'">
                 flying from:
-                <select v-model="dest" class="btn dropdown-toggle">
+                <select v-model="dest" class="btn dropdown-toggle" >
                   <option class="dropdown-item">ALL</option>
                   <option class="dropdown-item" v-for="going_to in dest_options[airport_sel]" >{{going_to}}</option>
                 </select>
@@ -223,7 +251,7 @@
               <option class="dropdown-item" v-for="yr in years_av" >{{yr}}</option>
             </select>
             <select v-model="month_sel" class="btn dropdown-toggle">
-              <option class="dropdown-item" v-for="mn in months_av" v-bind:value="mn['value']">{{mn['label']}}</option>
+              <option class="dropdown-item" v-for="mn in months_av" v-bind:value="mn['value']" >{{mn['label']}}</option>
             </select>
           </div>
         </div>
@@ -234,7 +262,7 @@
         </div>
         <div class="center-group">
           <select  class="btn dropdown-toggle" v-model="carrier_sel">
-            <option class="dropdown-item" v-for="carrier in carrier_av" v-bind:value="carrier['value']">{{carrier['label']}}</option>
+            <option class="dropdown-item" v-for="carrier in carrier_av" v-bind:value="carrier['value']" v-cloak>{{carrier['label']}}</option>
           </select>
         </div>
         <br>
@@ -255,10 +283,35 @@
           <button class="btn btn-primary" v-on:click="updateDest('ALL','ALL')">Clear Selection</button>
         </div>
       </div>
-      <div class="col-sm-2 selection-group select-height">
+      <div class="col-sm-2 selection-group select-height" >
         <b>Rows: {{dests.length}}</b>
           <br>
           Refresh with "Choose Selections" after changing selections.
+          <br>
+          <button id="show-modal" @click="showModal = true">More Info</button>
+            <!-- use the modal component, pass in the prop -->
+            <modal v-if="showModal" @close="showModal = false" v-cloak>
+              <div class="modal-window">
+                <div class="modal-wrapper">
+                  <div class="modal-container">
+                    <h3>More Information
+                    </h3>
+                    <p>
+                      The main data set was obtained from the Bureau of Transportation Statistics. A subset of the <a href="https://www.transtats.bts.gov/Fields.asp?Table_ID=293">T-100 Segment</a> dataset is used. Departures, Total Capacity, and Total Passengers are taken from the DepPerformed, Seats, and Passengers columns respectively. The Load Factor is calculated as the Total Passengers divided by the Total Capacity.
+                      <br><br>
+                      In many cases mainline carriers (Delta, United, American, etc.) will have a regional carrier operate a particular route under the Mainline carrier sub-banner (such as Delta Connections, United Express, or American Eagle). The T-100 Segment table shows data at the carrier level and does not note if the carrier was operating the flight for a mainline carrier. Therefore, I've been manually pulling data for which regional carrier routes are being operator under a mainline barrier. I've included a radio button option to either show the data at the regional carrier or attempt to roll up the numbers to the mainline carrier when availalbe.
+                      <br><br>
+                      Here's a simple example. United may operate 2 flights per day on mainline aircraft between STL and ORD. But 4 more flights per day might be operated Envoy Air under the United Express banner. When selectin Break out by regionals on the STL-ORD route, both United and Envoy would be considered seperately, but if Roll up to Mainline were selected, all the statistics would be rolled up to United.
+                      <br><br>
+                      Because I am currently creating this mapping manually, it is only available for some airports and routes (currently only flights departing or arriving at STL). If you know of a better way to source this data or notice any mistakes please let me know!
+                      <br><br>
+                      Matthew Lawder (mtlawder@gmail.com)
+                    </p>
+                    <button @click="showModal = false">Close</button>
+                  </div>
+                </div>
+              </div>
+            </modal>
       </div>
       
     </div>
@@ -333,7 +386,8 @@
           year_sel: '<<%year_sel|safe%>>',
           month_sel: '<<%month_sel|safe%>>',
           origin: '<<%depart_arrive|safe%>>',
-          regional_sel: '<<%regional_sel|safe%>>'
+          regional_sel: '<<%regional_sel|safe%>>',
+          showModal: false
         },
         methods: {
           upD: function(dest){

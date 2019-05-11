@@ -4,13 +4,11 @@
 		<meta charset="utf-8">
 		<title>STL Annex</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-		<link rel="stylesheet" type="text/css" href="/static/stlannex_style.css"/>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css"/>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
   
  
 
@@ -24,6 +22,9 @@
         <h5>mtlawder@gmail.com</h5>
         <br>
     </div>
+    <div id="menu-vue">
+      <menu-bar></menu-bar>
+    </div>
         <div>
 <!--             <form class="form-horizontal" method='get' action="airlines">
 	           <button type="submit" class="btn btn-primary btn-lg">  Go to STL Airport Page  </button>
@@ -31,10 +32,22 @@
             <form class="form-horizontal" method='get' action="stl_pop">
                 <button type="submit" class="btn btn-primary btn-lg">  Go to STL Population Page  </button>
             </form> -->
+            <br>
             <form class="form-horizontal" method='get' action="all_airlines">
                 <button type="submit" class="btn btn-primary btn-lg">  Go to New Airline Page  </button>
             </form>
         </div>
     </center>
+    <script>
+      Vue.component('menu-bar',{
+          data: function() {
+            return{
+              count:2
+            }
+          },
+          template: '<nav class="navbar navbar-default"><div class="container-fluid"><!-- Brand and toggle get grouped for better mobile display --><div class="navbar-header"> <!-- Collect the nav links, forms, and other content for toggling --><div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><ul class="nav navbar-nav"><li><a href="\index_Main"> STLAnnex Home </a></li><li><a href="\all_airlines#">Airline Project </a></li></ul></div><!-- /.navbar-collapse --></div><!-- /.container-fluid --></nav>'
+        }),
+      new Vue({ el: '#menu-vue' })
+      </script>
 	</body>
 </html>

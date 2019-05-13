@@ -86,6 +86,9 @@ th {
 .right-group{
   text-align:right;
 }
+.left-group{
+  text-align:left;
+}
 .select-height{
   height:100%;
   min-height:137px;

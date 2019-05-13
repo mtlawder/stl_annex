@@ -25,18 +25,41 @@
     <div id="menu-vue">
       <menu-bar></menu-bar>
     </div>
-        <div>
-<!--             <form class="form-horizontal" method='get' action="airlines">
-	           <button type="submit" class="btn btn-primary btn-lg">  Go to STL Airport Page  </button>
-	       </form>
-            <form class="form-horizontal" method='get' action="stl_pop">
-                <button type="submit" class="btn btn-primary btn-lg">  Go to STL Population Page  </button>
-            </form> -->
-            <br>
-            <form class="form-horizontal" method='get' action="all_airlines">
-                <button type="submit" class="btn btn-primary btn-lg">  Go to New Airline Page  </button>
-            </form>
+    <div class="container">
+      <div class="col-sm-1">
+      </div>
+        <div class="col-sm-10 left-group">
+          The projects below were built to be used to find insteresting insights from different data sets. Many data sets and tool are St. Louis centric, but some extend to information well beyond the city and county borders. The author don't create these tools in a vacuum, we also use them! You can find blog post with analysis created with these tool (and sometimes outside analysis). Find out more information about the author here and please reach out to mtlawder@gmail.com if you have any questions or comments about the tools or analysis.
         </div>
+        <div class="col-sm-1">
+        </div>
+      </div>
+      <div class="container">
+        <div class="col-sm-1">
+        </div>
+        <br>
+        <div class="col-sm-10">
+          <div class="container">
+            <div class="col-sm-4">
+              <form method='get' action="all_airlines">
+                  <button type="submit" class="btn btn-primary btn-lg">  Go to New Airline Page  </button>
+              </form>
+            </div>
+            <div class="col-sm-4">
+              <form method='get' action="all_airlines">
+                  <button type="submit" class="btn btn-primary btn-lg">  Go to a different analysis page  </button>
+              </form>
+            </div>
+            <div class="col-sm-4">
+              <form action="http://miso-epat.herokuapp.com/index_Main">
+                  <button type="submit" class="btn btn-primary btn-lg">  Go to Wind Energy Analysis  </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col=sm-1">
+        </div>
+      </div>
     </center>
     <script>
       Vue.component('menu-bar',{

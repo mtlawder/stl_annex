@@ -224,6 +224,10 @@ def airline_types():
     except:
         return render_template('/airlines.html',table="Need to choose proper destination!",date="No date choosen")
 
+@app.route('/blog_first_post',methods=['GET','POST'])
+def blog_first_post():
+    return render_template('/blog_first_post.html')
+
 if __name__ == '__main__':
     app.run()
     #app.run(host='159.203.65.80',port=33506)

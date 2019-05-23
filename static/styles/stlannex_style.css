@@ -27,6 +27,14 @@ th {
   text-align:left;
   padding-left:20px;
 }
+.horiz-divl {
+  float: left;
+  padding-right:8px;
+  padding-bottom: 4px;
+}
+.horiz-divr {
+  float: right;
+}
 .selection_header {
   max-width:1100px;
   height:100%;

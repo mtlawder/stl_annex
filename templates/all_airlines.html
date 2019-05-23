@@ -17,76 +17,20 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
   <script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.13.min.js"></script>
   <script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.13.min.js"></script>
-  <script>
-    function sortTable(col) {
-      var table, rows, switching, i, x, y, shouldSwitch;
-      table = document.getElementsByClassName("my-table-all-air");
-      switching = true;
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.18/b-1.5.6/b-html5-1.5.6/datatables.min.css"/>
+  <note>Open Source DataTable used for presenting data: Copyright (C) 2008-2019, SpryMedia Ltd.</note>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.18/b-1.5.6/b-html5-1.5.6/datatables.min.js"></script>
 
-      while (switching) {
-        //start by saying: no switching is done:
-        switching = false;
-        rows = table[0].rows;
-        /*Loop through all table rows (except the
-        first, which contains table headers):*/
-        for (i = 1; i < (rows.length - 1); i++) {
-          //start by saying there should be no switching:
-          shouldSwitch = false;
-          /*Get the two elements you want to compare,
-          one from current row and one from the next:*/
-          x = rows[i].getElementsByTagName("TD")[col];
-          y = rows[i + 1].getElementsByTagName("TD")[col];
-          //check if the two rows should switch place:
-          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-            //if so, mark as a switch and break the loop:
-            shouldSwitch = true;
-            break;
-          }
-        }
-        if (shouldSwitch) {
-          /*If a switch has been marked, make the switch
-          and mark that a switch has been done:*/
-          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-          switching = true;
-        }
-      }
-    }
-    function sortTable2(col) {
-      var table, rows, switching, i, x, y, shouldSwitch;
-      table = document.getElementsByClassName("my-table-all-air");
-      switching = true;
-
-      while (switching) {
-        //start by saying: no switching is done:
-        switching = false;
-        rows = table[0].rows;
-        /*Loop through all table rows (except the
-        first, which contains table headers):*/
-        for (i = 1; i < (rows.length - 1); i++) {
-          //start by saying there should be no switching:
-          shouldSwitch = false;
-          /*Get the two elements you want to compare,
-          one from current row and one from the next:*/
-          x = rows[i].getElementsByTagName("TD")[col];
-          y = rows[i + 1].getElementsByTagName("TD")[col];
-          //check if the two rows should switch place:
-          if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) {
-            //if so, mark as a switch and break the loop:
-            shouldSwitch = true;
-            break;
-          }
-        }
-        if (shouldSwitch) {
-          /*If a switch has been marked, make the switch
-          and mark that a switch has been done:*/
-          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-          switching = true;
-        }
-      }
-    }
+  <script type="text/javascript">
+    $(document).ready( function (){
+      $('#fullTab').DataTable( {
+          dom: '<<"horiz-divl"l><"horiz-divl"B><"horiz-divr"f>>rtip',
+          order: [[1,"desc"]],
+          buttons: ['csv'],
+          pageLength: 50
+      } );
+    })
   </script>
-
-
 
 	</head>
 	<body>
@@ -238,7 +182,7 @@
     </div>
     <div class="container selection_header-hidden remove-pad" v-else>
       <div class="col-sm-10">
-        Showing results from: {{dest}} -- {{airport_sel}} -- {{month_sel}} -- {{year_sel}} -- {{carrier}} -- {{regional_sel}}
+        Showing results from: {{airport_sel}} to {{dest}}  &nbsp;&nbsp;Month: {{month_sel}} &nbsp;&nbsp;Year: {{year_sel}}  &nbsp;&nbsp;Carrier: {{carrier_sel}}  &nbsp;&nbsp;Rollup: {{regional_sel}}
       </div>
       <div class="col-sm-2 right-group">
         <button class="hide-button" @click="showSelections = 1">&#8659;Edit Selections&#8659;</button>
@@ -254,9 +198,9 @@
     <div class="col-sm-1">
     </div>
     <div class="col-sm-10">
-      <table border="1" class='table table-striped my-table-all-air'>
+      <table id="fullTab" border="1" class='table table-striped my-table-all-air'>
         <thead>
-          <tr style="text-a*lign: right;">
+          <tr style="text-align: right;">
             <th onclick="sortTable2(0)"><a>DEPARTURES</a></th>
             <th onclick="sortTable2(1)"><a>TOTAL CAPACITY</a></th>
             <th onclick="sortTable2(2)"><a>TOTAL PASSENGERS</a></th>
@@ -317,7 +261,7 @@
           carrier_sel: '<<%carrier_sel|safe%>>',
           carrier_av: [{'value':'ALL','label':'All Carriers'},{'value':'Southwest Airlines Co.','label':'Southwest'}, {'value':'American Airlines Inc.','label':'American'}, {'value':'Delta Air Lines Inc.','label':'Delta'}, {'value':'United Air Lines Inc.','label':'United'}, {'value':'Frontier Airlines Inc.','label':'Frontier'}, {'value':'Alaska Airlines Inc.','label':'Alaska'}, {'value':'Cape Air','label':'Cape Air'},{'value':'Multi-Aero, Inc. d/b/a Air Choice One','label':'Air Choice One'},{'value':'Air Canada','label':'Air Canada'},{'value':'','label':'other'}],
           var3: false,
-          years_av: ['All','2017','2018'],
+          years_av: ['All','2018','2017','2016','2015','2014'],
           months_av: [{'label':'All', 'value':0},{'label':'Jan', 'value':1},{'label':'Feb', 'value':2},{'label':'Mar', 'value':3},{'label':'Apr', 'value':4},{'label':'May', 'value':5},{'label':'June', 'value':6},{'label':'July', 'value':7},{'label':'Aug', 'value':8},{'label':'Sep', 'value':9},{'label':'Oct', 'value':10},{'label':'Nov', 'value':11},{'label':'Dec', 'value':12}],
           airport_av: ['STL','IND','DSM','MEM','MCI'],
           airport_sel: '<<%airport_sel|safe%>>',

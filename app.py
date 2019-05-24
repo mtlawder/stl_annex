@@ -120,14 +120,14 @@ def all_airlines():
                 (SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS) \
                 AS "TOTAL PASSENGERS", COALESCE(mainline_desc,UNIQUE_CARRIER_NAME) AS UNIQUE_CN, \
                 {cols_insert},A.YEAR FROM domestic_routes AS A LEFT JOIN regional_conversion as B \
-                ON A.ORIGIN=B.origin AND A.DEST=B.destination AND A.UNIQUE_CARRIER=B.regional_code WHERE \
+                ON A.ORIGIN=B.origin AND A.DEST=B.destination AND A.UNIQUE_CARRIER=B.regional_code AND A.YEAR=B.year WHERE \
                 ({origin_insert} {year_insert} {dest_insert} {carrier_insert} {month_insert}) {combined_insert} GROUP BY {groupby_insert}, \
                 UNIQUE_CARRIER_NAME) AS COMB GROUP BY DEST,UNIQUE_CARRIER_NAME ORDER BY "TOTAL PASSENGERS" DESC', conn)
         else:
             airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS) \
                 AS "TOTAL PASSENGERS", UNIQUE_CARRIER_NAME, \
                 {cols_insert},A.YEAR FROM domestic_routes AS A LEFT JOIN regional_conversion as B \
-                ON A.ORIGIN=B.origin AND A.DEST=B.destination AND A.UNIQUE_CARRIER=B.regional_code WHERE \
+                ON A.ORIGIN=B.origin AND A.DEST=B.destination AND A.UNIQUE_CARRIER=B.regional_code AND A.YEAR=B.year WHERE \
                 ({origin_insert} {year_insert} {dest_insert} {carrier_insert} {month_insert}) {combined_insert} GROUP BY {groupby_insert},UNIQUE_CARRIER_NAME ORDER BY "TOTAL PASSENGERS" DESC', conn)
 
         airline_table=airline_table.loc[airline_table["TOTAL PASSENGERS"]>100]

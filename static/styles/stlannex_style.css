@@ -35,6 +35,16 @@ hr {
   padding-right:8px;
   padding-bottom: 4px;
 }
+.blog-title {
+  float:left;
+}
+.blog-container{
+  height:56px;
+}
+.blog-date {
+  margin-top:26px;
+  margin-left:12px;
+}
 .horiz-divr {
   float: right;
 }

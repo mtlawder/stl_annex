@@ -38,10 +38,7 @@
 
     <div class="tophead">
         <br>
-        <h1> Airline Data Browser (STL Annex)</h1>
-        <div id="components-demo">
-          <button-counter></button-counter>
-        </div>
+        <h1> Airline Data Browser (STL Annex) [Beta]</h1>
         <br>
     </div>
     <!--
@@ -158,17 +155,19 @@
                 <div class="modal-container">
                   <h3>More Information
                   </h3>
-                  <p>
-                    The main data set was obtained from the Bureau of Transportation Statistics. A subset of the <a href="https://www.transtats.bts.gov/Fields.asp?Table_ID=293">T-100 Segment</a> dataset is used. Departures, Total Capacity, and Total Passengers are taken from the DepPerformed, Seats, and Passengers columns respectively. The Load Factor is calculated as the Total Passengers divided by the Total Capacity.
-                    <br><br>
-                    In many cases mainline carriers (Delta, United, American, etc.) will have a regional carrier operate a particular route under the Mainline carrier sub-banner (such as Delta Connections, United Express, or American Eagle). The T-100 Segment table shows data at the carrier level and does not note if the carrier was operating the flight for a mainline carrier. Therefore, I've been manually pulling data for which regional carrier routes are being operator under a mainline barrier. I've included a radio button option to either show the data at the regional carrier or attempt to roll up the numbers to the mainline carrier when availalbe.
-                    <br><br>
-                    Here's a simple example. United may operate 2 flights per day on mainline aircraft between STL and ORD. But 4 more flights per day might be operated ExpressJet Airlines under the United Express banner. When selectin Break out by regionals on the STL-ORD route, both United and ExpressJet would be considered seperately, but if Roll up to Mainline were selected, all the statistics would be rolled up to United.
-                    <br><br>
-                    Because I am currently creating this mapping manually, it is only available for some airports and routes (currently only flights departing or arriving at STL). If you know of a better way to source this data or notice any mistakes please let me know!
-                    <br><br>
-                    Matthew Lawder (mtlawder@gmail.com)
-                  </p>
+                  <div class="left-group">
+                    <p>
+                      The main data set was obtained from the Bureau of Transportation Statistics. A subset of the <a href="https://www.transtats.bts.gov/Fields.asp?Table_ID=293">T-100 Segment</a> dataset is used. Departures, Total Capacity, and Total Passengers are taken from the DepPerformed, Seats, and Passengers columns respectively. The Load Factor is calculated as the Total Passengers divided by the Total Capacity.
+                      <br><br>
+                      In many cases mainline carriers (Delta, United, American, etc.) will have a regional carrier operate a particular route under the Mainline carrier sub-banner (such as Delta Connections, United Express, or American Eagle). The T-100 Segment table shows data at the carrier level and does not note if the carrier was operating the flight for a mainline carrier. Therefore, I've been manually pulling data for which regional carrier routes are being operator under a mainline barrier. I've included a radio button option to either show the data at the regional carrier or attempt to roll up the numbers to the mainline carrier when availalbe.
+                      <br><br>
+                      Here's a simple example. United may operate 2 flights per day on mainline aircraft between STL and ORD. But 4 more flights per day might be operated ExpressJet Airlines under the United Express banner. When selectin Break out by regionals on the STL-ORD route, both United and ExpressJet would be considered seperately, but if Roll up to Mainline were selected, all the statistics would be rolled up to United.
+                      <br><br>
+                      Because I am currently creating this mapping manually, it is only available for some airports and routes (currently only flights departing or arriving at STL). If you know of a better way to source this data or notice any mistakes please let me know!
+                      <br><br>
+                      Matthew Lawder (mtlawder@gmail.com)
+                    </p>
+                  </div>
                   <button @click="showModal = false">Close</button>
                 </div>
               </div>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>STL Annex</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	</head>
+	<body>
+    <center>
+      <div class="tophead">
+          <br>
+          <h1> STL Annex: Data Analysis of St. Louis Topics and More! [BETA] </h1>
+          <h4>Matthew T. Lawder</h4>
+          <h5>mtlawder@gmail.com</h5>
+          <br>
+      </div>
+      <div id="menu-vue">
+        <menu-bar></menu-bar>
+      </div>
+      <div class="container">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-10 left-group">
+          <div class="blog-container">
+            <div class="blog-title">
+              <h3 href="/blog_load_factors_from_STL">Who's planes are most crowded at STL</h3>
+            </div>
+            <div class="blog-title blog-date">5/25/2019 - M. Lawder</div>
+          </div>
+          
+            <div>
+              With the T-100 database, we get a look at the total number of seats available on an individual route as well as the actual number of passengers that flew those routes. The percentage of occupied seats on the route (total passengers/total available seats) is the load factor. Looking at load factors for the major airline from 2014-2017 (both departing and arriving traffic), we can see which airlines fly the most crowded planes.
+              <br><br>
+              I often enjoy flying with an empty seat or two next to me on a plane. However, too many empty flights and an airline might reduce frequency on a route (or remove it altogether!). So being “crowded” could be seen as either good or a bad depending on your point of view. Different airlines have load factor goals for their routes, and while I can't tell you if a route hits it's target, we can get a general sense of if a route is under or over served based on it's load factor.
+              <br><br>
+              For example, in 2016 Southwest flew their St. Louis to San Diego route 324 times (daily from March through December) and had a load factor of 93.9% over the course of the year. In fact, in the most popular months of June-Sept. the route averaged a load factor of 96.6% over 132 flights. The route definitely met the criteria for an underserved route and Southwest noticed. Since the route was nearly full, Southwest increased frequency on the route to 561 flights in 2017 (about 11 flights per week average). The load factor in 2017 was still a very good 87.4%. Total passengers on the routes increased 78% from 44,061 to 78,410. The route appears to be better served with the increased frequency. There are other factors beyond flight frequency that can help to right size service on a specific route such as changing the plane (and therefore the number of available seats) for the route, but we are just going to look at frequency for now.
+              <br><br>
+              We could look at individual routes all day (and will at another time), but today we want to look broadly at which flights are most crowded. Below is a chart of the yearly load factors for the major domestic carriers at STL (domestic routes only):
+              <br>
+              <table class='table table-striped my-table-all-air selection-group'>
+                <thead><tr><th>Airline</th>
+                <th>2014</th>
+                <th>2015</th>
+                <th>2016</th>
+                <th>2017</th>
+                </tr></thead>
+                <tbody><tr>
+                <td>Southwest</td>
+                <td>78.1</td>
+                <td>79.2</td>
+                <td>80.05</td>
+                <td>80.1</td>
+                </tr>
+                <tr>
+                <td>American</td>
+                <td>80.05</td>
+                <td>79.65</td>
+                <td>75</td>
+                <td>77.05</td>
+                </tr>
+                <tr>
+                <td>Delta</td>
+                <td>81.65</td>
+                <td>82.8</td>
+                <td>80.4</td>
+                <td>80.05</td>
+                </tr>
+                <tr>
+                <td>United</td>
+                <td>84.15</td>
+                <td>85.4</td>
+                <td>85.05</td>
+                <td>84.45</td>
+                </tr>
+                <tr>
+                <td>Frontier</td>
+                <td>85.9</td>
+                <td>86.95</td>
+                <td>85.05</td>
+                <td>84.15</td>
+                </tr>
+                <tr>
+                <td>Alaska</td>
+                <td>90.5</td>
+                <td>88.5</td>
+                <td>82.15</td>
+                <td>82.5</td>
+                </tr>
+                </tbody>
+              </table>
+              <br>
+              In general, all of the major carriers fluctuate around 80% for the overall load factors for most of the years (Note that smaller carriers like Air Choice One and Cape Air not shown above are closer to 50% or 60%). But a couple of things stand out from the numbers. 1) American has tended to have the lowest load factors, being the only major carrier at Lambert below 80% in 2017. 2) Frontier and Alaska have high load factors, but neither fly nearly as many passengers as the top 4 carriers. 3) Among carriers serving at least 1M passengers in 2017 (Southwest, American, Delta, and United), United consistently has the highest load factors, holding steady at 84-85% for the 4 years.
+              <br><br>
+              So United appears to have the most crowded flights overall among the top 4 carriers. When looking at 2017, United's load factor was 7.4 percentage points higher than American's at Lambert which translates to about 12 extra passengers on a Boeing 737-800 flight.
+              <br><br>
+              A couple of caveats about the above conclusion that United appears to be filing their flights better than American. First, American flew more than double the number of passengers compared to United in 2017 (2.27M to 1.05M). Also, American flew 72.7% of it's passengers on Mainline flights (typically using larger larger aircraft) and United flew only 10.0% of it's passengers on Mainline flights. *Here's where I note again that the regional to Mainline matching is still a work in progress, so these numbers may be adjusted, but the numbers should be relatively close estimates based on our current regional to mainline mapping for STL. In line with the Mainline v regional numbers, United is generally flying much smaller planes than American shown in the average passengers per flight (United: 53.4 and American 83.3). 
+
+              <br>
+              <hr>
+            </div>
+        </div>
+        <div class="col-sm-1">
+        </div>
+      </div>
+    </center>
+    <script>
+      Vue.component('menu-bar',{
+          data: function() {
+            return{
+              count:2
+            }
+          },
+          template: '<nav class="navbar navbar-default"><div class="container-fluid"><!-- Brand and toggle get grouped for better mobile display --><div class="navbar-header"> <!-- Collect the nav links, forms, and other content for toggling --><div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><ul class="nav navbar-nav"><li><a href="\index_Main"> STLAnnex Home </a></li><li><a href="\all_airlines#">Airline Project </a></li></ul></div><!-- /.navbar-collapse --></div><!-- /.container-fluid --></nav>'
+        }),
+      new Vue({ el: '#menu-vue' })
+      </script>
+    </body>
+</html>

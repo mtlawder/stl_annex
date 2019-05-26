@@ -79,6 +79,7 @@ def all_airlines():
         carrier_insert =""
         dest_insert=""
         combined_insert = ""
+        join_insert=""
         #combined_org_insert=""
         cols_insert="A.DEST, DEST_CITY_NAME"
         groupby_insert="A.DEST"
@@ -92,9 +93,11 @@ def all_airlines():
             else:
                 carrier_insert='AND A.UNIQUE_CARRIER_NAME="'+str(carrier_sel)+'"'
         if depart_arrive == 'depart':
+            join_insert="A.ORIGIN=B.origin AND A.DEST=B.destination"
             if dest_code!='' and dest_code!='ALL':
                 dest_insert='AND A.DEST="'+str(dest_code)+'"'
         elif depart_arrive == 'arrive':
+            join_insert="A.ORIGIN=B.destination AND A.DEST=B.origin"
             if dest_code!='' and dest_code!='ALL':
                 dest_insert='AND A.ORIGIN="'+str(dest_code)+'"'
             origin_insert=f'A.DEST="{airport_sel}"'
@@ -120,14 +123,14 @@ def all_airlines():
                 (SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS) \
                 AS "TOTAL PASSENGERS", COALESCE(mainline_desc,UNIQUE_CARRIER_NAME) AS UNIQUE_CN, \
                 {cols_insert},A.YEAR FROM domestic_routes AS A LEFT JOIN regional_conversion as B \
-                ON A.ORIGIN=B.origin AND A.DEST=B.destination AND A.UNIQUE_CARRIER=B.regional_code AND A.YEAR=B.year WHERE \
+                ON {join_insert} AND A.UNIQUE_CARRIER=B.regional_code AND A.YEAR=B.year WHERE \
                 ({origin_insert} {year_insert} {dest_insert} {carrier_insert} {month_insert}) {combined_insert} GROUP BY {groupby_insert}, \
                 UNIQUE_CARRIER_NAME) AS COMB GROUP BY DEST,UNIQUE_CARRIER_NAME ORDER BY "TOTAL PASSENGERS" DESC', conn)
         else:
             airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS) \
                 AS "TOTAL PASSENGERS", UNIQUE_CARRIER_NAME, \
                 {cols_insert},A.YEAR FROM domestic_routes AS A LEFT JOIN regional_conversion as B \
-                ON A.ORIGIN=B.origin AND A.DEST=B.destination AND A.UNIQUE_CARRIER=B.regional_code AND A.YEAR=B.year WHERE \
+                ON {join_insert} AND A.UNIQUE_CARRIER=B.regional_code AND A.YEAR=B.year WHERE \
                 ({origin_insert} {year_insert} {dest_insert} {carrier_insert} {month_insert}) {combined_insert} GROUP BY {groupby_insert},UNIQUE_CARRIER_NAME ORDER BY "TOTAL PASSENGERS" DESC', conn)
 
         airline_table=airline_table.loc[airline_table["TOTAL PASSENGERS"]>100]
@@ -227,6 +230,10 @@ def airline_types():
 @app.route('/blog_starting_airline_route_post',methods=['GET','POST'])
 def blog_starting_airline_route_post():
     return render_template('/blog_starting_airline_route_post.html')
+
+@app.route('/blog_load_factors_from_STL',methods=['GET','POST'])
+def blog_load_factors_from_stl():
+    return render_template('/blog_load_factors_from_STL.html')
 
 if __name__ == '__main__':
     app.run()

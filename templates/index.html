@@ -6,7 +6,6 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
         <link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css"/>
-
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
   
@@ -19,7 +18,7 @@
         <br>
         <h1> STL Annex: Data Analysis of St. Louis Topics and More! [BETA] </h1>
         <h4>Matthew T. Lawder</h4>
-        <h5>mtlawder@gmail.com</h5>
+        <h5>matt@stlannex.com</h5>
         <br>
     </div>
     <div id="menu-vue">
@@ -90,17 +89,12 @@
         <div class="col-sm-1">
         </div>
       </div>
+      
     </center>
-    <script>
-      Vue.component('menu-bar',{
-          data: function() {
-            return{
-              count:2
-            }
-          },
-          template: '<nav class="navbar navbar-default"><div class="container-fluid"><!-- Brand and toggle get grouped for better mobile display --><div class="navbar-header"> <!-- Collect the nav links, forms, and other content for toggling --><div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><ul class="nav navbar-nav"><li><a href="\index_Main"> STLAnnex Home </a></li><li><a href="\all_airlines#">Airline Project </a></li></ul></div><!-- /.navbar-collapse --></div><!-- /.container-fluid --></nav>'
-        }),
-      new Vue({ el: '#menu-vue' })
-      </script>
+
+    <script src="static/components/menu.vue">
+    </script>
+
+    </script>
 	</body>
 </html>

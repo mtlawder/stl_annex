@@ -27,44 +27,80 @@
       <div class="container">
         <div class="col-sm-1">
         </div>
-        <div class="col-sm-10">
-          <div class="container">
-            <div class="col-sm-5">
-              <form method='get' action="all_airlines">
-                  <button type="submit" class="btn btn-primary btn-lg">  Go to Airline Page  </button>
-              </form>
-            </div>
-            <!-- <div class="col-sm-4">
-              <form method='get' action="all_airlines">
-                  <button type="submit" class="btn btn-primary btn-lg">  Go to a different analysis page  </button>
-              </form>
-            </div> -->
-            <div class="col-sm-5">
-              <form action="http://miso-epat.herokuapp.com/index_Main">
-                  <button type="submit" class="btn btn-primary btn-lg">  Go to Wind Energy Analysis  </button>
-              </form>
-            </div>
+          <div class="col-sm-10 left-group">
+            The projects below were built to be used to find insteresting insights from different data sets. Many data sets and tool are St. Louis centric, but some extend to information well beyond the city and county borders. The author don't create these tools in a vacuum, we also use them! You can find blog post with analysis created using these tool (and sometimes outside analysis). Find out more information about the author here and please reach out to matt@stlannex.com if you have any questions or comments about the tools or analysis.
           </div>
-        </div>
-        <div class="col=sm-1">
+          <div class="col-sm-1">
         </div>
       </div>
       <br>
       <div class="container">
-      <div class="col-sm-1">
-      </div>
-        <div class="col-sm-10 left-group">
-          The projects above were built to be used to find insteresting insights from different data sets. Many data sets and tool are St. Louis centric, but some extend to information well beyond the city and county borders. The author don't create these tools in a vacuum, we also use them! You can find blog post with analysis created using these tool (and sometimes outside analysis). Find out more information about the author here and please reach out to mtlawder@gmail.com if you have any questions or comments about the tools or analysis.
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-10">
+          <div class="tophead">
+            <br>
+            <h2> Airline Data Browser </h2>
+            <br>
+          </div>
+          <br>
+          <div>
+            <div class="right-image">
+              <img src="/static/images/airline_browser_screenshot.png" align="right" class="image"/>
+            </div>
+            <div class="left-group">
+              The Airline Data Browser aggregates statistics from the Bureau of Transportation <a href="https://www.transtats.bts.gov/Fields.asp?Table_ID=293">T-100 Segment </a> data set and allows users to look at information such as total departures, passengers, and load factors on individual routes down to a monthly level. The tool currently only offers domestic routes arriving at or departing from a limited set of airports. Additionally, there is only a limited set of mappings available to roll up regional carriers to their mainline carriers as we work to find more accurate mappings. Data currently available from Jan. 2014 to mid 2018.
+            </div>
+          </div>
+          <br>
+          <div>
+            <form method='get' action="all_airlines">
+              <button type="submit" class="btn btn-primary btn-lg">  Go to Airline Page  </button>
+            </form>
+          </div>
         </div>
         <div class="col-sm-1">
         </div>
       </div>
-      <hr>
+      <br>
       <div class="container">
         <div class="col-sm-1">
         </div>
         <div class="col-sm-10">
-          <h2>Recent Posts</h2>
+          <div class="tophead">
+            <br>
+            <h2> Midwest Wind Energy Analysis </h2>
+            <br>
+          </div>
+          <br>
+          <div class="left-group">
+            This project looks at several different types of analysis (from both a technical and economic standpoint). The project was worked on in 2016, so the data and analysis deal with data prior to 2016. There are several different interesting facets to the project including:
+            <ol>
+              <li>A tool for comparing historical energy prices at different nodes throughout the Midwest.</li>
+              <li>A report builder for looking at wind farm economics at different sites in Iowa and Illinois using a build in techno-economic model</li>
+              <li>A case study of best sites for wind power additions in Iowa and Illinois based on historical wind and energy price data.</li>
+            </ol> 
+          </div>
+          <br>
+          <div>
+            <form action="http://miso-epat.herokuapp.com/index_Main">
+              <button type="submit" class="btn btn-primary btn-lg">  Go to Wind Energy Analysis  </button>
+            </form>
+          </div>
+        </div>
+        <div class="col-sm-1">
+        </div>
+      </div>
+      <br>
+      <div id="blog_head" class="container">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-10">
+          <div class="tophead">
+            <br>
+            <h2>Recent Blog Posts</h2>
+            <br>
+          </div>
           <div class="left-group">
             <div class="blog-container">
               <div class="blog-title">

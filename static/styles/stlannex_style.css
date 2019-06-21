@@ -129,7 +129,11 @@ hr {
   display: table-cell;
   vertical-align: middle;
 }
-
+.right-image{
+  float:right;
+  width:40%;
+  border:1px solid black;
+}
 .modal-container {
   width: 750px;
   margin: 0px auto;
@@ -139,5 +143,8 @@ hr {
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
   transition: all .3s ease;
   font-family: Helvetica, Arial, sans-serif;
+}
+.image{
+  width:100%;
 }
 [v-cloak]>*{display:none;}

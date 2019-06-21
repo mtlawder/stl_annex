@@ -235,6 +235,10 @@ def blog_starting_airline_route_post():
 def blog_load_factors_from_stl():
     return render_template('/blog_load_factors_from_STL.html')
 
+@app.route('/blog_uswnt_ranking',methods=['GET','POST'])
+def blog_uswnt_ranking():
+    return render_template('/blog_uswnt_ranking.html')
+
 if __name__ == '__main__':
     app.run()
     #app.run(host='159.203.65.80',port=33506)

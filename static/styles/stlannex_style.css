@@ -39,7 +39,7 @@ hr {
   float:left;
 }
 .blog-container{
-  height:56px;
+  overflow: auto;
 }
 .blog-date {
   margin-top:26px;

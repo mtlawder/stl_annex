@@ -50,8 +50,8 @@ def all_airlines():
     conn=sqlite3.connect('t_100_segments_forgit.db')
     if request.method =='GET':
         d_ops=pd.read_sql('SELECT ORIGIN, DEST, PASSENGERS FROM domestic_routes\
-          WHERE (ORIGIN IN ("STL", "IND","DSM","MCI","MEM")) AND PASSENGERS>100 GROUP BY ORIGIN, DEST', conn)
-        dest_options={city: list(d_ops[d_ops["ORIGIN"]==city]["DEST"]) for city in ["IND","STL","DSM","MCI","MEM"]}
+          WHERE (ORIGIN IN ("STL","IND","DSM","MCI","MEM","CVG","SBN","COU","SGF")) AND PASSENGERS>100 GROUP BY ORIGIN, DEST', conn)
+        dest_options={city: list(d_ops[d_ops["ORIGIN"]==city]["DEST"]) for city in ["STL","IND","DSM","MCI","MEM","CVG","SBN","COU","SGF"]}
         carrier = "WN"
         airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS)\
             AS "TOTAL PASSENGERS", UNIQUE_CARRIER_NAME, DEST, DEST_CITY_NAME,YEAR FROM domestic_routes\
@@ -66,7 +66,7 @@ def all_airlines():
         print(carriers)
         return render_template('/all_airlines.html',airline_table=airline_table.to_html(classes='table table-striped my-table-all-air', \
             index=False),air_dest=air_dest,var2='ALL',airport_sel='STL',carriers=carriers,carrier_sel='Southwest Airlines Co.', \
-            regional_sel='mainline',month_sel=0, year_sel=2017,depart_arrive='depart',plot_air="",plot_air_script="",dest_options=dest_options)
+            regional_sel='mainline',month_sel=0, year_sel=2018,depart_arrive='depart',plot_air="",plot_air_script="",dest_options=dest_options)
     else:
         dest_code = request.form['dest_code']
         airport_sel = request.form['airport_sel']
@@ -115,8 +115,8 @@ def all_airlines():
             year_insert='AND A.YEAR="'+str(year_sel)+'"'
             print(origin_insert,year_insert,dest_insert,carrier_insert,month_insert,combined_insert,groupby_insert,cols_insert)
         d_ops=pd.read_sql('SELECT ORIGIN, DEST, PASSENGERS FROM domestic_routes\
-          WHERE (ORIGIN IN ("STL", "IND","DSM","MCI","MEM")) AND PASSENGERS>100 GROUP BY ORIGIN, DEST', conn)
-        dest_options={city: list(d_ops[d_ops["ORIGIN"]==city]["DEST"]) for city in ["IND","STL","DSM","MCI","MEM"]}
+          WHERE (ORIGIN IN ("STL","IND","DSM","MCI","MEM","CVG","SBN","COU","SGF")) AND PASSENGERS>100 GROUP BY ORIGIN, DEST', conn)
+        dest_options={city: list(d_ops[d_ops["ORIGIN"]==city]["DEST"]) for city in ["STL","IND","DSM","MCI","MEM","CVG","SBN","COU","SGF"]}
         if regional_sel=='mainline':
             airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES) AS DEPARTURES,SUM("TOTAL CAPACITY") AS "TOTAL CAPACITY",SUM("TOTAL PASSENGERS") \
                 AS "TOTAL PASSENGERS", UNIQUE_CN AS UNIQUE_CARRIER_NAME, DEST, DEST_CITY_NAME,YEAR FROM \

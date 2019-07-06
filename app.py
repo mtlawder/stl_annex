@@ -239,6 +239,10 @@ def blog_load_factors_from_stl():
 def blog_uswnt_ranking():
     return render_template('/blog_uswnt_ranking.html')
 
+@app.route('/blog_southwest_5yr_growth_STL',methods=['GET','POST'])
+def blog_southwest_5yr_growth_STL():
+    return render_template('/blog_southwest_5yr_growth_STL.html')
+
 if __name__ == '__main__':
     app.run()
     #app.run(host='159.203.65.80',port=33506)

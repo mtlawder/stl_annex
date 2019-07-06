@@ -21,7 +21,7 @@ Vue.component('menu-bar',{
                 <a href="http://miso-epat.herokuapp.com">Wind Energy Project</a>\
               </li>\
               <li>\
-                <a href="\#blog_head">Blog Posts</a>\
+                <a href="\index_Main#blog_head">Blog Posts</a>\
               </li>\
             </ul>\
           </div>\

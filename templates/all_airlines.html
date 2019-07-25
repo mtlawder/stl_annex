@@ -227,7 +227,8 @@
             <td>{{d[1]}}</td>
             <td>{{d[2]}}</td>
             <td>{{d[3]}}</td>
-            <td class="click_sel" v-on:click="updateDest(d[4],'ALL')">{{d[4]}}</td>
+            <!-- <td class="click_sel" v-on:click="updateDest(d[4],'ALL')">{{d[4]}}</td> -->
+            <td>{{d[4]}}</td>
             <td class="click_sel" v-on:click="updateDest('ALL',d[5])">{{d[5]}}</td>
             <td>{{d[6]}}</td>
             <td>{{d[7]}}</td>
@@ -258,7 +259,7 @@
           dest: '<<%var2|safe%>>',
           dest_options: <<%dest_options|safe%>>,
           carrier_sel: '<<%carrier_sel|safe%>>',
-          carrier_av: [{'value':'ALL','label':'All Carriers'},{'value':'Southwest Airlines Co.','label':'Southwest'}, {'value':'American Airlines Inc.','label':'American'}, {'value':'Delta Air Lines Inc.','label':'Delta'}, {'value':'United Air Lines Inc.','label':'United'}, {'value':'Frontier Airlines Inc.','label':'Frontier'}, {'value':'Alaska Airlines Inc.','label':'Alaska'}, {'value':'Cape Air','label':'Cape Air'},{'value':'Multi-Aero, Inc. d/b/a Air Choice One','label':'Air Choice One'},{'value':'Air Canada','label':'Air Canada'},{'value':'','label':'other'}],
+          carrier_av: [{'value':'ALL','label':'All Carriers'},{'value':'WN','label':'Southwest'}, {'value':'AA','label':'American'}, {'value':'DL','label':'Delta'}, {'value':'UA','label':'United'}, {'value':'F9','label':'Frontier'}, {'value':'AS','label':'Alaska'}, {'value':'9K','label':'Cape Air'},{'value':'0MQ','label':'Air Choice One'},{'value':'AC','label':'Air Canada'},{'value':'','label':'other'}],
           var3: false,
           years_av: ['All','2018','2017','2016','2015','2014'],
           months_av: [{'label':'All', 'value':0},{'label':'Jan', 'value':1},{'label':'Feb', 'value':2},{'label':'Mar', 'value':3},{'label':'Apr', 'value':4},{'label':'May', 'value':5},{'label':'June', 'value':6},{'label':'July', 'value':7},{'label':'Aug', 'value':8},{'label':'Sep', 'value':9},{'label':'Oct', 'value':10},{'label':'Nov', 'value':11},{'label':'Dec', 'value':12}],

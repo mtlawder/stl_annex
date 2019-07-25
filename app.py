@@ -53,9 +53,12 @@ def all_airlines():
           WHERE (ORIGIN IN ("STL","IND","DSM","MCI","MEM","CVG","SBN","COU","SGF")) AND PASSENGERS>100 GROUP BY ORIGIN, DEST', conn)
         dest_options={city: list(d_ops[d_ops["ORIGIN"]==city]["DEST"]) for city in ["STL","IND","DSM","MCI","MEM","CVG","SBN","COU","SGF"]}
         carrier = "WN"
-        airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS)\
-            AS "TOTAL PASSENGERS", UNIQUE_CARRIER_NAME, DEST, DEST_CITY_NAME,YEAR FROM domestic_routes\
-            WHERE ORIGIN="STL" AND YEAR=2017 AND UNIQUE_CARRIER="{carrier}" GROUP BY DEST,UNIQUE_CARRIER ORDER BY "TOTAL PASSENGERS" DESC', conn)
+        # airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS)\
+        #     AS "TOTAL PASSENGERS", UNIQUE_CARRIER_NAME, DEST, DEST_CITY_NAME,YEAR FROM domestic_routes\
+        #     WHERE ORIGIN="STL" AND YEAR=2017 AND UNIQUE_CARRIER="{carrier}" GROUP BY DEST,UNIQUE_CARRIER ORDER BY "TOTAL PASSENGERS" DESC', conn)
+        airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS) \
+            AS "TOTAL PASSENGERS",UNIQUE_CARRIER_NAME,DEST,DEST_CITY_NAME,YEAR FROM domestic_routes WHERE ORIGIN="STL" AND YEAR="2018" AND UNIQUE_CARRIER="{carrier}"\
+            GROUP BY DEST,UNIQUE_CARRIER ORDER BY "TOTAL PASSENGERS" DESC',conn)
         airline_table=airline_table.loc[airline_table["TOTAL PASSENGERS"]>100]
         airline_table['LOAD FACTOR']=(airline_table['TOTAL PASSENGERS']/airline_table['TOTAL CAPACITY'])*100
         airline_table['LOAD FACTOR']=airline_table['LOAD FACTOR'].map('{:,.1f}%'.format)
@@ -65,7 +68,7 @@ def all_airlines():
         carriers = list(set(airline_table["UNIQUE_CARRIER_NAME"].tolist()))
         print(carriers)
         return render_template('/all_airlines.html',airline_table=airline_table.to_html(classes='table table-striped my-table-all-air', \
-            index=False),air_dest=air_dest,var2='ALL',airport_sel='STL',carriers=carriers,carrier_sel='Southwest Airlines Co.', \
+            index=False),air_dest=air_dest,var2='ALL',airport_sel='STL',carriers=carriers,carrier_sel='WN', \
             regional_sel='mainline',month_sel=0, year_sel=2018,depart_arrive='depart',plot_air="",plot_air_script="",dest_options=dest_options)
     else:
         dest_code = request.form['dest_code']
@@ -88,10 +91,7 @@ def all_airlines():
         if month_sel!='0':
             month_insert="AND A.MONTH="+str(month_sel)
         if carrier_sel!='ALL' and carrier_sel!='ALL_SELECTED':
-            if regional_sel=='mainline':
-                carrier_insert='AND UNIQUE_CN="'+str(carrier_sel)+'"'
-            else:
-                carrier_insert='AND A.UNIQUE_CARRIER_NAME="'+str(carrier_sel)+'"'
+            carrier_insert='AND A.UNIQUE_CARRIER="'+str(carrier_sel)+'"'
         if depart_arrive == 'depart':
             join_insert="A.ORIGIN=B.origin AND A.DEST=B.destination"
             if dest_code!='' and dest_code!='ALL':
@@ -118,24 +118,32 @@ def all_airlines():
           WHERE (ORIGIN IN ("STL","IND","DSM","MCI","MEM","CVG","SBN","COU","SGF")) AND PASSENGERS>100 GROUP BY ORIGIN, DEST', conn)
         dest_options={city: list(d_ops[d_ops["ORIGIN"]==city]["DEST"]) for city in ["STL","IND","DSM","MCI","MEM","CVG","SBN","COU","SGF"]}
         if regional_sel=='mainline':
-            airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES) AS DEPARTURES,SUM("TOTAL CAPACITY") AS "TOTAL CAPACITY",SUM("TOTAL PASSENGERS") \
-                AS "TOTAL PASSENGERS", UNIQUE_CN AS UNIQUE_CARRIER_NAME, DEST, DEST_CITY_NAME,YEAR FROM \
-                (SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS) \
-                AS "TOTAL PASSENGERS", COALESCE(mainline_desc,UNIQUE_CARRIER_NAME) AS UNIQUE_CN, \
-                {cols_insert},A.YEAR FROM domestic_routes AS A LEFT JOIN regional_conversion as B \
-                ON {join_insert} AND A.UNIQUE_CARRIER=B.regional_code AND A.YEAR=B.year WHERE \
-                ({origin_insert} {year_insert} {dest_insert} {carrier_insert} {month_insert}) {combined_insert} GROUP BY {groupby_insert}, \
-                UNIQUE_CARRIER_NAME) AS COMB GROUP BY DEST,UNIQUE_CARRIER_NAME ORDER BY "TOTAL PASSENGERS" DESC', conn)
+            # airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES) AS DEPARTURES,SUM("TOTAL CAPACITY") AS "TOTAL CAPACITY",SUM("TOTAL PASSENGERS") \
+            #     AS "TOTAL PASSENGERS", UNIQUE_CN AS UNIQUE_CARRIER_NAME, DEST, DEST_CITY_NAME,YEAR FROM \
+            #     (SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS) \
+            #     AS "TOTAL PASSENGERS", COALESCE(mainline_desc,UNIQUE_CARRIER_NAME) AS UNIQUE_CN, \
+            #     {cols_insert},A.YEAR FROM domestic_routes AS A LEFT JOIN regional_conversion as B \
+            #     ON {join_insert} AND A.UNIQUE_CARRIER=B.regional_code AND A.YEAR=B.year WHERE \
+            #     ({origin_insert} {year_insert} {dest_insert} {carrier_insert} {month_insert}) {combined_insert} GROUP BY {groupby_insert}, \
+            #     UNIQUE_CARRIER_NAME) AS COMB GROUP BY DEST,UNIQUE_CARRIER_NAME ORDER BY "TOTAL PASSENGERS" DESC', conn)
+            airline_table=pd.read_sql(f'SELECT SUM(DEPT_ADJ) AS DEPARTURES,SUM(SEATS_ADJ) AS "TOTAL CAPACITY",SUM(PASS_ADJ) AS "TOTAL PASSENGERS",B.UNIQUE_CARRIER_NAME,\
+                DEST,DEST_CITY_NAME,YEAR FROM domestic_routes AS A LEFT JOIN carrier_mapping AS B ON A.MAIN_CARRIER=B.UNIQUE_CARRIER \
+                WHERE ({origin_insert} {year_insert} {dest_insert} {carrier_insert} {month_insert}) {combined_insert} \
+                GROUP BY {groupby_insert},MAIN_CARRIER ORDER BY "TOTAL PASSENGERS" DESC', conn)
         else:
-            airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS) \
-                AS "TOTAL PASSENGERS", UNIQUE_CARRIER_NAME, \
-                {cols_insert},A.YEAR FROM domestic_routes AS A LEFT JOIN regional_conversion as B \
-                ON {join_insert} AND A.UNIQUE_CARRIER=B.regional_code AND A.YEAR=B.year WHERE \
-                ({origin_insert} {year_insert} {dest_insert} {carrier_insert} {month_insert}) {combined_insert} GROUP BY {groupby_insert},UNIQUE_CARRIER_NAME ORDER BY "TOTAL PASSENGERS" DESC', conn)
-
+            # airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS) \
+            #     AS "TOTAL PASSENGERS", UNIQUE_CARRIER_NAME, \
+            #     {cols_insert},A.YEAR FROM domestic_routes AS A LEFT JOIN regional_conversion as B \
+            #     ON {join_insert} AND A.UNIQUE_CARRIER=B.regional_code AND A.YEAR=B.year WHERE \
+            #     ({origin_insert} {year_insert} {dest_insert} {carrier_insert} {month_insert}) {combined_insert} GROUP BY {groupby_insert},UNIQUE_CARRIER_NAME ORDER BY "TOTAL PASSENGERS" DESC', conn)
+            airline_table=pd.read_sql(f'SELECT SUM(DEPT_ADJ) AS DEPARTURES,SUM(SEATS_ADJ) AS "TOTAL CAPACITY",SUM(PASS_ADJ) AS "TOTAL PASSENGERS",UNIQUE_CARRIER_NAME,\
+                DEST,DEST_CITY_NAME,YEAR FROM domestic_routes AS A WHERE ({origin_insert} {year_insert} {dest_insert} {carrier_insert} {month_insert}) {combined_insert} \
+                GROUP BY {groupby_insert},UNIQUE_CARRIER_NAME ORDER BY "TOTAL PASSENGERS" DESC', conn)
         airline_table=airline_table.loc[airline_table["TOTAL PASSENGERS"]>100]
         airline_table['LOAD FACTOR']=(airline_table['TOTAL PASSENGERS']/airline_table['TOTAL CAPACITY'])*100
         airline_table['LOAD FACTOR']=airline_table['LOAD FACTOR'].map('{:,.1f}%'.format)
+        airline_table=airline_table.round({'DEPARTURES':0,'TOTAL CAPACITY':0,'TOTAL PASSENGERS':0})
+
 
         total_df=pd.DataFrame(columns=['DEPARTURES','TOTAL CAPACITY','TOTAL PASSENGERS','LOAD FACTOR',\
         'UNIQUE_CARRIER_NAME','DEST','DEST_CITY_NAME','YEAR'\
@@ -242,6 +250,11 @@ def blog_uswnt_ranking():
 @app.route('/blog_southwest_5yr_growth_STL',methods=['GET','POST'])
 def blog_southwest_5yr_growth_STL():
     return render_template('/blog_southwest_5yr_growth_STL.html')
+
+@app.route('/blog_od_pairs_STL',methods=['GET','POST'])
+def blog_od_pairs_STL():
+    return render_template('/blog_od_pairs_STL.html')
+
 
 if __name__ == '__main__':
     app.run()

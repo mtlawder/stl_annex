@@ -255,6 +255,10 @@ def blog_southwest_5yr_growth_STL():
 def blog_od_pairs_STL():
     return render_template('/blog_od_pairs_STL.html')
 
+@app.route('/blog_Southwest_out_of_Newark',methods=['GET','POST'])
+def blog_Southwest_out_of_Newark():
+    return render_template('/blog_Southwest_out_of_Newark.html')
+
 
 if __name__ == '__main__':
     app.run()

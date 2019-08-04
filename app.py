@@ -259,6 +259,10 @@ def blog_od_pairs_STL():
 def blog_Southwest_out_of_Newark():
     return render_template('/blog_Southwest_out_of_Newark.html')
 
+@app.route('/blog_southwest_ewr_lga_comp',methods=['GET','POST'])
+def blog_southwest_ewr_lga_comp():
+    return render_template('/blog_southwest_ewr_lga_comp.html')    
+
 
 if __name__ == '__main__':
     app.run()

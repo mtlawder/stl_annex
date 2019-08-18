@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, request
 from bokeh.plotting import figure, show, output_file
-from bokeh.embed import autoload_server, components
+from bokeh.embed import components
 from bokeh.models import Range1d
 from bokeh.document import Document
 from bokeh.plotting import ColumnDataSource
@@ -36,9 +36,12 @@ def index_Main():
 def stl_pop():
     conn=sqlite3.connect('stl_census.db')
     if request.method =='GET':
-        return render_template('/stl_neighborhood_pop.html')
+        full_table=pd.read_sql('SELECT * FROM neighborhood_pop',conn)
+        neighborhoods=list(set(full_table['Neighborhood']))
+        neighborhoods.sort()
+        return render_template('/stl_neighborhood_pop.html',neighbohoods=neighborhoods)
     else:
-        neighborhood=request.form['neighborhood']
+        neighborhood=request.form['nbhoods_send']
         nbh_table=pd.read_sql('SELECT * FROM neighborhood_pop WHERE neighborhood="%s"' %(neighborhood), conn)
         p1 = figure(title="Population Change")
         p1.line(pd.to_numeric(nbh_table['Year']), pd.to_numeric(nbh_table['Total Population'].str.replace(',','')))

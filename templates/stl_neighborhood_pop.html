@@ -1,56 +1,159 @@
-<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-		<title>STL Annex</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-		<link rel="stylesheet" type="text/css" href="/static/stlannex_style.css"/>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <link href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.13.min.css" rel="stylesheet">
-    <link href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.13.min.css" rel="stylesheet">
-  
- 
+  <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-	</head>
-	<body>
-    <center>
-    <div class="tophead">
-        <br>
-        <h1> STL Annex: Data Analysis of St. Louis Topics! </h1>
-        <h4>Matthew T. Lawder</h4>
-        <h5>matt@stlannex.com</h5>
-        <br>
-    </div>
-        <div>
-STL Population Analysis
-<form class="form-horizontal" method='post' action="stl_pop">
-        <div class="col-sm-4">
-          <div class="ui-widget">
-            <input class="form-control" name="neighborhood" placeholder="Choose a Neighborhood"/>
-          </div>
-          <br/>
-          <div class="form-group">
-            <div class="col-sm-offset-4 col-sm-8">
-              <button type="submit" class="btn btn-primary btn-lg">  Submit Neighborhood  </button>
+      gtag('config', 'UA-142498774-1');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>STL Annex</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css"/>
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.css" type="text/css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+
+    <style>
+    td {
+      text-align:center;
+    }
+    th {
+      text-align:center;
+    }
+    .bk-root {
+      background-color: #edeff2;
+    }
+  </style>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
+    <style>
+      .map {
+        height: 300px;
+        min-width: 300px;
+        width: 100%;
+        margin:20px;
+      }
+    </style>
+    <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+    <title>OpenLayers example</title>
+  </head>
+  <body>
+        <center>
+      <div class="tophead">
+          <br>
+          <h1> STL Annex: Data Analysis of St. Louis Topics and More! [BETA] </h1>
+          <h4>Matthew T. Lawder</h4>
+          <h5>matt@stlannex.com</h5>
+          <br>
+      </div>
+      <div id="menu-vue">
+        <menu-bar></menu-bar>
+      </div>
+      <br>
+      <div class="container">
+        <h1>STL Census Data by Nieghborhood</h1>
+      </div>
+      <div id="pop">
+        <div class="container">
+          <div class="col-sm-6">
+            <div class="ui-widget">
+              <select v-model="nbhoods_sel" class="btn dropdown-toggle" >
+                <option class="dropdown-item" >ALL</option>
+                <option class="dropdown-item" v-for="loc in nbhoods" >{{loc}}</option>
+              </select>
             </div>
           </div>
-          
-        </div>
-      </form>
-        <div>
-            {{nbh_table|safe}}
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-8">
+                <button type="submit" class="btn btn-primary btn-lg" v-on:click="updateNBHood()">  Submit Neighborhood  </button>
+              </div>
+            </div>
           </div>
-          {{plot_div|safe}}
-          <script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.13.min.js"></script>
-    <script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.13.min.js"></script>
-    {{ plot_script|safe }}
         </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-7">
+              <div>
+                
+                <<%line_div|safe%>>
+              </div>
+              <div>
+                
+                <<%pie_div|safe%>>
+              </div>
+            </div>
+            <div class="col-sm-5">
+              <div>
+                <table class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th v-for="col in table_data['columns']" style="font-weight: bold">{{col}}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="row in table_data['data']">
+                      <td style="font-weight:bold">{{row[0]}}</td>
+                      <td>{{formatNum(row[1])}}</td>
+                      <td>{{row[2]}}</td>
+                      <td>{{formatPct(row[3])}}</td>
+                      <td>{{row[4]}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-sm-5">
+                <div id="map" class="map">
+                </div>
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+        <<%line_script|safe%>>
+        <<%pie_script|safe%>>
+          <script>
+      new Vue ({
+        el: '#pop',
+        data: {
+          dests: 'x',
+          nbhoods: <<%neighbohoods|safe%>>,
+          nbhoods_sel: '<<%nb_sel|safe%>>',
+          table_data: <<%table_data|safe%>>
+        },
+        methods:{
+          formatPct: function(val) {
+            return val.toFixed(1);
+          },
+          formatNum: function(val) {
+            return val.toLocaleString()
+          },
+          updateNBHood: function(){
+            let form = document.createElement('form');
+            form.action = 'stl_pop';
+            form.method = 'POST';
+            form.innerHTML = '<input class="hidden_submit" name="nbhoods_send" value="'+this.nbhoods_sel+'">';
+            document.body.append(form);
+            form.submit();
+          }
+        }
+      })
+      </script>
+        </script>
+        <script src="static/components/menu.vue">
+    </script>
     </center>
-	</body>
+
+
+
+  </body>
 </html>

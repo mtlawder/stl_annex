@@ -1,10 +1,16 @@
 from flask import Flask, render_template, redirect, request
 from bokeh.plotting import figure, show, output_file
+from bokeh.layouts import gridplot
 from bokeh.embed import components
 from bokeh.models import Range1d
 from bokeh.document import Document
 from bokeh.plotting import ColumnDataSource
-from bokeh.models import HoverTool, FixedTicker
+from bokeh.models import HoverTool, FixedTicker, Legend, LegendItem
+from bokeh.palettes import Category10, Category20
+from bokeh.transform import cumsum
+from static.python.bokeh_plot import pop_pie_chart, pop_line_chart, pop_create_table
+from math import pi
+import collections
 import pandas as pd
 import numpy as np
 import sqlite3
@@ -39,14 +45,35 @@ def stl_pop():
         full_table=pd.read_sql('SELECT * FROM neighborhood_pop',conn)
         neighborhoods=list(set(full_table['Neighborhood']))
         neighborhoods.sort()
-        return render_template('/stl_neighborhood_pop.html',neighbohoods=neighborhoods)
+        nbhood="Midtown"
+        dd=full_table
+        nb=dd.loc[dd['Neighborhood']==nbhood]
+        # dd=pd.read_sql('SELECT * FROM neighborhood_pop WHERE neighborhood="'+nbhood+'"',conn)
+        line_script,line_div=pop_line_chart(nb,nbhood)
+        pie_script,pie_div=pop_pie_chart(nb)
+        table_data=pop_create_table(dd,nbhood)
+        #Creating data table to send
+                
+        return render_template('/stl_neighborhood_pop.html',neighbohoods=neighborhoods,line_script=line_script,line_div=line_div,\
+            pie_script=pie_script,pie_div=pie_div,table_data=table_data,nb_sel=nbhood)
     else:
-        neighborhood=request.form['nbhoods_send']
-        nbh_table=pd.read_sql('SELECT * FROM neighborhood_pop WHERE neighborhood="%s"' %(neighborhood), conn)
-        p1 = figure(title="Population Change")
-        p1.line(pd.to_numeric(nbh_table['Year']), pd.to_numeric(nbh_table['Total Population'].str.replace(',','')))
-        script, div = components(p1)
-        return render_template('/stl_neighborhood_pop.html', nbh_table=nbh_table.to_html(classes='table table-striped',index=False), plot_script=script, plot_div=div)
+        nbhood=request.form['nbhoods_send']
+        full_table=pd.read_sql('SELECT * FROM neighborhood_pop',conn)
+        neighborhoods=list(set(full_table['Neighborhood']))
+        neighborhoods.sort()
+        dd=full_table
+        nb=dd.loc[dd['Neighborhood']==nbhood]
+        # dd=pd.read_sql('SELECT * FROM neighborhood_pop WHERE neighborhood="'+nbhood+'"',conn)
+        line_script,line_div=pop_line_chart(nb,nbhood)
+        pie_script,pie_div=pop_pie_chart(nb)
+        table_data=pop_create_table(dd,nbhood)
+        # table_data={'columns':[],'data':{}}
+        # nbh_table=pd.read_sql('SELECT * FROM neighborhood_pop WHERE neighborhood="%s"' %(neighborhood), conn)
+        # p1 = figure(title="Population Change")
+        # p1.line(pd.to_numeric(nbh_table['Year']), pd.to_numeric(nbh_table['Total Population'].str.replace(',','')))
+        # script, div = components(p1)
+        return render_template('/stl_neighborhood_pop.html',neighbohoods=neighborhoods,line_script=line_script,line_div=line_div,\
+            pie_script=pie_script,pie_div=pie_div,table_data=table_data,nb_sel=nbhood)
 
 @app.route('/all_airlines',methods=['GET','POST'])
 def all_airlines():

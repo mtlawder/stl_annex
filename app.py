@@ -305,6 +305,9 @@ def blog_Southwest_out_of_Newark():
 def blog_southwest_ewr_lga_comp():
     return render_template('/blog_southwest_ewr_lga_comp.html')    
 
+@app.route('/blog_first_stl_pop',methods=['GET','POST'])
+def blog_first_stl_pop():
+    return render_template('/blog_first_stl_pop.html')    
 
 if __name__ == '__main__':
     app.run()

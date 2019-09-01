@@ -22,7 +22,39 @@ hr {
 .click_sel:hover {
   font-weight: bold;
 }
-
+.map {
+  height: 300px;
+  min-width: 300px;
+  width: 100%;
+  margin:20px;
+}
+.leftHandPanel {
+  background-color:white;
+  min-width: 550px;
+  border: black solid 1pt;
+  margin-right: 20px
+  /*padding:3px;*/
+}
+.pop-pick-left{
+  text-align:center;
+  padding-top:8px;
+}
+@media screen and (min-width: 48em){
+    .pop-pick-left{
+        text-align: right;
+    }
+}
+.pop-pick-right{
+  text-align: center;
+}
+@media screen and (min-width: 48em){
+    .pop-pick-right{
+        text-align: left;
+    }
+}
+.active {
+  border: black solid 1pt;
+}
 .hidden_submit {
   display:none;
 }

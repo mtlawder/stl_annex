@@ -30,19 +30,11 @@
     th {
       text-align:center;
     }
-    .bk-root {
+    /*.bk-root {
       background-color: #edeff2;
-    }
+    }*/
   </style>
     <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
-    <style>
-      .map {
-        height: 300px;
-        min-width: 300px;
-        width: 100%;
-        margin:20px;
-      }
-    </style>
     <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
     <title>OpenLayers example</title>
   </head>
@@ -50,7 +42,7 @@
         <center>
       <div class="tophead">
           <br>
-          <h1> STL Annex: Data Analysis of St. Louis Topics and More! [BETA] </h1>
+          <h1> STL Annex </h1>
           <h4>Matthew T. Lawder</h4>
           <h5>matt@stlannex.com</h5>
           <br>
@@ -58,50 +50,87 @@
       <div id="menu-vue">
         <menu-bar></menu-bar>
       </div>
-      <br>
       <div class="container">
-        <h1>STL Census Data by Nieghborhood</h1>
+        <h3>STL Census Data by Neighborhood</h3>
+        <h4>Choose a Neighborhood</h4>
+        <br>
       </div>
       <div id="pop">
         <div class="container">
           <div class="col-sm-6">
-            <div class="ui-widget">
-              <select v-model="nbhoods_sel" class="btn dropdown-toggle" >
-                <option class="dropdown-item" >ALL</option>
-                <option class="dropdown-item" v-for="loc in nbhoods" >{{loc}}</option>
-              </select>
+            <div class="pop-pick-left">
+              <div class="ui-widget">
+                <select v-model="nbhoods_sel" class="btn dropdown-toggle">
+                  <option class="dropdown-item" >ALL</option>
+                  <option class="dropdown-item" v-for="loc in nbhoods">{{loc}}</option>
+                </select>
+              </div>
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="form-group">
-              <div class="col-sm-offset-4 col-sm-8">
-                <button type="submit" class="btn btn-primary btn-lg" v-on:click="updateNBHood()">  Submit Neighborhood  </button>
+            <div class="pop-pick-right">
+              <div class="form-group">
+                <div>
+                  <button type="submit" class="btn btn-primary btn-lg" v-on:click="updateNBHood()">  Submit Neighborhood  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <hr>
+        <div class="container">
+          <h2 v-once>
+            {{nbhoods_sel}}
+          </h2>
+          <br>
         <div class="container">
           <div class="row">
-            <div class="col-sm-7">
-              <div>
+            <div class="col-lg-6">
+              <div class="leftHandPanel">
                 
-                <<%line_div|safe%>>
-              </div>
-              <div>
+                  
+                  <<%line_div|safe%>>
                 
-                <<%pie_div|safe%>>
+                  
+                  <<%pie_div|safe%>>
+                  <img src="/static/images/legend_stl_pop.png" align="center" style="width:100%;"/>
+                
               </div>
+              <br>
             </div>
-            <div class="col-sm-5">
+            <div class="col-lg-6 ">
+              <div class="btn-group" role="group">
+                <button class="btn btn-secondary" v-on:click="table_yr_sel=1990" v-bind:class="{active: table_yr_sel===1990}">1990</button>
+                <button class="btn btn-secondary" v-on:click="table_yr_sel=2000" v-bind:class="{active: table_yr_sel===2000}">2000</button>
+                <button class="btn btn-secondary" v-on:click="table_yr_sel=2010" v-bind:class="{active: table_yr_sel===2010}">2010</button>
+              </div>
               <div>
                 <table class="table">
                   <thead class="thead-dark">
                     <tr>
-                      <th v-for="col in table_data['columns']" style="font-weight: bold">{{col}}</th>
+                      <th v-for="col in table_data_10['columns']" style="font-weight: bold">{{col}}</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr v-for="row in table_data['data']">
+                  <tbody v-if="table_yr_sel===2010">
+                    <tr v-for="row in table_data_10['data']">
+                      <td style="font-weight:bold">{{row[0]}}</td>
+                      <td>{{formatNum(row[1])}}</td>
+                      <td>{{row[2]}}</td>
+                      <td>{{formatPct(row[3])}}</td>
+                      <td>{{row[4]}}</td>
+                    </tr>
+                  </tbody>
+                  <tbody v-else-if="table_yr_sel===2000">
+                    <tr v-for="row in table_data_00['data']">
+                      <td style="font-weight:bold">{{row[0]}}</td>
+                      <td>{{formatNum(row[1])}}</td>
+                      <td>{{row[2]}}</td>
+                      <td>{{formatPct(row[3])}}</td>
+                      <td>{{row[4]}}</td>
+                    </tr>
+                  </tbody>
+                  <tbody v-else>
+                    <tr v-for="row in table_data_90['data']">
                       <td style="font-weight:bold">{{row[0]}}</td>
                       <td>{{formatNum(row[1])}}</td>
                       <td>{{row[2]}}</td>
@@ -111,31 +140,60 @@
                   </tbody>
                 </table>
               </div>
-              <div class="col-sm-5">
-                <div id="map" class="map">
-                </div>
+              <div>
+                <p class="left-group">
+                  <i>Notes: Data and map obtained from <a href="https://www.stlouis-mo.gov/data/">St. Louis government website</a>. In 1990, only Black, White, and Other (Which includes Asian, Multi-racial, Pacific Islander and Native American) data is available. Hispanic data represents a subset of other demographics. Click on the map below for links to the St. Louis government webpages for each neighborhood.</i>
+                </p>
+                <!-- <div id="map" class="map">
+                  <iframe width="90%" height="500" v-bind:src="'https://stlcity.maps.arcgis.com/apps/Embed/index.html?webmap=1dff446cfb4e4db59a6c0adff2ab7b67&center='+coords.lon+','+coords.lat+'&level=14'">
+                  </iframe>
+                </div> -->
               </div> 
+            </div>
+          </div>
+          <div class="row">
+            <div id="map" class="map">
+              <iframe width="90%" height="415" v-bind:src="'https://stlcity.maps.arcgis.com/apps/Embed/index.html?webmap=1dff446cfb4e4db59a6c0adff2ab7b67&center='+coords.lon+','+coords.lat+'&level=14'">
+              </iframe>
             </div>
           </div>
         </div>
       </div>
         <<%line_script|safe%>>
         <<%pie_script|safe%>>
+        <script src="static/components/menu.vue">
+    </script>
           <script>
+            
       new Vue ({
         el: '#pop',
         data: {
           dests: 'x',
           nbhoods: <<%neighbohoods|safe%>>,
           nbhoods_sel: '<<%nb_sel|safe%>>',
-          table_data: <<%table_data|safe%>>
+          table_data_10: <<%table_data_10|safe%>>,
+          table_data_00: <<%table_data_00|safe%>>,
+          table_data_90: <<%table_data_90|safe%>>,
+          table_yr_sel: 2010,
+          coords: <<%coords|safe%>>,
+          scroll: <<%scroll|safe%>>
         },
         methods:{
           formatPct: function(val) {
-            return val.toFixed(1);
+            if (val!=null) {
+              return val.toFixed(1);
+            }
+            else {
+              return "NA"
+            }
           },
           formatNum: function(val) {
-            return val.toLocaleString()
+            if (val!=null) {
+              return val.toLocaleString()
+            }
+            else {
+              return "NA"
+            }
           },
           updateNBHood: function(){
             let form = document.createElement('form');
@@ -145,12 +203,16 @@
             document.body.append(form);
             form.submit();
           }
+        },
+        mounted(){
+          if (this.scroll==1){
+            window.scrollTo(0, 410);
+          }
         }
       })
       </script>
-        </script>
-        <script src="static/components/menu.vue">
-    </script>
+        
+    
     </center>
 
 

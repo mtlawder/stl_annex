@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+	<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-142498774-1');
+    </script>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+		<title>STL Annex</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css"/>
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.7.min.css" type="text/css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.7.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+	</head>
+	<body>
+    <center>
+      <div class="tophead">
+          <br>
+          <h1> STL Annex: Data Analysis of St. Louis Topics and More! [BETA] </h1>
+          <h4>Matthew T. Lawder</h4>
+          <h5>matt@stlannex.com</h5>
+          <br>
+      </div>
+      <div id="menu-vue">
+        <menu-bar></menu-bar>
+      </div>
+      <div class="container">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-10 left-group">
+          <div class="blog-container">
+            <div class="blog-title">
+              <h3>St. Louis Neighborhood Census Data Explorer</h3>
+            </div>
+            <div class="blog-title blog-date">9/1/2019 - M. Lawder</div>
+          </div>
+          
+            <div>
+              I've always found the neighborhood level census data available on the St. Louis government website interesting to look at because it provides a pretty granular look at the changes in population and demographics within the city. When you go to different parts of the city you see a snapshot of the area right now, but looking at the buildings, the roads, the trees you can often feel that there is history in the neighborhood. When you look at a 4-family flat in Shaw that is close to 100 years old, you can imagine all the families that have passed through the house and the neighborhood.
+              <br><br>
+              The information from the census, provides a (albeit small) window to look at how a neighborhood has grown or shrunk and lends some historical numbers to the spaces you are walking through. Going back to Shaw, it's generally considered a fairly strong neighborhood, but it actually lost 17% of it's population from 2000 to 2010 (8,243 to 6,811). What the data doesn't say is why or how that change happened, but it provides a great starting point. Anecdotally, many of those 4-family flats have been converted into two-family townhomes or flats and the ones that remain often have smaller households than in the past.
+              <br><br>
+              I hope to dig into more trends and analysis in the future, but today I'm just introducing <a href="/stl_pop"> a tool to explore the neighborhood data</a>. The city government <a href="http://dynamic.stlouis-mo.gov/census/neigh_comp.cfm">hosts a decent amount of info</a> (only back to 1990), but it's not the easiest to consume and compare. The first version of the tool makes it easier (in my opinion) to see neighborhood population changes over time from 1990 to 2010 (and hopefully 2020 in the not too distant future!). I'll be adding this tool to make it allow for smoother comparisons across neighborhood.
+              <br><br>
+              Let me know if you have any suggestions or comments about the tool or data (matt@stlannex.com)!              
+              <br><br>
+              <center>
+                <a href="/stl_pop">STL Census Explorer
+                <img src="/static/images/shaw_stl_pop.png" align="center"  style="width:100%;border:1pt black solid;"/>
+                </a>
+              </center>
+              <br>
+              <hr>
+            </div>
+        </div>
+        <div class="col-sm-1">
+        </div>
+      </div>
+    </center>
+    
+        
+        
+        
+    <script src="static/components/menu.vue">
+    </script>
+    </body>
+</html>

@@ -9,7 +9,7 @@ Vue.component('menu-bar',{
         <!-- Brand and toggle get grouped for better mobile display -->\
         <div class="navbar-header">\
           <!-- Collect the nav links, forms, and other content for toggling -->\
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">\
+          <div class="" id="navbarSupportedContent">\
             <ul class="nav navbar-nav">\
               <li>\
                 <a href="\index_Main"> STLAnnex Home </a>\
@@ -33,5 +33,7 @@ Vue.component('menu-bar',{
       <!-- /.container-fluid -->\
       </div>\
     </nav>'
+
+
 }),
 new Vue({ el: '#menu-vue' })

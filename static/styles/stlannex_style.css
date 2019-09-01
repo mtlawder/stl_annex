@@ -23,7 +23,7 @@ hr {
   font-weight: bold;
 }
 .map {
-  height: 300px;
+  min-height: 415px;
   min-width: 300px;
   width: 100%;
   margin:20px;
@@ -37,11 +37,12 @@ hr {
 }
 .pop-pick-left{
   text-align:center;
-  padding-top:8px;
+  padding-bottom:8px;
 }
 @media screen and (min-width: 48em){
     .pop-pick-left{
         text-align: right;
+        padding-top:8px;
     }
 }
 .pop-pick-right{

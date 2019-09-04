@@ -309,6 +309,10 @@ def blog_southwest_ewr_lga_comp():
 def blog_first_stl_pop():
     return render_template('/blog_first_stl_pop.html')    
 
+@app.route('/about',methods=['GET','POST'])
+def about():
+    return render_template('/about.html') 
+
 if __name__ == '__main__':
     app.run()
     #app.run(host='159.203.65.80',port=33506)

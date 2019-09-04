@@ -26,6 +26,9 @@ Vue.component('menu-bar',{
               <li>\
                 <a href="\index_Main#blog_head">Blog Posts</a>\
               </li>\
+              <li>\
+                <a href="\about">About</a>\
+              </li>\
             </ul>\
           </div>\
         <!-- /.navbar-collapse -->\

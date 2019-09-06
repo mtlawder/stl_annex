@@ -2,7 +2,7 @@
   <head>
 	<link rel="import" href="/static/components/head_imports.html">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
+    <link rel="stylesheet" type="text/css" href="/static/styles/stl_pop_style.css">
     <title>STL Annex</title>
     
     <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.css" type="text/css" />
@@ -39,27 +39,30 @@
         <menu-bar></menu-bar>
       </div>
       <div class="container">
+        <br>
         <h3>STL Census Data by Neighborhood</h3>
         <h4>Choose a Neighborhood</h4>
         <br>
       </div>
       <div id="pop">
         <div class="container">
-          <div class="col-sm-6">
-            <div class="pop-pick-left">
-              <div class="ui-widget">
-                <select v-model="nbhoods_sel" class="btn dropdown-toggle">
-                  <option class="dropdown-item" >ALL</option>
-                  <option class="dropdown-item" v-for="loc in nbhoods">{{loc}}</option>
-                </select>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="pop-pick-left">
+                <div class="ui-widget">
+                  <select v-model="nbhoods_sel" class="btn dropdown-toggle">
+                    <option class="dropdown-item" >ALL</option>
+                    <option class="dropdown-item" v-for="loc in nbhoods">{{loc}}</option>
+                  </select>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="pop-pick-right">
-              <div class="form-group">
-                <div>
-                  <button type="submit" class="btn btn-primary btn-lg" v-on:click="updateNBHood()">  Submit Neighborhood  </button>
+            <div class="col-sm-6">
+              <div class="pop-pick-right">
+                <div class="form-group">
+                  <div>
+                    <button type="submit" class="btn btn-primary btn-lg" v-on:click="updateNBHood()">  Submit Neighborhood  </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -86,56 +89,58 @@
               </div>
               <br>
             </div>
-            <div class="col-lg-6 ">
-              <div class="btn-group" role="group">
-                <button class="btn btn-secondary" v-on:click="table_yr_sel=1990" v-bind:class="{active: table_yr_sel===1990}">1990</button>
-                <button class="btn btn-secondary" v-on:click="table_yr_sel=2000" v-bind:class="{active: table_yr_sel===2000}">2000</button>
-                <button class="btn btn-secondary" v-on:click="table_yr_sel=2010" v-bind:class="{active: table_yr_sel===2010}">2010</button>
-              </div>
-              <div>
-                <table class="table">
-                  <thead class="thead-dark">
-                    <tr>
-                      <th v-for="col in table_data_10['columns']" style="font-weight: bold">{{col}}</th>
-                    </tr>
-                  </thead>
-                  <tbody v-if="table_yr_sel===2010">
-                    <tr v-for="row in table_data_10['data']">
-                      <td style="font-weight:bold">{{row[0]}}</td>
-                      <td>{{formatNum(row[1])}}</td>
-                      <td>{{row[2]}}</td>
-                      <td>{{formatPct(row[3])}}</td>
-                      <td>{{row[4]}}</td>
-                    </tr>
-                  </tbody>
-                  <tbody v-else-if="table_yr_sel===2000">
-                    <tr v-for="row in table_data_00['data']">
-                      <td style="font-weight:bold">{{row[0]}}</td>
-                      <td>{{formatNum(row[1])}}</td>
-                      <td>{{row[2]}}</td>
-                      <td>{{formatPct(row[3])}}</td>
-                      <td>{{row[4]}}</td>
-                    </tr>
-                  </tbody>
-                  <tbody v-else>
-                    <tr v-for="row in table_data_90['data']">
-                      <td style="font-weight:bold">{{row[0]}}</td>
-                      <td>{{formatNum(row[1])}}</td>
-                      <td>{{row[2]}}</td>
-                      <td>{{formatPct(row[3])}}</td>
-                      <td>{{row[4]}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div>
-                <p class="left-group">
-                  <i>Notes: Data and map obtained from <a href="https://www.stlouis-mo.gov/data/">St. Louis government website</a>. In 1990, only Black, White, and Other (Which includes Asian, Multi-racial, Pacific Islander and Native American) data is available. Hispanic data represents a subset of other demographics. Click on the map below for links to the St. Louis government webpages for each neighborhood.</i>
-                </p>
-                <!-- <div id="map" class="map">
-                  <iframe width="90%" height="500" v-bind:src="'https://stlcity.maps.arcgis.com/apps/Embed/index.html?webmap=1dff446cfb4e4db59a6c0adff2ab7b67&center='+coords.lon+','+coords.lat+'&level=14'">
-                  </iframe>
-                </div> -->
+            <div class="col-lg-6">
+              <div style="margin-left: 10px;">
+                <div class="btn-group" role="group">
+                  <button class="btn" v-on:click="table_yr_sel=1990" v-bind:class="{active: table_yr_sel===1990}">1990</button>
+                  <button class="btn" v-on:click="table_yr_sel=2000" v-bind:class="{active: table_yr_sel===2000}">2000</button>
+                  <button class="btn" v-on:click="table_yr_sel=2010" v-bind:class="{active: table_yr_sel===2010}">2010</button>
+                </div>
+                <div>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th v-for="col in table_data_10['columns']" style="font-weight: bold">{{col}}</th>
+                      </tr>
+                    </thead>
+                    <tbody v-if="table_yr_sel===2010">
+                      <tr v-for="row in table_data_10['data']">
+                        <td style="font-weight:bold">{{row[0]}}</td>
+                        <td>{{formatNum(row[1])}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{formatPct(row[3])}}</td>
+                        <td>{{row[4]}}</td>
+                      </tr>
+                    </tbody>
+                    <tbody v-else-if="table_yr_sel===2000">
+                      <tr v-for="row in table_data_00['data']">
+                        <td style="font-weight:bold">{{row[0]}}</td>
+                        <td>{{formatNum(row[1])}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{formatPct(row[3])}}</td>
+                        <td>{{row[4]}}</td>
+                      </tr>
+                    </tbody>
+                    <tbody v-else>
+                      <tr v-for="row in table_data_90['data']">
+                        <td style="font-weight:bold">{{row[0]}}</td>
+                        <td>{{formatNum(row[1])}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{formatPct(row[3])}}</td>
+                        <td>{{row[4]}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div>
+                  <p class="left-group">
+                    <i>Notes: Data and map obtained from <a href="https://www.stlouis-mo.gov/data/">St. Louis government website</a>. In 1990, only Black, White, and Other (Which includes Asian, Multi-racial, Pacific Islander and Native American) data is available. Hispanic data represents a subset of other demographics. Click on the map below for links to the St. Louis government webpages for each neighborhood.</i>
+                  </p>
+                  <!-- <div id="map" class="map">
+                    <iframe width="90%" height="500" v-bind:src="'https://stlcity.maps.arcgis.com/apps/Embed/index.html?webmap=1dff446cfb4e4db59a6c0adff2ab7b67&center='+coords.lon+','+coords.lat+'&level=14'">
+                    </iframe>
+                  </div> -->
+                </div>
               </div> 
             </div>
           </div>

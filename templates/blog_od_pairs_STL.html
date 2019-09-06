@@ -1,25 +1,11 @@
 <!doctype html>
 <html lang="en">
 	<head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+	<link rel="import" href="/static/components/head_imports.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-      gtag('config', 'UA-142498774-1');
-    </script>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-		<title>STL Annex</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css"/>
+    <title>STL Annex</title>
     <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.7.min.css" type="text/css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
-
     <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.7.min.js"></script>
     <script type="text/javascript">
         Bokeh.set_log_level("info");
@@ -55,7 +41,7 @@
               <br><br>
               Back to STL, looking at all of the tickets flying out of of Lambert, we can see the airlines are sending a larger portion of passengers than "expected" to the following airports (minimum 1M annual departing passengers):
               <br>
-              <table class='table table-striped my-table-all-air selection-group table-adj'>
+              <table class='table table-striped my-table-all-air table-board table-adj'>
                 <thead>
                   <tr style="text-align: right;">
                     <th style="text-align:center">Destination</th>
@@ -131,7 +117,7 @@
                 <br><br>
               Note that the <i>PCT of Total Arriving PAX</i> column represents the amount of travelers to the specific airport that begin their trips from STL. For Example, STL supplies roughly 14 of every 1,000 passengers that arrive in Omaha. There are a couple of interesting groupings in the top 10. Five of the airports are in major markets where there are multiple airports, but one of the airports is taking up a large portion of overall traffic to that city (DAL, HOU, MDW, LGA, DCA). Three airports fall into the "popular destinations that are getting a little far to drive to" category (RSW, DEN, SAT) while OMA and DSM are much closer than those three, they have multiple direct flights a day to STL which could be encouraging air travel compared to driving. All of the top 10 destinations have direct service from Southwest (<a href="/blog_southwest_5yr_growth_STL">the largest airline at STL</a>). Only 3 of the bottom 10 destinations have direct service from STL and none are served by Southwest. Here are the lowest (11) pairs:
               <br>
-              <table class='table table-striped my-table-all-air selection-group table-adj'>
+              <table class='table table-striped my-table-all-air table-board table-adj'>
                  <thead>
                   <tr style="text-align: center;">
                     <th style="text-align:center">Destination</th>

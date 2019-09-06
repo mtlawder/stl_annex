@@ -30,7 +30,6 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.18/b-1.5.6/b-html5-1.5.6/datatables.min.css"/>
   <!--Open Source DataTable used for presenting data: Copyright (C) 2008-2019, SpryMedia Ltd.-->
   <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.18/b-1.5.6/b-html5-1.5.6/datatables.min.js"></script>
-
   <script type="text/javascript">
     $(document).ready( function (){
       $('#fullTab').DataTable( {
@@ -57,9 +56,23 @@
     <button onclick="sortTable(5)">Sort by Destination Code</button>
   </div>
     -->
-    <div id="menu-vue">
-      <menu-bar></menu-bar>
-    </div>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="" id="navbarSupportedContent">
+            <ul class="nav navbar-nav">
+              <li>
+                <a href="\index_Main"> STLAnnex Home </a>
+              </li>
+            </ul>
+          </div>
+        <!-- /.navbar-collapse -->
+        </div>
+      <!-- /.container-fluid -->
+      </div>
+    </nav>
   <br>
 
 
@@ -250,8 +263,7 @@
 
 	
     </center>
-    <script src="static/components/menu.vue">
-    </script>
+
     <script>
       new Vue ({
         el: '#dest',

@@ -10,11 +10,19 @@ div.tophead {
 th {
   cursor: pointer;
 }
+thead{
+  border-bottom:2px solid green;
+}
 hr {
   margin:20px;
   border-top: 1px solid black;
 }
-
+a {
+  color: #337ab7;
+}
+table{
+  border-top: 1px solid black;
+}
 .click_sel {
   cursor: pointer;  
 }
@@ -70,6 +78,11 @@ hr {
 }
 .blog-title {
   float:left;
+  margin-top:16px;
+}
+.blog-title-link{
+  font-size: 24px;
+  font-weight: 400;
 }
 .blog-container{
   overflow: auto;
@@ -120,6 +133,10 @@ hr {
 }
 .selection-group {
   border:1px solid black;
+  padding:5px;
+}
+.table-board{
+  border:2px solid black;
   padding:5px;
 }
 .remove-pad{

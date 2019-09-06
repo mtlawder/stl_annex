@@ -1,24 +1,10 @@
 <!doctype html>
 <html lang="en">
 	<head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+	<link rel="import" href="/static/components/head_imports.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-      gtag('config', 'UA-142498774-1');
-    </script>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-		<title>STL Annex</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css"/>
-    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.7.min.css" type="text/css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <title>STL Annex</title>
 
     <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.7.min.js"></script>
     <script type="text/javascript">
@@ -53,7 +39,7 @@
               <br><br>
               Looking at the most recent year (2018), Newark served 10 destinations while LaGuardia served 12. But only four destinations were served from both airports (STL, MDW, FLL, DEN). Looking at those 4 destinations STL, MDW, and DEN all had better load factors at LGA and for FLL the service from LGA was only seasonal so it's not a great comparison. See below for more info about individual route comparison.
               <br><br>
-              <table border="1" class="table table-striped my-table-all-air selection-group">
+              <table border="1" class="table table-striped my-table-all-air table-board">
                 <thead style="text-align: center;">
                   <tr>
                     <th></th>
@@ -118,7 +104,7 @@
               Taking a basic look at some recent fare data for EWR and LGA routes, LGA doesn't walk away as a clear cut winner. I'm only looking at the fares from the fourth quarter of 2018 on the nonstop routes, so not accounting for the fares of connecting travelers and only comparing a small time window. For the 4 overlapping routes between EWR and LGA, Newark has higher fares for every route (see table below). Taking STL as an example destination, direct fare average at LGA was $223.51 and at EWR was $227.89. Load Factor at LGA was slightly higher (83.0% to 81.4%) and there were three departures per day (150k annual available seats) from LaGuardia compared to two at Newark (105k annual available seats). Below we have more on the average direct fares for all 2018 Q4 routes form both airports:
 
               <br><br>
-              <table border="1" class="table table-striped my-table-all-air selection-group">
+              <table border="1" class="table table-striped my-table-all-air table-board">
                 <thead style="text-align: center;">
                   <tr>
                     <th colspan="5">Southwest Destinations from Newark</th>
@@ -212,7 +198,7 @@
                 </tbody>
               </table>
               <br>
-              <table border="1" class="table table-striped my-table-all-air selection-group">
+              <table border="1" class="table table-striped my-table-all-air table-board">
                 <thead style="text-align: center;">
                   <tr>
                     <th colspan="5">Southwest Destinations from LaGuardia</th>

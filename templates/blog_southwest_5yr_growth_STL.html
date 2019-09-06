@@ -1,25 +1,12 @@
 <!doctype html>
 <html lang="en">
 	<head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+	<link rel="import" href="/static/components/head_imports.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-      gtag('config', 'UA-142498774-1');
-    </script>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-		<title>STL Annex</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css"/>
+    <title>STL Annex</title>
     <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.css" type="text/css" />
     <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.2.0.min.css" type="text/css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.2.0.min.js"></script>
     <script type="text/javascript">
@@ -83,9 +70,9 @@
               Below are the numbers for the 36 airport that were looked at and if you want to dig into the individual route numbers you can use the <a href="http://www.stlannex.com/all_airlines">Airline Data Browser tool</a> (although it has a limited selection of airports to choose from at this time).
               <br>
               <br>
-              <table class='table table-striped my-table-all-air selection-group'>
+              <table class='table table-striped my-table-all-air table-board'>
                <thead>
-                <tr style="text-align: right;">
+                <tr style="text-align: center;">
                   <th>Airport</th>
                   <th>% Passenger Growth</th>
                   <th>2018 Passengers</th>

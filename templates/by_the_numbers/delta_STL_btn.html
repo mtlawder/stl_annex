@@ -1,0 +1,1565 @@
+<html lang="en">
+  <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-142498774-1');
+	</script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/stl_pop_style.css">
+    <title>STL Annex</title>
+    
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.css" type="text/css" />
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+    <style>
+    .col-xl-4{
+      padding:0px !important;
+    }
+    .col-lg-6{
+      padding:0px !important;
+    }
+    .col-lg-12{
+      padding:0px !important;
+    }
+    .btn-group{
+      padding:5px !important;
+    }
+    .container{
+      padding:0px !important;
+      max-width:1240px;
+    }
+  </style>
+  </head>
+  <body>
+        <center>
+          <div class="tophead">
+          <br>
+          <h1> STL Annex: Data Analysis of St. Louis Topics and More! [BETA] </h1>
+          <h4>Matthew T. Lawder</h4>
+          <h5>matt@stlannex.com</h5>
+          <br>
+        </div>
+        <div id="menu-vue">
+          <menu-bar></menu-bar>
+        </div><br>
+        <div id="by_the_numbers" class="container">
+          <div class="col-sm-12">
+            <div>
+                <h3>By the Numbers: Delta at St. Louis-Lambert Airport</h3>
+                <br>
+                <div class="blog-container left-group">
+                  This post is the first in a series of posts outlining key info for each carrier at St. Louis-Lambert. I won't try to add too much word clutter to these posts. Mostly I'll try to provide some context for the data and highlight interesting points that pop out. A couple of quick notes, all data is through the end of 2018 and accounts only for domestic flights. More info about the <a href='/btn_methodology'>methodology for data calculations can be found here</a>.
+                  <br><br>
+                  Delta is not too interesting of a case to start with at Lambert. They have had pretty consistent service at Lambert. Every year since 2014 they have flown between 18k-19k flights into or out of Lambert and carried 1.7M passengers. The biggest changes for Delta were dropping there Memphis and New York-JFK routes early in the decade will continuously adding capacity to New York-LGA. Delta carried 87k passengers between STL and LGA in 2012 and has increased that to 184k by 2018.
+                  <br><br>
+                  <div class="air-table">
+                    <h5>Annual Delta Numbers for all routes</h5>
+                    <table class="table">
+                      <thead>
+                        <tr style="text-align: center;">
+                          <th></th>
+                          <th>2010</th>
+                          <th>2011</th>
+                          <th>2012</th>
+                          <th>2013</th>
+                          <th>2014</th>
+                          <th>2015</th>
+                          <th>2016</th>
+                          <th>2017</th>
+                          <th>2018</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Departures</td>
+                          <td>18,405</td>
+                          <td>20,253</td>
+                          <td>21,321</td>
+                          <td>20,840</td>
+                          <td>18,490</td>
+                          <td>18,032</td>
+                          <td>18,359</td>
+                          <td>18,519</td>
+                          <td>18,959</td>
+                        </tr>
+                        <tr>
+                          <td>Passengers</td>
+                          <td>1,481,717</td>
+                          <td>1,631,146</td>
+                          <td>1,719,201</td>
+                          <td>1,736,929</td>
+                          <td>1,720,468</td>
+                          <td>1,741,502</td>
+                          <td>1,737,865</td>
+                          <td>1,705,211</td>
+                          <td>1,683,820</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <br>
+                  As with many airlines, Delta farms out many of it's routes to be run by a regional airline under the Delta Connections banner. At STL, about 52% of the departures by Delta are under the Delta Connections banner, but because these are run on smaller planes they carrying only 33% of total Delta passengers. When looking at the numbers below, you can toggle between All Flights, Mainline Flights Only, and Regional Flights Only to look at how Delta breaks down it's service.
+                  <br><br>
+                  On it's Mainline flights Delta most often uses the MD-80, and MD-90 one of the final designs from St. Louis' McDonnell Douglas Corporation (which was then bought by Boeing). THese planes carry over 50% of Mainline passengers and roughly 1 out of every 3 passengers flying Delta (or Delta Connections) to/from STL is carried on one of these planes. These aircraft are <a href="https://www.flightglobal.com/news/articles/delta-hastens-exit-of-mcdonnell-douglas-fleet-with-m-457377/">set to be retired in the coming years</a>, so it will be interesting to see what they are replaced by at Lambert. On the Delta COnnections side, the regional airlines rely heavily on the CRJ 900 and 700 which accounts for 90% of passengers flown out of Lambert by Delta.
+                  <br><br>
+                  I also looked at the Airline Origin and Destination Survey (<a href="https://www.transtats.bts.gov/DatabaseInfo.asp?DB_ID=125">DB1B</a>) to see the ultimate domestic destinations for Delta Passengers. For example, 739k passengers fly on Delta from St. Louis to Atlanta's direct route, but only 209k passengers from St. Louis actual end their trip in Atlanta. The rest are connecting to other destinations. The chart at the bottom of the page shows the top 20 Destinations for Delta Passengers. All of Delta's hubs are at the top of the list and Delta ranks as the leading carrier for passengers to ATL, LGA, MSP, DTW, SLC, and CVG. Once you get outside of the hubs, there is a lot of travel to the Southeast region of the US. After taking out the top 6 Delta hubs, 11 out of the remain 14 destinations could be considered in the Southeast. These passengers are presumably using the enormous ATL Delta hub to get quickly to these airports. I wouldn't necessarily call them the dominate carrier to the Southeast as evidenced by the fact that the still rank 2nd or 3rd in terms of passengers delivered from STL, but the are clearly a well used option throughout that region.
+                  <br><br>
+                  Please explore the data more below. I'll be posting similar data for more airlines at STL soon, so check back.
+                </div>
+                <hr>
+                <div class="btn-group" role="group">
+                  <button class="btn" v-on:click="operator_sel='all'" v-bind:class="{active: operator_sel==='all'}">All Flights</button>
+                  <button class="btn" v-on:click="operator_sel='main'" v-bind:class="{active: operator_sel==='main'}">Mainline Flights</button>
+                  <button class="btn" v-on:click="operator_sel='reg'" v-bind:class="{active: operator_sel==='reg'}">Regional Flights</button>
+                </div>
+            </div>
+            <div class="container">
+              <div class="row" style="border:1px solid black;background-color: white;">
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='all'">
+<div class="bk-root" id="9667a624-486d-4642-aa7f-23647db63ef3" data-root-id="1039"></div>
+</div>
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='all'">
+<div class="bk-root" id="03e91443-555c-41bf-8c56-2c469db7dab2" data-root-id="1004"></div>
+</div>
+<div class="col-xl-4 col-lg-12" v-show="operator_sel==='all'">
+<div class="bk-root" id="29221a0f-bed0-43a5-aaa3-465c34faeac5" data-root-id="1074"></div>
+</div>
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='main'">
+<div class="bk-root" id="cf7927eb-58fb-4321-8765-c4e55ea97e18" data-root-id="1725"></div>
+</div>
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='main'">
+<div class="bk-root" id="c9c5647b-8ca6-4394-ae5c-5299e87bfb0d" data-root-id="1690"></div>
+</div>
+<div class="col-xl-4 col-lg-12" v-show="operator_sel==='main'">
+<div class="bk-root" id="d83c8eb2-7c74-41ba-98c0-3d6b61a45c5b" data-root-id="1760"></div>
+</div>
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='reg'">
+<div class="bk-root" id="bdfb24e9-5786-4948-9e58-1d1dae7c3df1" data-root-id="2280"></div>
+</div>
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='reg'">
+<div class="bk-root" id="7836798d-6f3b-4452-a533-ecf0f84074fa" data-root-id="2245"></div>
+</div>
+<div class="col-xl-4 col-lg-12" v-show="operator_sel==='reg'">
+<div class="bk-root" id="8dd858c3-21cb-460c-a733-dd89cf86eb8f" data-root-id="2315"></div>
+</div>
+
+              </div>
+            </div>
+            <br>
+            <hr>
+             <div class="container">
+              <div class="col-sm-12">
+		<h4>Direct Route Stats (2018 <a v-if="operator_sel==='all'">All Flights</a><a v-else-if="operator_sel==='main'">Mainline</a><a v-else>Regionals Only</a>)</h4>
+		<i>Info on any direct routes served by the airline to or from St. Louis (Lambert)</i><br>
+                <div class="btn-group" role="group">
+                  <button class="btn" v-on:click="table_sel='arrive'" v-bind:class="{active: table_sel==='arrive'}">Arriving Flights</button>
+                  <button class="btn" v-on:click="table_sel='depart'" v-bind:class="{active: table_sel==='depart'}">Departing Flights</button>
+                  <button class="btn" v-on:click="table_sel='combined'" v-bind:class="{active: table_sel==='combined'}">All Flights</button>
+                </div>
+                  <br>
+
+<div class="air-table" v-if="operator_sel==='all'">
+  <table class="table">
+    <thead>
+      <tr style="text-align: center;">
+      <th>DESTINATION</th>
+      <th>CITY</th>
+      <th>PASSENGERS</th>
+      <th>LOAD FACTOR</th>
+      <th>DEPARTURES</th>
+      <th>AVG TRIP TIME</th>
+      <th>AVG TAXI TIME</th>
+    </tr>
+  </thead>
+  <tbody v-if="table_sel==='arrive'" style="text-align: center;">
+    <tr>
+      <td>ATL</td>
+      <td>Atlanta, GA</td>
+      <td>370,196</td>
+      <td>83.9</td>
+      <td>2,730</td>
+      <td>95.4</td>
+      <td>20.1</td>
+    </tr>
+    <tr>
+      <td>MSP</td>
+      <td>Minneapolis, MN</td>
+      <td>170,394</td>
+      <td>74.4</td>
+      <td>1,897</td>
+      <td>90.3</td>
+      <td>25.7</td>
+    </tr>
+    <tr>
+      <td>DTW</td>
+      <td>Detroit, MI</td>
+      <td>127,677</td>
+      <td>84.3</td>
+      <td>1,812</td>
+      <td>94.9</td>
+      <td>24.1</td>
+    </tr>
+    <tr>
+      <td>LGA</td>
+      <td>New York, NY</td>
+      <td>93,494</td>
+      <td>73.9</td>
+      <td>1,670</td>
+      <td>168.5</td>
+      <td>37.2</td>
+    </tr>
+    <tr>
+      <td>SLC</td>
+      <td>Salt Lake City, UT</td>
+      <td>62,199</td>
+      <td>81.7</td>
+      <td>835</td>
+      <td>167.3</td>
+      <td>25.6</td>
+    </tr>
+    <tr>
+      <td>CVG</td>
+      <td>Cincinnati, OH</td>
+      <td>19,315</td>
+      <td>59.4</td>
+      <td>531</td>
+      <td>71.3</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <td>MCO</td>
+      <td>Orlando, FL</td>
+      <td>1,015</td>
+      <td>79.0</td>
+      <td>15</td>
+      <td>156.5</td>
+      <td>23.5</td>
+    </tr>
+  </tbody>
+  <tbody  v-else-if="table_sel==='depart'" style="text-align: center;">
+    <tr>
+      <td>ATL</td>
+      <td>Atlanta, GA</td>
+      <td>369,312</td>
+      <td>84.1</td>
+      <td>2,716</td>
+      <td>89.6</td>
+      <td>20.3</td>
+    </tr>
+    <tr>
+      <td>MSP</td>
+      <td>Minneapolis, MN</td>
+      <td>173,151</td>
+      <td>75.4</td>
+      <td>1,900</td>
+      <td>91.2</td>
+      <td>19.7</td>
+    </tr>
+    <tr>
+      <td>DTW</td>
+      <td>Detroit, MI</td>
+      <td>122,420</td>
+      <td>80.8</td>
+      <td>1,811</td>
+      <td>88.8</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <td>LGA</td>
+      <td>New York, NY</td>
+      <td>90,814</td>
+      <td>72.5</td>
+      <td>1,655</td>
+      <td>143.8</td>
+      <td>27.1</td>
+    </tr>
+    <tr>
+      <td>SLC</td>
+      <td>Salt Lake City, UT</td>
+      <td>63,554</td>
+      <td>83.3</td>
+      <td>836</td>
+      <td>192.8</td>
+      <td>23.6</td>
+    </tr>
+    <tr>
+      <td>CVG</td>
+      <td>Cincinnati, OH</td>
+      <td>19,406</td>
+      <td>58.7</td>
+      <td>537</td>
+      <td>70.2</td>
+      <td>20.2</td>
+    </tr>
+    <tr>
+      <td>MCO</td>
+      <td>Orlando, FL</td>
+      <td>873</td>
+      <td>83.0</td>
+      <td>14</td>
+      <td>142.3</td>
+      <td>30.0</td>
+    </tr>
+  </tbody>
+  <tbody  v-else style="text-align: center;">
+    <tr>
+      <td>ATL</td>
+      <td>Atlanta, GA</td>
+      <td>739,508</td>
+      <td>84.0</td>
+      <td>5,446</td>
+      <td>92.5</td>
+      <td>20.2</td>
+    </tr>
+    <tr>
+      <td>MSP</td>
+      <td>Minneapolis, MN</td>
+      <td>343,545</td>
+      <td>74.9</td>
+      <td>3,797</td>
+      <td>90.7</td>
+      <td>22.7</td>
+    </tr>
+    <tr>
+      <td>DTW</td>
+      <td>Detroit, MI</td>
+      <td>250,097</td>
+      <td>82.6</td>
+      <td>3,623</td>
+      <td>91.9</td>
+      <td>23.6</td>
+    </tr>
+    <tr>
+      <td>LGA</td>
+      <td>New York, NY</td>
+      <td>184,308</td>
+      <td>73.2</td>
+      <td>3,325</td>
+      <td>156.2</td>
+      <td>32.2</td>
+    </tr>
+    <tr>
+      <td>SLC</td>
+      <td>Salt Lake City, UT</td>
+      <td>125,753</td>
+      <td>82.5</td>
+      <td>1,671</td>
+      <td>180.1</td>
+      <td>24.6</td>
+    </tr>
+    <tr>
+      <td>CVG</td>
+      <td>Cincinnati, OH</td>
+      <td>38,721</td>
+      <td>59.1</td>
+      <td>1,068</td>
+      <td>70.8</td>
+      <td>19.1</td>
+    </tr>
+    <tr>
+      <td>MCO</td>
+      <td>Orlando, FL</td>
+      <td>1,888</td>
+      <td>80.8</td>
+      <td>29</td>
+      <td>149.7</td>
+      <td>26.7</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="air-table" v-else-if="operator_sel==='main'">
+  <table class="table">
+    <thead>
+      <tr style="text-align: center;">
+      <th>DESTINATION</th>
+      <th>CITY</th>
+      <th>PASSENGERS</th>
+      <th>LOAD FACTOR</th>
+      <th>DEPARTURES</th>
+      <th>AVG TRIP TIME</th>
+      <th>AVG TAXI TIME</th>
+    </tr>
+  </thead>
+  <tbody v-if="table_sel==='arrive'" style="text-align: center;">
+    <tr>
+      <td>ATL</td>
+      <td>Atlanta, GA</td>
+      <td>370,196</td>
+      <td>83.9</td>
+      <td>2,730</td>
+      <td>95.4</td>
+      <td>20.1</td>
+    </tr>
+    <tr>
+      <td>MSP</td>
+      <td>Minneapolis, MN</td>
+      <td>127,589</td>
+      <td>70.8</td>
+      <td>1,227</td>
+      <td>86.6</td>
+      <td>22.3</td>
+    </tr>
+    <tr>
+      <td>DTW</td>
+      <td>Detroit, MI</td>
+      <td>38,712</td>
+      <td>81.5</td>
+      <td>399</td>
+      <td>93.0</td>
+      <td>21.2</td>
+    </tr>
+    <tr>
+      <td>SLC</td>
+      <td>Salt Lake City, UT</td>
+      <td>20,512</td>
+      <td>71.0</td>
+      <td>210</td>
+      <td>161.9</td>
+      <td>23.4</td>
+    </tr>
+  </tbody>
+  <tbody  v-else-if="table_sel==='depart'" style="text-align: center;">
+    <tr>
+      <td>ATL</td>
+      <td>Atlanta, GA</td>
+      <td>369,312</td>
+      <td>84.1</td>
+      <td>2,716</td>
+      <td>89.6</td>
+      <td>20.3</td>
+    </tr>
+    <tr>
+      <td>MSP</td>
+      <td>Minneapolis, MN</td>
+      <td>133,490</td>
+      <td>73.8</td>
+      <td>1,230</td>
+      <td>88.6</td>
+      <td>17.6</td>
+    </tr>
+    <tr>
+      <td>DTW</td>
+      <td>Detroit, MI</td>
+      <td>36,329</td>
+      <td>76.2</td>
+      <td>400</td>
+      <td>85.5</td>
+      <td>20.1</td>
+    </tr>
+    <tr>
+      <td>SLC</td>
+      <td>Salt Lake City, UT</td>
+      <td>22,355</td>
+      <td>77.0</td>
+      <td>211</td>
+      <td>188.4</td>
+      <td>22.3</td>
+    </tr>
+  </tbody>
+  <tbody  v-else style="text-align: center;">
+    <tr>
+      <td>ATL</td>
+      <td>Atlanta, GA</td>
+      <td>739,508</td>
+      <td>84.0</td>
+      <td>5,446</td>
+      <td>92.5</td>
+      <td>20.2</td>
+    </tr>
+    <tr>
+      <td>MSP</td>
+      <td>Minneapolis, MN</td>
+      <td>261,079</td>
+      <td>72.3</td>
+      <td>2,457</td>
+      <td>87.6</td>
+      <td>19.9</td>
+    </tr>
+    <tr>
+      <td>DTW</td>
+      <td>Detroit, MI</td>
+      <td>75,041</td>
+      <td>78.9</td>
+      <td>799</td>
+      <td>89.3</td>
+      <td>20.6</td>
+    </tr>
+    <tr>
+      <td>SLC</td>
+      <td>Salt Lake City, UT</td>
+      <td>42,867</td>
+      <td>74.0</td>
+      <td>421</td>
+      <td>175.2</td>
+      <td>22.8</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="air-table" v-else>
+  <table class="table">
+    <thead>
+      <tr style="text-align: center;">
+      <th>DESTINATION</th>
+      <th>CITY</th>
+      <th>PASSENGERS</th>
+      <th>LOAD FACTOR</th>
+      <th>DEPARTURES</th>
+      <th>AVG TRIP TIME</th>
+      <th>AVG TAXI TIME</th>
+    </tr>
+  </thead>
+  <tbody v-if="table_sel==='arrive'" style="text-align: center;">
+    <tr>
+      <td>LGA</td>
+      <td>New York, NY</td>
+      <td>93,455</td>
+      <td>74.0</td>
+      <td>1,669</td>
+      <td>168.5</td>
+      <td>37.2</td>
+    </tr>
+    <tr>
+      <td>DTW</td>
+      <td>Detroit, MI</td>
+      <td>88,965</td>
+      <td>85.6</td>
+      <td>1,413</td>
+      <td>95.4</td>
+      <td>24.9</td>
+    </tr>
+    <tr>
+      <td>MSP</td>
+      <td>Minneapolis, MN</td>
+      <td>42,805</td>
+      <td>87.9</td>
+      <td>670</td>
+      <td>97.0</td>
+      <td>32.1</td>
+    </tr>
+    <tr>
+      <td>SLC</td>
+      <td>Salt Lake City, UT</td>
+      <td>41,687</td>
+      <td>88.3</td>
+      <td>625</td>
+      <td>169.2</td>
+      <td>26.4</td>
+    </tr>
+    <tr>
+      <td>CVG</td>
+      <td>Cincinnati, OH</td>
+      <td>19,315</td>
+      <td>59.4</td>
+      <td>531</td>
+      <td>71.3</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <td>MCO</td>
+      <td>Orlando, FL</td>
+      <td>898</td>
+      <td>85.4</td>
+      <td>14</td>
+      <td>148.9</td>
+      <td>23.7</td>
+    </tr>
+  </tbody>
+  <tbody  v-else-if="table_sel==='depart'" style="text-align: center;">
+    <tr>
+      <td>LGA</td>
+      <td>New York, NY</td>
+      <td>90,814</td>
+      <td>72.5</td>
+      <td>1,655</td>
+      <td>143.8</td>
+      <td>27.1</td>
+    </tr>
+    <tr>
+      <td>DTW</td>
+      <td>Detroit, MI</td>
+      <td>86,091</td>
+      <td>83.0</td>
+      <td>1,411</td>
+      <td>89.8</td>
+      <td>23.9</td>
+    </tr>
+    <tr>
+      <td>SLC</td>
+      <td>Salt Lake City, UT</td>
+      <td>41,199</td>
+      <td>87.2</td>
+      <td>625</td>
+      <td>194.3</td>
+      <td>24.1</td>
+    </tr>
+    <tr>
+      <td>MSP</td>
+      <td>Minneapolis, MN</td>
+      <td>39,661</td>
+      <td>81.4</td>
+      <td>670</td>
+      <td>95.8</td>
+      <td>23.6</td>
+    </tr>
+    <tr>
+      <td>CVG</td>
+      <td>Cincinnati, OH</td>
+      <td>19,352</td>
+      <td>58.9</td>
+      <td>536</td>
+      <td>70.2</td>
+      <td>20.2</td>
+    </tr>
+    <tr>
+      <td>MCO</td>
+      <td>Orlando, FL</td>
+      <td>873</td>
+      <td>83.0</td>
+      <td>14</td>
+      <td>142.3</td>
+      <td>30.0</td>
+    </tr>
+  </tbody>
+  <tbody  v-else style="text-align: center;">
+    <tr>
+      <td>LGA</td>
+      <td>New York, NY</td>
+      <td>184,269</td>
+      <td>73.3</td>
+      <td>3,324</td>
+      <td>156.2</td>
+      <td>32.2</td>
+    </tr>
+    <tr>
+      <td>DTW</td>
+      <td>Detroit, MI</td>
+      <td>175,056</td>
+      <td>84.3</td>
+      <td>2,824</td>
+      <td>92.6</td>
+      <td>24.4</td>
+    </tr>
+    <tr>
+      <td>SLC</td>
+      <td>Salt Lake City, UT</td>
+      <td>82,886</td>
+      <td>87.8</td>
+      <td>1,250</td>
+      <td>181.8</td>
+      <td>25.2</td>
+    </tr>
+    <tr>
+      <td>MSP</td>
+      <td>Minneapolis, MN</td>
+      <td>82,466</td>
+      <td>84.6</td>
+      <td>1,340</td>
+      <td>96.4</td>
+      <td>27.9</td>
+    </tr>
+    <tr>
+      <td>CVG</td>
+      <td>Cincinnati, OH</td>
+      <td>38,667</td>
+      <td>59.2</td>
+      <td>1,067</td>
+      <td>70.8</td>
+      <td>19.1</td>
+    </tr>
+    <tr>
+      <td>MCO</td>
+      <td>Orlando, FL</td>
+      <td>1,771</td>
+      <td>84.2</td>
+      <td>28</td>
+      <td>145.6</td>
+      <td>26.9</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br><hr>
+<div class="container">
+<div class="col-sm-12 air-table">
+<h4>Aircraft Type Stats (2018 <a v-if="operator_sel==='all'">All Flights</a><a v-else-if="operator_sel==='main'">Mainline</a><a v-else>Regionals Only</a>)</h4>
+<i>What type of airplanes are being used across all routes to/from St. Louis (Lambert) for the airline</i>
+  <table class="table">
+    <thead>
+      <tr style="text-align: center;">
+      <th>Airplane</th>
+      <th>Departures</th>
+      <th>% Departures</th>
+      <th>Passengers</th>
+      <th>% Passengers</th>
+      <th>Load Factor</th>
+    </tr>
+  </thead>
+<tbody style="text-align: center;" v-if="operator_sel==='all'">
+    <tr>
+      <td>Canadair CRJ 900</td>
+      <td>6,322</td>
+      <td>33.3</td>
+      <td>382,029</td>
+      <td>22.6</td>
+      <td>79.5</td>
+    </tr>
+    <tr>
+      <td>McDonnell Douglas DC9 Super 80/MD81/82/83/88</td>
+      <td>2,749</td>
+      <td>14.5</td>
+      <td>356,091</td>
+      <td>21.1</td>
+      <td>86.9</td>
+    </tr>
+    <tr>
+      <td>McDonnell Douglas MD-90</td>
+      <td>2,114</td>
+      <td>11.1</td>
+      <td>247,441</td>
+      <td>14.7</td>
+      <td>74.1</td>
+    </tr>
+    <tr>
+      <td>Boeing 737-900ER</td>
+      <td>1,292</td>
+      <td>6.8</td>
+      <td>191,885</td>
+      <td>11.4</td>
+      <td>82.5</td>
+    </tr>
+    <tr>
+      <td>Canadair RJ-700</td>
+      <td>2,552</td>
+      <td>13.4</td>
+      <td>134,156</td>
+      <td>8.0</td>
+      <td>75.4</td>
+    </tr>
+    <tr>
+      <td>Boeing 717-200</td>
+      <td>1,238</td>
+      <td>6.5</td>
+      <td>111,627</td>
+      <td>6.6</td>
+      <td>82.0</td>
+    </tr>
+    <tr>
+      <td>Boeing 757-200</td>
+      <td>548</td>
+      <td>2.9</td>
+      <td>84,979</td>
+      <td>5.0</td>
+      <td>78.9</td>
+    </tr>
+    <tr>
+      <td>Airbus Industrie A320-100/200</td>
+      <td>581</td>
+      <td>3.1</td>
+      <td>65,163</td>
+      <td>3.9</td>
+      <td>71.2</td>
+    </tr>
+    <tr>
+      <td>Airbus Industrie A319</td>
+      <td>505</td>
+      <td>2.7</td>
+      <td>47,342</td>
+      <td>2.8</td>
+      <td>71.0</td>
+    </tr>
+    <tr>
+      <td>Embraer ERJ-175</td>
+      <td>478</td>
+      <td>2.5</td>
+      <td>32,031</td>
+      <td>1.9</td>
+      <td>88.8</td>
+    </tr>
+    <tr>
+      <td>Canadair RJ-200ER /RJ-440</td>
+      <td>482</td>
+      <td>2.5</td>
+      <td>16,918</td>
+      <td>1.0</td>
+      <td>70.2</td>
+    </tr>
+    <tr>
+      <td>Boeing 737-800</td>
+      <td>127</td>
+      <td>0.7</td>
+      <td>16,619</td>
+      <td>1.0</td>
+      <td>81.8</td>
+    </tr>
+    <tr>
+      <td>Boeing 757-300</td>
+      <td>4</td>
+      <td>0.0</td>
+      <td>663</td>
+      <td>0.0</td>
+      <td>70.8</td>
+    </tr>
+    <tr>
+      <td>Airbus Industrie A321</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>328</td>
+      <td>0.0</td>
+      <td>86.8</td>
+    </tr>
+    <tr>
+      <td>Boeing 737-700/700LR/Max 7</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>160</td>
+      <td>0.0</td>
+      <td>64.8</td>
+    </tr>
+  </tbody>
+<tbody style="text-align: center;" v-else-if="operator_sel==='main'">
+    <tr>
+      <td>McDonnell Douglas DC9 Super 80/MD81/82/83/88</td>
+      <td>2,749</td>
+      <td>30.0</td>
+      <td>356,091</td>
+      <td>31.7</td>
+      <td>86.9</td>
+    </tr>
+    <tr>
+      <td>McDonnell Douglas MD-90</td>
+      <td>2,114</td>
+      <td>23.1</td>
+      <td>247,441</td>
+      <td>22.0</td>
+      <td>74.1</td>
+    </tr>
+    <tr>
+      <td>Boeing 737-900ER</td>
+      <td>1,292</td>
+      <td>14.1</td>
+      <td>191,885</td>
+      <td>17.1</td>
+      <td>82.5</td>
+    </tr>
+    <tr>
+      <td>Boeing 717-200</td>
+      <td>1,238</td>
+      <td>13.5</td>
+      <td>111,627</td>
+      <td>9.9</td>
+      <td>82.0</td>
+    </tr>
+    <tr>
+      <td>Boeing 757-200</td>
+      <td>548</td>
+      <td>6.0</td>
+      <td>84,979</td>
+      <td>7.6</td>
+      <td>78.9</td>
+    </tr>
+    <tr>
+      <td>Airbus Industrie A320-100/200</td>
+      <td>581</td>
+      <td>6.3</td>
+      <td>65,163</td>
+      <td>5.8</td>
+      <td>71.2</td>
+    </tr>
+    <tr>
+      <td>Airbus Industrie A319</td>
+      <td>505</td>
+      <td>5.5</td>
+      <td>47,342</td>
+      <td>4.2</td>
+      <td>71.0</td>
+    </tr>
+    <tr>
+      <td>Boeing 737-800</td>
+      <td>127</td>
+      <td>1.4</td>
+      <td>16,619</td>
+      <td>1.5</td>
+      <td>81.8</td>
+    </tr>
+    <tr>
+      <td>Boeing 757-300</td>
+      <td>4</td>
+      <td>0.0</td>
+      <td>663</td>
+      <td>0.1</td>
+      <td>70.8</td>
+    </tr>
+    <tr>
+      <td>Airbus Industrie A321</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>328</td>
+      <td>0.0</td>
+      <td>86.8</td>
+    </tr>
+    <tr>
+      <td>Boeing 737-700/700LR/Max 7</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>160</td>
+      <td>0.0</td>
+      <td>64.8</td>
+    </tr>
+  </tbody>
+<tbody style="text-align: center;" v-else>
+    <tr>
+      <td>Canadair CRJ 900</td>
+      <td>6,322</td>
+      <td>64.3</td>
+      <td>382,029</td>
+      <td>67.6</td>
+      <td>79.5</td>
+    </tr>
+    <tr>
+      <td>Canadair RJ-700</td>
+      <td>2,552</td>
+      <td>26.0</td>
+      <td>134,156</td>
+      <td>23.7</td>
+      <td>75.4</td>
+    </tr>
+    <tr>
+      <td>Embraer ERJ-175</td>
+      <td>478</td>
+      <td>4.9</td>
+      <td>32,031</td>
+      <td>5.7</td>
+      <td>88.8</td>
+    </tr>
+    <tr>
+      <td>Canadair RJ-200ER /RJ-440</td>
+      <td>482</td>
+      <td>4.9</td>
+      <td>16,918</td>
+      <td>3.0</td>
+      <td>70.2</td>
+    </tr>
+  </tbody>
+    </table>  </div>
+</div>
+<br>
+<hr>
+<div class="container">
+<h4>Origin and Destination Stats (2018 All Flights)</h4>
+<i>Information on which final destination at which passengers completed (or began) their journey. For example, a passenger may fly from St. Louis to Chicago, but then continue onward to another destination. The data below looks at the final destination regardless of connections (Domestic only).</i><br>
+<div class="btn-group" role="group">
+<button class="btn" v-on:click="od_sel='arrive'" v-bind:class="{active: od_sel==='arrive'}">Arriving Flights</button>
+<button class="btn" v-on:click="od_sel='depart'" v-bind:class="{active: od_sel==='depart'}">Departing Flights</button>
+<button class="btn" v-on:click="od_sel='combined'" v-bind:class="{active: od_sel==='combined'}">All Flights</button>
+</div>
+<br>
+<div class="col-sm-12 air-table">
+  <table class="table">
+    <thead>
+      <tr style="text-align: center;">
+      <th>DESTINATION</th>
+      <th>CITY</th>
+      <th>PASSENGERS (OD)</th>
+      <th>OD DEST RANK AT STL</th>
+      <th>AVG FARE</th>
+      <th>PCT FREE FARES</th>
+    </tr>
+  </thead>
+  <tbody v-if="od_sel==='arrive'" style="text-align: center;">
+    <tr>
+      <td>ATL</td>
+      <td>Atlanta, GA</td>
+      <td>106,050</td>
+      <td>1</td>
+      <td>$180.63</td>
+      <td>6.81%</td>
+    </tr>
+    <tr>
+      <td>MSP</td>
+      <td>Minneapolis, MN</td>
+      <td>80,070</td>
+      <td>1</td>
+      <td>$234.53</td>
+      <td>4.60%</td>
+    </tr>
+    <tr>
+      <td>LGA</td>
+      <td>New York, NY</td>
+      <td>79,340</td>
+      <td>1</td>
+      <td>$234.58</td>
+      <td>6.08%</td>
+    </tr>
+    <tr>
+      <td>DTW</td>
+      <td>Detroit, MI</td>
+      <td>54,140</td>
+      <td>1</td>
+      <td>$238.52</td>
+      <td>5.33%</td>
+    </tr>
+    <tr>
+      <td>SLC</td>
+      <td>Salt Lake City, UT</td>
+      <td>31,990</td>
+      <td>1</td>
+      <td>$274.39</td>
+      <td>7.46%</td>
+    </tr>
+    <tr>
+      <td>CVG</td>
+      <td>Cincinnati, OH</td>
+      <td>13,340</td>
+      <td>1</td>
+      <td>$210.63</td>
+      <td>2.62%</td>
+    </tr>
+    <tr>
+      <td>MCO</td>
+      <td>Orlando, FL</td>
+      <td>9,910</td>
+      <td>3</td>
+      <td>$225.11</td>
+      <td>11.60%</td>
+    </tr>
+    <tr>
+      <td>JAX</td>
+      <td>Jacksonville, FL</td>
+      <td>9,310</td>
+      <td>2</td>
+      <td>$251.49</td>
+      <td>6.40%</td>
+    </tr>
+    <tr>
+      <td>BOS</td>
+      <td>Boston, MA</td>
+      <td>8,290</td>
+      <td>3</td>
+      <td>$285.96</td>
+      <td>8.08%</td>
+    </tr>
+    <tr>
+      <td>PBI</td>
+      <td>West Palm Beach/Palm Beach, FL</td>
+      <td>8,230</td>
+      <td>1</td>
+      <td>$255.23</td>
+      <td>6.19%</td>
+    </tr>
+    <tr>
+      <td>TPA</td>
+      <td>Tampa, FL</td>
+      <td>8,140</td>
+      <td>2</td>
+      <td>$229.82</td>
+      <td>9.12%</td>
+    </tr>
+    <tr>
+      <td>SAV</td>
+      <td>Savannah, GA</td>
+      <td>7,510</td>
+      <td>1</td>
+      <td>$249.89</td>
+      <td>5.92%</td>
+    </tr>
+    <tr>
+      <td>FLL</td>
+      <td>Fort Lauderdale, FL</td>
+      <td>6,950</td>
+      <td>2</td>
+      <td>$233.87</td>
+      <td>8.42%</td>
+    </tr>
+    <tr>
+      <td>RDU</td>
+      <td>Raleigh/Durham, NC</td>
+      <td>6,920</td>
+      <td>3</td>
+      <td>$268.57</td>
+      <td>4.37%</td>
+    </tr>
+    <tr>
+      <td>CHS</td>
+      <td>Charleston, SC</td>
+      <td>6,780</td>
+      <td>2</td>
+      <td>$242.42</td>
+      <td>5.94%</td>
+    </tr>
+    <tr>
+      <td>LAX</td>
+      <td>Los Angeles, CA</td>
+      <td>6,730</td>
+      <td>3</td>
+      <td>$320.45</td>
+      <td>12.73%</td>
+    </tr>
+    <tr>
+      <td>BHM</td>
+      <td>Birmingham, AL</td>
+      <td>6,260</td>
+      <td>1</td>
+      <td>$254.28</td>
+      <td>4.68%</td>
+    </tr>
+    <tr>
+      <td>PDX</td>
+      <td>Portland, OR</td>
+      <td>6,040</td>
+      <td>3</td>
+      <td>$265.97</td>
+      <td>5.78%</td>
+    </tr>
+    <tr>
+      <td>SEA</td>
+      <td>Seattle, WA</td>
+      <td>5,490</td>
+      <td>4</td>
+      <td>$322.07</td>
+      <td>6.81%</td>
+    </tr>
+    <tr>
+      <td>RSW</td>
+      <td>Fort Myers, FL</td>
+      <td>5,440</td>
+      <td>2</td>
+      <td>$239.18</td>
+      <td>10.12%</td>
+    </tr>
+    <tr>
+      <td>RIC</td>
+      <td>Richmond, VA</td>
+      <td>5,140</td>
+      <td>2</td>
+      <td>$275.53</td>
+      <td>7.53%</td>
+    </tr>
+  </tbody>
+  <tbody  v-else-if="od_sel==='depart'" style="text-align: center;">
+    <tr>
+      <td>ATL</td>
+      <td>Atlanta, GA</td>
+      <td>103,470</td>
+      <td>1</td>
+      <td>$182.07</td>
+      <td>6.79%</td>
+    </tr>
+    <tr>
+      <td>LGA</td>
+      <td>New York, NY</td>
+      <td>79,580</td>
+      <td>1</td>
+      <td>$238.02</td>
+      <td>6.12%</td>
+    </tr>
+    <tr>
+      <td>MSP</td>
+      <td>Minneapolis, MN</td>
+      <td>77,220</td>
+      <td>1</td>
+      <td>$239.23</td>
+      <td>4.62%</td>
+    </tr>
+    <tr>
+      <td>DTW</td>
+      <td>Detroit, MI</td>
+      <td>52,710</td>
+      <td>1</td>
+      <td>$235.93</td>
+      <td>5.23%</td>
+    </tr>
+    <tr>
+      <td>SLC</td>
+      <td>Salt Lake City, UT</td>
+      <td>32,560</td>
+      <td>1</td>
+      <td>$270.66</td>
+      <td>7.64%</td>
+    </tr>
+    <tr>
+      <td>CVG</td>
+      <td>Cincinnati, OH</td>
+      <td>12,380</td>
+      <td>1</td>
+      <td>$213.42</td>
+      <td>2.57%</td>
+    </tr>
+    <tr>
+      <td>JAX</td>
+      <td>Jacksonville, FL</td>
+      <td>9,280</td>
+      <td>2</td>
+      <td>$256.44</td>
+      <td>5.94%</td>
+    </tr>
+    <tr>
+      <td>MCO</td>
+      <td>Orlando, FL</td>
+      <td>8,980</td>
+      <td>3</td>
+      <td>$230.31</td>
+      <td>11.83%</td>
+    </tr>
+    <tr>
+      <td>BOS</td>
+      <td>Boston, MA</td>
+      <td>8,560</td>
+      <td>3</td>
+      <td>$294.90</td>
+      <td>7.40%</td>
+    </tr>
+    <tr>
+      <td>PBI</td>
+      <td>West Palm Beach/Palm Beach, FL</td>
+      <td>8,270</td>
+      <td>1</td>
+      <td>$263.40</td>
+      <td>6.44%</td>
+    </tr>
+    <tr>
+      <td>SAV</td>
+      <td>Savannah, GA</td>
+      <td>7,700</td>
+      <td>1</td>
+      <td>$253.31</td>
+      <td>5.91%</td>
+    </tr>
+    <tr>
+      <td>TPA</td>
+      <td>Tampa, FL</td>
+      <td>7,290</td>
+      <td>2</td>
+      <td>$242.85</td>
+      <td>9.13%</td>
+    </tr>
+    <tr>
+      <td>CHS</td>
+      <td>Charleston, SC</td>
+      <td>7,100</td>
+      <td>2</td>
+      <td>$242.54</td>
+      <td>5.97%</td>
+    </tr>
+    <tr>
+      <td>RDU</td>
+      <td>Raleigh/Durham, NC</td>
+      <td>6,610</td>
+      <td>3</td>
+      <td>$281.71</td>
+      <td>4.26%</td>
+    </tr>
+    <tr>
+      <td>FLL</td>
+      <td>Fort Lauderdale, FL</td>
+      <td>6,470</td>
+      <td>2</td>
+      <td>$241.04</td>
+      <td>8.19%</td>
+    </tr>
+    <tr>
+      <td>LAX</td>
+      <td>Los Angeles, CA</td>
+      <td>6,280</td>
+      <td>3</td>
+      <td>$315.85</td>
+      <td>13.56%</td>
+    </tr>
+    <tr>
+      <td>PDX</td>
+      <td>Portland, OR</td>
+      <td>6,060</td>
+      <td>3</td>
+      <td>$270.02</td>
+      <td>6.50%</td>
+    </tr>
+    <tr>
+      <td>BHM</td>
+      <td>Birmingham, AL</td>
+      <td>6,040</td>
+      <td>1</td>
+      <td>$256.93</td>
+      <td>3.60%</td>
+    </tr>
+    <tr>
+      <td>SEA</td>
+      <td>Seattle, WA</td>
+      <td>5,510</td>
+      <td>4</td>
+      <td>$324.60</td>
+      <td>7.62%</td>
+    </tr>
+    <tr>
+      <td>RIC</td>
+      <td>Richmond, VA</td>
+      <td>5,190</td>
+      <td>2</td>
+      <td>$278.68</td>
+      <td>7.01%</td>
+    </tr>
+    <tr>
+      <td>RSW</td>
+      <td>Fort Myers, FL</td>
+      <td>4,940</td>
+      <td>2</td>
+      <td>$244.97</td>
+      <td>11.51%</td>
+    </tr>
+  </tbody>
+  <tbody  v-else style="text-align: center;">
+    <tr>
+      <td>ATL</td>
+      <td>Atlanta, GA</td>
+      <td>209,520</td>
+      <td>1</td>
+      <td>$181.34</td>
+      <td>6.80%</td>
+    </tr>
+    <tr>
+      <td>LGA</td>
+      <td>New York, NY</td>
+      <td>158,920</td>
+      <td>1</td>
+      <td>$236.30</td>
+      <td>6.10%</td>
+    </tr>
+    <tr>
+      <td>MSP</td>
+      <td>Minneapolis, MN</td>
+      <td>157,290</td>
+      <td>1</td>
+      <td>$236.84</td>
+      <td>4.61%</td>
+    </tr>
+    <tr>
+      <td>DTW</td>
+      <td>Detroit, MI</td>
+      <td>106,850</td>
+      <td>1</td>
+      <td>$237.24</td>
+      <td>5.28%</td>
+    </tr>
+    <tr>
+      <td>SLC</td>
+      <td>Salt Lake City, UT</td>
+      <td>64,550</td>
+      <td>1</td>
+      <td>$272.51</td>
+      <td>7.55%</td>
+    </tr>
+    <tr>
+      <td>CVG</td>
+      <td>Cincinnati, OH</td>
+      <td>25,720</td>
+      <td>1</td>
+      <td>$211.97</td>
+      <td>2.59%</td>
+    </tr>
+    <tr>
+      <td>MCO</td>
+      <td>Orlando, FL</td>
+      <td>18,890</td>
+      <td>3</td>
+      <td>$227.58</td>
+      <td>11.71%</td>
+    </tr>
+    <tr>
+      <td>JAX</td>
+      <td>Jacksonville, FL</td>
+      <td>18,590</td>
+      <td>2</td>
+      <td>$253.97</td>
+      <td>6.17%</td>
+    </tr>
+    <tr>
+      <td>BOS</td>
+      <td>Boston, MA</td>
+      <td>16,850</td>
+      <td>3</td>
+      <td>$290.51</td>
+      <td>7.74%</td>
+    </tr>
+    <tr>
+      <td>PBI</td>
+      <td>West Palm Beach/Palm Beach, FL</td>
+      <td>16,500</td>
+      <td>1</td>
+      <td>$259.32</td>
+      <td>6.31%</td>
+    </tr>
+    <tr>
+      <td>TPA</td>
+      <td>Tampa, FL</td>
+      <td>15,430</td>
+      <td>2</td>
+      <td>$235.97</td>
+      <td>9.12%</td>
+    </tr>
+    <tr>
+      <td>SAV</td>
+      <td>Savannah, GA</td>
+      <td>15,210</td>
+      <td>1</td>
+      <td>$251.62</td>
+      <td>5.92%</td>
+    </tr>
+    <tr>
+      <td>CHS</td>
+      <td>Charleston, SC</td>
+      <td>13,880</td>
+      <td>2</td>
+      <td>$242.48</td>
+      <td>5.95%</td>
+    </tr>
+    <tr>
+      <td>RDU</td>
+      <td>Raleigh/Durham, NC</td>
+      <td>13,530</td>
+      <td>3</td>
+      <td>$274.99</td>
+      <td>4.32%</td>
+    </tr>
+    <tr>
+      <td>FLL</td>
+      <td>Fort Lauderdale, FL</td>
+      <td>13,420</td>
+      <td>2</td>
+      <td>$237.33</td>
+      <td>8.31%</td>
+    </tr>
+    <tr>
+      <td>LAX</td>
+      <td>Los Angeles, CA</td>
+      <td>13,010</td>
+      <td>3</td>
+      <td>$318.24</td>
+      <td>13.13%</td>
+    </tr>
+    <tr>
+      <td>BHM</td>
+      <td>Birmingham, AL</td>
+      <td>12,300</td>
+      <td>1</td>
+      <td>$255.59</td>
+      <td>4.15%</td>
+    </tr>
+    <tr>
+      <td>PDX</td>
+      <td>Portland, OR</td>
+      <td>12,100</td>
+      <td>3</td>
+      <td>$267.99</td>
+      <td>6.14%</td>
+    </tr>
+    <tr>
+      <td>SEA</td>
+      <td>Seattle, WA</td>
+      <td>11,000</td>
+      <td>4</td>
+      <td>$323.33</td>
+      <td>7.21%</td>
+    </tr>
+    <tr>
+      <td>RSW</td>
+      <td>Fort Myers, FL</td>
+      <td>10,380</td>
+      <td>2</td>
+      <td>$241.91</td>
+      <td>10.78%</td>
+    </tr>
+    <tr>
+      <td>RIC</td>
+      <td>Richmond, VA</td>
+      <td>10,330</td>
+      <td>2</td>
+      <td>$277.11</td>
+      <td>7.27%</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</div>
+<br>
+<hr>
+
+</div>
+</div>
+</div>
+
+<script type="text/javascript" src="static/components/by_the_numbers/STL_DL_dept_bkch_all.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_DL_pass_bkch_all.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_DL_lf_bkch_all.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_DL_dept_bkch_main.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_DL_pass_bkch_main.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_DL_lf_bkch_main.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_DL_dept_bkch_reg.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_DL_pass_bkch_reg.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_DL_lf_bkch_reg.js"></script>
+
+      <script src="static/components/menu.vue">
+    </script>
+          <script>
+            
+      new Vue ({
+        el: '#by_the_numbers',
+        data: {
+          dests: 'x',
+          table_sel: 'combined',
+          od_sel: 'combined',
+          operator_sel: 'all'
+          
+        },
+        methods:{
+          formatPct: function(val) {
+            if (val!=null) {
+              return val.toFixed(1);
+            }
+            else {
+              return "NA"
+            }
+          },
+          formatNum: function(val) {
+            if (val!=null) {
+              return val.toLocaleString()
+            }
+            else {
+              return "NA"
+            }
+          },
+          updateNBHood: function(){
+            let form = document.createElement('form');
+            form.action = 'stl_pop';
+            form.method = 'POST';
+            form.innerHTML = '<input class="hidden_submit" name="nbhoods_send" value="'+this.nbhoods_sel+'">';
+            document.body.append(form);
+            form.submit();
+          }
+        }
+      })
+      </script>
+        
+    
+    </center>
+
+
+
+  </body>
+</html>

@@ -61,6 +61,16 @@ table{
         text-align: left;
     }
 }
+.air-table{
+  overflow:scroll;
+  overflow-y: hidden;
+}
+@media screen and (min-width: 48em){
+    .air-table{
+      overflow:auto;
+      max-height:1000px;
+    }
+}
 .active {
   border: black solid 1pt;
 }

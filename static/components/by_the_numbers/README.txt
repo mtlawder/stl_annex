@@ -1,0 +1,3 @@
+Bokeh charts create two script tags. One that holds the josn data and the other is js that renders that data to a specific div in your html code.
+
+The json script tag is referenced in the js tag only to get the data out of the json. There instead of referencing the json script tag we move the json into the js script tag and save the code to an external file and have the main html page use a script src tag to reference the image.

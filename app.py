@@ -311,7 +311,15 @@ def blog_first_stl_pop():
 
 @app.route('/about',methods=['GET','POST'])
 def about():
-    return render_template('/about.html') 
+    return render_template('/about.html')
+
+@app.route('/delta_stl_by_the_numbers',methods=['GET','POST'])
+def delta_stl_by_the_numbers():
+    return render_template('/by_the_numbers/delta_STL_btn.html')
+
+@app.route('/btn_methodology',methods=['GET','POST'])
+def btn_methodology():
+    return render_template('/by_the_numbers/btn_methodology.html')
 
 if __name__ == '__main__':
     app.run()

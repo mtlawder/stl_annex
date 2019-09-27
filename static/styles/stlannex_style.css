@@ -77,6 +77,9 @@ table{
 .hidden_submit {
   display:none;
 }
+.btn-selector{
+  background-color: #b3b5c4;
+}
 .select-option-1 {
   text-align:left;
   padding-left:20px;

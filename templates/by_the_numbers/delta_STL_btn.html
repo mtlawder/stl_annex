@@ -113,6 +113,7 @@
                       </tbody>
                     </table>
                   </div>
+                  <i>Charts and Graphs are best viewed on a desktop. If on phone, hold horizontal for best viewing.</i>
                   <hr>
                   <br>
                   As with many airlines, Delta farms out many of it's routes to be run by a regional airline under the Delta Connections banner. At STL, about 52% of the departures by Delta are under the Delta Connections banner, but because these are run on smaller planes they carry only 33% of total Delta passengers. When looking at the numbers below, you can toggle between All Flights, Mainline Flights Only, and Regional Flights Only to look at how Delta breaks down its service.
@@ -125,9 +126,9 @@
                 </div>
                 <hr>
                 <div class="btn-group" role="group">
-                  <button class="btn" v-on:click="operator_sel='all'" v-bind:class="{active: operator_sel==='all'}">All Flights</button>
-                  <button class="btn" v-on:click="operator_sel='main'" v-bind:class="{active: operator_sel==='main'}">Mainline Flights</button>
-                  <button class="btn" v-on:click="operator_sel='reg'" v-bind:class="{active: operator_sel==='reg'}">Regional Flights</button>
+                  <button class="btn btn-selector" v-on:click="operator_sel='all'" v-bind:class="{active: operator_sel==='all'}">All Flights</button>
+                  <button class="btn btn-selector" v-on:click="operator_sel='main'" v-bind:class="{active: operator_sel==='main'}">Mainline Flights</button>
+                  <button class="btn btn-selector" v-on:click="operator_sel='reg'" v-bind:class="{active: operator_sel==='reg'}">Regional Flights</button>
                 </div>
             </div>
             <div class="container">
@@ -169,9 +170,9 @@
 		<h4>Direct Route Stats (2018 <a v-if="operator_sel==='all'">All Flights</a><a v-else-if="operator_sel==='main'">Mainline</a><a v-else>Regionals Only</a>)</h4>
 		<i>Info on any direct routes served by the airline to or from St. Louis (Lambert)</i><br>
                 <div class="btn-group" role="group">
-                  <button class="btn" v-on:click="table_sel='arrive'" v-bind:class="{active: table_sel==='arrive'}">Arriving Flights</button>
-                  <button class="btn" v-on:click="table_sel='depart'" v-bind:class="{active: table_sel==='depart'}">Departing Flights</button>
-                  <button class="btn" v-on:click="table_sel='combined'" v-bind:class="{active: table_sel==='combined'}">All Flights</button>
+                  <button class="btn btn-selector" v-on:click="table_sel='arrive'" v-bind:class="{active: table_sel==='arrive'}">Arriving Flights</button>
+                  <button class="btn btn-selector" v-on:click="table_sel='depart'" v-bind:class="{active: table_sel==='depart'}">Departing Flights</button>
+                  <button class="btn btn-selector" v-on:click="table_sel='combined'" v-bind:class="{active: table_sel==='combined'}">All Flights</button>
                 </div>
                   <br>
 
@@ -968,9 +969,9 @@
 <h4>Origin and Destination Stats (2018 All Flights)</h4>
 <i>Information on which final destination at which passengers completed (or began) their journey. For example, a passenger may fly from St. Louis to Chicago, but then continue onward to another destination. The data below looks at the final destination regardless of connections (Domestic only).</i><br>
 <div class="btn-group" role="group">
-<button class="btn" v-on:click="od_sel='arrive'" v-bind:class="{active: od_sel==='arrive'}">Arriving Flights</button>
-<button class="btn" v-on:click="od_sel='depart'" v-bind:class="{active: od_sel==='depart'}">Departing Flights</button>
-<button class="btn" v-on:click="od_sel='combined'" v-bind:class="{active: od_sel==='combined'}">All Flights</button>
+<button class="btn btn-selector" v-on:click="od_sel='arrive'" v-bind:class="{active: od_sel==='arrive'}">Arriving Flights</button>
+<button class="btn btn-selector" v-on:click="od_sel='depart'" v-bind:class="{active: od_sel==='depart'}">Departing Flights</button>
+<button class="btn btn-selector" v-on:click="od_sel='combined'" v-bind:class="{active: od_sel==='combined'}">All Flights</button>
 </div>
 <br>
 <div class="col-sm-12 air-table">

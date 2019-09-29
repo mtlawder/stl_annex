@@ -1,0 +1,1031 @@
+<html lang="en">
+  <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-142498774-1');
+	</script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/stl_pop_style.css">
+    <title>STL Annex</title>
+    
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.css" type="text/css" />
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+    <style>
+    .col-xl-4{
+      padding:0px !important;
+    }
+    .col-lg-6{
+      padding:0px !important;
+    }
+    .col-lg-12{
+      padding:0px !important;
+    }
+    .btn-group{
+      padding:5px !important;
+    }
+    .container{
+      padding:0px !important;
+      max-width:1240px;
+    }
+  </style>
+  </head>
+  <body>
+        <center>
+          <div class="tophead">
+          <br>
+          <h1> STL Annex: Data Analysis of St. Louis Topics and More! [BETA] </h1>
+          <h4>Matthew T. Lawder</h4>
+          <h5>matt@stlannex.com</h5>
+          <br>
+        </div>
+        <div id="menu-vue">
+          <menu-bar></menu-bar>
+        </div><br>
+        <div id="by_the_numbers" class="container">
+          <div class="col-sm-12">
+            <div>
+                <h3>By the Numbers: Frontier at St. Louis-Lambert Airport</h3>
+                <div class="blog-container left-group">
+                  Frontier airlines has been a small player at Lambert for over a decade. For a long time they mostly focused on multiple daily flights to their Denver hub and very few other routes. In 2014 that began to change as they dropped their frequencies to Denver and began adding more vacation oriented destinations with direct service. The biggest change has been the addition of multiple daily flights to Las Vegas and Orlando as well as mostly seasonal service to several other Florida airports. The data here only looks at domestic routes, so it doesn't account for Frontier's international routes to vacation spots in Mexico and elsewhere in the Caribbean which would add a significant amount to their recent passenger totals. All of these changes fall in line with the airline's shift earlier this decade to an ultra-low cost carrier model while <a href="https://www.denverpost.com/2015/10/06/frontier-wants-to-right-size-at-dia-with-return-of-6-gates/">reducing their main hub in Denver</a>. Although Frontier has recently been <a href="https://thepointsguy.com/news/frontier-airlines-wants-more-flights-at-booming-denver-hub/">increasing Denver opperations again</a> and St. Louis has been bumped back up to twice daily service for most of 2019 (check out some historical daily departures on <a href="https://twitter.com/AviationStl">AviationSTL's Departures google sheet</a>).
+                  <br><br>
+                  While Frontier's passengers to/from Denver has decreased from its 2012 peak of 233k down to 125k in 2018, the other routes that have been added have allowed their total passenger count to expand. In 2018, Frontier flew 447k (on 2,395 flights) domestic passengers down from their peak in 2017 of 542k. Reminder that this incluldes departures and arrivals from/to STL on Frontier.
+                  <br><br><hr>
+                  <div class="air-table">
+                    <h5>Annual Frontier Numbers for all routes</h5>
+                    <table class="table">
+                      <thead>
+                        <tr style="text-align: center;">
+                          <th></th>
+                          <th>2010</th>
+                          <th>2011</th>
+                          <th>2012</th>
+                          <th>2013</th>
+                          <th>2014</th>
+                          <th>2015</th>
+                          <th>2016</th>
+                          <th>2017</th>
+                          <th>2018</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Departures</td>
+                          <td>2,405</td>
+                          <td>3,257</td>
+                          <td>2,043</td>
+                          <td>1,620</td>
+                          <td>1,789</td>
+                          <td>1,876</td>
+                          <td>2,835</td>
+                          <td>3,089</td>
+                          <td>2,395</td>
+                        </tr>
+                        <tr>
+                          <td>Passengers</td>
+                          <td>229,036</td>
+                          <td>270,864</td>
+                          <td>235,642</td>
+                          <td>205,645</td>
+                          <td>230,632</td>
+                          <td>262,198</td>
+                          <td>493,035</td>
+                          <td>542,834</td>
+                          <td>447,457</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <i>Charts and Graphs are best viewed on a desktop. If on phone, hold horizontal for best viewing.</i>
+                  <hr>
+                  <br>
+                  For 2019, it looks like Frontier dropped their season RSW and TPA service, but kept JAX and PBI with their three year round routes keeping around the same, so I would expect total domestic passengers to be similar in 2019. With the way that Frontier serves mostly direct warm weather vacation routes (outside of Denver), they have many less connecting passengers then other airlines at STL. Because of this type of routing, Frontiers O&D numbers look similar to their passengers numbers with a high percentage of their passengers ending their trips at their direct destination from STL. For example, Frontier flew 142k passengers between Orlando and St. Louis and 136k passengers on Frontier had their final end points at St. Louis and Orlando for a percentage of 95.5% O&D to passenger ratio on the route. Frontier's ratios for all the routes they fly direct is much higher than other major carriers at Lambert. In our previous post about Delta, had a high ratio for LaGuardia in New York (86.2%), but then quickly dropped off to 66.4% for Cincinnati and then only 51.3% for Salt Lake City. Frontier meanwhile every route had a ratio above Delta's highest (86.2%) except for Denver which was still 77.7%. Note that this ratio doesn't exactly say that X percentage of passengers that flew on the direct route ended their trip at the destination. For example the for Delta's St. Louis to New York-LGA route, many people may have flown from STL to LGA, but connected in Detroit and therefore wouldn't be a passenger in the direct route stats for STL-LGA, but would appear in the O&D results.
+                  <br><br>
+                  Getting back to Frontier, another interesting thing to note from their O&D data, is that (as expected since they are a Low Cost Carrier), their fares are much lower than other carriers at Lambert. They make up some of that money in various fees, but it is pretty amazing to see just how much lower the reported base fares are for Frontier. All of the direct route's average base fares were well below $100 with some below $50. For comparison, Delta only had 1 direct route (ATL) that averaged below $200 for the base fare. In addition to non-fare fees that can help add revenue for Frontier they also benefit from having hi load factors on many of their fllights. In 2018, the three year round flights (MCO, LAS, and DEN) were all above 85% for Load Factor with Denver averaging 91.5% for the year. The seasonal routes were generally a little bit lower.
+                  <br><br>
+                  With such a small presence at Lambert, Frontier is not the leading O&D Carrier to any destinations, but ranks second on their year-round routes. In terms of aircraft, Frontier has only Airbus planes with only A319, A320, and A321's and at Lambert flies the majority of flights on the A321. The other thing I'll note about the data below, is that you will see the Mainline/Regional tab disabled below. Frontier does not currently operate with any regional airlines (<a href="https://airlinegeeks.com/2018/02/18/a-lost-frontier-the-adventures-of-frontier-airlines-into-regional-jet-flying/">although the have in several times in the past</a>), so all the data below will show All Flights. 
+                </div>
+                <hr>
+                <div class="btn-group" role="group">
+                  <button class="btn" v-on:click="operator_sel='all'" v-bind:class="{active: operator_sel==='all'}">All Flights</button>
+                  <button class="btn" v-on:click="operator_sel='main'" v-bind:class="{active: operator_sel==='main'}" disabled>Mainline Flights</button>
+                  <button class="btn" v-on:click="operator_sel='reg'" v-bind:class="{active: operator_sel==='reg'}" disabled>Regional Flights</button>
+                </div>
+            </div>
+            <div class="container">
+              <div class="row" style="border:1px solid black;background-color: white;">
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='all'">
+<div class="bk-root" id="587a0a98-0891-4a38-a136-a0557a575369" data-root-id="1039"></div>
+</div>
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='all'">
+<div class="bk-root" id="e92003ff-4de6-432a-831b-69763fa01d49" data-root-id="1004"></div>
+</div>
+<div class="col-xl-4 col-lg-12" v-show="operator_sel==='all'">
+<div class="bk-root" id="845a472f-2784-4703-a141-77fa14a07d0e" data-root-id="1074"></div>
+</div>
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='main'">
+<div class="bk-root" id="71e19f7f-82c4-4950-ad23-22b651bdd21f" data-root-id="2500"></div>
+</div>
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='main'">
+<div class="bk-root" id="0158d08a-1913-4489-b46e-922868f02c34" data-root-id="2465"></div>
+</div>
+<div class="col-xl-4 col-lg-12" v-show="operator_sel==='main'">
+<div class="bk-root" id="3b70d1eb-d236-40d2-b404-6f387ff0a3c9" data-root-id="2535"></div>
+</div>
+
+              </div>
+            </div>
+            <br>
+            <hr>
+             <div class="container">
+              <div class="col-sm-12">
+		<h4>Direct Route Stats (2018 <a v-if="operator_sel==='all'">All Flights</a><a v-else-if="operator_sel==='main'">Mainline</a><a v-else>Regionals Only</a>)</h4>
+		<i>Info on any direct routes served by the airline to or from St. Louis (Lambert)</i><br>
+                <div class="btn-group" role="group">
+                  <button class="btn" v-on:click="table_sel='arrive'" v-bind:class="{active: table_sel==='arrive'}">Arriving Flights</button>
+                  <button class="btn" v-on:click="table_sel='depart'" v-bind:class="{active: table_sel==='depart'}">Departing Flights</button>
+                  <button class="btn" v-on:click="table_sel='combined'" v-bind:class="{active: table_sel==='combined'}">All Flights</button>
+                </div>
+                  <br>
+
+<div class="air-table">
+  <table class="table">
+    <thead>
+      <tr style="text-align: center;">
+      <th>DESTINATION</th>
+      <th>CITY</th>
+      <th>PASSENGERS</th>
+      <th>LOAD FACTOR</th>
+      <th>DEPARTURES</th>
+      <th>AVG TRIP TIME</th>
+      <th>AVG TAXI TIME</th>
+    </tr>
+  </thead>
+  <tbody v-if="table_sel==='arrive'" style="text-align: center;">
+    <tr>
+      <td>MCO</td>
+      <td>Orlando, FL</td>
+      <td>69,024</td>
+      <td>84.7</td>
+      <td>365</td>
+      <td>147.4</td>
+      <td>23.1</td>
+    </tr>
+    <tr>
+      <td>LAS</td>
+      <td>Las Vegas, NV</td>
+      <td>67,552</td>
+      <td>81.7</td>
+      <td>360</td>
+      <td>179.9</td>
+      <td>21.2</td>
+    </tr>
+    <tr>
+      <td>DEN</td>
+      <td>Denver, CO</td>
+      <td>63,074</td>
+      <td>92.0</td>
+      <td>330</td>
+      <td>118.7</td>
+      <td>23.7</td>
+    </tr>
+    <tr>
+      <td>JAX</td>
+      <td>Jacksonville, FL</td>
+      <td>6,755</td>
+      <td>75.2</td>
+      <td>49</td>
+      <td>127.4</td>
+      <td>20.6</td>
+    </tr>
+    <tr>
+      <td>TPA</td>
+      <td>Tampa, FL</td>
+      <td>5,810</td>
+      <td>76.9</td>
+      <td>42</td>
+      <td>148.7</td>
+      <td>22.5</td>
+    </tr>
+    <tr>
+      <td>RSW</td>
+      <td>Fort Myers, FL</td>
+      <td>5,306</td>
+      <td>86.3</td>
+      <td>41</td>
+      <td>163.2</td>
+      <td>22.3</td>
+    </tr>
+    <tr>
+      <td>PBI</td>
+      <td>West Palm Beach/Palm Beach, FL</td>
+      <td>1,503</td>
+      <td>70.4</td>
+      <td>14</td>
+      <td>167.6</td>
+      <td>22.6</td>
+    </tr>
+  </tbody>
+  <tbody  v-else-if="table_sel==='depart'" style="text-align: center;">
+    <tr>
+      <td>LAS</td>
+      <td>Las Vegas, NV</td>
+      <td>73,098</td>
+      <td>88.8</td>
+      <td>359</td>
+      <td>211.7</td>
+      <td>24.0</td>
+    </tr>
+    <tr>
+      <td>MCO</td>
+      <td>Orlando, FL</td>
+      <td>72,953</td>
+      <td>90.7</td>
+      <td>360</td>
+      <td>141.3</td>
+      <td>24.1</td>
+    </tr>
+    <tr>
+      <td>DEN</td>
+      <td>Denver, CO</td>
+      <td>62,336</td>
+      <td>91.1</td>
+      <td>330</td>
+      <td>140.7</td>
+      <td>25.4</td>
+    </tr>
+    <tr>
+      <td>JAX</td>
+      <td>Jacksonville, FL</td>
+      <td>6,957</td>
+      <td>78.9</td>
+      <td>48</td>
+      <td>120.0</td>
+      <td>22.2</td>
+    </tr>
+    <tr>
+      <td>TPA</td>
+      <td>Tampa, FL</td>
+      <td>6,192</td>
+      <td>81.9</td>
+      <td>42</td>
+      <td>138.8</td>
+      <td>25.2</td>
+    </tr>
+    <tr>
+      <td>RSW</td>
+      <td>Fort Myers, FL</td>
+      <td>5,258</td>
+      <td>85.5</td>
+      <td>41</td>
+      <td>151.0</td>
+      <td>25.9</td>
+    </tr>
+    <tr>
+      <td>PBI</td>
+      <td>West Palm Beach/Palm Beach, FL</td>
+      <td>1,639</td>
+      <td>76.7</td>
+      <td>14</td>
+      <td>158.6</td>
+      <td>23.4</td>
+    </tr>
+  </tbody>
+  <tbody  v-else style="text-align: center;">
+    <tr>
+      <td>MCO</td>
+      <td>Orlando, FL</td>
+      <td>141,977</td>
+      <td>87.7</td>
+      <td>725</td>
+      <td>144.3</td>
+      <td>23.6</td>
+    </tr>
+    <tr>
+      <td>LAS</td>
+      <td>Las Vegas, NV</td>
+      <td>140,650</td>
+      <td>85.2</td>
+      <td>719</td>
+      <td>195.8</td>
+      <td>22.6</td>
+    </tr>
+    <tr>
+      <td>DEN</td>
+      <td>Denver, CO</td>
+      <td>125,410</td>
+      <td>91.5</td>
+      <td>660</td>
+      <td>129.7</td>
+      <td>24.6</td>
+    </tr>
+    <tr>
+      <td>JAX</td>
+      <td>Jacksonville, FL</td>
+      <td>13,712</td>
+      <td>77.0</td>
+      <td>97</td>
+      <td>123.7</td>
+      <td>21.4</td>
+    </tr>
+    <tr>
+      <td>TPA</td>
+      <td>Tampa, FL</td>
+      <td>12,002</td>
+      <td>79.4</td>
+      <td>84</td>
+      <td>143.8</td>
+      <td>23.9</td>
+    </tr>
+    <tr>
+      <td>RSW</td>
+      <td>Fort Myers, FL</td>
+      <td>10,564</td>
+      <td>85.9</td>
+      <td>82</td>
+      <td>157.1</td>
+      <td>24.1</td>
+    </tr>
+    <tr>
+      <td>PBI</td>
+      <td>West Palm Beach/Palm Beach, FL</td>
+      <td>3,142</td>
+      <td>73.5</td>
+      <td>28</td>
+      <td>163.1</td>
+      <td>23.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br><hr>
+<div class="container">
+<div class="col-sm-12 air-table">
+<h4>Aircraft Type Stats (2018 <a v-if="operator_sel==='all'">All Flights</a><a v-else-if="operator_sel==='main'">Mainline</a><a v-else>Regionals Only</a>)</h4>
+<i>What type of airplanes are being used across all routes to/from St. Louis (Lambert) for the airline</i>
+  <table class="table">
+    <thead>
+      <tr style="text-align: center;">
+      <th>Airplane</th>
+      <th>Departures</th>
+      <th>% Departures</th>
+      <th>Passengers</th>
+      <th>% Passengers</th>
+      <th>Load Factor</th>
+    </tr>
+  </thead>
+<tbody style="text-align: center;">
+    <tr>
+      <td>Airbus Industrie A321</td>
+      <td>1,758</td>
+      <td>73.4</td>
+      <td>354,111</td>
+      <td>79.1</td>
+      <td>87.6</td>
+    </tr>
+    <tr>
+      <td>Airbus Industrie A320-100/200</td>
+      <td>278</td>
+      <td>11.6</td>
+      <td>42,637</td>
+      <td>9.5</td>
+      <td>85.1</td>
+    </tr>
+    <tr>
+      <td>Airbus Industrie A319</td>
+      <td>216</td>
+      <td>9.0</td>
+      <td>28,506</td>
+      <td>6.4</td>
+      <td>88.0</td>
+    </tr>
+    <tr>
+      <td>Airbus Industrie A320-200n</td>
+      <td>143</td>
+      <td>6.0</td>
+      <td>22,203</td>
+      <td>5.0</td>
+      <td>83.5</td>
+    </tr>
+  </tbody>
+    </table>  </div>
+</div>
+<br>
+<hr>
+<div class="container">
+<h4>Origin and Destination Stats (2018 All Flights)</h4>
+<i>Information on which final destination at which passengers completed (or began) their journey. For example, a passenger may fly from St. Louis to Chicago, but then continue onward to another destination. The data below looks at the final destination regardless of connections (Domestic only).</i><br>
+<div class="btn-group" role="group">
+<button class="btn" v-on:click="od_sel='arrive'" v-bind:class="{active: od_sel==='arrive'}">Arriving Flights</button>
+<button class="btn" v-on:click="od_sel='depart'" v-bind:class="{active: od_sel==='depart'}">Departing Flights</button>
+<button class="btn" v-on:click="od_sel='combined'" v-bind:class="{active: od_sel==='combined'}">All Flights</button>
+</div>
+<br>
+<div class="col-sm-12 air-table">
+  <table class="table">
+    <thead>
+      <tr style="text-align: center;">
+      <th>DESTINATION</th>
+      <th>CITY</th>
+      <th>PASSENGERS (OD)</th>
+      <th>OD DEST RANK AT STL</th>
+      <th>AVG FARE</th>
+      <th>PCT FREE FARES</th>
+    </tr>
+  </thead>
+  <tbody v-if="od_sel==='arrive'" style="text-align: center;">
+    <tr>
+      <td>MCO</td>
+      <td>Orlando, FL</td>
+      <td>67,240</td>
+      <td>2</td>
+      <td>$63.00</td>
+      <td>0.06%</td>
+    </tr>
+    <tr>
+      <td>LAS</td>
+      <td>Las Vegas, NV</td>
+      <td>66,420</td>
+      <td>2</td>
+      <td>$61.57</td>
+      <td>0.05%</td>
+    </tr>
+    <tr>
+      <td>DEN</td>
+      <td>Denver, CO</td>
+      <td>48,440</td>
+      <td>2</td>
+      <td>$72.20</td>
+      <td>0.02%</td>
+    </tr>
+    <tr>
+      <td>JAX</td>
+      <td>Jacksonville, FL</td>
+      <td>6,200</td>
+      <td>3</td>
+      <td>$38.22</td>
+      <td>0.32%</td>
+    </tr>
+    <tr>
+      <td>TPA</td>
+      <td>Tampa, FL</td>
+      <td>5,410</td>
+      <td>4</td>
+      <td>$47.20</td>
+      <td>0.37%</td>
+    </tr>
+    <tr>
+      <td>RSW</td>
+      <td>Fort Myers, FL</td>
+      <td>4,670</td>
+      <td>3</td>
+      <td>$85.73</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SLC</td>
+      <td>Salt Lake City, UT</td>
+      <td>2,570</td>
+      <td>4</td>
+      <td>$112.84</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>LAX</td>
+      <td>Los Angeles, CA</td>
+      <td>1,840</td>
+      <td>5</td>
+      <td>$121.22</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SFO</td>
+      <td>San Francisco, CA</td>
+      <td>1,350</td>
+      <td>5</td>
+      <td>$127.91</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>PBI</td>
+      <td>West Palm Beach/Palm Beach, FL</td>
+      <td>1,330</td>
+      <td>4</td>
+      <td>$78.49</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>PHX</td>
+      <td>Phoenix, AZ</td>
+      <td>1,090</td>
+      <td>5</td>
+      <td>$108.71</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SEA</td>
+      <td>Seattle, WA</td>
+      <td>670</td>
+      <td>6</td>
+      <td>$137.62</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SJC</td>
+      <td>San Jose, CA</td>
+      <td>610</td>
+      <td>5</td>
+      <td>$117.15</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>ONT</td>
+      <td>Ontario, CA</td>
+      <td>580</td>
+      <td>3</td>
+      <td>$117.21</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>PDX</td>
+      <td>Portland, OR</td>
+      <td>220</td>
+      <td>6</td>
+      <td>$157.84</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>MIA</td>
+      <td>Miami, FL</td>
+      <td>170</td>
+      <td>4</td>
+      <td>$164.13</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SAN</td>
+      <td>San Diego, CA</td>
+      <td>160</td>
+      <td>6</td>
+      <td>$111.41</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SMF</td>
+      <td>Sacramento, CA</td>
+      <td>120</td>
+      <td>6</td>
+      <td>$113.82</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SNA</td>
+      <td>Santa Ana, CA</td>
+      <td>110</td>
+      <td>6</td>
+      <td>$92.32</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>LGA</td>
+      <td>New York, NY</td>
+      <td>90</td>
+      <td>5</td>
+      <td>$110.28</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>ABQ</td>
+      <td>Albuquerque, NM</td>
+      <td>90</td>
+      <td>5</td>
+      <td>$111.56</td>
+      <td>0.00%</td>
+    </tr>
+  </tbody>
+  <tbody  v-else-if="od_sel==='depart'" style="text-align: center;">
+    <tr>
+      <td>LAS</td>
+      <td>Las Vegas, NV</td>
+      <td>73,360</td>
+      <td>2</td>
+      <td>$62.38</td>
+      <td>0.12%</td>
+    </tr>
+    <tr>
+      <td>MCO</td>
+      <td>Orlando, FL</td>
+      <td>68,360</td>
+      <td>2</td>
+      <td>$64.40</td>
+      <td>0.21%</td>
+    </tr>
+    <tr>
+      <td>DEN</td>
+      <td>Denver, CO</td>
+      <td>49,000</td>
+      <td>2</td>
+      <td>$70.09</td>
+      <td>0.04%</td>
+    </tr>
+    <tr>
+      <td>JAX</td>
+      <td>Jacksonville, FL</td>
+      <td>6,470</td>
+      <td>3</td>
+      <td>$37.76</td>
+      <td>0.31%</td>
+    </tr>
+    <tr>
+      <td>TPA</td>
+      <td>Tampa, FL</td>
+      <td>5,570</td>
+      <td>4</td>
+      <td>$50.26</td>
+      <td>1.27%</td>
+    </tr>
+    <tr>
+      <td>RSW</td>
+      <td>Fort Myers, FL</td>
+      <td>4,610</td>
+      <td>3</td>
+      <td>$75.59</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SLC</td>
+      <td>Salt Lake City, UT</td>
+      <td>2,080</td>
+      <td>4</td>
+      <td>$116.51</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>LAX</td>
+      <td>Los Angeles, CA</td>
+      <td>1,720</td>
+      <td>5</td>
+      <td>$114.66</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>PBI</td>
+      <td>West Palm Beach/Palm Beach, FL</td>
+      <td>1,470</td>
+      <td>4</td>
+      <td>$83.01</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SFO</td>
+      <td>San Francisco, CA</td>
+      <td>1,460</td>
+      <td>5</td>
+      <td>$124.05</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>PHX</td>
+      <td>Phoenix, AZ</td>
+      <td>810</td>
+      <td>5</td>
+      <td>$114.89</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SEA</td>
+      <td>Seattle, WA</td>
+      <td>630</td>
+      <td>6</td>
+      <td>$124.28</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>ONT</td>
+      <td>Ontario, CA</td>
+      <td>490</td>
+      <td>4</td>
+      <td>$96.42</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>ABQ</td>
+      <td>Albuquerque, NM</td>
+      <td>340</td>
+      <td>5</td>
+      <td>$110.65</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SNA</td>
+      <td>Santa Ana, CA</td>
+      <td>330</td>
+      <td>5</td>
+      <td>$115.65</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SAN</td>
+      <td>San Diego, CA</td>
+      <td>320</td>
+      <td>6</td>
+      <td>$102.86</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>PDX</td>
+      <td>Portland, OR</td>
+      <td>290</td>
+      <td>6</td>
+      <td>$186.47</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SJU</td>
+      <td>San Juan, PR</td>
+      <td>240</td>
+      <td>5</td>
+      <td>$169.12</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>JAC</td>
+      <td>Jackson, WY</td>
+      <td>160</td>
+      <td>4</td>
+      <td>$160.44</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SMF</td>
+      <td>Sacramento, CA</td>
+      <td>140</td>
+      <td>6</td>
+      <td>$133.30</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>RNO</td>
+      <td>Reno, NV</td>
+      <td>130</td>
+      <td>5</td>
+      <td>$112.19</td>
+      <td>0.00%</td>
+    </tr>
+  </tbody>
+  <tbody  v-else style="text-align: center;">
+    <tr>
+      <td>LAS</td>
+      <td>Las Vegas, NV</td>
+      <td>139,780</td>
+      <td>2</td>
+      <td>$62.00</td>
+      <td>0.09%</td>
+    </tr>
+    <tr>
+      <td>MCO</td>
+      <td>Orlando, FL</td>
+      <td>135,600</td>
+      <td>2</td>
+      <td>$63.70</td>
+      <td>0.13%</td>
+    </tr>
+    <tr>
+      <td>DEN</td>
+      <td>Denver, CO</td>
+      <td>97,440</td>
+      <td>2</td>
+      <td>$71.14</td>
+      <td>0.03%</td>
+    </tr>
+    <tr>
+      <td>JAX</td>
+      <td>Jacksonville, FL</td>
+      <td>12,670</td>
+      <td>3</td>
+      <td>$37.99</td>
+      <td>0.32%</td>
+    </tr>
+    <tr>
+      <td>TPA</td>
+      <td>Tampa, FL</td>
+      <td>10,980</td>
+      <td>4</td>
+      <td>$48.75</td>
+      <td>0.83%</td>
+    </tr>
+    <tr>
+      <td>RSW</td>
+      <td>Fort Myers, FL</td>
+      <td>9,280</td>
+      <td>3</td>
+      <td>$80.69</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SLC</td>
+      <td>Salt Lake City, UT</td>
+      <td>4,650</td>
+      <td>4</td>
+      <td>$114.48</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>LAX</td>
+      <td>Los Angeles, CA</td>
+      <td>3,560</td>
+      <td>5</td>
+      <td>$118.05</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SFO</td>
+      <td>San Francisco, CA</td>
+      <td>2,810</td>
+      <td>5</td>
+      <td>$125.90</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>PBI</td>
+      <td>West Palm Beach/Palm Beach, FL</td>
+      <td>2,800</td>
+      <td>4</td>
+      <td>$80.86</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>PHX</td>
+      <td>Phoenix, AZ</td>
+      <td>1,900</td>
+      <td>5</td>
+      <td>$111.34</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SEA</td>
+      <td>Seattle, WA</td>
+      <td>1,300</td>
+      <td>6</td>
+      <td>$131.15</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>ONT</td>
+      <td>Ontario, CA</td>
+      <td>1,070</td>
+      <td>4</td>
+      <td>$107.69</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SJC</td>
+      <td>San Jose, CA</td>
+      <td>710</td>
+      <td>5</td>
+      <td>$118.46</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>PDX</td>
+      <td>Portland, OR</td>
+      <td>510</td>
+      <td>6</td>
+      <td>$174.12</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SAN</td>
+      <td>San Diego, CA</td>
+      <td>480</td>
+      <td>6</td>
+      <td>$105.71</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SNA</td>
+      <td>Santa Ana, CA</td>
+      <td>440</td>
+      <td>5</td>
+      <td>$109.81</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>ABQ</td>
+      <td>Albuquerque, NM</td>
+      <td>430</td>
+      <td>5</td>
+      <td>$110.84</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SMF</td>
+      <td>Sacramento, CA</td>
+      <td>260</td>
+      <td>6</td>
+      <td>$124.31</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>SJU</td>
+      <td>San Juan, PR</td>
+      <td>250</td>
+      <td>5</td>
+      <td>$166.52</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <td>MSO</td>
+      <td>Missoula, MT</td>
+      <td>190</td>
+      <td>5</td>
+      <td>$140.74</td>
+      <td>0.00%</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</div>
+<br>
+<hr>
+      <div>
+        Other By the Numbers posts: <a href="\delta_stl_by_the_numbers">Delta at St. Louis-Lambert</a>
+      </div>
+      <br><hr>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="static/components/by_the_numbers/STL_F9_dept_bkch_all.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_F9_pass_bkch_all.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_F9_lf_bkch_all.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_F9_dept_bkch_main.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_F9_pass_bkch_main.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_F9_lf_bkch_main.js"></script>
+
+      <script src="static/components/menu.vue">
+    </script>
+          <script>
+            
+      new Vue ({
+        el: '#by_the_numbers',
+        data: {
+          dests: 'x',
+          table_sel: 'combined',
+          od_sel: 'combined',
+          operator_sel: 'all'
+          
+        },
+        methods:{
+          formatPct: function(val) {
+            if (val!=null) {
+              return val.toFixed(1);
+            }
+            else {
+              return "NA"
+            }
+          },
+          formatNum: function(val) {
+            if (val!=null) {
+              return val.toLocaleString()
+            }
+            else {
+              return "NA"
+            }
+          },
+          updateNBHood: function(){
+            let form = document.createElement('form');
+            form.action = 'stl_pop';
+            form.method = 'POST';
+            form.innerHTML = '<input class="hidden_submit" name="nbhoods_send" value="'+this.nbhoods_sel+'">';
+            document.body.append(form);
+            form.submit();
+          }
+        }
+      })
+      </script>
+        
+    
+    </center>
+
+
+
+  </body>
+</html>

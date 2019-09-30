@@ -58,7 +58,37 @@
             </ul>
             The T-100 data is used to calculate the departures, the passenger totals and the load factors. The DB1B Coupon Data is used to map regional carrier flights to their mainline airlines based on the ticketing airline. The DB1B Market data is used for all of the O&D calculations. Both DB1B tables are only use 10% of all airline ticket and therefore are only an estimation and info for based on these numbers contains a small margin of error.
             <br><br>
-            I plan to update the Methodolgy page with more thorough information about indivdual stats in the future.
+            <h5>Metrics</h5>
+            <ul>
+              <li><b>Direct Route Stats</b> (using T-100 segment data selected for the Main airport & Airline and then aggregated by Destination [either Origin field or Dest field depending on Arrival or Departure])
+                <ul>
+                  <li><em>Passengers</em> - Sum of Passengers field</li>
+                  <li><em>Load Factor</em> - Sum of Passengers field divided by Sum of Seats field</li>
+                  <li><em>Departures</em> - Sum of DepPerformed field</li>
+                  <li><em>Avg Trip Time</em> - Sum of RampTime field divided by Sum of DepPerformed field</li>
+                  <li><em>Avg Taxi Time</em> -(Sum of RampTime field minus Sum of AirTime field) divided by DepPerformed field</li>
+                </ul>
+              </li>
+              <li> <b>Aircraft Type Stats</b> (using T-100 segment data selected for the Main airport & Airline and then aggregated by AircraftType field)
+                <ul>
+                  <li><em>Departures</em> - Sum of DepPerformed field</li>
+                  <li><em>% Departures</em> - Sum of DepPerformed field divided by Total Departures</li>
+                  <li><em>Passengers</em> - Sum of Passengers field</li>
+                  <li><em>% Passengers</em> - Sum of Passengers field divided by Total Passengers</li>
+                  <li><em>Load Factor</em> - Sum of Passengers field divided by Sum of Seats field</li>
+                </ul>
+              </li>
+              <li><b>Origin and Destination Stats</b> (using DB1B Market table selected for the Main airport & Airline and then aggregated by Destination)
+                <ul>
+                  <li><em>Passengers (OD)</em> - Sum of Passengers field</li>
+                  <li><em>OD Dest Rank at STL</em> - rank of airline based on Passengers (OD) compared to all airlines with routes from Main airport</li>
+                  <li><em>Avg Fare</em> - After removing all fares less than $15, Sum of MktFare field divided by Sum of Passengers field</li>
+                  <li><em>Pct Free</em> - After selecting only fares less than $15, Sum of Passengers field divided by Sum of Passengers field (Total Passengers, without any fare selection)</li>
+                </ul>
+              </li>
+            </ul>
+            <br><br>
+            I plan to update the Methodology page with more thorough information about individual stats in the future.
             --More to Come--
           </div>
           </div>

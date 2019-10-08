@@ -1,0 +1,561 @@
+<html lang="en">
+  <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-142498774-1');
+	</script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/stl_pop_style.css">
+    <title>STL Annex</title>
+    
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.css" type="text/css" />
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+    <style>
+    .col-xl-4{
+      padding:0px !important;
+    }
+    .col-lg-6{
+      padding:0px !important;
+    }
+    .col-lg-12{
+      padding:0px !important;
+    }
+    .btn-group{
+      padding:5px !important;
+    }
+    .container{
+      padding:0px !important;
+      max-width:1240px;
+    }
+  </style>
+  </head>
+  <body>
+        <center>
+          <div class="tophead">
+          <br>
+          <h1> STL Annex: Data Analysis of St. Louis Topics and More! [BETA] </h1>
+          <h4>Matthew T. Lawder</h4>
+          <h5>matt@stlannex.com</h5>
+          <br>
+        </div>
+        <div id="menu-vue">
+          <menu-bar></menu-bar>
+        </div><br>
+        <div id="by_the_numbers" class="container">
+          <div class="col-sm-12">
+            <div>
+              <div class="row" style="border:black 1px solid;">
+                <div class="col-4" style="padding:0px;">
+                  <img src="/static/images/Allegiant Airbus320 from allegiant website.jpg" align="right" class="image"/>
+                </div>
+                <div class="col-4" style="padding:0px;">
+                  <img src="/static/images/Allegiant Airbus320 from allegiant website.jpg" align="right" class="image"/>
+                </div>
+                <div class="col-4" style="padding:0px;">
+                  <img src="/static/images/Allegiant Airbus320 from allegiant website.jpg" align="right" class="image"/>
+                </div>
+              </div>
+              <div style="text-align: left">
+                <i><a href="https://www.allegiantair.com/airline-aircraft-airports">From Allegiant website</a></i>
+              </div>
+                  <br><br>
+                <h3>By the Numbers: Allegiant at MidAmerica Airport</h3>
+                                <br>
+                <div class="blog-container left-group">
+                 MidAmerica airport, located in Belleville, IL, has struggled to maintain decent air service since it was completed in 1997. There have been many different pieces <a href="https://www.usatoday.com/story/todayinthesky/2015/09/28/struggling-southern-illinois-airport-gambles-on-vegas-route/72959492/">written</a> or <a href="https://www.nbcnews.com/nightly-news/video/midamerica-airport--the-ghost-airport-costing-taxpayers-millions-583907907594">recorded</a> questioning the value of the airport when commercial traffic didn't materialize as initially planned. Today's post won't focus on the issues of <a href="https://thepointsguy.com/guides/st-louis-midamerica-airport/">whether or not the airport was a good, bad, or terrible idea</a>, but instead focus on the main commercial carrier at the Airport who has been single handedly bringing the airport back to some relevance for St. Louis metro area travelers, Allegiant airlines.
+                 <br>
+                 <br>
+                 Prior to the data below, Allegiant first flew from the airport in 2005, but stopped all flights in 2009 as tourist travel took a downturn post-recession. After a few years off, Allegiant restarted modestly at the airport, with a couple of departures in 2012 to Sanford, FL just outside of Orlando. In 2014, Allegiant added it's second destination with St. Petersburg, FL and by 2015 served a modest 62k passengers to three destinations. Over the next three years, Allegiant grew quickly adding 6 new destinations and topping 300k travelers by last year. In general, Allegiant has added departures and passengers in almost every route since they've started with no destinations being dropped, although they recently <a href="https://www.bnd.com/news/politics-government/article233272869.html">announced that they would scale back service to Las Vegas</a>. A new destination, Sarasota, FL, is being added in 2019. Overall, the recent growth of Allegiant has been a great success story for an airport that has struggled to hold any commercial service. <a href="https://www.blvmasterplan.com/">MidAmerica is even talking about expanding the airport</a>. While Allegiant has expanded, it's difficult to estimate how much service is the ultimate "right size" for Allegiant under their current vacation/leisure destinations model out of MidAmerica. With seven years of consistent service, they have definitely established themselves as a legitimate option for area travelers though. 
+                  <br><br><hr>
+                  <div class="air-table">
+                    <h5>Annual Allegiant Numbers for all routes</h5>
+                    <table class="table">
+                      <thead>
+                        <tr style="text-align: center;">
+                          <th></th>
+                          <th>2012</th>
+                          <th>2013</th>
+                          <th>2014</th>
+                          <th>2015</th>
+                          <th>2016</th>
+                          <th>2017</th>
+                          <th>2018</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr style="text-align: center;">
+                          <td>Departures</td>
+                          <td>32</td>
+                          <td>182</td>
+                          <td>218</td>
+                          <td>449</td>
+                          <td>1,112</td>
+                          <td>1,706</td>
+                          <td>2,031</td>
+                        </tr>
+                        <tr style="text-align: center;">
+                          <td>Passengers</td>
+                          <td>3,696</td>
+                          <td>25,382</td>
+                          <td>31,340</td>
+                          <td>62,729</td>
+                          <td>157,433</td>
+                          <td>244,961</td>
+                          <td>302,249</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <i>Charts and Graphs are best viewed on a desktop. If on phone, hold horizontal for best viewing.</i>
+                  <hr>
+                  <br>
+                  I didn't run the O&D numbers since none of Allegiant's routes are set up for connecting service (and my code/data wasn't set up to run on MidAmerica, but I'll try to run in the future). However, looking at the direct route numbers there are a couple of interesting call outs. First, you may not recognize any of the airports or their associated cities because Allegiant often travels to smaller secondary airports so Sanford, FL offers service nearby to Orlando and Punta Gorda, FL offers service nearby to Fort Meyers, etc. The first two destinations added by Allegiant (Orlando and St. Pete's) remain some of the most popular at the airport, but Valpariso, FL which serves the Destin and Fort Walton started in 2016 and had shot up to the destination with the most departures and passengers by 2018. The 63k passengers flying to/from VPS in 2018 was more than all of Allegiant's routes combined in 2015.
+                  <br><br>
+                  As service to the airport has grown and individual routes have established themselves, Allegiant has seen Load Factors move into the high 80's and even hit 90.2% (it's first route over 90) for the Punta Gorda route last year. Without looking at the revenue for the routes, the steady load factors (even with increases to departures) portend a solid operation that doesn't appear in trouble of leaving MidAmerica as <a href="https://www.stltoday.com/business/local/midamerica-timeline/article_dd3e081d-a708-56bf-91fb-5309c61ba783.html">every other airline in it's history has done (including Allegiant in the mid 2000's)</a>. The Myrtle Beach route is the only route the stick out of the bunch as "in trouble" based on it's decreased load factor and the fact that it already only has a small number of departures. Overall, Allegiant's service appears solid and based on the expected departures for 2019, numbers should hopefully <a href="https://www.bnd.com/news/politics-government/article232191982.html">remain similar or slightly higher for this year</a>.
+                  <br><br>
+                  Allegiant only runs Mainline flights, so the Mainline and Regional buttons are disabled below with all charts and tables showing All Flights. Allegiant is now running only A319 and A320 aircraft (although still had some MD-80's in 2018). At MidAmerica, the A320 is the most common aircraft with no smaller regional jets serving the airport commercially. However, with the runway also being connected to Scott Air Force Base, you are likely to see many types of military aircraft coming and going from the area as well. Check out more numbers for Allegiant at MidAmerica below!
+                  <br>
+                </div>
+                <hr>
+                <div class="btn-group" role="group">
+                  <button class="btn btn-selector" v-on:click="operator_sel='all'" v-bind:class="{active: operator_sel==='all'}">All Flights</button>
+                  <button class="btn btn-selector" v-on:click="operator_sel='main'" v-bind:class="{active: operator_sel==='main'}" disabled>Mainline Flights</button>
+                  <button class="btn btn-selector" v-on:click="operator_sel='reg'" v-bind:class="{active: operator_sel==='reg'}" disabled>Regional Flights</button>
+                </div>
+            </div>
+            <div class="container">
+              <div class="row" style="border:1px solid black;background-color: white;">
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='all'">
+<div class="bk-root" id="425b6844-ff08-49dd-bd09-8382b717a588" data-root-id="1039"></div>
+</div>
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='all'">
+<div class="bk-root" id="63c6dea8-da49-402b-abf4-4ece081ff326" data-root-id="1004"></div>
+</div>
+<div class="col-xl-4 col-lg-12" v-show="operator_sel==='all'">
+<div class="bk-root" id="1dc06703-1db1-4ee6-b004-6fe50715b22d" data-root-id="1074"></div>
+</div>
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='main'">
+<div class="bk-root" id="5b9df51a-1b25-4342-a154-491d2e99f632" data-root-id="1635"></div>
+</div>
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='main'">
+<div class="bk-root" id="f56415dc-8091-4213-b00a-bb03104265fb" data-root-id="1600"></div>
+</div>
+<div class="col-xl-4 col-lg-12" v-show="operator_sel==='main'">
+<div class="bk-root" id="40fb6680-658c-4b18-a749-4cb5bbbd47e1" data-root-id="1670"></div>
+</div>
+
+              </div>
+            </div>
+            <br>
+            <hr>
+             <div class="container">
+              <div class="col-sm-12">
+		<h4>Direct Route Stats (2018 <a v-if="operator_sel==='all'">All Flights</a><a v-else-if="operator_sel==='main'">Mainline</a><a v-else>Regionals Only</a>)</h4>
+		<i>Info on any direct routes served by the airline to or from MidAmerica</i><br>
+                <div class="btn-group" role="group">
+                  <button class="btn btn-selector" v-on:click="table_sel='arrive'" v-bind:class="{active: table_sel==='arrive'}">Arriving Flights</button>
+                  <button class="btn btn-selector" v-on:click="table_sel='depart'" v-bind:class="{active: table_sel==='depart'}">Departing Flights</button>
+                  <button class="btn btn-selector" v-on:click="table_sel='combined'" v-bind:class="{active: table_sel==='combined'}">All Flights</button>
+                </div>
+                  <br>
+
+<div class="air-table">
+  <table class="table">
+    <thead>
+      <tr style="text-align: center;">
+      <th>DESTINATION</th>
+      <th>CITY</th>
+      <th>PASSENGERS</th>
+      <th>LOAD FACTOR</th>
+      <th>DEPARTURES</th>
+      <th>AVG TRIP TIME</th>
+      <th>AVG TAXI TIME</th>
+    </tr>
+  </thead>
+  <tbody v-if="table_sel==='arrive'" style="text-align: center;">
+    <tr>
+      <td>VPS</td>
+      <td>Valparaiso, FL</td>
+      <td>31,138</td>
+      <td>81.2</td>
+      <td>217</td>
+      <td>101.6</td>
+      <td>17.3</td>
+    </tr>
+    <tr>
+      <td>PIE</td>
+      <td>St. Petersburg, FL</td>
+      <td>26,212</td>
+      <td>88.8</td>
+      <td>170</td>
+      <td>130.9</td>
+      <td>15.8</td>
+    </tr>
+    <tr>
+      <td>PGD</td>
+      <td>Punta Gorda, FL</td>
+      <td>23,811</td>
+      <td>90.3</td>
+      <td>146</td>
+      <td>141.9</td>
+      <td>16.2</td>
+    </tr>
+    <tr>
+      <td>SFB</td>
+      <td>Sanford, FL</td>
+      <td>21,496</td>
+      <td>85.8</td>
+      <td>147</td>
+      <td>135.6</td>
+      <td>20.4</td>
+    </tr>
+    <tr>
+      <td>LAS</td>
+      <td>Las Vegas, NV</td>
+      <td>14,748</td>
+      <td>86.4</td>
+      <td>107</td>
+      <td>190.8</td>
+      <td>24.6</td>
+    </tr>
+    <tr>
+      <td>FLL</td>
+      <td>Fort Lauderdale, FL</td>
+      <td>9,630</td>
+      <td>83.8</td>
+      <td>64</td>
+      <td>162.5</td>
+      <td>21.8</td>
+    </tr>
+    <tr>
+      <td>AZA</td>
+      <td>Phoenix, AZ</td>
+      <td>9,300</td>
+      <td>87.1</td>
+      <td>65</td>
+      <td>167.8</td>
+      <td>17.8</td>
+    </tr>
+    <tr>
+      <td>JAX</td>
+      <td>Jacksonville, FL</td>
+      <td>9,206</td>
+      <td>84.6</td>
+      <td>64</td>
+      <td>119.1</td>
+      <td>17.6</td>
+    </tr>
+    <tr>
+      <td>MYR</td>
+      <td>Myrtle Beach, SC</td>
+      <td>4,727</td>
+      <td>75.6</td>
+      <td>35</td>
+      <td>114.3</td>
+      <td>17.1</td>
+    </tr>
+  </tbody>
+  <tbody  v-else-if="table_sel==='depart'" style="text-align: center;">
+    <tr>
+      <td>VPS</td>
+      <td>Valparaiso, FL</td>
+      <td>31,898</td>
+      <td>82.8</td>
+      <td>218</td>
+      <td>99.4</td>
+      <td>19.2</td>
+    </tr>
+    <tr>
+      <td>PIE</td>
+      <td>St. Petersburg, FL</td>
+      <td>26,490</td>
+      <td>89.2</td>
+      <td>171</td>
+      <td>124.4</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <td>PGD</td>
+      <td>Punta Gorda, FL</td>
+      <td>23,736</td>
+      <td>90.0</td>
+      <td>146</td>
+      <td>137.5</td>
+      <td>18.5</td>
+    </tr>
+    <tr>
+      <td>SFB</td>
+      <td>Sanford, FL</td>
+      <td>22,095</td>
+      <td>88.8</td>
+      <td>146</td>
+      <td>126.8</td>
+      <td>16.6</td>
+    </tr>
+    <tr>
+      <td>LAS</td>
+      <td>Las Vegas, NV</td>
+      <td>14,478</td>
+      <td>84.8</td>
+      <td>107</td>
+      <td>211.7</td>
+      <td>18.2</td>
+    </tr>
+    <tr>
+      <td>FLL</td>
+      <td>Fort Lauderdale, FL</td>
+      <td>9,978</td>
+      <td>86.8</td>
+      <td>64</td>
+      <td>156.4</td>
+      <td>20.8</td>
+    </tr>
+    <tr>
+      <td>JAX</td>
+      <td>Jacksonville, FL</td>
+      <td>9,265</td>
+      <td>85.2</td>
+      <td>64</td>
+      <td>112.9</td>
+      <td>18.7</td>
+    </tr>
+    <tr>
+      <td>AZA</td>
+      <td>Phoenix, AZ</td>
+      <td>9,253</td>
+      <td>86.7</td>
+      <td>65</td>
+      <td>197.6</td>
+      <td>16.9</td>
+    </tr>
+    <tr>
+      <td>MYR</td>
+      <td>Myrtle Beach, SC</td>
+      <td>4,788</td>
+      <td>76.6</td>
+      <td>35</td>
+      <td>107.5</td>
+      <td>17.3</td>
+    </tr>
+  </tbody>
+  <tbody  v-else style="text-align: center;">
+    <tr>
+      <td>VPS</td>
+      <td>Valparaiso, FL</td>
+      <td>63,036</td>
+      <td>82.0</td>
+      <td>435</td>
+      <td>100.5</td>
+      <td>18.3</td>
+    </tr>
+    <tr>
+      <td>PIE</td>
+      <td>St. Petersburg, FL</td>
+      <td>52,702</td>
+      <td>89.0</td>
+      <td>341</td>
+      <td>127.6</td>
+      <td>15.9</td>
+    </tr>
+    <tr>
+      <td>PGD</td>
+      <td>Punta Gorda, FL</td>
+      <td>47,547</td>
+      <td>90.2</td>
+      <td>292</td>
+      <td>139.7</td>
+      <td>17.3</td>
+    </tr>
+    <tr>
+      <td>SFB</td>
+      <td>Sanford, FL</td>
+      <td>43,591</td>
+      <td>87.3</td>
+      <td>293</td>
+      <td>131.2</td>
+      <td>18.5</td>
+    </tr>
+    <tr>
+      <td>LAS</td>
+      <td>Las Vegas, NV</td>
+      <td>29,226</td>
+      <td>85.6</td>
+      <td>214</td>
+      <td>201.2</td>
+      <td>21.4</td>
+    </tr>
+    <tr>
+      <td>FLL</td>
+      <td>Fort Lauderdale, FL</td>
+      <td>19,608</td>
+      <td>85.3</td>
+      <td>128</td>
+      <td>159.4</td>
+      <td>21.3</td>
+    </tr>
+    <tr>
+      <td>AZA</td>
+      <td>Phoenix, AZ</td>
+      <td>18,553</td>
+      <td>86.9</td>
+      <td>130</td>
+      <td>182.7</td>
+      <td>17.4</td>
+    </tr>
+    <tr>
+      <td>JAX</td>
+      <td>Jacksonville, FL</td>
+      <td>18,471</td>
+      <td>84.9</td>
+      <td>128</td>
+      <td>116.0</td>
+      <td>18.1</td>
+    </tr>
+    <tr>
+      <td>MYR</td>
+      <td>Myrtle Beach, SC</td>
+      <td>9,515</td>
+      <td>76.1</td>
+      <td>70</td>
+      <td>110.9</td>
+      <td>17.2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br><hr>
+<div class="container">
+<div class="col-sm-12 air-table">
+<h4>Aircraft Type Stats (2018 <a v-if="operator_sel==='all'">All Flights</a><a v-else-if="operator_sel==='main'">Mainline</a><a v-else>Regionals Only</a>)</h4>
+<i>What type of airplanes are being used across all routes to/from MidAmerica for the airline</i>
+  <table class="table">
+    <thead>
+      <tr style="text-align: center;">
+      <th>Airplane</th>
+      <th>Departures</th>
+      <th>% Departures</th>
+      <th>Passengers</th>
+      <th>% Passengers</th>
+      <th>Load Factor</th>
+    </tr>
+  </thead>
+<tbody style="text-align: center;">
+    <tr>
+      <td>Airbus Industrie A320-100/200</td>
+      <td>1,297</td>
+      <td>63.8</td>
+      <td>199,423</td>
+      <td>65.9</td>
+      <td>85.3</td>
+    </tr>
+    <tr>
+      <td>Airbus Industrie A319</td>
+      <td>409</td>
+      <td>20.1</td>
+      <td>55,385</td>
+      <td>18.3</td>
+      <td>86.8</td>
+    </tr>
+    <tr>
+      <td>McDonnell Douglas DC9 Super 80/MD81/82/83/88</td>
+      <td>326</td>
+      <td>16.0</td>
+      <td>47,601</td>
+      <td>15.7</td>
+      <td>88.0</td>
+    </tr>
+  </tbody>
+    </table>  </div>
+</div>
+<br>
+<hr>
+      <div>
+        <u>Other By the Numbers posts</u><br>
+        <a href="\united_stl_by_the_numbers">United at St. Louis-Lambert</a>
+        <br>
+        <a href="\delta_stl_by_the_numbers">Delta at St. Louis-Lambert</a>
+        <br>
+        <a href="\frontier_stl_by_the_numbers">Frontier at St. Louis-Lambert</a>
+        <br>
+        <a href="\btn_methodology">Methodology for By the Numbers Posts</a>
+        <hr>
+      </div>
+
+</div>
+</div>
+</div>
+
+<script type="text/javascript" src="static/components/by_the_numbers/BLV_G4_dept_bkch_all.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/BLV_G4_pass_bkch_all.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/BLV_G4_lf_bkch_all.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/BLV_G4_dept_bkch_main.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/BLV_G4_pass_bkch_main.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/BLV_G4_lf_bkch_main.js"></script>
+
+      <script src="static/components/menu.vue">
+    </script>
+          <script>
+            
+      new Vue ({
+        el: '#by_the_numbers',
+        data: {
+          dests: 'x',
+          table_sel: 'combined',
+          od_sel: 'combined',
+          operator_sel: 'all'
+          
+        },
+        methods:{
+          formatPct: function(val) {
+            if (val!=null) {
+              return val.toFixed(1);
+            }
+            else {
+              return "NA"
+            }
+          },
+          formatNum: function(val) {
+            if (val!=null) {
+              return val.toLocaleString()
+            }
+            else {
+              return "NA"
+            }
+          },
+          updateNBHood: function(){
+            let form = document.createElement('form');
+            form.action = 'stl_pop';
+            form.method = 'POST';
+            form.innerHTML = '<input class="hidden_submit" name="nbhoods_send" value="'+this.nbhoods_sel+'">';
+            document.body.append(form);
+            form.submit();
+          }
+        }
+      })
+      </script>
+        
+    
+    </center>
+
+
+
+  </body>
+</html>

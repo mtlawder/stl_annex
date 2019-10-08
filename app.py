@@ -325,6 +325,10 @@ def frontier_stl_by_the_numbers():
 def united_stl_by_the_numbers():
     return render_template('/by_the_numbers/united_STL_btn.html')
 
+@app.route('/allegiant_blv_by_the_numbers',methods=['GET','POST'])
+def allegiant_blv_by_the_numbers():
+    return render_template('/by_the_numbers/allegiant_BLV_btn.html')
+
 @app.route('/btn_methodology',methods=['GET','POST'])
 def btn_methodology():
     return render_template('/by_the_numbers/btn_methodology.html')

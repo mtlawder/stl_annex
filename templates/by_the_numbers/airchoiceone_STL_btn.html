@@ -1,0 +1,427 @@
+<html lang="en">
+  <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-142498774-1');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/stl_pop_style.css">
+    <title>STL Annex</title>
+    
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.css" type="text/css" />
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+    <style>
+    .col-xl-4{
+      padding:0px !important;
+    }
+    .col-lg-6{
+      padding:0px !important;
+    }
+    .col-lg-12{
+      padding:0px !important;
+    }
+    .btn-group{
+      padding:5px !important;
+    }
+    .container{
+      padding:0px !important;
+      max-width:1240px;
+    }
+  </style>
+  </head>
+  <body>
+        <center>
+          <div class="tophead">
+          <br>
+          <h1> STL Annex: Data Analysis of St. Louis Topics and More!</h1>
+          <h4>Matthew T. Lawder</h4>
+          <h5>matt@stlannex.com</h5>
+          <br>
+        </div>
+        <div id="menu-vue">
+          <menu-bar></menu-bar>
+        </div><br>
+        <div id="by_the_numbers" class="container">
+          <div class="col-sm-12">
+            <div>
+                <h3>By the Numbers: Air Choice One at St. Louis-Lambert Airport</h3>
+                <br>
+                <div class="blog-container left-group">
+                  Most people who fly through St. Louis-Lambert have never flown on Air Choice One and many of them may not know anything about them. They are one of the smallest carriers at Lambert by passengers (they actually have quite a lot of departures) flying 35k passengers last year. For comparison, Southwest flies around 25k passengers <i>per day</i> at Lambert. Air Choice One is a regional carrier that provides routes under the <a href="https://www.transportation.gov/policy/aviation-policy/small-community-rural-air-service/essential-air-service">Essential Air Services (EAS) Program</a> that "guarantee[s] that small communities that were served by certificated air carriers before airline deregulation maintain a minimal level of scheduled air service". The government provides subsidies in order to keep service to these communities and airlines bid to provide service and recieve subsidies. Carriers that can provide service at a lower cost (and therefore require a lower subsidy) are often chosen to fly these routes. Small carriers with small planes, like Air Choice One, can pick up lots of these routes where larger airlines can't make the economics work. Contracts normally run for several years and then must be re-bid which can sometimes mean constantly changing service at small airports every year or two, but Air Choice One has managed to provide mostly consistent destinations from St. Louis recently.
+                  <br><br>
+                  The company is headquartered in the St. Louis region and connects several smaller communities to larger airports in St. Louis, Minneapolis, Chicago, and Atlanta. Early in the decade, they served just two destinations from St. Louis, Decatur, IL and Burlington, IA, flying a total of 11k passengers in 2011. They added Jonesboro, AR in 2012 as well as Jackson, TN and Fort Dodge, IA in 2015. In 2016, they flew 38k passengers. Air Choice One service to Decatur ended last year so they now serve 4 destinations from St. Louis and have one stop service to Mason City, IA via Burlington or Fort Dodge.
+                  <br><br><hr>
+                  <div class="air-table">
+                    <h5>Annual Air Choice One Numbers for all routes</h5>
+                    <table class="table">
+                      <thead>
+                        <tr style="text-align: center;">
+                          <th></th>
+                          <th>2010</th>
+                          <th>2011</th>
+                          <th>2012</th>
+                          <th>2013</th>
+                          <th>2014</th>
+                          <th>2015</th>
+                          <th>2016</th>
+                          <th>2017</th>
+                          <th>2018</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr style="text-align: center;">
+                          <td>Departures</td>
+                          <td>3,787</td>
+                          <td>3,214</td>
+                          <td>4,799</td>
+                          <td>4,975</td>
+                          <td>5,149</td>
+                          <td>7,729</td>
+                          <td>8,635</td>
+                          <td>7,622</td>
+                          <td>6,638</td>
+                        </tr>
+                        <tr style="text-align: center;">
+                          <td>Passengers</td>
+                          <td>6,061</td>
+                          <td>11,427</td>
+                          <td>21,051</td>
+                          <td>18,972</td>
+                          <td>20,116</td>
+                          <td>32,775</td>
+                          <td>38,602</td>
+                          <td>35,860</td>
+                          <td>35,606</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <i>Charts and Graphs are best viewed on a desktop. If on phone, hold horizontal for best viewing.</i>
+                  <hr>
+                  <br>
+                  When looking at the route numbers below, one of the first differences you may notice compared to other carriers is the much lower load factors. Load factors on many EAS route often will be in the 50's or 60's which is one of the reason that subsidies are needed on these routes. For Air Choice One, they fly only 8 seat Cessna to/from St. Louis, so each empty seat drops a flight's load factor by 12.5%. With the smaller planes the overall statistics can be skewed by only a few flights. Airlines account for the expected lower load factors when applying for the subsidy. I actually had to lower to normal y-range for the load factor graph so they would all show up and while their Decatur service was low even for EAS in recent years, Jonesboro, Fort Dodge, and Jackson have mostly trended up in recent years.
+                  <br><br>
+                  A have a fair amount of personal experience flying on Air Choice One, mainly because I have several relatives that live about 40 minutes West of Fort Dodge in Iowa. While I don't mind a nice 8 hour car ride, when Air Choice One began service to Fort Dodge from STL (after <a href="https://web.archive.org/web/20140302121549/http://www.yourfortdodge.com/Great-Lakes-Air-Choice-One-Airlines-Submit-Fort-Do/18472408">Great Lakes Airlines abruptly ended service amid a pilot shortage</a>) I used it a couple of times. From my personal experience, I can tell you that the trip offers a pretty good deal. The Cessnas are a little louder than larger planes, but also have larger more comfortable seats. They also fly at a lower altitude (and go a bit slower) which can be fun for those who enjoy looking at the Iowa landscape (and all of their wind farms). The price is pretty great too with a one way ticket to Fort Dodge at $60. The subsidy for the Fort Dodge route is <a href="https://www.messengernews.net/news/local-news/2017/01/air-choice-one-to-continue-fd-flights/">reportedly about $3.7M per year</a>. Based on 2018 passenger counts, that breaks down to roughly $240 per passenger (including passengers to non-STL destinations). I won't dive into the economics of the EAS, but if you have a reason to travel to an area served by EAS, take advantage of the usually well below market fares.
+                  <br><br>
+                  The last thing I'll note about Air Choice One is that their routes harken back to the older days of air service where there were multiple stops on routes between larger cities. For Example, you can buy a ticket for St. Louis to Minneapolis on Air Choice One with stop-overs in Fort Dodge and Mason City. Part of this is due to the <a href="https://cessna.txtav.com/en/turboprop/caravan">Cessna fleet</a> which has when fully loaded has a limited range, but also allows for a single trip to accomdated multiple small towns similar to how a train line works. In the cases where they still only have a single stop-over between two large airports (STL-BRL-ORD or STL-MKL-ATL) it allows for simiplified <a href="https://www.airchoiceone.com/destinations/">service to two airports for these small markets</a>.
+                  <br><br>
+                  Check out the rest of the data on Air Choice One below. Note that there are not O&D numbers due to the small size of the airports/destinations they serve.
+                </div>
+                <hr>
+                <div class="btn-group" role="group">
+                  <button class="btn btn-selector" v-on:click="operator_sel='all'" v-bind:class="{active: operator_sel==='all'}">All Flights</button>
+                  <button class="btn btn-selector" v-on:click="operator_sel='main'" v-bind:class="{active: operator_sel==='main'}" disabled>Mainline Flights</button>
+                  <button class="btn btn-selector" v-on:click="operator_sel='reg'" v-bind:class="{active: operator_sel==='reg'}" disabled>Regional Flights</button>
+                </div>
+            </div>
+            <div class="container">
+              <div class="row" style="border:1px solid black;background-color: white;">
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='all'">
+<div class="bk-root" id="70f22336-34dc-439f-bf04-0b701db71b56" data-root-id="1039"></div>
+</div>
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='all'">
+<div class="bk-root" id="eb845f6c-7cc8-4fba-ad85-e36b6ea8caba" data-root-id="1004"></div>
+</div>
+<div class="col-xl-4 col-lg-12" v-show="operator_sel==='all'">
+<div class="bk-root" id="00922e1e-0193-4a99-a4fb-2690614b1489" data-root-id="1074"></div>
+</div>
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='main'">
+<div class="bk-root" id="8ff737f4-df6e-4a63-8499-b0684d9fadfe" data-root-id="1743"></div>
+</div>
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='main'">
+<div class="bk-root" id="a05a69a2-8291-48bb-994a-3143eb6026f3" data-root-id="1708"></div>
+</div>
+<div class="col-xl-4 col-lg-12" v-show="operator_sel==='main'">
+<div class="bk-root" id="9af09380-ca1d-43db-93f1-383eb9d181d9" data-root-id="1778"></div>
+</div>
+
+              </div>
+            </div>
+            <br>
+            <hr>
+             <div class="container">
+              <div class="col-sm-12">
+    <h4>Direct Route Stats (2018 <a v-if="operator_sel==='all'">All Flights</a><a v-else-if="operator_sel==='main'">Mainline</a><a v-else>Regionals Only</a>)</h4>
+    <i>Info on any direct routes served by the airline to or from St. Louis (Lambert)</i><br>
+                <div class="btn-group" role="group">
+                  <button class="btn btn-selector" v-on:click="table_sel='arrive'" v-bind:class="{active: table_sel==='arrive'}">Arriving Flights</button>
+                  <button class="btn btn-selector" v-on:click="table_sel='depart'" v-bind:class="{active: table_sel==='depart'}">Departing Flights</button>
+                  <button class="btn btn-selector" v-on:click="table_sel='combined'" v-bind:class="{active: table_sel==='combined'}">All Flights</button>
+                </div>
+                  <br>
+
+<div class="air-table">
+  <table class="table">
+    <thead>
+      <tr style="text-align: center;">
+      <th>DESTINATION</th>
+      <th>CITY</th>
+      <th>PASSENGERS</th>
+      <th>LOAD FACTOR</th>
+      <th>DEPARTURES</th>
+      <th>AVG TRIP TIME</th>
+      <th>AVG TAXI TIME</th>
+    </tr>
+  </thead>
+  <tbody v-if="table_sel==='arrive'" style="text-align: center;">
+    <tr>
+      <td>JBR</td>
+      <td>Jonesboro, AR</td>
+      <td>5,796</td>
+      <td>72.7</td>
+      <td>938</td>
+      <td>84.0</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <td>FOD</td>
+      <td>Fort Dodge, IA</td>
+      <td>5,646</td>
+      <td>71.4</td>
+      <td>933</td>
+      <td>141.0</td>
+      <td>21.0</td>
+    </tr>
+    <tr>
+      <td>MKL</td>
+      <td>Jackson, TN</td>
+      <td>3,641</td>
+      <td>64.7</td>
+      <td>665</td>
+      <td>114.0</td>
+      <td>30.0</td>
+    </tr>
+    <tr>
+      <td>BRL</td>
+      <td>Burlington, IA</td>
+      <td>3,091</td>
+      <td>54.2</td>
+      <td>671</td>
+      <td>66.0</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <td>DEC</td>
+      <td>Decatur, IL</td>
+      <td>177</td>
+      <td>20.5</td>
+      <td>108</td>
+      <td>60.0</td>
+      <td>12.0</td>
+    </tr>
+  </tbody>
+  <tbody  v-else-if="table_sel==='depart'" style="text-align: center;">
+    <tr>
+      <td>JBR</td>
+      <td>Jonesboro, AR</td>
+      <td>5,426</td>
+      <td>68.2</td>
+      <td>936</td>
+      <td>84.0</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <td>FOD</td>
+      <td>Fort Dodge, IA</td>
+      <td>5,258</td>
+      <td>66.1</td>
+      <td>938</td>
+      <td>139.0</td>
+      <td>25.0</td>
+    </tr>
+    <tr>
+      <td>MKL</td>
+      <td>Jackson, TN</td>
+      <td>3,443</td>
+      <td>61.3</td>
+      <td>664</td>
+      <td>108.0</td>
+      <td>30.0</td>
+    </tr>
+    <tr>
+      <td>BRL</td>
+      <td>Burlington, IA</td>
+      <td>2,952</td>
+      <td>51.2</td>
+      <td>678</td>
+      <td>60.0</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <td>DEC</td>
+      <td>Decatur, IL</td>
+      <td>176</td>
+      <td>20.6</td>
+      <td>107</td>
+      <td>54.0</td>
+      <td>8.0</td>
+    </tr>
+  </tbody>
+  <tbody  v-else style="text-align: center;">
+    <tr>
+      <td>JBR</td>
+      <td>Jonesboro, AR</td>
+      <td>11,222</td>
+      <td>70.5</td>
+      <td>1,874</td>
+      <td>84.0</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <td>FOD</td>
+      <td>Fort Dodge, IA</td>
+      <td>10,904</td>
+      <td>68.8</td>
+      <td>1,871</td>
+      <td>140.0</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <td>MKL</td>
+      <td>Jackson, TN</td>
+      <td>7,084</td>
+      <td>63.0</td>
+      <td>1,329</td>
+      <td>111.0</td>
+      <td>30.0</td>
+    </tr>
+    <tr>
+      <td>BRL</td>
+      <td>Burlington, IA</td>
+      <td>6,043</td>
+      <td>52.7</td>
+      <td>1,349</td>
+      <td>63.0</td>
+      <td>10.5</td>
+    </tr>
+    <tr>
+      <td>DEC</td>
+      <td>Decatur, IL</td>
+      <td>353</td>
+      <td>20.5</td>
+      <td>215</td>
+      <td>57.0</td>
+      <td>10.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br><hr>
+<div class="container">
+<div class="col-sm-12 air-table">
+<h4>Aircraft Type Stats (2018 <a v-if="operator_sel==='all'">All Flights</a><a v-else-if="operator_sel==='main'">Mainline</a><a v-else>Regionals Only</a>)</h4>
+<i>What type of airplanes are being used across all routes to/from St. Louis (Lambert) for the airline</i>
+  <table class="table">
+    <thead>
+      <tr style="text-align: center;">
+      <th>Airplane</th>
+      <th>Departures</th>
+      <th>% Departures</th>
+      <th>Passengers</th>
+      <th>% Passengers</th>
+      <th>Load Factor</th>
+    </tr>
+  </thead>
+<tbody style="text-align: center;">
+    <tr>
+      <td>Cessna C208B/Grand Caravan</td>
+      <td>6,638</td>
+      <td>100.0</td>
+      <td>35,606</td>
+      <td>100.0</td>
+      <td>63.3</td>
+    </tr>
+  </tbody>
+    </table>  </div>
+</div>
+<br>
+<hr>
+<div class="container">
+<h4>Origin and Destination Stats (2018 All Flights)</h4>
+<i>Information on which final destination at which passengers completed (or began) their journey. For example, a passenger may fly from St. Louis to Chicago, but then continue onward to another destination. The data below looks at the final destination regardless of connections (Domestic only).</i><br>
+<div class="btn-group" role="group">
+<button class="btn btn-selector" v-on:click="od_sel='arrive'" v-bind:class="{active: od_sel==='arrive'}">Arriving Flights</button>
+<button class="btn btn-selector" v-on:click="od_sel='depart'" v-bind:class="{active: od_sel==='depart'}">Departing Flights</button>
+<button class="btn btn-selector" v-on:click="od_sel='combined'" v-bind:class="{active: od_sel==='combined'}">All Flights</button>
+</div>
+<br>
+<hr>
+
+</div>
+</div>
+</div>
+
+<script type="text/javascript" src="static/components/by_the_numbers/STL_0MQ_dept_bkch_all.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_0MQ_pass_bkch_all.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_0MQ_lf_bkch_all.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_0MQ_dept_bkch_main.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_0MQ_pass_bkch_main.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_0MQ_lf_bkch_main.js"></script>
+
+      <script src="static/components/menu.vue">
+    </script>
+          <script>
+            
+      new Vue ({
+        el: '#by_the_numbers',
+        data: {
+          dests: 'x',
+          table_sel: 'combined',
+          od_sel: 'combined',
+          operator_sel: 'all'
+          
+        },
+        methods:{
+          formatPct: function(val) {
+            if (val!=null) {
+              return val.toFixed(1);
+            }
+            else {
+              return "NA"
+            }
+          },
+          formatNum: function(val) {
+            if (val!=null) {
+              return val.toLocaleString()
+            }
+            else {
+              return "NA"
+            }
+          },
+          updateNBHood: function(){
+            let form = document.createElement('form');
+            form.action = 'stl_pop';
+            form.method = 'POST';
+            form.innerHTML = '<input class="hidden_submit" name="nbhoods_send" value="'+this.nbhoods_sel+'">';
+            document.body.append(form);
+            form.submit();
+          }
+        }
+      })
+      </script>
+        
+    
+    </center>
+
+
+
+  </body>
+</html>

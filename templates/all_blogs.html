@@ -35,86 +35,19 @@
       <menu-bar></menu-bar>
     </div>
     <br>
-      <div class="container">
-        <div class="col-sm-1">
-        </div>
-          <div class="col-sm-10 left-group">
-            The projects below were built to be used to find insteresting insights from different data sets. Many data sets and tools are St. Louis centric, but some extend to information well beyond the city and county borders. I didn't create these tools in a vacuum, I also use them! You can find blog posts with analysis created using these tools (and sometimes outside analysis) at the bottom of this page. Find out more information about the <a href="/about">author here</a> and please reach out to matt@stlannex.com if you have any questions or comments about the tools or analysis.
-          </div>
-          <div class="col-sm-1">
-        </div>
-      </div>
-      <br>
-      <div class="container">
-        <div class="col-sm-1">
-        </div>
-        <div class="col-sm-10">
-          <div class="tophead">
-            <br>
-            <h2> Airline Data Browser </h2>
-            <br>
-          </div>
-          <br>
-          <div>
-            <div class="right-image">
-              <img src="/static/images/airline_browser_screenshot.png" align="right" class="image"/>
-            </div>
-            <div class="left-group">
-              The Airline Data Browser aggregates statistics from the Bureau of Transportation <a href="https://www.transtats.bts.gov/Fields.asp?Table_ID=293">T-100 Segment </a> data set and allows users to look at information such as total departures, passengers, and load factors on individual routes down to a monthly level. The tool currently only offers domestic routes arriving at or departing from a limited set of airports. Additionally, there is only a limited set of mappings available to roll up regional carriers to their mainline carriers as we work to find more accurate mappings. Data currently available from Jan. 2014 to mid 2018.
-            </div>
-          </div>
-          <br>
-          <div>
-            <form method='get' action="all_airlines">
-              <button type="submit" class="btn btn-primary btn-lg">  Go to Airline Page  </button>
-            </form>
-          </div>
-        </div>
-        <div class="col-sm-1">
-        </div>
-      </div>
-      <br>
-      <div class="container">
-        <div class="col-sm-1">
-        </div>
-        <div class="col-sm-10">
-          <div class="tophead">
-            <br>
-            <h2> Midwest Wind Energy Analysis </h2>
-            <br>
-          </div>
-          <br>
-          <div class="left-group">
-            This project looks at several different types of analysis (from both a technical and economic standpoint). The project was worked on in 2016, so the data and analysis deal with data prior to 2016. There are several different interesting facets to the project including:
-            <ol>
-              <li>A tool for comparing historical energy prices at different nodes throughout the Midwest.</li>
-              <li>A report builder for looking at wind farm economics at different sites in Iowa and Illinois using a build in techno-economic model</li>
-              <li>A case study of best sites for wind power additions in Iowa and Illinois based on historical wind and energy price data.</li>
-            </ol> 
-          </div>
-          <br>
-          <div>
-            <form action="http://miso-epat.herokuapp.com/index_Main">
-              <button type="submit" class="btn btn-primary btn-lg">  Go to Wind Energy Analysis  </button>
-            </form>
-          </div>
-        </div>
-        <div class="col-sm-1">
-        </div>
-      </div>
-      <br>
+
       <div id="blog_head" class="container">
         <div class="col-sm-1">
         </div>
         <div class="col-sm-10">
           <div class="tophead">
             <br>
-            <h2>Recent Blog Posts</h2>
+            <h2>All Blog Posts</h2>
             <br>
           </div>
-          <a href="/all_blogs">See all blog posts</a>
+          
           <div class="left-group">
-                        <div class="blog-container">
+            <div class="blog-container">
               <div class="blog-title">
                 <h3  class="blog-title-link"><a href="/alaska_stl_by_the_numbers">By the Numbers: Alaska at St. Louis-Lambert Airport</a></h3>
               </div>
@@ -173,7 +106,95 @@
             <div>
                Frontier airlines has been a small player at Lambert for over a decade. For a long time they mostly focused on multiple daily flights to their Denver hub and very few other routes. In 2014 that began to change as they dropped their frequencies to Denver and began adding more vacation oriented destinations 
               <a href="/frontier_stl_by_the_numbers">Read more ...</a>
-            </div>          <br>
+            </div>
+            <div class="blog-container">
+              <div class="blog-title">
+                <h3  class="blog-title-link"><a href="/delta_stl_by_the_numbers">By the Numbers: Delta at St. Louis-Lambert Airport</a></h3>
+              </div>
+              <div class="blog-title blog-date">9/27/2019 - M. Lawder</div>
+            </div>
+            <div>
+               This post is the first in a series of posts outlining key info for each carrier at St. Louis-Lambert. I won't try to add too much word clutter to these posts. Mostly I'll try to provide some context for the data and highlight interesting points that pop out. A
+              <a href="/delta_stl_by_the_numbers">Read more ...</a>
+            </div>
+          	<div class="blog-container">
+              <div class="blog-title">
+                <h3  class="blog-title-link"><a href="/blog_first_stl_pop">St. Louis Neighborhood Census Data Explorer</a></h3>
+              </div>
+              <div class="blog-title blog-date">9/1/2019 - M. Lawder</div>
+            </div>
+            <div>
+               I've always found the neighborhood level census data available on the St. Louis government website interesting to look at because it provides a pretty granular look at the changes in population and demographics within the city. When you go to different parts of the city you see a snapshot of the area right now, but looking at the buildings, the
+              <a href="/blog_first_stl_pop">Read more ...</a>
+            </div>
+            <div class="blog-container">
+              <div class="blog-title">
+                <h3  class="blog-title-link"><a href="/blog_southwest_ewr_lga_comp">Southwest Leaving Newark, Part 2: Comparing EWR and LGA</a></h3>
+              </div>
+              <div class="blog-title blog-date">8/4/2019 - M. Lawder</div>
+            </div>
+            <div>
+               With Southwest <a href="https://www.nj.com/news/2019/07/southwest-airlines-to-cease-flights-from-newark-airport.html">combining New York operations to LaGaudia</a>, I wanted to do a little more comparison of their operations at both LGA and EWR. Last week I posted some <a href="/blog_Southwest_out_of_Newark">initial numbers and thoughts about recent operations of outbound flights for Southwest at EWR</a>. The basic outcome from that post was that looking at last year, Southwest had good numbers on their outbound routes
+              <a href="/blog_southwest_ewr_lga_comp">Read more ...</a>
+            </div>
+            <div class="blog-container">
+              <div class="blog-title">
+                <h3 class="blog-title-link"><a href="/blog_Southwest_out_of_Newark">Southwest leaving Newark</a></h3>
+              </div>
+              <div class="blog-title blog-date">7/25/2019 - M. Lawder</div>
+            </div>
+            <div>
+               Hearing the news today that <a href="https://thepointsguy.com/news/southwest-airlines-is-ending-all-flights-from-newark-liberty/">Southwest will be packing up from Newark this November</a> has had me pretty bummed out. I've been a frequent user of Southwest out of Newark since first moving to the New York area and
+              <a href="/blog_Southwest_out_of_Newark">Read more ...</a>
+            </div>
+            <div class="blog-container">
+              <div class="blog-title">
+                <h3 class="blog-title-link"><a href="/blog_od_pairs_STL">Distance v Demand using O&D Survey</a></h3>
+              </div>
+              <div class="blog-title blog-date">7/24/2019 - M. Lawder</div>
+            </div>
+            <div>
+               As I started looking through some of the Origin & Destination (O&D) Survey Data Available in the DB1B  Database from the Bureau of Transportation Statistics, I continued to get excited about the breath of different
+              <a href="/blog_od_pairs_STL">Read more ...</a>
+            </div>
+            <div class="blog-container">
+              <div class="blog-title">
+                <h3 class="blog-title-link"><a href="/blog_southwest_5yr_growth_STL">Breaking down Five Years of Southwest Growth at STL</a></h3>
+              </div>
+              <div class="blog-title blog-date">7/6/2019 - M. Lawder</div>
+            </div>
+            <div>
+               Southwest has been the dominate carrier at STL since AA wound down the former TWA hub and they continue to grow their departures at the airport pretty much each year. In 2018, they served 46 domestic destinations with
+              <a href="/blog_southwest_5yr_growth_STL">Read more ...</a>
+            </div>
+            <div class="blog-container">
+              <div class="blog-title">
+                <h3 class="blog-title-link"><a href="/blog_uswnt_ranking">Women's National Team Rankings since 2003</a></h3>
+              </div>
+              <div class="blog-title blog-date">6/21/2019 - M. Lawder</div>
+            </div>
+            <div>
+               The US Women's National Soccer team has always been great. With the end of the 2019 World Cup Group, finishing up for the US today with a 2-0 win over Sweden, I wanted to look at how their FIFA ranking has flucated
+              <a href="/blog_uswnt_ranking">Read more ...</a>
+            </div>
+            <div class="blog-container">
+              <div class="blog-title">
+                <h3 class="blog-title-link"><a href="/blog_load_factors_from_STL">Who's planes are most crowded at STL</a></h3>
+              </div>
+              <div class="blog-title blog-date">5/25/2019 - M. Lawder</div>
+            </div>
+             With the T-100 database, we get a look at the total number of seats available on an individual route as well as the actual number of passengers that flew those routes. The percentage of occupied seats
+            <a href="/blog_load_factors_from_STL">Read more ...</a>
+            <div class="blog-container">
+              <div class="blog-title">
+                <h3 class="blog-title-link"><a href="/blog_starting_airline_route_post">Why Study Airline Data</a></h3>
+              </div>
+              <div class="blog-title blog-date">5/24/2019 - M. Lawder</div>
+            </div>
+             I'm not an aviation expert, but I've always been interested in transportation and it's infrastructure. I often find myself asking questions about how many people are using different modes of transportation.
+            <a href="/blog_starting_airline_route_post">Read more ...</a>
+          </div>
+          <br>
           <hr>
         </div>
         <div class="col-sm-1">

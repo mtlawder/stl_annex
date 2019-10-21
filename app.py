@@ -345,6 +345,10 @@ def alaska_stl_by_the_numbers():
 def btn_methodology():
     return render_template('/by_the_numbers/btn_methodology.html')
 
+@app.route('/all_blogs',methods=['GET','POST'])
+def all_blogs():
+    return render_template('/all_blogs.html')
+
 if __name__ == '__main__':
     app.run()
     #app.run(host='159.203.65.80',port=33506)

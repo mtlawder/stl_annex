@@ -1,0 +1,1225 @@
+<html lang="en">
+  <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-142498774-1');
+	</script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/stl_pop_style.css">
+    <title>STL Annex</title>
+    
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.css" type="text/css" />
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+    <style>
+    .col-xl-4{
+      padding:0px !important;
+    }
+    .col-lg-6{
+      padding:0px !important;
+    }
+    .col-lg-12{
+      padding:0px !important;
+    }
+    .btn-group{
+      padding:5px !important;
+    }
+    .container{
+      padding:0px !important;
+      max-width:1240px;
+    }
+  </style>
+  </head>
+  <body>
+        <center>
+          <div class="tophead">
+          <br>
+          <h1> STL Annex: Data Analysis of St. Louis Topics and More!</h1>
+          <h4>Matthew T. Lawder</h4>
+          <h5>matt@stlannex.com</h5>
+          <br>
+        </div>
+        <div id="menu-vue">
+          <menu-bar></menu-bar>
+        </div><br>
+        <div id="by_the_numbers" class="container">
+          <div class="col-sm-12">
+            <div>
+                <h3>By the Numbers: Alaska at St. Louis-Lambert Airport</h3>
+                                <br>
+                <div class="blog-container left-group">
+                  Alsaka airlines began <a href="">service to St. Louis at the tail end of 2010</a> and has seen slow, but continued growth over the intervening decade. The airline has grown it daily service between Seattle and St. Louis with almost 1200 flights (twice daily service) on the route in 2018. It looked like Alaska was set to grow it's footprint beyond just flights to Seattle adding Portland as a destination in 2015 and starting San Diego service at the end of 2017. However, after hitting a record passenger count of 214k in 2018, they appear to taking a step backward this year after ending service to Portland in 2018. The Seattle service remains strong (although they did shift to only a single daily flight for awhile earlier this year), but as Alaska grows it west coast operations, it <a href="">does not appear to be very interested in adding as many new routes to the Midwest</a>.
+                  <br><br>
+                  Overall, Alaska has consistent service to Seattle on 737 Mainline flights which offers another option to travelers headed to the Pacific Northwest. While I'm sure many people would love to see more West Coast destinations, the 200k passengers served is a nice if small addition to the airport's overall numbers. Hopefully, they maintain those passenger numbers and in the future more of the West Coast routes can come back.
+                  <br><br><hr>
+                  <div class="air-table">
+                    <h5>Annual Alaska Numbers for all routes</h5>
+                    <table class="table">
+                      <thead>
+                        <tr style="text-align: center;">
+                          <th></th>
+                          <th>2010</th>
+                          <th>2011</th>
+                          <th>2012</th>
+                          <th>2013</th>
+                          <th>2014</th>
+                          <th>2015</th>
+                          <th>2016</th>
+                          <th>2017</th>
+                          <th>2018</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr style="text-align: center;">
+                          <td>Departures</td>
+                          <td>374</td>
+                          <td>759</td>
+                          <td>806</td>
+                          <td>794</td>
+                          <td>802</td>
+                          <td>1,259</td>
+                          <td>1,889</td>
+                          <td>1,961</td>
+                          <td>2,035</td>
+                        </tr>
+                        <tr style="text-align: center;">
+                          <td>Passengers</td>
+                          <td>50,410</td>
+                          <td>103,121</td>
+                          <td>110,096</td>
+                          <td>108,555</td>
+                          <td>117,813</td>
+                          <td>159,543</td>
+                          <td>212,891</td>
+                          <td>202,598</td>
+                          <td>214,010</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <i>Charts and Graphs are best viewed on a desktop. If on phone, hold horizontal for best viewing.</i>
+                  <hr>
+                  <br>
+                   When breaking down the individual routes, Seattle clearly dominates to overall passenger numbers. The Portland and San Diego routes were/are both flown on Seattle's regional carrier Horizon and utilize the E175 regional planes. For Portland, while the load factor was high throughout its service (88% over it's final 140 flights in 2018), using the smaller plane on a longer route may have squeezed the economics of the flight which it competed on with Southwest. However, the San Diego route utilizes the same plane to fly a similar distance and had a lower load factor (and even lower average fare) than Portland, but surived at least for now while Portland was removed.
+                   <br><br>
+                   Looking at Alaska's O&D numbers, they rank first for travel to/from Seattle and (unsurprisingly) Alaska, with Anchorage and Fairbanks, Alaska being the top O&D destinations outside of SEA, PDX, and SAN. They also pick up a significant portion of passengers to smaller cities in the Pacific Northwest and West Coast in general ranking first in travelers to/from Bellingham and Yakima, WA as well as Bend, OR and second for Pasco, WA as well as Eugene, and Medford, OR. Note that the O&D number start to get pretty small near the bottom of the table, so there could be a significant amount of error in the actual numbers on the low end.
+                   <br><br>
+                   When looking at the fare prices, Alaska performs well on a couple of comparable routes. For example, when looking at service to Hawaii, Alaska's avg fare price of $384.84 to Honolulu comes in well below American's $491.91. I should note that, Alaska is flying less than 10% of the number of passengers that American is flying to the same destination, and it's possible that connections to Hawaii are not well timed with St. Louis' flights, but Alaska has offered some reasonable fares for those travelers heading West and willing to connect through Seattle. Check out more in the number below!
+                </div>
+                <hr>
+                <div class="btn-group" role="group">
+                  <button class="btn btn-selector" v-on:click="operator_sel='all'" v-bind:class="{active: operator_sel==='all'}">All Flights</button>
+                  <button class="btn btn-selector" v-on:click="operator_sel='main'" v-bind:class="{active: operator_sel==='main'}">Mainline Flights</button>
+                  <button class="btn btn-selector" v-on:click="operator_sel='reg'" v-bind:class="{active: operator_sel==='reg'}">Regional Flights</button>
+                </div>
+            </div>
+            <div class="container">
+              <div class="row" style="border:1px solid black;background-color: white;">
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='all'">
+<div class="bk-root" id="1942ac2e-a2bd-4ff0-b5c5-770dee40c584" data-root-id="1039"></div>
+</div>
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='all'">
+<div class="bk-root" id="6b5fe7d2-699a-48ba-bd14-6fb805c62e57" data-root-id="1004"></div>
+</div>
+<div class="col-xl-4 col-lg-12" v-show="operator_sel==='all'">
+<div class="bk-root" id="d01a9065-c6c7-4fb8-bd29-b87853e0cbcf" data-root-id="1074"></div>
+</div>
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='main'">
+<div class="bk-root" id="c51d9ae1-7930-4930-9486-28c42df78bb0" data-root-id="1915"></div>
+</div>
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='main'">
+<div class="bk-root" id="086bec32-2fc0-4f14-a598-3a6e30ffaf2c" data-root-id="1880"></div>
+</div>
+<div class="col-xl-4 col-lg-12" v-show="operator_sel==='main'">
+<div class="bk-root" id="f95b5c56-6a06-4ca6-9ab6-142a84d94f23" data-root-id="1950"></div>
+</div>
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='reg'">
+<div class="bk-root" id="5573d33b-d7a4-4216-a7e4-7ce5011b7e78" data-root-id="2271"></div>
+</div>
+<div class="col-xl-4 col-lg-6" v-show="operator_sel==='reg'">
+<div class="bk-root" id="fd73a6db-5c24-42de-80d5-8492e1f148aa" data-root-id="2236"></div>
+</div>
+<div class="col-xl-4 col-lg-12" v-show="operator_sel==='reg'">
+<div class="bk-root" id="c457aedf-5e2a-4472-b0de-5d868e365e3e" data-root-id="2306"></div>
+</div>
+
+              </div>
+            </div>
+            <br>
+            <hr>
+             <div class="container">
+              <div class="col-sm-12">
+		<h4>Direct Route Stats (2018 <a v-if="operator_sel==='all'">All Flights</a><a v-else-if="operator_sel==='main'">Mainline</a><a v-else>Regionals Only</a>)</h4>
+		<i>Info on any direct routes served by the airline to or from St. Louis (Lambert)</i><br>
+                <div class="btn-group" role="group">
+                  <button class="btn btn-selector" v-on:click="table_sel='arrive'" v-bind:class="{active: table_sel==='arrive'}">Arriving Flights</button>
+                  <button class="btn btn-selector" v-on:click="table_sel='depart'" v-bind:class="{active: table_sel==='depart'}">Departing Flights</button>
+                  <button class="btn btn-selector" v-on:click="table_sel='combined'" v-bind:class="{active: table_sel==='combined'}">All Flights</button>
+                </div>
+                  <br>
+
+<div class="air-table" v-if="operator_sel==='all'">
+  <table class="table">
+    <thead>
+      <tr style="text-align: center;">
+      <th>DESTINATION</th>
+      <th>CITY</th>
+      <th>PASSENGERS</th>
+      <th>LOAD FACTOR</th>
+      <th>DEPARTURES</th>
+      <th>AVG TRIP TIME</th>
+      <th>AVG TAXI TIME</th>
+    </tr>
+  </thead>
+  <tbody v-if="table_sel==='arrive'" style="text-align: center;">
+    <tr>
+      <td>SEA</td>
+      <td>Seattle, WA</td>
+      <td>82,376</td>
+      <td>85.1</td>
+      <td>589</td>
+      <td>229.8</td>
+      <td>29.3</td>
+    </tr>
+    <tr>
+      <td>SAN</td>
+      <td>San Diego, CA</td>
+      <td>20,243</td>
+      <td>75.9</td>
+      <td>350</td>
+      <td>217.4</td>
+      <td>26.3</td>
+    </tr>
+    <tr>
+      <td>PDX</td>
+      <td>Portland, OR</td>
+      <td>4,737</td>
+      <td>89.0</td>
+      <td>70</td>
+      <td>228.0</td>
+      <td>19.1</td>
+    </tr>
+  </tbody>
+  <tbody  v-else-if="table_sel==='depart'" style="text-align: center;">
+    <tr>
+      <td>SEA</td>
+      <td>Seattle, WA</td>
+      <td>80,198</td>
+      <td>82.9</td>
+      <td>588</td>
+      <td>265.2</td>
+      <td>26.9</td>
+    </tr>
+    <tr>
+      <td>SAN</td>
+      <td>San Diego, CA</td>
+      <td>20,434</td>
+      <td>75.5</td>
+      <td>356</td>
+      <td>240.1</td>
+      <td>19.3</td>
+    </tr>
+    <tr>
+      <td>PDX</td>
+      <td>Portland, OR</td>
+      <td>4,721</td>
+      <td>88.7</td>
+      <td>70</td>
+      <td>265.9</td>
+      <td>22.1</td>
+    </tr>
+  </tbody>
+  <tbody  v-else style="text-align: center;">
+    <tr>
+      <td>SEA</td>
+      <td>Seattle, WA</td>
+      <td>162,574</td>
+      <td>84.0</td>
+      <td>1,177</td>
+      <td>247.5</td>
+      <td>28.1</td>
+    </tr>
+    <tr>
+      <td>SAN</td>
+      <td>San Diego, CA</td>
+      <td>40,678</td>
+      <td>75.7</td>
+      <td>707</td>
+      <td>228.9</td>
+      <td>22.8</td>
+    </tr>
+    <tr>
+      <td>PDX</td>
+      <td>Portland, OR</td>
+      <td>9,458</td>
+      <td>88.9</td>
+      <td>140</td>
+      <td>247.0</td>
+      <td>20.6</td>
+    </tr>
+    <tr>
+      <td>LAX</td>
+      <td>Los Angeles, CA</td>
+      <td>1,300</td>
+      <td>81.8</td>
+      <td>11</td>
+      <td>231.9</td>
+      <td>27.9</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="air-table" v-else-if="operator_sel==='main'">
+  <table class="table">
+    <thead>
+      <tr style="text-align: center;">
+      <th>DESTINATION</th>
+      <th>CITY</th>
+      <th>PASSENGERS</th>
+      <th>LOAD FACTOR</th>
+      <th>DEPARTURES</th>
+      <th>AVG TRIP TIME</th>
+      <th>AVG TAXI TIME</th>
+    </tr>
+  </thead>
+  <tbody v-if="table_sel==='arrive'" style="text-align: center;">
+    <tr>
+      <td>SEA</td>
+      <td>Seattle, WA</td>
+      <td>78,785</td>
+      <td>85.9</td>
+      <td>521</td>
+      <td>230.3</td>
+      <td>30.1</td>
+    </tr>
+  </tbody>
+  <tbody  v-else-if="table_sel==='depart'" style="text-align: center;">
+    <tr>
+      <td>SEA</td>
+      <td>Seattle, WA</td>
+      <td>76,001</td>
+      <td>82.9</td>
+      <td>521</td>
+      <td>264.2</td>
+      <td>26.9</td>
+    </tr>
+  </tbody>
+  <tbody  v-else style="text-align: center;">
+    <tr>
+      <td>SEA</td>
+      <td>Seattle, WA</td>
+      <td>154,786</td>
+      <td>84.4</td>
+      <td>1,042</td>
+      <td>247.2</td>
+      <td>28.5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="air-table" v-else>
+  <table class="table">
+    <thead>
+      <tr style="text-align: center;">
+      <th>DESTINATION</th>
+      <th>CITY</th>
+      <th>PASSENGERS</th>
+      <th>LOAD FACTOR</th>
+      <th>DEPARTURES</th>
+      <th>AVG TRIP TIME</th>
+      <th>AVG TAXI TIME</th>
+    </tr>
+  </thead>
+  <tbody v-if="table_sel==='arrive'" style="text-align: center;">
+    <tr>
+      <td>SAN</td>
+      <td>San Diego, CA</td>
+      <td>20,243</td>
+      <td>75.9</td>
+      <td>350</td>
+      <td>217.4</td>
+      <td>26.3</td>
+    </tr>
+    <tr>
+      <td>PDX</td>
+      <td>Portland, OR</td>
+      <td>4,737</td>
+      <td>89.0</td>
+      <td>70</td>
+      <td>228.0</td>
+      <td>19.1</td>
+    </tr>
+    <tr>
+      <td>SEA</td>
+      <td>Seattle, WA</td>
+      <td>3,591</td>
+      <td>69.5</td>
+      <td>68</td>
+      <td>226.5</td>
+      <td>22.8</td>
+    </tr>
+  </tbody>
+  <tbody  v-else-if="table_sel==='depart'" style="text-align: center;">
+    <tr>
+      <td>SAN</td>
+      <td>San Diego, CA</td>
+      <td>20,434</td>
+      <td>75.5</td>
+      <td>356</td>
+      <td>240.1</td>
+      <td>19.3</td>
+    </tr>
+    <tr>
+      <td>PDX</td>
+      <td>Portland, OR</td>
+      <td>4,721</td>
+      <td>88.7</td>
+      <td>70</td>
+      <td>265.9</td>
+      <td>22.1</td>
+    </tr>
+    <tr>
+      <td>SEA</td>
+      <td>Seattle, WA</td>
+      <td>4,197</td>
+      <td>82.4</td>
+      <td>67</td>
+      <td>272.9</td>
+      <td>26.8</td>
+    </tr>
+  </tbody>
+  <tbody  v-else style="text-align: center;">
+    <tr>
+      <td>SAN</td>
+      <td>San Diego, CA</td>
+      <td>40,678</td>
+      <td>75.7</td>
+      <td>707</td>
+      <td>228.9</td>
+      <td>22.8</td>
+    </tr>
+    <tr>
+      <td>PDX</td>
+      <td>Portland, OR</td>
+      <td>9,458</td>
+      <td>88.9</td>
+      <td>140</td>
+      <td>247.0</td>
+      <td>20.6</td>
+    </tr>
+    <tr>
+      <td>SEA</td>
+      <td>Seattle, WA</td>
+      <td>7,788</td>
+      <td>75.9</td>
+      <td>135</td>
+      <td>249.5</td>
+      <td>24.8</td>
+    </tr>
+    <tr>
+      <td>LAX</td>
+      <td>Los Angeles, CA</td>
+      <td>1,300</td>
+      <td>81.8</td>
+      <td>11</td>
+      <td>231.9</td>
+      <td>27.9</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br><hr>
+<div class="container">
+<div class="col-sm-12 air-table">
+<h4>Aircraft Type Stats (2018 <a v-if="operator_sel==='all'">All Flights</a><a v-else-if="operator_sel==='main'">Mainline</a><a v-else>Regionals Only</a>)</h4>
+<i>What type of airplanes are being used across all routes to/from St. Louis (Lambert) for the airline</i>
+  <table class="table">
+    <thead>
+      <tr style="text-align: center;">
+      <th>Airplane</th>
+      <th>Departures</th>
+      <th>% Departures</th>
+      <th>Passengers</th>
+      <th>% Passengers</th>
+      <th>Load Factor</th>
+    </tr>
+  </thead>
+<tbody style="text-align: center;" v-if="operator_sel==='all'">
+    <tr>
+      <td>Boeing 737-900ER</td>
+      <td>830</td>
+      <td>40.6</td>
+      <td>125,980</td>
+      <td>58.5</td>
+      <td>85.3</td>
+    </tr>
+    <tr>
+      <td>Embraer ERJ-175</td>
+      <td>982</td>
+      <td>48.1</td>
+      <td>57,924</td>
+      <td>26.9</td>
+      <td>77.6</td>
+    </tr>
+    <tr>
+      <td>Boeing 737-900</td>
+      <td>124</td>
+      <td>6.1</td>
+      <td>18,449</td>
+      <td>8.6</td>
+      <td>83.6</td>
+    </tr>
+    <tr>
+      <td>Boeing 737-800</td>
+      <td>87</td>
+      <td>4.3</td>
+      <td>10,815</td>
+      <td>5.0</td>
+      <td>77.4</td>
+    </tr>
+    <tr>
+      <td>Boeing 737-700/700LR/Max 7</td>
+      <td>10</td>
+      <td>0.5</td>
+      <td>1,009</td>
+      <td>0.5</td>
+      <td>81.4</td>
+    </tr>
+    <tr>
+      <td>Airbus Industrie A319</td>
+      <td>9</td>
+      <td>0.4</td>
+      <td>985</td>
+      <td>0.5</td>
+      <td>83.3</td>
+    </tr>
+    <tr>
+      <td>McDonnell Douglas DC9 Super 80/MD81/82/83/88</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>36</td>
+      <td>0.0</td>
+      <td>68.6</td>
+    </tr>
+    <tr>
+      <td>Airbus Industrie A321</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>27</td>
+      <td>0.0</td>
+      <td>74.1</td>
+    </tr>
+  </tbody>
+<tbody style="text-align: center;" v-else-if="operator_sel==='main'">
+    <tr>
+      <td>Boeing 737-900ER</td>
+      <td>830</td>
+      <td>79.1</td>
+      <td>125,980</td>
+      <td>80.8</td>
+      <td>85.3</td>
+    </tr>
+    <tr>
+      <td>Boeing 737-900</td>
+      <td>124</td>
+      <td>11.8</td>
+      <td>18,449</td>
+      <td>11.8</td>
+      <td>83.6</td>
+    </tr>
+    <tr>
+      <td>Boeing 737-800</td>
+      <td>85</td>
+      <td>8.1</td>
+      <td>10,463</td>
+      <td>6.7</td>
+      <td>77.4</td>
+    </tr>
+    <tr>
+      <td>Boeing 737-700/700LR/Max 7</td>
+      <td>10</td>
+      <td>1.0</td>
+      <td>1,009</td>
+      <td>0.6</td>
+      <td>81.4</td>
+    </tr>
+  </tbody>
+<tbody style="text-align: center;" v-else>
+    <tr>
+      <td>Embraer ERJ-175</td>
+      <td>982</td>
+      <td>98.9</td>
+      <td>57,924</td>
+      <td>97.6</td>
+      <td>77.6</td>
+    </tr>
+    <tr>
+      <td>Airbus Industrie A319</td>
+      <td>9</td>
+      <td>0.9</td>
+      <td>985</td>
+      <td>1.7</td>
+      <td>83.3</td>
+    </tr>
+    <tr>
+      <td>Boeing 737-800</td>
+      <td>2</td>
+      <td>0.2</td>
+      <td>352</td>
+      <td>0.6</td>
+      <td>77.1</td>
+    </tr>
+    <tr>
+      <td>McDonnell Douglas DC9 Super 80/MD81/82/83/88</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>36</td>
+      <td>0.1</td>
+      <td>68.6</td>
+    </tr>
+    <tr>
+      <td>Airbus Industrie A321</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>27</td>
+      <td>0.0</td>
+      <td>74.1</td>
+    </tr>
+  </tbody>
+    </table>  </div>
+</div>
+<br>
+<hr>
+<div class="container">
+<h4>Origin and Destination Stats (2018 All Flights)</h4>
+<i>Information on which final destination at which passengers completed (or began) their journey. For example, a passenger may fly from St. Louis to Chicago, but then continue onward to another destination. The data below looks at the final destination regardless of connections (Domestic only).</i><br>
+<div class="btn-group" role="group">
+<button class="btn btn-selector" v-on:click="od_sel='arrive'" v-bind:class="{active: od_sel==='arrive'}">Arriving Flights</button>
+<button class="btn btn-selector" v-on:click="od_sel='depart'" v-bind:class="{active: od_sel==='depart'}">Departing Flights</button>
+<button class="btn btn-selector" v-on:click="od_sel='combined'" v-bind:class="{active: od_sel==='combined'}">All Flights</button>
+</div>
+<br>
+<div class="col-sm-12 air-table">
+  <table class="table">
+    <thead>
+      <tr style="text-align: center;">
+      <th>DESTINATION</th>
+      <th>CITY</th>
+      <th>PASSENGERS (OD)</th>
+      <th>OD DEST RANK AT STL</th>
+      <th>AVG FARE</th>
+      <th>PCT FREE FARES</th>
+    </tr>
+  </thead>
+  <tbody v-if="od_sel==='arrive'" style="text-align: center;">
+    <tr>
+      <td>SEA</td>
+      <td>Seattle, WA</td>
+      <td>58,520</td>
+      <td>1</td>
+      <td>$243.73</td>
+      <td>7.40%</td>
+    </tr>
+    <tr>
+      <td>SAN</td>
+      <td>San Diego, CA</td>
+      <td>16,630</td>
+      <td>2</td>
+      <td>$192.07</td>
+      <td>3.29%</td>
+    </tr>
+    <tr>
+      <td>PDX</td>
+      <td>Portland, OR</td>
+      <td>7,290</td>
+      <td>2</td>
+      <td>$236.08</td>
+      <td>12.15%</td>
+    </tr>
+    <tr>
+      <td>ANC</td>
+      <td>Anchorage, AK</td>
+      <td>5,880</td>
+      <td>1</td>
+      <td>$363.37</td>
+      <td>19.51%</td>
+    </tr>
+    <tr>
+      <td>FAI</td>
+      <td>Fairbanks, AK</td>
+      <td>2,100</td>
+      <td>1</td>
+      <td>$407.16</td>
+      <td>11.11%</td>
+    </tr>
+    <tr>
+      <td>GEG</td>
+      <td>Spokane, WA</td>
+      <td>1,550</td>
+      <td>3</td>
+      <td>$248.07</td>
+      <td>9.93%</td>
+    </tr>
+    <tr>
+      <td>MFR</td>
+      <td>Medford, OR</td>
+      <td>930</td>
+      <td>2</td>
+      <td>$275.16</td>
+      <td>9.41%</td>
+    </tr>
+    <tr>
+      <td>HNL</td>
+      <td>Honolulu, HI</td>
+      <td>830</td>
+      <td>4</td>
+      <td>$397.49</td>
+      <td>6.41%</td>
+    </tr>
+    <tr>
+      <td>RDM</td>
+      <td>Bend/Redmond, OR</td>
+      <td>770</td>
+      <td>1</td>
+      <td>$283.05</td>
+      <td>20.31%</td>
+    </tr>
+    <tr>
+      <td>PSC</td>
+      <td>Pasco/Kennewick/Richland, WA</td>
+      <td>660</td>
+      <td>2</td>
+      <td>$310.68</td>
+      <td>11.86%</td>
+    </tr>
+    <tr>
+      <td>EUG</td>
+      <td>Eugene, OR</td>
+      <td>610</td>
+      <td>2</td>
+      <td>$266.58</td>
+      <td>8.93%</td>
+    </tr>
+    <tr>
+      <td>FAT</td>
+      <td>Fresno, CA</td>
+      <td>590</td>
+      <td>3</td>
+      <td>$228.11</td>
+      <td>7.27%</td>
+    </tr>
+    <tr>
+      <td>LAX</td>
+      <td>Los Angeles, CA</td>
+      <td>550</td>
+      <td>6</td>
+      <td>$266.35</td>
+      <td>5.77%</td>
+    </tr>
+    <tr>
+      <td>SFO</td>
+      <td>San Francisco, CA</td>
+      <td>520</td>
+      <td>6</td>
+      <td>$209.19</td>
+      <td>10.64%</td>
+    </tr>
+    <tr>
+      <td>JNU</td>
+      <td>Juneau, AK</td>
+      <td>520</td>
+      <td>1</td>
+      <td>$418.31</td>
+      <td>26.83%</td>
+    </tr>
+    <tr>
+      <td>KOA</td>
+      <td>Kona, HI</td>
+      <td>390</td>
+      <td>3</td>
+      <td>$351.01</td>
+      <td>30.00%</td>
+    </tr>
+    <tr>
+      <td>BLI</td>
+      <td>Bellingham, WA</td>
+      <td>380</td>
+      <td>1</td>
+      <td>$304.66</td>
+      <td>11.76%</td>
+    </tr>
+    <tr>
+      <td>BOI</td>
+      <td>Boise, ID</td>
+      <td>350</td>
+      <td>5</td>
+      <td>$262.75</td>
+      <td>9.38%</td>
+    </tr>
+    <tr>
+      <td>SMF</td>
+      <td>Sacramento, CA</td>
+      <td>310</td>
+      <td>5</td>
+      <td>$244.45</td>
+      <td>6.90%</td>
+    </tr>
+    <tr>
+      <td>OGG</td>
+      <td>Kahului, HI</td>
+      <td>270</td>
+      <td>4</td>
+      <td>$453.46</td>
+      <td>8.00%</td>
+    </tr>
+    <tr>
+      <td>SJC</td>
+      <td>San Jose, CA</td>
+      <td>250</td>
+      <td>6</td>
+      <td>$328.92</td>
+      <td>25.00%</td>
+    </tr>
+  </tbody>
+  <tbody  v-else-if="od_sel==='depart'" style="text-align: center;">
+    <tr>
+      <td>SEA</td>
+      <td>Seattle, WA</td>
+      <td>58,380</td>
+      <td>1</td>
+      <td>$244.21</td>
+      <td>7.36%</td>
+    </tr>
+    <tr>
+      <td>SAN</td>
+      <td>San Diego, CA</td>
+      <td>16,230</td>
+      <td>2</td>
+      <td>$192.57</td>
+      <td>3.77%</td>
+    </tr>
+    <tr>
+      <td>PDX</td>
+      <td>Portland, OR</td>
+      <td>6,640</td>
+      <td>2</td>
+      <td>$242.02</td>
+      <td>11.60%</td>
+    </tr>
+    <tr>
+      <td>ANC</td>
+      <td>Anchorage, AK</td>
+      <td>5,670</td>
+      <td>1</td>
+      <td>$355.79</td>
+      <td>19.12%</td>
+    </tr>
+    <tr>
+      <td>FAI</td>
+      <td>Fairbanks, AK</td>
+      <td>2,280</td>
+      <td>1</td>
+      <td>$401.16</td>
+      <td>13.43%</td>
+    </tr>
+    <tr>
+      <td>GEG</td>
+      <td>Spokane, WA</td>
+      <td>1,100</td>
+      <td>4</td>
+      <td>$249.55</td>
+      <td>8.91%</td>
+    </tr>
+    <tr>
+      <td>LAX</td>
+      <td>Los Angeles, CA</td>
+      <td>940</td>
+      <td>6</td>
+      <td>$248.89</td>
+      <td>2.17%</td>
+    </tr>
+    <tr>
+      <td>MFR</td>
+      <td>Medford, OR</td>
+      <td>790</td>
+      <td>2</td>
+      <td>$286.73</td>
+      <td>11.27%</td>
+    </tr>
+    <tr>
+      <td>HNL</td>
+      <td>Honolulu, HI</td>
+      <td>690</td>
+      <td>4</td>
+      <td>$369.43</td>
+      <td>7.81%</td>
+    </tr>
+    <tr>
+      <td>RDM</td>
+      <td>Bend/Redmond, OR</td>
+      <td>620</td>
+      <td>2</td>
+      <td>$268.09</td>
+      <td>10.71%</td>
+    </tr>
+    <tr>
+      <td>JNU</td>
+      <td>Juneau, AK</td>
+      <td>610</td>
+      <td>1</td>
+      <td>$440.39</td>
+      <td>27.08%</td>
+    </tr>
+    <tr>
+      <td>EUG</td>
+      <td>Eugene, OR</td>
+      <td>560</td>
+      <td>3</td>
+      <td>$283.84</td>
+      <td>16.67%</td>
+    </tr>
+    <tr>
+      <td>SFO</td>
+      <td>San Francisco, CA</td>
+      <td>480</td>
+      <td>6</td>
+      <td>$238.20</td>
+      <td>17.07%</td>
+    </tr>
+    <tr>
+      <td>PSC</td>
+      <td>Pasco/Kennewick/Richland, WA</td>
+      <td>450</td>
+      <td>2</td>
+      <td>$282.08</td>
+      <td>21.62%</td>
+    </tr>
+    <tr>
+      <td>FAT</td>
+      <td>Fresno, CA</td>
+      <td>450</td>
+      <td>3</td>
+      <td>$239.44</td>
+      <td>7.14%</td>
+    </tr>
+    <tr>
+      <td>BOI</td>
+      <td>Boise, ID</td>
+      <td>380</td>
+      <td>5</td>
+      <td>$266.93</td>
+      <td>18.75%</td>
+    </tr>
+    <tr>
+      <td>KOA</td>
+      <td>Kona, HI</td>
+      <td>320</td>
+      <td>3</td>
+      <td>$348.06</td>
+      <td>28.00%</td>
+    </tr>
+    <tr>
+      <td>BLI</td>
+      <td>Bellingham, WA</td>
+      <td>320</td>
+      <td>1</td>
+      <td>$318.24</td>
+      <td>14.29%</td>
+    </tr>
+    <tr>
+      <td>YKM</td>
+      <td>Yakima, WA</td>
+      <td>310</td>
+      <td>1</td>
+      <td>$309.59</td>
+      <td>6.90%</td>
+    </tr>
+    <tr>
+      <td>EAT</td>
+      <td>Wenatchee, WA</td>
+      <td>300</td>
+      <td>1</td>
+      <td>$275.84</td>
+      <td>11.11%</td>
+    </tr>
+    <tr>
+      <td>OGG</td>
+      <td>Kahului, HI</td>
+      <td>290</td>
+      <td>4</td>
+      <td>$403.15</td>
+      <td>20.83%</td>
+    </tr>
+  </tbody>
+  <tbody  v-else style="text-align: center;">
+    <tr>
+      <td>SEA</td>
+      <td>Seattle, WA</td>
+      <td>116,900</td>
+      <td>1</td>
+      <td>$243.97</td>
+      <td>7.38%</td>
+    </tr>
+    <tr>
+      <td>SAN</td>
+      <td>San Diego, CA</td>
+      <td>32,860</td>
+      <td>2</td>
+      <td>$192.32</td>
+      <td>3.53%</td>
+    </tr>
+    <tr>
+      <td>PDX</td>
+      <td>Portland, OR</td>
+      <td>13,930</td>
+      <td>2</td>
+      <td>$238.92</td>
+      <td>11.89%</td>
+    </tr>
+    <tr>
+      <td>ANC</td>
+      <td>Anchorage, AK</td>
+      <td>11,550</td>
+      <td>1</td>
+      <td>$359.64</td>
+      <td>19.32%</td>
+    </tr>
+    <tr>
+      <td>FAI</td>
+      <td>Fairbanks, AK</td>
+      <td>4,380</td>
+      <td>1</td>
+      <td>$404.07</td>
+      <td>12.31%</td>
+    </tr>
+    <tr>
+      <td>GEG</td>
+      <td>Spokane, WA</td>
+      <td>2,650</td>
+      <td>3</td>
+      <td>$248.69</td>
+      <td>9.50%</td>
+    </tr>
+    <tr>
+      <td>MFR</td>
+      <td>Medford, OR</td>
+      <td>1,720</td>
+      <td>2</td>
+      <td>$280.43</td>
+      <td>10.26%</td>
+    </tr>
+    <tr>
+      <td>HNL</td>
+      <td>Honolulu, HI</td>
+      <td>1,520</td>
+      <td>4</td>
+      <td>$384.84</td>
+      <td>7.04%</td>
+    </tr>
+    <tr>
+      <td>LAX</td>
+      <td>Los Angeles, CA</td>
+      <td>1,490</td>
+      <td>6</td>
+      <td>$255.20</td>
+      <td>3.47%</td>
+    </tr>
+    <tr>
+      <td>RDM</td>
+      <td>Bend/Redmond, OR</td>
+      <td>1,390</td>
+      <td>1</td>
+      <td>$276.07</td>
+      <td>15.83%</td>
+    </tr>
+    <tr>
+      <td>EUG</td>
+      <td>Eugene, OR</td>
+      <td>1,170</td>
+      <td>2</td>
+      <td>$274.55</td>
+      <td>12.50%</td>
+    </tr>
+    <tr>
+      <td>JNU</td>
+      <td>Juneau, AK</td>
+      <td>1,130</td>
+      <td>1</td>
+      <td>$430.22</td>
+      <td>26.97%</td>
+    </tr>
+    <tr>
+      <td>PSC</td>
+      <td>Pasco/Kennewick/Richland, WA</td>
+      <td>1,110</td>
+      <td>2</td>
+      <td>$299.66</td>
+      <td>15.62%</td>
+    </tr>
+    <tr>
+      <td>FAT</td>
+      <td>Fresno, CA</td>
+      <td>1,040</td>
+      <td>3</td>
+      <td>$233.02</td>
+      <td>7.22%</td>
+    </tr>
+    <tr>
+      <td>SFO</td>
+      <td>San Francisco, CA</td>
+      <td>1,000</td>
+      <td>6</td>
+      <td>$222.70</td>
+      <td>13.64%</td>
+    </tr>
+    <tr>
+      <td>BOI</td>
+      <td>Boise, ID</td>
+      <td>730</td>
+      <td>5</td>
+      <td>$264.84</td>
+      <td>14.06%</td>
+    </tr>
+    <tr>
+      <td>KOA</td>
+      <td>Kona, HI</td>
+      <td>710</td>
+      <td>3</td>
+      <td>$349.67</td>
+      <td>29.09%</td>
+    </tr>
+    <tr>
+      <td>BLI</td>
+      <td>Bellingham, WA</td>
+      <td>700</td>
+      <td>1</td>
+      <td>$310.79</td>
+      <td>12.90%</td>
+    </tr>
+    <tr>
+      <td>SMF</td>
+      <td>Sacramento, CA</td>
+      <td>570</td>
+      <td>5</td>
+      <td>$271.79</td>
+      <td>7.55%</td>
+    </tr>
+    <tr>
+      <td>OGG</td>
+      <td>Kahului, HI</td>
+      <td>560</td>
+      <td>4</td>
+      <td>$428.82</td>
+      <td>14.29%</td>
+    </tr>
+    <tr>
+      <td>YKM</td>
+      <td>Yakima, WA</td>
+      <td>550</td>
+      <td>1</td>
+      <td>$295.16</td>
+      <td>3.77%</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</div>
+<br>
+<hr>
+      <div>
+        <u>Other By the Numbers posts</u><br>
+        <a href="\delta_stl_by_the_numbers">Delta at St. Louis-Lambert</a>
+        <br>
+        <a href="\frontier_stl_by_the_numbers">Frontier at St. Louis-Lambert</a>
+        <br>
+        <a href="\united_stl_by_the_numbers">United at St. Louis-Lambert</a>
+        <br>
+        <a href="\allegiant_blv_by_the_numbers">Allegiant at MidAmerica-St. Louis</a>
+        <br>
+        <a href="\american_stl_by_the_numbers">American at St. Louis-Lambert</a>
+        <br>
+        <a href="\airchoiceone_stl_by_the_numbers">Air Choice One at St. Louis-Lambert</a>
+        <br>
+        <a href="\btn_methodology">Methodology for By the Numbers Posts</a>
+        <hr>
+      </div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript" src="static/components/by_the_numbers/STL_AS_dept_bkch_all.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_AS_pass_bkch_all.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_AS_lf_bkch_all.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_AS_dept_bkch_main.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_AS_pass_bkch_main.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_AS_lf_bkch_main.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_AS_dept_bkch_reg.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_AS_pass_bkch_reg.js"></script>
+<script type="text/javascript" src="static/components/by_the_numbers/STL_AS_lf_bkch_reg.js"></script>
+
+      <script src="static/components/menu.vue">
+    </script>
+          <script>
+            
+      new Vue ({
+        el: '#by_the_numbers',
+        data: {
+          dests: 'x',
+          table_sel: 'combined',
+          od_sel: 'combined',
+          operator_sel: 'all'
+          
+        },
+        methods:{
+          formatPct: function(val) {
+            if (val!=null) {
+              return val.toFixed(1);
+            }
+            else {
+              return "NA"
+            }
+          },
+          formatNum: function(val) {
+            if (val!=null) {
+              return val.toLocaleString()
+            }
+            else {
+              return "NA"
+            }
+          },
+          updateNBHood: function(){
+            let form = document.createElement('form');
+            form.action = 'stl_pop';
+            form.method = 'POST';
+            form.innerHTML = '<input class="hidden_submit" name="nbhoods_send" value="'+this.nbhoods_sel+'">';
+            document.body.append(form);
+            form.submit();
+          }
+        }
+      })
+      </script>
+        
+    
+    </center>
+
+
+
+  </body>
+</html>

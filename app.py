@@ -337,6 +337,10 @@ def american_stl_by_the_numbers():
 def airchoiceone_stl_by_the_numbers():
     return render_template('/by_the_numbers/airchoiceone_STL_btn.html')
 
+@app.route('/alaska_stl_by_the_numbers',methods=['GET','POST'])
+def alaska_stl_by_the_numbers():
+    return render_template('/by_the_numbers/alaska_STL_btn.html')
+
 @app.route('/btn_methodology',methods=['GET','POST'])
 def btn_methodology():
     return render_template('/by_the_numbers/btn_methodology.html')

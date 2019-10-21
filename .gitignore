@@ -3,3 +3,5 @@ static/python/__pycache__/bokeh_plot.cpython-36.pyc
 templates/blog_temp.html
 static/components/head_imports.vue
 static/images/delta crj900 STL 10-19.jpg
+templates/index_template.html
+templates/add_blog_to_index.py

@@ -341,6 +341,14 @@ def airchoiceone_stl_by_the_numbers():
 def alaska_stl_by_the_numbers():
     return render_template('/by_the_numbers/alaska_STL_btn.html')
 
+@app.route('/southwest_stl_by_the_numbers',methods=['GET','POST'])
+def southwest_stl_by_the_numbers():
+    return render_template('/by_the_numbers/southwest_STL_btn.html')
+
+@app.route('/southwest_stl_BIG',methods=['GET','POST'])
+def southwest_stl_BIG():
+    return render_template('/by_the_numbers/STL_WN_BIG_charts_all.html')
+
 @app.route('/btn_methodology',methods=['GET','POST'])
 def btn_methodology():
     return render_template('/by_the_numbers/btn_methodology.html')

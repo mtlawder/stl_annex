@@ -353,6 +353,10 @@ def southwest_stl_BIG():
 def btn_methodology():
     return render_template('/by_the_numbers/btn_methodology.html')
 
+@app.route('/blog_us_marathon_trials_2020',methods=['GET','POST'])
+def blog_us_marathon_trials_2020():
+    return render_template('/blog_us_marathon_trials_2020.html')
+
 @app.route('/all_blogs',methods=['GET','POST'])
 def all_blogs():
     return render_template('/all_blogs.html')

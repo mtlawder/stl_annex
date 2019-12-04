@@ -357,6 +357,10 @@ def btn_methodology():
 def blog_us_marathon_trials_2020():
     return render_template('/blog_us_marathon_trials_2020.html')
 
+@app.route('/blog_us_marathon_trials_2020_p2',methods=['GET','POST'])
+def blog_us_marathon_trials_2020_p2():
+    return render_template('/blog_us_marathon_trials_2020_p2.html')
+
 @app.route('/all_blogs',methods=['GET','POST'])
 def all_blogs():
     return render_template('/all_blogs.html')

@@ -361,6 +361,10 @@ def blog_us_marathon_trials_2020():
 def blog_us_marathon_trials_2020_p2():
     return render_template('/blog_us_marathon_trials_2020_p2.html')
 
+@app.route('/all_stl_nbh_census',methods=['GET','POST'])
+def all_stl_nbh_census():
+    return render_template('/all_stl_census_neighborhoods.html')
+
 @app.route('/all_blogs',methods=['GET','POST'])
 def all_blogs():
     return render_template('/all_blogs.html')

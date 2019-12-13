@@ -4,7 +4,7 @@ Vue.component('menu-bar',{
       count:2
     }
   },
-  template: '<nav class="navbar navbar-expand-lg navbar-light bg-light">\
+  template: '<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">\
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">\
     <span class="navbar-toggler-icon"></span>\
   </button>\
@@ -23,7 +23,7 @@ Vue.component('menu-bar',{
         <a class="nav-link" href="\stl_pop">STL Census</a>\
       </li>\
       <li class="nav-item">\
-        <a class="nav-link" href="\index_Main#blog_head">Blog Posts</a>\
+        <a class="nav-link" href="\all_blogs">Blog Posts</a>\
       </li>\
       <li class="nav-item">\
         <a class="nav-link" href="\about">About</a>\

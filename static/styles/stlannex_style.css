@@ -1,6 +1,10 @@
 /* CSS-Global */
 body {
  background-color: #edeff2;
+ padding-top:50px;
+}
+nav {
+	border-bottom:1px solid black;
 }
 
 div.tophead {

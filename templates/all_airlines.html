@@ -45,34 +45,13 @@
 	<body>
     <center>
 
-    <div class="tophead">
-        <br>
-        <h1> Airline Data Browser (STL Annex) [Beta]</h1>
-        <br>
+   <div id="header-vue">
+      <header-bar></header-bar>
     </div>
-    <!--
-	<div>
-		<button onclick="sortTable(3)">Sort by Airline</button>
-    <button onclick="sortTable(5)">Sort by Destination Code</button>
-  </div>
-    -->
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="" id="navbarSupportedContent">
-            <ul class="nav navbar-nav">
-              <li>
-                <a href="\index_Main"> STLAnnex Home </a>
-              </li>
-            </ul>
-          </div>
-        <!-- /.navbar-collapse -->
-        </div>
-      <!-- /.container-fluid -->
+    <div id="menu-vue">
+        <menu-bar></menu-bar>
       </div>
-    </nav>
+  
   <br>
 
 
@@ -263,7 +242,10 @@
 
 	
     </center>
-
+	<script src="static/components/menu.vue">
+    </script>
+    <script src="static/components/header.vue">
+    </script>
     <script>
       new Vue ({
         el: '#dest',

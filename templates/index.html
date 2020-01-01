@@ -24,168 +24,165 @@
 	</head>
 	<body>
     <center>
-    <div class="tophead">
-        <br>
-        <h1> STL Annex: Data Analysis of St. Louis Topics and More!</h1>
-        <h4>Matthew T. Lawder</h4>
-        <h5>matt@stlannex.com</h5>
-        <br>
+    <div id="header-vue">
+      <header-bar></header-bar>
     </div>
     <div id="menu-vue">
       <menu-bar></menu-bar>
     </div>
+
     <br>
       <div class="container">
-        <div class="col-sm-1">
-        </div>
-          <div class="col-sm-10 left-group">
-            The projects below were built to be used to find insteresting insights from different data sets. Many data sets and tools are St. Louis centric, but some extend to information well beyond the city and county borders. I didn't create these tools in a vacuum, I also use them! You can find blog posts with analysis created using these tools (and sometimes outside analysis) at the bottom of this page. Find out more information about the <a href="/about">author here</a> and please reach out to matt@stlannex.com if you have any questions or comments about the tools or analysis.
+        <div class="row">
+          <div class="col-12 col-lg-6 left-group">
+            <div class="subsection">
+              <h2 class="h_subsection"> Recent Blog Posts </h2>
+            </div>
+            <a href="/all_blogs">See all blog posts</a>
+            <div class="left-group">
+              <div class="blog-container">
+                <div class="blog-title">
+                  <h3  class="blog-title-link"><a href="/all_stl_nbh_census">All St. Louis Neighborhood Census Data Pie Charts 1990-2010</a></h3>
+                </div>
+                <div class="blog-title blog-date">12/8/2019 - M. Lawder</div>
+              </div>
+              <div>
+                 Check out all St. Louis Neighborhood Pie Charts showing changing populations in a unified plot.
+                <a href="/all_stl_nbh_census">See more ...</a>
+              </div>
+              <div class="blog-container">
+                <div class="blog-title">
+                  <h3  class="blog-title-link"><a href="/blog_us_marathon_trials_2020_p2">US 2020 Marathon Trials Analysis: Part 2</a></h3>
+                </div>
+                <div class="blog-title blog-date">12/4/2019 - M. Lawder</div>
+              </div>
+              <div>
+                 In <a href="/blog_us_marathon_trials_2020">Part 1 of my US Marathon Trials Analysis</a>, I looked at the current field that is qualified for the 2020 Trials and how they compared to qualifying fields of the past. Today, we will look at the results from the 04-16 Trials and how individual's results relate to their qualifying
+                <a href="/blog_us_marathon_trials_2020_p2">Read more ...</a>
+              </div>
+              <div class="blog-container">
+                <div class="blog-title">
+                  <h3  class="blog-title-link"><a href="/blog_us_marathon_trials_2020">US 2020 Marathon Trials Analysis: Part 1</a></h3>
+                </div>
+                <div class="blog-title blog-date">11/26/2019 - M. Lawder</div>
+              </div>
+              <div>
+                 The <a href="https://www.usatf.org/events/2020/2020-u-s-olympic-team-trials-marathon">2020 US Marathon Oylmpic Trials in Atlanta</a> are fast approaching. This 4 year-cycle has already seen record numbers of men and women hit the qualifying standard at the Marathon distance (386 women and 182 men as of Oct. 22) with about 2 months still to go. There has also been a large drop
+                <a href="/blog_us_marathon_trials_2020">Read more ...</a>
+              </div>
+              <div class="blog-container">
+                <div class="blog-title">
+                  <h3  class="blog-title-link"><a href="/southwest_stl_by_the_numbers">By the Numbers: Southwest at St. Louis-Lambert Airport</a></h3>
+                </div>
+                <div class="blog-title blog-date">11/12/2019 - M. Lawder</div>
+              </div>
+              <div>
+                 Southwest Airlines has been Lambert's largest carrier for over a decade and is almost solely responsible for the passenger gains that have brought the airport's overall passenger counts back to levels not reached since the early 2000's. While other airlines
+                <a href="/southwest_stl_by_the_numbers">Read more ...</a>
+              </div>
+              <div class="blog-container">
+                <div class="blog-title">
+                  <h3  class="blog-title-link"><a href="/alaska_stl_by_the_numbers">By the Numbers: Alaska at St. Louis-Lambert Airport</a></h3>
+                </div>
+                <div class="blog-title blog-date">10/21/2019 - M. Lawder</div>
+              </div>
+              <div>
+                 Alsaka airlines began <a href="http://investor.alaskaair.com/news-releases/news-release-details/alaska-airlines-announces-new-seattle-st-louis-service">service to St. Louis at the tail end of 2010</a> and has seen slow, but continued growth over the intervening decade. The airline has grown it daily service between Seattle and St. Louis with almost 1200 flights (twice daily service)
+                <a href="/alaska_stl_by_the_numbers">Read more ...</a>
+              </div>
+              <div class="blog-container">
+                <div class="blog-title">
+                  <h3  class="blog-title-link"><a href="/airchoiceone_stl_by_the_numbers">By the Numbers: Air Choice One at St. Louis-Lambert Airport</a></h3>
+                </div>
+                <div class="blog-title blog-date">10/16/2019 - M. Lawder</div>
+              </div>
+              <div>
+                 Most people who fly through St. Louis-Lambert have never flown on Air Choice One and many of them may not know anything about them. They are one of the smallest carriers at Lambert by passengers (they actually have quite a lot of departures) flying 35k passengers last year. For comparison
+                <a href="/airchoiceone_stl_by_the_numbers">Read more ...</a>
+              </div>
+            </div>
+            <hr>
           </div>
-          <div class="col-sm-1">
-        </div>
-      </div>
-      <br>
-      <div class="container">
-        <div class="col-sm-1">
-        </div>
-        <div class="col-sm-10">
-          <div class="tophead">
+          <div class="col-12 col-lg-6">
+            <div class="subsection">
+              <h2 class="h_subsection"> Data Tools and Projects </h2>
+            </div>
+            <div>
+              The projects below were built to be used to find insteresting insights from different data sets. Many data sets and tools are St. Louis centric, but some extend to information well beyond the city and county borders. I didn't create these tools in a vacuum, I also use them! You can find blog posts with analysis created using these tools (and sometimes outside analysis) at the bottom of this page. Find out more information about the <a href="/about">author here</a> and please reach out to matt@stlannex.com if you have any questions or comments about the tools or analysis.
+              <hr>
+            </div>
+            <div class="subsection">
+              <h2 class="h_subsection"> Airline Data Browser </h2>
+            </div>
+            
+            <div>
+              <div>
+                <img src="/static/images/airline_browser_screenshot.png" class="image"/>
+              </div>
+              <div class="left-group">
+                The Airline Data Browser aggregates statistics from the Bureau of Transportation <a href="https://www.transtats.bts.gov/Fields.asp?Table_ID=293">T-100 Segment </a> data set and allows users to look at information such as total departures, passengers, and load factors on individual routes down to a monthly level. The tool currently only offers domestic routes arriving at or departing from a limited set of airports. Additionally, there is only a limited set of mappings available to roll up regional carriers to their mainline carriers as we work to find more accurate mappings. Data currently available from Jan. 2014 to mid 2018.
+              </div>
+            </div>
             <br>
-            <h2> Airline Data Browser </h2>
-            <br>
-          </div>
-          <br>
-          <div>
-            <div class="right-image">
-              <img src="/static/images/airline_browser_screenshot.png" align="right" class="image"/>
+            <div>
+              <form method='get' action="all_airlines">
+                <button type="submit" class="btn btn-primary btn-lg">  Go to Airline Page  </button>
+              </form>
+            </div>
+            <hr>
+            <div class="subsection">
+              <h2 class="h_subsection"> Midwest Wind Energy</h2>
             </div>
             <div class="left-group">
-              The Airline Data Browser aggregates statistics from the Bureau of Transportation <a href="https://www.transtats.bts.gov/Fields.asp?Table_ID=293">T-100 Segment </a> data set and allows users to look at information such as total departures, passengers, and load factors on individual routes down to a monthly level. The tool currently only offers domestic routes arriving at or departing from a limited set of airports. Additionally, there is only a limited set of mappings available to roll up regional carriers to their mainline carriers as we work to find more accurate mappings. Data currently available from Jan. 2014 to mid 2018.
+              This project looks at several different types of analysis (from both a technical and economic standpoint). The project was worked on in 2016, so the data and analysis deal with data prior to 2016. There are several different interesting facets to the project including:
+              <ol>
+                <li>A tool for comparing historical energy prices at different nodes throughout the Midwest.</li>
+                <li>A report builder for looking at wind farm economics at different sites in Iowa and Illinois using a build in techno-economic model</li>
+                <li>A case study of best sites for wind power additions in Iowa and Illinois based on historical wind and energy price data.</li>
+              </ol> 
             </div>
+            <br>
+            <div>
+              <form action="http://miso-epat.herokuapp.com/index_Main">
+                <button type="submit" class="btn btn-primary btn-lg">  Go to Wind Energy Analysis  </button>
+              </form>
+            </div>
+            <hr>
+            <div class="subsection">
+              <h2 class="h_subsection">STL Neighborhood Census Data</h2>
+            </div>
+            <div class="left-group">
+              St. Louis City is made up of 79 different neighborhoods. Check out how the population and demogrpahics has changed during the 1990 to 2010 Census periods by selecting different neighborhoods with the explorer tool.
+            </div>
+            <div>
+              <form action="/stl_pop">
+                <button type="submit" class="btn btn-primary btn-lg">  Go to Census Tool  </button>
+              </form>
+            </div>
+            <hr>
           </div>
-          <br>
-          <div>
-            <form method='get' action="all_airlines">
-              <button type="submit" class="btn btn-primary btn-lg">  Go to Airline Page  </button>
-            </form>
-          </div>
-        </div>
-        <div class="col-sm-1">
-        </div>
+          
+      </div>
       </div>
       <br>
       <div class="container">
         <div class="col-sm-1">
         </div>
         <div class="col-sm-10">
-          <div class="tophead">
-            <br>
-            <h2> Midwest Wind Energy Analysis </h2>
-            <br>
-          </div>
-          <br>
-          <div class="left-group">
-            This project looks at several different types of analysis (from both a technical and economic standpoint). The project was worked on in 2016, so the data and analysis deal with data prior to 2016. There are several different interesting facets to the project including:
-            <ol>
-              <li>A tool for comparing historical energy prices at different nodes throughout the Midwest.</li>
-              <li>A report builder for looking at wind farm economics at different sites in Iowa and Illinois using a build in techno-economic model</li>
-              <li>A case study of best sites for wind power additions in Iowa and Illinois based on historical wind and energy price data.</li>
-            </ol> 
-          </div>
-          <br>
-          <div>
-            <form action="http://miso-epat.herokuapp.com/index_Main">
-              <button type="submit" class="btn btn-primary btn-lg">  Go to Wind Energy Analysis  </button>
-            </form>
-          </div>
+         <hr>
         </div>
         <div class="col-sm-1">
         </div>
       </div>
       <br>
-      <div id="blog_head" class="container">
-        <div class="col-sm-1">
-        </div>
-        <div class="col-sm-10">
-          <div class="tophead">
-            <br>
-            <h2>Recent Blog Posts</h2>
-            <br>
-          </div>
-          <a href="/all_blogs">See all blog posts</a>
-          <div class="left-group">
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/all_stl_nbh_census">All St. Louis Neighborhood Census Data Pie Charts 1990-2010</a></h3>
-              </div>
-              <div class="blog-title blog-date">12/8/2019 - M. Lawder</div>
-            </div>
-            <div>
-               Check out all St. Louis Neighborhood Pie Charts showing changing populations in a unified plot.
-              <a href="/all_stl_nbh_census">See more ...</a>
-            </div>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/blog_us_marathon_trials_2020_p2">US 2020 Marathon Trials Analysis: Part 2</a></h3>
-              </div>
-              <div class="blog-title blog-date">12/4/2019 - M. Lawder</div>
-            </div>
-            <div>
-               In <a href="/blog_us_marathon_trials_2020">Part 1 of my US Marathon Trials Analysis</a>, I looked at the current field that is qualified for the 2020 Trials and how they compared to qualifying fields of the past. Today, we will look at the results from the 04-16 Trials and how individual's results relate to their qualifying
-              <a href="/blog_us_marathon_trials_2020_p2">Read more ...</a>
-            </div>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/blog_us_marathon_trials_2020">US 2020 Marathon Trials Analysis: Part 1</a></h3>
-              </div>
-              <div class="blog-title blog-date">11/26/2019 - M. Lawder</div>
-            </div>
-            <div>
-               The <a href="https://www.usatf.org/events/2020/2020-u-s-olympic-team-trials-marathon">2020 US Marathon Oylmpic Trials in Atlanta</a> are fast approaching. This 4 year-cycle has already seen record numbers of men and women hit the qualifying standard at the Marathon distance (386 women and 182 men as of Oct. 22) with about 2 months still to go. There has also been a large drop
-              <a href="/blog_us_marathon_trials_2020">Read more ...</a>
-            </div>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/southwest_stl_by_the_numbers">By the Numbers: Southwest at St. Louis-Lambert Airport</a></h3>
-              </div>
-              <div class="blog-title blog-date">11/12/2019 - M. Lawder</div>
-            </div>
-            <div>
-               Southwest Airlines has been Lambert's largest carrier for over a decade and is almost solely responsible for the passenger gains that have brought the airport's overall passenger counts back to levels not reached since the early 2000's. While other airlines
-              <a href="/southwest_stl_by_the_numbers">Read more ...</a>
-            </div>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/alaska_stl_by_the_numbers">By the Numbers: Alaska at St. Louis-Lambert Airport</a></h3>
-              </div>
-              <div class="blog-title blog-date">10/21/2019 - M. Lawder</div>
-            </div>
-            <div>
-               Alsaka airlines began <a href="http://investor.alaskaair.com/news-releases/news-release-details/alaska-airlines-announces-new-seattle-st-louis-service">service to St. Louis at the tail end of 2010</a> and has seen slow, but continued growth over the intervening decade. The airline has grown it daily service between Seattle and St. Louis with almost 1200 flights (twice daily service)
-              <a href="/alaska_stl_by_the_numbers">Read more ...</a>
-            </div>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/airchoiceone_stl_by_the_numbers">By the Numbers: Air Choice One at St. Louis-Lambert Airport</a></h3>
-              </div>
-              <div class="blog-title blog-date">10/16/2019 - M. Lawder</div>
-            </div>
-            <div>
-               Most people who fly through St. Louis-Lambert have never flown on Air Choice One and many of them may not know anything about them. They are one of the smallest carriers at Lambert by passengers (they actually have quite a lot of departures) flying 35k passengers last year. For comparison
-              <a href="/airchoiceone_stl_by_the_numbers">Read more ...</a>
-            </div>
-            <div class="blog-container">          <br>
-          <hr>
-        </div>
-        <div class="col-sm-1">
-        </div>
-      </div>
+     
       
     </center>
     
     <script src="static/components/menu.vue">
     </script>
-
+    <script src="static/components/header.vue">
+    </script>
     </script>
 	</body>
 </html>

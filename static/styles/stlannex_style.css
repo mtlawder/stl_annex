@@ -8,8 +8,31 @@ nav {
 }
 
 div.tophead {
+  /*background-color: #428bca;*/
+    color: Black;
+    position: relative;
+    text-align:center;
+    border-bottom:1px solid black;
+  }
+div.tophead_center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color:#999999;
+  opacity:0.82;
+  border-radius:10pt;
+}
+div.subsection {
   background-color: #428bca;
-    color: White;}
+    color: White;
+    position: relative;
+    text-align:center;
+}
+.h_subsection {
+  padding-top:8px;
+  padding-bottom:8px;
+}
 
 th {
   cursor: pointer;
@@ -221,5 +244,6 @@ table{
 }
 .image{
   width:100%;
+  border: 1px solid black;
 }
 [v-cloak]>*{display:none;}

@@ -369,6 +369,10 @@ def all_stl_nbh_census():
 def connecting_airport_traffic():
     return render_template('/blog_airport_connections.html')
 
+@app.route('/blog_od_ranks',methods=['GET','POST'])
+def blog_od_ranks():
+    return render_template('/blog_od_ranks.html')
+
 @app.route('/all_blogs',methods=['GET','POST'])
 def all_blogs():
     return render_template('/all_blogs.html')

@@ -1,0 +1,360 @@
+<html lang="en">
+  <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-142498774-1');
+	</script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/stl_pop_style.css">
+    <title>STL Annex</title>
+    
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.css" type="text/css" />
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+    <style>
+    .col-xl-4{
+      padding:0px !important;
+    }
+    .col-lg-6{
+      padding:0px !important;
+    }
+    .col-lg-12{
+      padding:0px !important;
+    }
+    .btn-group{
+      padding:5px !important;
+    }
+    .container{
+      padding:0px !important;
+      max-width:1240px;
+    }
+  </style>
+  </head>
+  <body>
+        <center>
+        <div id="header-vue">
+      <header-bar></header-bar>
+    </div>
+          <div id="menu-vue">
+          <menu-bar></menu-bar>
+        </div>
+         
+        <br>
+        <div id="us_marathon">
+          <div class="container">
+          <div class="col-lg-2 col-md-1">
+          </div>
+          <div class="col-lg-8 col-md-10 col-sm-12">
+            
+            <br><br>
+            <h3>New York Airport O&D Travel:<br> How Newark, LaGuardia, and Kennedy Differ</h3>
+            <br>
+            <div class="blog-container left-group">
+              <p>
+                There are three major airports in the New York vicinity: Newark (EWR), LaGuardia (LGA) and Kennedy (JFK). There are other smaller airport's like Stewart (SWF) or further away one's like Philadelphia (PHL) that draw the occasional TriState resident, but these are the big three, combining for a total of 87.7M domestic passengers and generating 71.4M domestic O&D passengers in 2018. The airport's have lots of overlapping service, but when looking at which routes and destination people fly to from each airport, some clear distinctions among the airport's emerge.
+              </p>
+              <p>
+                So which airports do New Yorkers fly to from each of <i>their</i> three airports? Below is a chart of the top ten destinations by O&D traffic from each of the airports. 
+              </p>
+              <div class="air-table">
+                <h5>Top Destination by O&D Passengers out of NYC Airports 2018</h5>
+                <center>
+                  <table class="table">
+                    <thead>
+                      <tr style="text-align: center;">
+                      <th></th>
+                      <th colspan="2">Newark (EWR)</th>
+                      <th colspan="2">LaGuardia (LGA)</th>
+                      <th colspan="2">Kennedy (JFK)</th>
+                      </tr>
+                      <tr style="text-align: center;">
+                        <th>order</th>
+                        <th>PAIR</th>
+                        <th>O&D_PASSENGERS</th>
+                        <th>PAIR_lga</th>
+                        <th>O&D_PASSENGERS</th>
+                        <th>PAIR</th>
+                        <th>O&D_PASSENGERS</th>
+                      </tr>
+                    </thead>
+                    <tbody style="text-align: center;" >
+                      <tr>
+                        <td>1</td>
+                        <td>MCO</td>
+                        <td>1,854,220</td>
+                        <td>ORD</td>
+                        <td>2,625,320</td>
+                        <td>LAX</td>
+                        <td>3,010,630</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>SFO</td>
+                        <td>1,661,930</td>
+                        <td>ATL</td>
+                        <td>1,819,620</td>
+                        <td>SFO</td>
+                        <td>1,878,080</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>LAX</td>
+                        <td>1,514,410</td>
+                        <td>MIA</td>
+                        <td>1,419,050</td>
+                        <td>MCO</td>
+                        <td>1,148,600</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>FLL</td>
+                        <td>1,457,050</td>
+                        <td>FLL</td>
+                        <td>1,287,090</td>
+                        <td>LAS</td>
+                        <td>1,047,500</td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td>ORD</td>
+                        <td>920,030</td>
+                        <td>DFW</td>
+                        <td>1,174,180</td>
+                        <td>FLL</td>
+                        <td>940,690</td>
+                      </tr>
+                      <tr>
+                        <td>6</td>
+                        <td>ATL</td>
+                        <td>829,160</td>
+                        <td>MCO</td>
+                        <td>987,380</td>
+                        <td>SEA</td>
+                        <td>737,380</td>
+                      </tr>
+                      <tr>
+                        <td>7</td>
+                        <td>LAS</td>
+                        <td>762,510</td>
+                        <td>BOS</td>
+                        <td>894,220</td>
+                        <td>MIA</td>
+                        <td>667,390</td>
+                      </tr>
+                      <tr>
+                        <td>8</td>
+                        <td>PBI</td>
+                        <td>748,970</td>
+                        <td>DEN</td>
+                        <td>842,880</td>
+                        <td>SJU</td>
+                        <td>644,820</td>
+                      </tr>
+                      <tr>
+                        <td>9</td>
+                        <td>IAH</td>
+                        <td>715,120</td>
+                        <td>DTW</td>
+                        <td>768,010</td>
+                        <td>SAN</td>
+                        <td>583,860</td>
+                      </tr>
+                      <tr>
+                        <td>10</td>
+                        <td>TPA</td>
+                        <td>702,710</td>
+                        <td>CLT</td>
+                        <td>738,360</td>
+                        <td>PHX</td>
+                        <td>568,860</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </center>
+              </div>
+              <hr>
+              <p>
+                The biggest O&D destinations are Florida airports and West Coast cities along with a smattering of major airline hub airports, like ATL, DFW, DTW, and IAH. LaGuardia has flight restrictions that keep it from flying all the way to the West Coast (and to farther out International destinations), so it does not have any of the West Coast flights that EWR and JFK fly. That's one reason the numbers for these destinations are higher in their individual ranking at EWR and JFK because the NYC total O&D traffic that is looking for direct flights is split among only JFK and EWR instead of 3 airports. LGA still has some O&D to the West Coast, it is just significantly lower because of the connection requirement.
+              </p>
+              <p>
+                Newark's top spots include several of the United hubs, while LGA's is filled by AA and DL hubs. JFK is a little more spread out possibly because they have a pretty wide range of airlines that are more evenly dispersed operating at the airport. One area that is particularly interesting out of this data is the NYC to Florida market. All three airports serve a wide range of Florida destinations, but the O&D varies by airport. Below, I compare how NYC flies to the top seven Florida destinations, Orlando (MCO), Fort Lauderdale (FLL), Miami (MIA), Palm Beach (PBI), Tampa Bay (TPA), Fort Myers (RSW) and Jacksonville (JAX).
+              </p>
+              <div class="air-table">
+                <h5>O&D Passengers to Florida Airports out of NYC Airports 2018</h5>
+                <center>
+                <table class="table">
+                  <thead>
+                    <tr style="text-align: center;">
+                      <th></th>
+                      <th colspan="2">Newark (EWR)</th>
+                      <th colspan="2">LaGuardia (LGA)</th>
+                      <th colspan="2">Kennedy (JFK)</th>
+                    </tr>
+                    <tr style="text-align: center;">
+                      <th>PAIR</th>
+                      <th>O&D PASSENGERS</th>
+                      <th>% Total</th>
+                      <th>O&D PASSENGERS</th>
+                      <th>% Total</th>
+                      <th>O&D PASSENGERS</th>
+                      <th>% Total</th>
+                    </tr>
+                  </thead>
+                  <tbody style="text-align: center;">
+                    <tr>
+                      <td>MCO</td>
+                      <td>1,854,220</td>
+                      <td>46.5%</td>
+                      <td>987,380</td>
+                      <td>24.7%</td>
+                      <td>1,148,600</td>
+                      <td>28.8%</td>
+                    </tr>
+                    <tr>
+                      <td>FLL</td>
+                      <td>1,457,050</td>
+                      <td>39.5%</td>
+                      <td>1,287,090</td>
+                      <td>34.9%</td>
+                      <td>940,690</td>
+                      <td>25.5%</td>
+                    </tr>
+                    <tr>
+                      <td>PBI</td>
+                      <td>748,970</td>
+                      <td>43.0%</td>
+                      <td>570,150</td>
+                      <td>32.7%</td>
+                      <td>422,810</td>
+                      <td>24.3%</td>
+                    </tr>
+                    <tr>
+                      <td>TPA</td>
+                      <td>702,710</td>
+                      <td>42.5%</td>
+                      <td>473,790</td>
+                      <td>28.7%</td>
+                      <td>476,300</td>
+                      <td>28.8%</td>
+                    </tr>
+                    <tr>
+                      <td>MIA</td>
+                      <td>595,810</td>
+                      <td>22.2%</td>
+                      <td>1,419,050</td>
+                      <td>52.9%</td>
+                      <td>667,390</td>
+                      <td>24.9%</td>
+                    </tr>
+                    <tr>
+                      <td>RSW</td>
+                      <td>450,450</td>
+                      <td>52.8%</td>
+                      <td>176,120</td>
+                      <td>20.6%</td>
+                      <td>227,030</td>
+                      <td>26.6%</td>
+                    </tr>
+                    <tr>
+                      <td>JAX</td>
+                      <td>170,680</td>
+                      <td>28.2%</td>
+                      <td>147,140</td>
+                      <td>24.3%</td>
+                      <td>288,280</td>
+                      <td>47.6%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </center>
+            </div>
+                <hr>
+                <center>
+                  <div class="bk-root" id="c63f3cd7-24a0-4e91-aa3a-55f972622055" data-root-id="1001"></div>
+                  <i>Size of pie is relative to airport's total O&D traffic from the three NYC airports. Individual slices show the number of travelers to/from the Florida airport to the respective NYC airport.</i>
+                </center>
+                <br>
+                <p>
+                  Kennedy averages the smallest share of FLorida O&D travelers out of NYC, but does dominate the market to JAX serving 47.6% out the 606k travelers. LaGuardia has slightly higher averages than Kennedy, ranking second at most destinations except Miami, where it captures over half of the 2.7M O&D travelers. Newark is the top airport for serving Florida by a pretty significant margin with over 42% of travelers from Tampa, Palm Beach, and Orlando along with a 52.8% share of the Fort Myers market. Out of all 7 markets combined Newark serves 39.3% of the 15.2M O&D travelers to these seven Florida airport. Regardless of which airport residents are starting from, lots of New York and New Jersey residents are heading down to Florida.   
+                </p>
+          </div>
+          <div class="col-lg-2 col-md-1">
+          </div>
+  </div>
+</div>
+       <script type="application/json" id="1291">
+
+          {"945cc756-888f-45fe-8f01-295e0536e221":{"roots":{"references":[{"attributes":{"end_angle":{"expr":{"id":"1054","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"radius":{"units":"data","value":0.9433471856331862},"start_angle":{"expr":{"id":"1053","type":"CumSum"},"units":"rad"},"x":{"value":2},"y":{"value":3}},"id":"1058","type":"Wedge"},{"attributes":{"text":"JAX","text_font_size":{"value":"8pt"},"x":2.82,"y":0.65},"id":"1118","type":"Label"},{"attributes":{"data_source":{"id":"1055","type":"ColumnDataSource"},"glyph":{"id":"1057","type":"Wedge"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1058","type":"Wedge"},"selection_glyph":null,"view":{"id":"1060","type":"CDSView"}},"id":"1059","type":"GlyphRenderer"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1051","type":"HoverTool"},{"id":"1061","type":"HoverTool"},{"id":"1071","type":"HoverTool"},{"id":"1081","type":"HoverTool"},{"id":"1091","type":"HoverTool"},{"id":"1101","type":"HoverTool"},{"id":"1111","type":"HoverTool"}]},"id":"1028","type":"Toolbar"},{"attributes":{"text":"RSW","text_font_size":{"value":"8pt"},"x":4.83,"y":0.6},"id":"1119","type":"Label"},{"attributes":{"field":"angle"},"id":"1104","type":"CumSum"},{"attributes":{"source":{"id":"1055","type":"ColumnDataSource"}},"id":"1060","type":"CDSView"},{"attributes":{"label":{"field":"airp"},"renderers":[{"id":"1042","type":"GlyphRenderer"}]},"id":"1050","type":"LegendItem"},{"attributes":{"callback":null,"renderers":[{"id":"1109","type":"GlyphRenderer"}],"tooltips":[["Source","@airp"],["'18 O&amp;D PAX","@PAX{0,}"]]},"id":"1111","type":"HoverTool"},{"attributes":{},"id":"1135","type":"Selection"},{"attributes":{"callback":null,"renderers":[{"id":"1059","type":"GlyphRenderer"}],"tooltips":[["Source","@airp"],["'18 O&amp;D PAX","@PAX{0,}"]]},"id":"1061","type":"HoverTool"},{"attributes":{"callback":null,"renderers":[{"id":"1042","type":"GlyphRenderer"}],"tooltips":[["Source","@airp"],["'18 O&amp;D PAX","@PAX{0,}"]]},"id":"1051","type":"HoverTool"},{"attributes":{},"id":"1137","type":"Selection"},{"attributes":{"data_source":{"id":"1065","type":"ColumnDataSource"},"glyph":{"id":"1067","type":"Wedge"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1068","type":"Wedge"},"selection_glyph":null,"view":{"id":"1070","type":"CDSView"}},"id":"1069","type":"GlyphRenderer"},{"attributes":{"source":{"id":"1105","type":"ColumnDataSource"}},"id":"1110","type":"CDSView"},{"attributes":{"callback":null,"renderers":[{"id":"1069","type":"GlyphRenderer"}],"tooltips":[["Source","@airp"],["'18 O&amp;D PAX","@PAX{0,}"]]},"id":"1071","type":"HoverTool"},{"attributes":{},"id":"1125","type":"Selection"},{"attributes":{},"id":"1126","type":"UnionRenderers"},{"attributes":{"items":[{"id":"1050","type":"LegendItem"}],"location":"bottom_right"},"id":"1049","type":"Legend"},{"attributes":{},"id":"1134","type":"UnionRenderers"},{"attributes":{"text":"MCO","text_font_size":{"value":"8pt"},"x":-0.1,"y":1.75},"id":"1113","type":"Label"},{"attributes":{"end_angle":{"expr":{"id":"1037","type":"CumSum"},"units":"rad"},"fill_color":{"field":"color"},"line_color":{"value":"white"},"radius":{"units":"data","value":1.0},"start_angle":{"expr":{"id":"1036","type":"CumSum"},"units":"rad"},"x":{"value":0},"y":{"value":3}},"id":"1040","type":"Wedge"},{"attributes":{},"id":"1127","type":"Selection"},{"attributes":{"source":{"id":"1065","type":"ColumnDataSource"}},"id":"1070","type":"CDSView"},{"attributes":{},"id":"1047","type":"BasicTickFormatter"},{"attributes":{"end_angle":{"expr":{"id":"1064","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"radius":{"units":"data","value":0.7573466661719417},"start_angle":{"expr":{"id":"1063","type":"CumSum"},"units":"rad"},"x":{"value":4},"y":{"value":3}},"id":"1068","type":"Wedge"},{"attributes":{"field":"angle","include_zero":true},"id":"1036","type":"CumSum"},{"attributes":{},"id":"1128","type":"UnionRenderers"},{"attributes":{"field":"angle","include_zero":true},"id":"1083","type":"CumSum"},{"attributes":{},"id":"1129","type":"Selection"},{"attributes":{"end_angle":{"expr":{"id":"1104","type":"CumSum"},"units":"rad"},"fill_color":{"field":"color"},"line_color":{"value":"white"},"radius":{"units":"data","value":0.4180920930577715},"start_angle":{"expr":{"id":"1103","type":"CumSum"},"units":"rad"},"x":{"value":5},"y":{"value":1.2}},"id":"1107","type":"Wedge"},{"attributes":{},"id":"1045","type":"BasicTickFormatter"},{"attributes":{"field":"angle"},"id":"1084","type":"CumSum"},{"attributes":{},"id":"1138","type":"UnionRenderers"},{"attributes":{"end_angle":{"expr":{"id":"1104","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"radius":{"units":"data","value":0.4180920930577715},"start_angle":{"expr":{"id":"1103","type":"CumSum"},"units":"rad"},"x":{"value":5},"y":{"value":1.2}},"id":"1108","type":"Wedge"},{"attributes":{"callback":null,"data":{"PAX":{"__ndarray__":"AAAAAFTbJkEAAAAATGYhQQAAAABozhlB","dtype":"float64","shape":[3]},"airp":["EWR","LGA","JFK"],"angle":{"__ndarray__":"/FceJcicBUAlUSIRznMAQCBij+TAZvg/","dtype":"float64","shape":[3]},"color":["#1f77b4","#ff7f0e","#2ca02c"],"index":[0,1,2]},"selected":{"id":"1133","type":"Selection"},"selection_policy":{"id":"1134","type":"UnionRenderers"}},"id":"1085","type":"ColumnDataSource"},{"attributes":{"source":{"id":"1038","type":"ColumnDataSource"}},"id":"1043","type":"CDSView"},{"attributes":{"field":"angle"},"id":"1037","type":"CumSum"},{"attributes":{"end_angle":{"expr":{"id":"1094","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"radius":{"units":"data","value":0.3721754294831361},"start_angle":{"expr":{"id":"1093","type":"CumSum"},"units":"rad"},"x":{"value":3},"y":{"value":1.2}},"id":"1098","type":"Wedge"},{"attributes":{"end_angle":{"expr":{"id":"1094","type":"CumSum"},"units":"rad"},"fill_color":{"field":"color"},"line_color":{"value":"white"},"radius":{"units":"data","value":0.3721754294831361},"start_angle":{"expr":{"id":"1093","type":"CumSum"},"units":"rad"},"x":{"value":3},"y":{"value":1.2}},"id":"1097","type":"Wedge"},{"attributes":{"callback":null,"data":{"PAX":{"__ndarray__":"AAAAAAxLPEEAAAAA6CEuQQAAAAC4hjFB","dtype":"float64","shape":[3]},"airp":["EWR","LGA","JFK"],"angle":{"__ndarray__":"rY2As6hbB0CipzAwY+D4P2Tx3rk48Pw/","dtype":"float64","shape":[3]},"color":["#1f77b4","#ff7f0e","#2ca02c"],"index":[0,1,2]},"selected":{"id":"1125","type":"Selection"},"selection_policy":{"id":"1126","type":"UnionRenderers"}},"id":"1038","type":"ColumnDataSource"},{"attributes":{"data_source":{"id":"1095","type":"ColumnDataSource"},"glyph":{"id":"1097","type":"Wedge"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1098","type":"Wedge"},"selection_glyph":null,"view":{"id":"1100","type":"CDSView"}},"id":"1099","type":"GlyphRenderer"},{"attributes":{"end_angle":{"expr":{"id":"1037","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"radius":{"units":"data","value":1.0},"start_angle":{"expr":{"id":"1036","type":"CumSum"},"units":"rad"},"x":{"value":0},"y":{"value":3}},"id":"1041","type":"Wedge"},{"attributes":{"data_source":{"id":"1085","type":"ColumnDataSource"},"glyph":{"id":"1087","type":"Wedge"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1088","type":"Wedge"},"selection_glyph":null,"view":{"id":"1090","type":"CDSView"}},"id":"1089","type":"GlyphRenderer"},{"attributes":{"end_angle":{"expr":{"id":"1084","type":"CumSum"},"units":"rad"},"fill_color":{"field":"color"},"line_color":{"value":"white"},"radius":{"units":"data","value":0.5828967385254722},"start_angle":{"expr":{"id":"1083","type":"CumSum"},"units":"rad"},"x":{"value":1},"y":{"value":1.2}},"id":"1087","type":"Wedge"},{"attributes":{"end_angle":{"expr":{"id":"1084","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"radius":{"units":"data","value":0.5828967385254722},"start_angle":{"expr":{"id":"1083","type":"CumSum"},"units":"rad"},"x":{"value":1},"y":{"value":1.2}},"id":"1088","type":"Wedge"},{"attributes":{"field":"angle","include_zero":true},"id":"1073","type":"CumSum"},{"attributes":{"data_source":{"id":"1038","type":"ColumnDataSource"},"glyph":{"id":"1040","type":"Wedge"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1041","type":"Wedge"},"selection_glyph":null,"view":{"id":"1043","type":"CDSView"}},"id":"1042","type":"GlyphRenderer"},{"attributes":{"data_source":{"id":"1105","type":"ColumnDataSource"},"glyph":{"id":"1107","type":"Wedge"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1108","type":"Wedge"},"selection_glyph":null,"view":{"id":"1110","type":"CDSView"}},"id":"1109","type":"GlyphRenderer"},{"attributes":{"source":{"id":"1085","type":"ColumnDataSource"}},"id":"1090","type":"CDSView"},{"attributes":{"field":"angle"},"id":"1074","type":"CumSum"},{"attributes":{"source":{"id":"1095","type":"ColumnDataSource"}},"id":"1100","type":"CDSView"},{"attributes":{"callback":null,"data":{"PAX":{"__ndarray__":"AAAAAMDVBEEAAAAAIPYBQQAAAABgmBFB","dtype":"float64","shape":[3]},"airp":["EWR","LGA","JFK"],"angle":{"__ndarray__":"H9KTCFVP/D8fXsq5yWf4PxFCWUdn6AdA","dtype":"float64","shape":[3]},"color":["#1f77b4","#ff7f0e","#2ca02c"],"index":[0,1,2]},"selected":{"id":"1135","type":"Selection"},"selection_policy":{"id":"1136","type":"UnionRenderers"}},"id":"1095","type":"ColumnDataSource"},{"attributes":{"below":[{"id":"1012","type":"LinearAxis"}],"center":[{"id":"1016","type":"Grid"},{"id":"1021","type":"Grid"},{"id":"1049","type":"Legend"},{"id":"1113","type":"Label"},{"id":"1114","type":"Label"},{"id":"1115","type":"Label"},{"id":"1116","type":"Label"},{"id":"1117","type":"Label"},{"id":"1118","type":"Label"},{"id":"1119","type":"Label"}],"left":[{"id":"1017","type":"LinearAxis"}],"plot_height":300,"plot_width":550,"renderers":[{"id":"1042","type":"GlyphRenderer"},{"id":"1059","type":"GlyphRenderer"},{"id":"1069","type":"GlyphRenderer"},{"id":"1079","type":"GlyphRenderer"},{"id":"1089","type":"GlyphRenderer"},{"id":"1099","type":"GlyphRenderer"},{"id":"1109","type":"GlyphRenderer"}],"title":{"id":"1002","type":"Title"},"toolbar":{"id":"1028","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"1004","type":"Range1d"},"x_scale":{"id":"1008","type":"LinearScale"},"y_range":{"id":"1006","type":"Range1d"},"y_scale":{"id":"1010","type":"LinearScale"}},"id":"1001","subtype":"Figure","type":"Plot"},{"attributes":{"callback":null,"renderers":[{"id":"1089","type":"GlyphRenderer"}],"tooltips":[["Source","@airp"],["'18 O&amp;D PAX","@PAX{0,}"]]},"id":"1091","type":"HoverTool"},{"attributes":{"callback":null,"data":{"PAX":{"__ndarray__":"AAAAAOxxJUEAAAAA+OocQQAAAAAwEh1B","dtype":"float64","shape":[3]},"airp":["EWR","LGA","JFK"],"angle":{"__ndarray__":"RRE5kfxeBUCG2dBnb9H8P1G4zcaE+Pw/","dtype":"float64","shape":[3]},"color":["#1f77b4","#ff7f0e","#2ca02c"],"index":[0,1,2]},"selected":{"id":"1131","type":"Selection"},"selection_policy":{"id":"1132","type":"UnionRenderers"}},"id":"1075","type":"ColumnDataSource"},{"attributes":{"text":"O&amp;D Travelers from NYC Area Airports to Florida 2018"},"id":"1002","type":"Title"},{"attributes":{"field":"angle"},"id":"1054","type":"CumSum"},{"attributes":{},"id":"1130","type":"UnionRenderers"},{"attributes":{"callback":null,"end":7,"start":-1.1},"id":"1004","type":"Range1d"},{"attributes":{"callback":null,"end":4.3,"start":0.2},"id":"1006","type":"Range1d"},{"attributes":{"end_angle":{"expr":{"id":"1064","type":"CumSum"},"units":"rad"},"fill_color":{"field":"color"},"line_color":{"value":"white"},"radius":{"units":"data","value":0.7573466661719417},"start_angle":{"expr":{"id":"1063","type":"CumSum"},"units":"rad"},"x":{"value":4},"y":{"value":3}},"id":"1067","type":"Wedge"},{"attributes":{"data_source":{"id":"1075","type":"ColumnDataSource"},"glyph":{"id":"1077","type":"Wedge"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1078","type":"Wedge"},"selection_glyph":null,"view":{"id":"1080","type":"CDSView"}},"id":"1079","type":"GlyphRenderer"},{"attributes":{"callback":null,"renderers":[{"id":"1099","type":"GlyphRenderer"}],"tooltips":[["Source","@airp"],["'18 O&amp;D PAX","@PAX{0,}"]]},"id":"1101","type":"HoverTool"},{"attributes":{},"id":"1131","type":"Selection"},{"attributes":{},"id":"1008","type":"LinearScale"},{"attributes":{"field":"angle","include_zero":true},"id":"1093","type":"CumSum"},{"attributes":{},"id":"1010","type":"LinearScale"},{"attributes":{},"id":"1133","type":"Selection"},{"attributes":{"end_angle":{"expr":{"id":"1074","type":"CumSum"},"units":"rad"},"fill_color":{"field":"color"},"line_color":{"value":"white"},"radius":{"units":"data","value":0.5663611739824125},"start_angle":{"expr":{"id":"1073","type":"CumSum"},"units":"rad"},"x":{"value":6},"y":{"value":3}},"id":"1077","type":"Wedge"},{"attributes":{"callback":null,"data":{"PAX":{"__ndarray__":"AAAAAEh+G0EAAAAAwH8FQQAAAACwtgtB","dtype":"float64","shape":[3]},"airp":["EWR","LGA","JFK"],"angle":{"__ndarray__":"HD4sAoGGCkCmj+6j/r30P4OoyajsvPo/","dtype":"float64","shape":[3]},"color":["#1f77b4","#ff7f0e","#2ca02c"],"index":[0,1,2]},"selected":{"id":"1137","type":"Selection"},"selection_policy":{"id":"1138","type":"UnionRenderers"}},"id":"1105","type":"ColumnDataSource"},{"attributes":{"formatter":{"id":"1047","type":"BasicTickFormatter"},"ticker":{"id":"1013","type":"BasicTicker"},"visible":false},"id":"1012","type":"LinearAxis"},{"attributes":{"end_angle":{"expr":{"id":"1074","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"radius":{"units":"data","value":0.5663611739824125},"start_angle":{"expr":{"id":"1073","type":"CumSum"},"units":"rad"},"x":{"value":6},"y":{"value":3}},"id":"1078","type":"Wedge"},{"attributes":{"callback":null,"data":{"PAX":{"__ndarray__":"AAAAAMQuIkEAAAAAKqc1QQAAAAD8XSRB","dtype":"float64","shape":[3]},"airp":["EWR","LGA","JFK"],"angle":{"__ndarray__":"sXG9Ir1U9j9tok+50pcKQNj9s7uKA/k/","dtype":"float64","shape":[3]},"color":["#1f77b4","#ff7f0e","#2ca02c"],"index":[0,1,2]},"selected":{"id":"1129","type":"Selection"},"selection_policy":{"id":"1130","type":"UnionRenderers"}},"id":"1065","type":"ColumnDataSource"},{"attributes":{},"id":"1013","type":"BasicTicker"},{"attributes":{"field":"angle","include_zero":true},"id":"1053","type":"CumSum"},{"attributes":{"field":"angle","include_zero":true},"id":"1063","type":"CumSum"},{"attributes":{"field":"angle"},"id":"1094","type":"CumSum"},{"attributes":{"ticker":{"id":"1013","type":"BasicTicker"},"visible":false},"id":"1016","type":"Grid"},{"attributes":{"callback":null,"data":{"PAX":{"__ndarray__":"AAAAAJo7NkEAAAAAsqMzQQAAAAAktSxB","dtype":"float64","shape":[3]},"airp":["EWR","LGA","JFK"],"angle":{"__ndarray__":"3xW7IjvgA0Ah1xC2tI4BQF7aeJ8Nqvk/","dtype":"float64","shape":[3]},"color":["#1f77b4","#ff7f0e","#2ca02c"],"index":[0,1,2]},"selected":{"id":"1127","type":"Selection"},"selection_policy":{"id":"1128","type":"UnionRenderers"}},"id":"1055","type":"ColumnDataSource"},{"attributes":{"field":"angle","include_zero":true},"id":"1103","type":"CumSum"},{"attributes":{"source":{"id":"1075","type":"ColumnDataSource"}},"id":"1080","type":"CDSView"},{"attributes":{},"id":"1132","type":"UnionRenderers"},{"attributes":{"callback":null,"renderers":[{"id":"1079","type":"GlyphRenderer"}],"tooltips":[["Source","@airp"],["'18 O&amp;D PAX","@PAX{0,}"]]},"id":"1081","type":"HoverTool"},{"attributes":{"formatter":{"id":"1045","type":"BasicTickFormatter"},"ticker":{"id":"1018","type":"BasicTicker"},"visible":false},"id":"1017","type":"LinearAxis"},{"attributes":{"text":"FLL","text_font_size":{"value":"8pt"},"x":1.9,"y":1.85},"id":"1114","type":"Label"},{"attributes":{},"id":"1018","type":"BasicTicker"},{"attributes":{"text":"MIA","text_font_size":{"value":"8pt"},"x":3.9,"y":2.05},"id":"1115","type":"Label"},{"attributes":{"end_angle":{"expr":{"id":"1054","type":"CumSum"},"units":"rad"},"fill_color":{"field":"color"},"line_color":{"value":"white"},"radius":{"units":"data","value":0.9433471856331862},"start_angle":{"expr":{"id":"1053","type":"CumSum"},"units":"rad"},"x":{"value":2},"y":{"value":3}},"id":"1057","type":"Wedge"},{"attributes":{"dimension":1,"ticker":{"id":"1018","type":"BasicTicker"},"visible":false},"id":"1021","type":"Grid"},{"attributes":{"text":"TPA","text_font_size":{"value":"8pt"},"x":5.9,"y":2.2},"id":"1116","type":"Label"},{"attributes":{},"id":"1136","type":"UnionRenderers"},{"attributes":{"field":"angle"},"id":"1064","type":"CumSum"},{"attributes":{"text":"PBI","text_font_size":{"value":"8pt"},"x":0.9,"y":0.4},"id":"1117","type":"Label"}],"root_ids":["1001"]},"title":"Bokeh Application","version":"1.2.0"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('1291').textContent;
+                  var render_items = [{"docid":"945cc756-888f-45fe-8f01-295e0536e221","roots":{"1001":"c63f3cd7-24a0-4e91-aa3a-55f972622055"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        embed_document(root);
+                        clearInterval(timer);
+                      }
+                      attempts++;
+                      if (attempts > 100) {
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        clearInterval(timer);
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>  
+    <script>   
+      new Vue ({
+        el: '#us_marathon',
+        data: {
+          dests: 'x',
+          chart_sel: 'full'
+          
+        }
+      })
+      </script>
+        
+    
+    </center>
+	<script src="static/components/menu.vue">
+    </script>
+    <script src="static/components/header.vue">
+    </script>
+
+
+  </body>
+</html>

@@ -373,6 +373,10 @@ def connecting_airport_traffic():
 def blog_od_ranks():
     return render_template('/blog_od_ranks.html')
 
+@app.route('/blog_nyc_airports_od_comp',methods=['GET','POST'])
+def blog_nyc_airports_od_comp():
+    return render_template('/blog_nyc_airports_od_comp.html')
+
 @app.route('/all_blogs',methods=['GET','POST'])
 def all_blogs():
     return render_template('/all_blogs.html')

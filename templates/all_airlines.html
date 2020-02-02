@@ -20,13 +20,14 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
-  <link href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.13.min.css" rel="stylesheet">
-    <link href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.13.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
-  <script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.13.min.js"></script>
-  <script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.13.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.css" type="text/css" />
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
   <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/> -->
 
      
@@ -241,6 +242,10 @@
     </form>
     -->
     <br>
+    <div class="col-12">
+        <<%plot_air|safe%>>
+      </div>
+      <br>
     <div class="col-sm-1">
     </div>
     <div class="col-sm-10">
@@ -279,17 +284,12 @@
   </div>  
   <div class="col-sm-1">
   </div>
-      <div class="col-sm-12">
-        
-      <<%plot_air_script|safe%>>
-      <<%plot_air|safe%>>
-        
-    </div>
+      
   </div>
 
 	
     </center>
-
+    <<%plot_air_script|safe%>>
     <script>
       new Vue ({
         el: '#dest',
@@ -309,7 +309,7 @@
           origin: '<<%depart_arrive|safe%>>',
           regional_sel: '<<%regional_sel|safe%>>',
           showModal: false,
-          showSelections: 1
+          showSelections: <<%show_sel|safe%>>
         },
         methods: {
           upD: function(dest){

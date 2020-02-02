@@ -111,7 +111,8 @@ def all_airlines():
         print(carriers)
         return render_template('/all_airlines.html',airline_table=airline_table.to_html(classes='table table-striped my-table-all-air', \
             index=False),air_dest=air_dest,var2='ALL',airport_sel='STL',carriers=carriers,carrier_sel='WN', \
-            regional_sel='mainline',month_sel=0, year_sel=2018,depart_arrive='depart',plot_air="",plot_air_script="",dest_options=dest_options)
+            regional_sel='mainline',month_sel=0, year_sel=2018,depart_arrive='depart', show_sel=1,\
+            plot_air="",plot_air_script="",dest_options=dest_options)
     else:
         dest_code = request.form['dest_code']
         airport_sel = request.form['airport_sel']
@@ -204,11 +205,15 @@ def all_airlines():
         if dest_code!='' and dest_code!='ALL':
             p_air_tab=pd.read_sql(f'SELECT SUM(PASSENGERS) AS PASS, YEAR, MONTH FROM domestic_routes AS A WHERE {origin_insert} \
             {dest_insert} {carrier_insert} GROUP BY YEAR, MONTH', conn)
+            print(f'INSERT: {origin_insert} {dest_insert} {carrier_insert}')
             #p1 = figure(title="Airline Passengers")
             #p1.line(pd.to_numeric(p_air_tab['YEAR']+(p_air_tab['MONTH']-1)/12), pd.to_numeric(p_air_tab['PASS']))
             p1 = figure(x_range=list(p_air_tab['YEAR'].astype(str)+'-'+p_air_tab['MONTH'].astype(str)), plot_height=250,
-                title="Passenger Counts", toolbar_location=None, tools="")
-            p1.vbar(x=list(p_air_tab['YEAR'].astype(str)+'-'+p_air_tab['MONTH'].astype(str)), top=list(p_air_tab['PASS']/1000), width=0.9)
+                plot_width=700,title="Passenger Counts all Carriers", toolbar_location=None, tools="")
+            d_source=ColumnDataSource({'x':list(p_air_tab['YEAR'].astype(str)+'-'+p_air_tab['MONTH'].astype(str)),
+                           'y':list(p_air_tab['PASS']/1000)})
+            p=p1.vbar(x='x', top='y', source=d_source, width=0.85)
+            p1.add_tools(HoverTool(tooltips=[("Yr-Mo",'@x'),("Passengers", "@y{,0}k")],renderers=[p]))
             p1.xgrid.grid_line_color = None
             p1.y_range.start = 0
             p1.xaxis.major_label_orientation = 1.2
@@ -216,7 +221,8 @@ def all_airlines():
             script, div = components(p1)
         return render_template('/all_airlines.html',airline_table=total_df.to_html(classes='table table-striped my-table-all-air',index=False)\
             ,air_dest=air_dest,var2=dest_code,airport_sel=airport_sel,carriers=carriers,carrier_sel=carrier_sel,regional_sel=regional_sel,month_sel=month_sel,\
-            year_sel=year_sel,depart_arrive=depart_arrive,plot_air=div,plot_air_script=script,dest_options=dest_options)        
+            year_sel=year_sel,depart_arrive=depart_arrive,plot_air=div,show_sel=0, \
+            plot_air_script=script,dest_options=dest_options)        
     
 
 

@@ -13,8 +13,8 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 		<title>Airline Analysis</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css"/>
 
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -22,14 +22,31 @@
   <link rel="stylesheet" href="/resources/demos/style.css">
   <link href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.13.min.css" rel="stylesheet">
     <link href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.13.min.css" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
   <script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.13.min.js"></script>
   <script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.13.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.18/b-1.5.6/b-html5-1.5.6/datatables.min.css"/>
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/> -->
+
+     
+
+
+
+
+
+
+<!--   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"/>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"/>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"/>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"/>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"/>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"/>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js "/> -->
+
   <!--Open Source DataTable used for presenting data: Copyright (C) 2008-2019, SpryMedia Ltd.-->
-  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.18/b-1.5.6/b-html5-1.5.6/datatables.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.20/b-1.6.1/b-colvis-1.6.1/b-flash-1.6.1/b-html5-1.6.1/datatables.min.css"/>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.20/b-1.6.1/b-colvis-1.6.1/b-flash-1.6.1/b-html5-1.6.1/datatables.min.js"></script>
   <script type="text/javascript">
     $(document).ready( function (){
       $('#fullTab').DataTable( {
@@ -43,57 +60,49 @@
 
 	</head>
 	<body>
+     <div id="header-vue">
+      <header-bar></header-bar>
+    </div>
+          <div id="menu-vue">
+          <menu-bar></menu-bar>
+        </div>
     <center>
 
-    <div class="tophead">
+    <!-- <div class="tophead">
       <img src="/static/images/stl_map_head.jpeg" style="width:100%;min-height:180px;max-height:300px;"/>
       <div class="tophead_center d-none d-lg-block">
         <h1 style="margin-left:4px;margin-right:4px;"> STL Annex Airline Data Browser</h1>
         <h4>Matthew T. Lawder</h4>
         <h5>matt@stlannex.com</h5>
       </div>
-      </div>
+      </div> -->
     <!--
 	<div>
 		<button onclick="sortTable(3)">Sort by Airline</button>
     <button onclick="sortTable(5)">Sort by Destination Code</button>
   </div>
     -->
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="" id="navbarSupportedContent">
-            <ul class="nav navbar-nav">
-              <li>
-                <a href="\index_Main"> STLAnnex Home </a>
-              </li>
-            </ul>
-          </div>
-        <!-- /.navbar-collapse -->
-        </div>
-      <!-- /.container-fluid -->
-      </div>
-    </nav>
+    
   <br>
 
 
 
   <div id="dest" class="select-height">
-    <div class="container selection_header selection_header-top remove-pad" v-if="showSelections">
-      <div class="col-sm-10">
-        Edit Selections
-      </div>
-      <div class="col-sm-2 right-group">
-        <button class="hide-button" @click="showSelections = 0">&#8657;Hide&#8657;</button>
+    <div class="container" style="border:black solid 2pt;text-align:left;background-color: #9b9b9b;" v-if="showSelections">
+      <div class="row">
+        <div class="col-10">
+          Edit Selections
+        </div>
+        <div class="col-2 right-group" @click="showSelections = 0" style="cursor:pointer;">
+          &#8657;Hide&#8657;
+        </div>
       </div>
     </div>
-    <div class="container selection_header remove-pad" v-if="showSelections">
-      <div class="col-sm-5 remove-pad">
-        <div class=" col-sm-12 container remove-pad ">
-          <div  class="col-sm-12 select-option-1 selection-group">
-            <div class="col-sm-4 sub-pad">
+    <div class="container" v-if="showSelections">
+      <div class="row">
+        <div class="col-5" >
+          <div class="row selectionBox" style="border:black solid 1pt;text-align:left;background-color: #b8b8b8;">
+            <div class="col-4" style="padding-left: 0px">
               <input type="radio" id="depart" value="depart" v-model="origin">
               <label for="one">Departing from</label>
               <br>
@@ -103,73 +112,76 @@
               <input type="radio" id="combined" value="combined" v-model="origin" disabled>
               <label for="two">Combined</label>
             </div>
-            <div class="col-sm-8 sub-pad sub-pad-down">
-              <select v-model="airport_sel" class="btn dropdown-toggle" >
+            <div class="col-8" style="padding-top:26px">
+              <select v-model="airport_sel" class="btn dropdown-toggle" style="width:80px">
                 <option class="dropdown-item" v-for="airport in airport_av" >{{airport}}</option>
               </select>
               <span v-if="origin === 'depart'">
                 flying to:
-                <select v-model="dest" class="btn dropdown-toggle" >
+                <select v-model="dest" class="btn dropdown-toggle" style="width:80px">
                   <option class="dropdown-item" >ALL</option>
                   <option class="dropdown-item" v-for="going_to in dest_options[airport_sel]" >{{going_to}}</option>
                 </select>
               </span>
               <span v-else-if="origin === 'arrive'">
                 flying from:
-                <select v-model="dest" class="btn dropdown-toggle" >
+                <select v-model="dest" class="btn dropdown-toggle" style="width:80px">
                   <option class="dropdown-item">ALL</option>
                   <option class="dropdown-item" v-for="going_to in dest_options[airport_sel]" >{{going_to}}</option>
                 </select>
               </span>
               <span v-else>
                 to/from: 
-                <select v-model="dest" class="btn dropdown-toggle">
+                <select v-model="dest" class="btn dropdown-toggle" style="width:80px">
                   <option class="dropdown-item">ALL</option>
                   <option class="dropdown-item" v-for="going_to in dest_options[airport_sel]" >{{going_to}}</option>
                 </select>
               </span>
             </div>
           </div>
-          <div class="col-sm-12 selection-group center-group">
-            Selected Year:
-            <select v-model="year_sel" class="btn dropdown-toggle">
-              <option class="dropdown-item" v-for="yr in years_av" >{{yr}}</option>
-            </select>
-            <select v-model="month_sel" class="btn dropdown-toggle">
-              <option class="dropdown-item" v-for="mn in months_av" v-bind:value="mn['value']" >{{mn['label']}}</option>
-            </select>
+          <div class="row" style="border:black solid 1pt;text-align:left;background-color: #b8b8b8;">
+            <div class="col-12 selectionBox">
+               Selected Year:
+              <select v-model="year_sel" class="btn dropdown-toggle" style="width:100px">
+                <option class="dropdown-item" v-for="yr in years_av" >{{yr}}</option>
+              </select>
+              <select v-model="month_sel" class="btn dropdown-toggle" style="width:100px">
+                <option class="dropdown-item" v-for="mn in months_av" v-bind:value="mn['value']" >{{mn['label']}}</option>
+              </select>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-sm-3 short-bottom selection-group select-height">
-        <div class="col-sm-12 center-group">
-          Choose Carrier:
+        <div class="col-3" style="border:black solid 1pt;text-align:left;background-color: #b8b8b8;">
+          <div class="row">
+            <div class="col-12 center-group" style="padding-top:12px">
+              Choose Carrier:
+            </div>
+            <div class="col-12 selectionBox">
+              <select  class="btn dropdown-toggle" v-model="carrier_sel">
+                <option class="dropdown-item" v-for="carrier in carrier_av" v-bind:value="carrier['value']" v-cloak>{{carrier['label']}}</option>
+              </select>
+            </div>
+            <br>
+            <div class="col-12 select-option-1">
+              <input type="radio" value="regional" v-model="regional_sel">
+              <label for="one">Break out by Regional</label>
+              <br>
+              <input type="radio" value="mainline" v-model="regional_sel">
+              <label for="two" title="Only for STL">Roll up to Mainline</label>
+            </div>
+          </div>
         </div>
-        <div class="center-group">
-          <select  class="btn dropdown-toggle" v-model="carrier_sel">
-            <option class="dropdown-item" v-for="carrier in carrier_av" v-bind:value="carrier['value']" v-cloak>{{carrier['label']}}</option>
-          </select>
-        </div>
-        <br>
-        <div class="col-sm-12 select-option-1">
-          <input type="radio" value="regional" v-model="regional_sel">
-          <label for="one">Break out by Regional</label>
+        <div class="col-2 selectionBox" style="border:black solid 1pt;background-color: #b8b8b8;">
+       
+            <button class="btn btn-primary" v-on:click="updateDest(carrier_sel,dest)">Choose Selections</button>
+     
           <br>
-          <input type="radio" value="mainline" v-model="regional_sel">
-          <label for="two" title="Only for STL">Roll up to Mainline</label>
+          <br>
+            <button class="btn btn-primary" v-on:click="updateDest('ALL','ALL')">Clear Selection</button>
+          
         </div>
-      </div>
-      <div class="col-sm-2 center-drop center-group selection-group select-height">
-        <div>
-          <button class="btn btn-primary" v-on:click="updateDest(carrier_sel,dest)">Choose Selections</button>
-        </div>
-        <br>
-        <div>
-          <button class="btn btn-primary" v-on:click="updateDest('ALL','ALL')">Clear Selection</button>
-        </div>
-      </div>
-      <div class="col-sm-2 selection-group select-height center-group" >
-        <b>Rows: {{dests.length}}</b>
+        <div class="col-2" style="border:black solid 1pt;background-color: #b8b8b8;">
+          <b>Rows: {{dests.length}}</b>
           <br>
           Refresh with "Choose Selections" after changing selections.
           <br>
@@ -179,56 +191,67 @@
             <div class="modal-window">
               <div class="modal-wrapper">
                 <div class="modal-container">
-                  <h3>More Information
-                  </h3>
-                  <div class="left-group">
+                  <div class="row">
+                    <div class="col-10">
+                      <h3>More Information
+                      </h3>
+                    </div>
+                    <div class="col-2" style="text-align:right;">
+                      <button @click="showModal = false">X</button>
+                    </div>
+                  </div>
+                  <div class="left-group scrollable">
                     <p>
                       The main data set was obtained from the Bureau of Transportation Statistics. A subset of the <a href="https://www.transtats.bts.gov/Fields.asp?Table_ID=293">T-100 Segment</a> dataset is used. Departures, Total Capacity, and Total Passengers are taken from the DepPerformed, Seats, and Passengers columns respectively. The Load Factor is calculated as the Total Passengers divided by the Total Capacity.
                       <br><br>
-                      In many cases mainline carriers (Delta, United, American, etc.) will have a regional carrier operate a particular route under the Mainline carrier sub-banner (such as Delta Connections, United Express, or American Eagle). The T-100 Segment table shows data at the carrier level and does not note if the carrier was operating the flight for a mainline carrier. Therefore, I've been manually pulling data for which regional carrier routes are being operator under a mainline barrier. I've included a radio button option to either show the data at the regional carrier or attempt to roll up the numbers to the mainline carrier when availalbe.
+                      In many cases mainline carriers (Delta, United, American, etc.) will have a regional carrier operate a particular route under the Mainline carrier sub-banner (such as Delta Connections, United Express, or American Eagle). The T-100 Segment table shows data at the carrier level and does not note if the carrier was operating the flight for a mainline carrier. I instead use a data from the <a href="https://www.transtats.bts.gov/tables.asp?db_id=125&DB_Name=">DB1B Origin and Demand survey coupon data</a> which has a 10% survey of all domestic tickets. This data contains information about the both the operating carrier for a coupon (a single flight portion of a ticket) and the ticketing carrier. So if someone has a United ticket on a flight that ExpressJet is operating, we can map how many ExpressJet fliers on a route are on a United branded flight.
                       <br><br>
-                      Here's a simple example. United may operate 2 flights per day on mainline aircraft between STL and ORD. But 4 more flights per day might be operated ExpressJet Airlines under the United Express banner. When selectin Break out by regionals on the STL-ORD route, both United and ExpressJet would be considered seperately, but if Roll up to Mainline were selected, all the statistics would be rolled up to United.
+                      Here's a simple example. United may operate 2 flights per day on mainline aircraft between STL and ORD. But 4 more flights per day might be operated ExpressJet Airlines under the United Express banner. When selecting "Break out by regionals" on the STL-ORD route, both United and ExpressJet would be considered separately, but if Roll up to Mainline were selected, all the statistics would be rolled up to United.
                       <br><br>
-                      Because I am currently creating this mapping manually, it is only available for some airports and routes (currently only flights departing or arriving at STL). If you know of a better way to source this data or notice any mistakes please let me know!
+                      Because the mapping uses a survey of 10% of all tickets and the ticketing carrier is not guaranteed to be the mainline brand of the flight, these rollups will not be 100% perfect, but will give a very good approximation of the mainline carriers on these routes. If you know of a better way to source this regional to mainline mapping or notice any mistakes please let me know!
                       <br><br>
                       Matthew Lawder (mtlawder@gmail.com)
                     </p>
+                    <button @click="showModal = false">Close</button>
                   </div>
-                  <button @click="showModal = false">Close</button>
+                  
                 </div>
               </div>
             </div>
           </modal>
-          
-      </div>
-      
-    </div>
-    <div class="container selection_header-hidden remove-pad" v-else>
-      <div class="col-sm-10">
-        Showing results from: {{airport_sel}} to {{dest}}  &nbsp;&nbsp;Month: {{month_sel}} &nbsp;&nbsp;Year: {{year_sel}}  &nbsp;&nbsp;Carrier: {{carrier_sel}}  &nbsp;&nbsp;Rollup: {{regional_sel}}
-      </div>
-      <div class="col-sm-2 right-group">
-        <button class="hide-button" @click="showSelections = 1">&#8659;Edit Selections&#8659;</button>
+        </div>
       </div>
     </div>
+    <div class="container" style="border:black solid 2pt;text-align:left;background-color: #9b9b9b;" v-else>
+      <div class="row">
+        <div class="col-10" style="padding-left:10px;">
+          Showing results from: {{airport_sel}} to {{dest}}  &nbsp;&nbsp;Month: {{month_sel}} &nbsp;&nbsp;Year: {{year_sel}}  &nbsp;&nbsp;Carrier: {{carrier_sel}}  &nbsp;&nbsp;Rollup: {{regional_sel}}
+        </div>
+        <div class="col-2 right-group">
+          <button class="hide-button" @click="showSelections = 1">&#8659;Edit Selections&#8659;</button>
+        </div>
+      </div>
+    </div>
+
+   
     <!--
     <form id="hidden_submit" class="hidden_submit" action="all_airlines" method="post">
       <input name="dest_code" v-model="var2"/>
       <button type="submit" class="btn btn-primary btn-lg">  Submit </button>
     </form>
     -->
-
+    <br>
     <div class="col-sm-1">
     </div>
     <div class="col-sm-10">
-      <table id="fullTab" border="1" class='table table-striped my-table-all-air'>
+      <table id="fullTab" class='table table-striped table-borderd'>
         <thead>
-          <tr style="text-align: right;">
+          <tr style="text-align: center;">
             <th onclick="sortTable2(0)"><a>DEPARTURES</a></th>
             <th onclick="sortTable2(1)"><a>TOTAL CAPACITY</a></th>
             <th onclick="sortTable2(2)"><a>TOTAL PASSENGERS</a></th>
             <th onclick="sortTable2(3)"><a>LOAD FACTOR</a></th>
-            <th onclick="sortTable(4)"><a>UNIQUE_CARRIER_NAME</a></th>
+            <th onclick="sortTable(4)"><a>CARRIER NAME</a></th>
             <th onclick="sortTable(5)"><a>CODE</a></th>
             <th onclick="sortTable(6)">
               <a v-if="origin === 'depart'">Destination</a>
@@ -237,7 +260,7 @@
             <th onclick="sortTable2(7)"><a>YEAR</a></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody style="text-align:center;">
           
            <tr v-for="d in dests">
             <td>{{d[0]}}</td>
@@ -304,6 +327,10 @@
         }
 
       })
+    </script>
+    <script src="static/components/menu.vue">
+    </script>
+    <script src="static/components/header.vue">
     </script>
 	</body>
 </html>

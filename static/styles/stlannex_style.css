@@ -248,6 +248,7 @@ table{
 }
 .modal-container {
   width: 750px;
+  max-height:450px;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
@@ -255,6 +256,11 @@ table{
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
   transition: all .3s ease;
   font-family: Helvetica, Arial, sans-serif;
+}
+.scrollable {
+  overflow-y:auto;
+  height:100%;
+  max-height:380px;
 }
 .row-bk{
   float: left;
@@ -264,3 +270,7 @@ table{
   border: 1px solid black;
 }
 [v-cloak]>*{display:none;}
+.selectionBox{
+  padding:10px;
+  text-align:center;
+}

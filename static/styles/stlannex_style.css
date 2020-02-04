@@ -101,6 +101,17 @@ table{
       max-height:1000px;
     }
 }
+.airAll{
+  overflow: scroll;
+  overflow-y: hidden;
+}
+@media screen and (min-width: 48em){
+    .airAll{
+      overflow:auto;
+      
+
+    }
+}
 .active {
   border: black solid 1pt;
 }

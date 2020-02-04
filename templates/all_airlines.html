@@ -302,7 +302,7 @@
           ,
           updateDest: function(carrier,dest){
             let form = document.createElement('form');
-            form.action = 'all_airlines';
+            form.action = 'all_airlines#page-start';
             form.method = 'POST';
             form.innerHTML = '<input class="hidden_submit" name="dest_code" value="'+dest+'"><input class="hidden_submit" name="airport_sel" value="'+this.airport_sel+'"><input class="hidden_submit" name="carrier_sel" value="'+carrier+'"><input class="hidden_submit" name="regional_sel" value="'+this.regional_sel+'"><input class="hidden_submit" name="year_value" value="'+this.year_sel+'"><input class="hidden_submit" name="month_value" value="'+this.month_sel+'"><input class="hidden_submit" name="depart_arrive" value="'+this.origin+'">';
             document.body.append(form);

@@ -16,6 +16,8 @@ Vue.component('header-bar',{
         <p style="margin-bottom:0px;">Matthew Lawder</p>\
         <p style="margin-left:4px;margin-right:4px;margin-bottom:4px;">matt@stlannex.com</p>\
       </div>\
+      <div id="page-start" style="position: absolute;top: 80%;left: 50%;transform: translate(-50%, -50%);">\
+      </div>\
     </div>'
 
 

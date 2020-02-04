@@ -14,7 +14,7 @@ Vue.component('menu-bar',{
         <a class="nav-link" href="\index_Main"> STLAnnex Home </a>\
       </li>\
       <li class="nav-item">\
-        <a class="nav-link" href="\all_airlines#">Airline Project </a>\
+        <a class="nav-link" href="\all_airlines#page-start">Airline Project </a>\
       </li>\
       <li class="nav-item">\
         <a class="nav-link" href="http://miso-epat.herokuapp.com">Wind Energy Project</a>\

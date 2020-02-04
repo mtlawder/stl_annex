@@ -213,7 +213,7 @@
           Showing results from:
         </div>
         <div class="col-md-6 col-12">
-         {{airport_sel}} to {{dest}}  &nbsp;&nbsp;Month: {{month_sel}} &nbsp;&nbsp;Year: {{year_sel}}  &nbsp;&nbsp;Carrier: {{carrier_sel}}  &nbsp;&nbsp;Rollup: {{regional_sel}}
+         <a v-if="origin === 'depart'"> {{airport_sel}} to {{dest}}</a><a v-if="origin === 'arrive'"> {{dest}} to {{airport_sel}}</a>  &nbsp;&nbsp;Month: {{month_sel}} &nbsp;&nbsp;Year: {{year_sel}}  &nbsp;&nbsp;Carrier: {{carrier_sel}}  &nbsp;&nbsp;Rollup: {{regional_sel}}
        </div>
         
         <div class="col-md-3 col-12 right-group" @click="showSelections = 1" style="cursor:pointer;">
@@ -237,7 +237,7 @@
             <th onclick="sortTable2(2)"><a>TOTAL PASSENGERS</a></th>
             <th onclick="sortTable2(3)"><a>LOAD FACTOR</a></th>
             <th onclick="sortTable(4)"><a>CARRIER NAME</a></th>
-            <th onclick="sortTable(5)"><a>CODE</a></th>
+            <th onclick="sortTable(5)"><a>AIRPORT</a></th>
             <th onclick="sortTable(6)">
               <a v-if="origin === 'depart'">Destination</a>
               <a v-if="origin === 'arrive'">Origin</a>
@@ -254,8 +254,10 @@
             <td>{{d[3]}}</td>
             <!-- <td class="click_sel" v-on:click="updateDest(d[4],'ALL')">{{d[4]}}</td> -->
             <td>{{d[4]}}</td>
-            <td class="click_sel" v-on:click="updateDest('ALL',d[5])">{{d[5]}}</td>
-            <td>{{d[6]}}</td>
+            <td class="click_sel" v-if="origin === 'depart'" v-on:click="updateDest('ALL',d[5])">{{d[5]}}</td>
+            <td class="click_sel" v-if="origin === 'arrive'" v-on:click="updateDest('ALL',d[8])">{{d[8]}}</td>
+            <td v-if="origin === 'depart'">{{d[6]}}</td>
+            <td v-if="origin === 'arrive'">{{d[9]}}</td>
             <td>{{d[7]}}</td>
           </tr>
         

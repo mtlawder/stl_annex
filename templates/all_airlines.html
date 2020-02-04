@@ -268,9 +268,9 @@
         <tbody style="text-align:center;">
           
            <tr v-for="d in dests">
-            <td>{{d[0]}}</td>
-            <td>{{d[1]}}</td>
-            <td>{{d[2]}}</td>
+            <td>{{commas(d[0])}}</td>
+            <td>{{commas(d[1])}}</td>
+            <td>{{commas(d[2])}}</td>
             <td>{{d[3]}}</td>
             <!-- <td class="click_sel" v-on:click="updateDest(d[4],'ALL')">{{d[4]}}</td> -->
             <td>{{d[4]}}</td>
@@ -316,6 +316,10 @@
             this.dest=dest;
             this.var3=true;
           },
+          commas: function(number){
+            return number.toLocaleString()
+          }
+          ,
           updateDest: function(carrier,dest){
             let form = document.createElement('form');
             form.action = 'all_airlines';

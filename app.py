@@ -192,7 +192,7 @@ def all_airlines():
         'UNIQUE_CARRIER_NAME','DEST','DEST_CITY_NAME','YEAR','ORIGIN','ORIGIN_CITY_NAME'\
         ],data=[[airline_table["DEPARTURES"].sum(),airline_table["TOTAL CAPACITY"].sum(),airline_table["TOTAL PASSENGERS"].sum(),\
         (airline_table["TOTAL PASSENGERS"].sum()/airline_table["TOTAL CAPACITY"].sum())*100 if airline_table["TOTAL CAPACITY"].sum()!=0 else 0\
-        ,"ALL SELECTED","ALL","ALL","ALL","ALL","ALL"]])
+        ,"ALL SELECTED","ALL","ALL",year_sel,"ALL","ALL"]])
         total_df["LOAD FACTOR"]=total_df["LOAD FACTOR"].map('{:,.1f}%'.format)
         cols=airline_table.columns.tolist()
         airline_table=airline_table[cols[:3]+['LOAD FACTOR']+cols[3:-1]]

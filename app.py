@@ -382,6 +382,10 @@ def blog_od_ranks():
 def blog_nyc_airports_od_comp():
     return render_template('/blog_nyc_airports_od_comp.html')
 
+@app.route('/blog_stl_od',methods=['GET','POST'])
+def blog_stl_od():
+    return render_template('/blog_stl_od.html')
+
 @app.route('/all_blogs',methods=['GET','POST'])
 def all_blogs():
     return render_template('/all_blogs.html')

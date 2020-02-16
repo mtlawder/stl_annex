@@ -7,3 +7,4 @@ templates/index_template.html
 templates/add_blog_to_index.py
 static/images/US_marathon_trial_logo.png
 static/images/New Balance Shoe.jpeg
+static/python/__pycache__/bokeh_plot.cpython-37.pyc

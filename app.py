@@ -386,6 +386,10 @@ def blog_nyc_airports_od_comp():
 def blog_stl_od():
     return render_template('/blog_stl_od.html')
 
+@app.route('/blog_marathon_times_yoy',methods=['GET','POST'])
+def blog_marathon_times_yoy():
+    return render_template('/blog_marathon_times_yoy.html')
+
 @app.route('/all_blogs',methods=['GET','POST'])
 def all_blogs():
     return render_template('/all_blogs.html')

@@ -8,10 +8,10 @@ from bokeh.plotting import ColumnDataSource
 from bokeh.models import HoverTool, FixedTicker, Legend, LegendItem
 from bokeh.palettes import Category10, Category20
 from bokeh.transform import cumsum
+import pandas as pd
 from static.python.bokeh_plot import pop_pie_chart, pop_line_chart, pop_create_table
 from math import pi
 import collections
-import pandas as pd
 import numpy as np
 import sqlite3
 import datetime

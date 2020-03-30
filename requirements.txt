@@ -18,4 +18,4 @@ bokeh==1.2.0
 
 numpy==1.16.1
 
-pandas=1.0.1
+pandas==1.0.1

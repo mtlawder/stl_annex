@@ -390,6 +390,10 @@ def blog_stl_od():
 def blog_marathon_times_yoy():
     return render_template('/blog_marathon_times_yoy.html')
 
+@app.route('/blog_coronavirus_march',methods=['GET','POST'])
+def blog_coronavirus_march():
+    return render_template('/blog_coronavirus_march.html')
+
 @app.route('/all_blogs',methods=['GET','POST'])
 def all_blogs():
     return render_template('/all_blogs.html')

@@ -5,7 +5,7 @@ from bokeh.embed import components
 from bokeh.models import Range1d
 from bokeh.document import Document
 from bokeh.plotting import ColumnDataSource
-from bokeh.models import HoverTool, FixedTicker, Legend, LegendItem
+from bokeh.models import HoverTool, FixedTicker, Legend, LegendItem, NumeralTickFormatter
 from bokeh.palettes import Category10, Category20
 from bokeh.transform import cumsum
 import pandas as pd
@@ -281,6 +281,77 @@ def airline_types():
         return render_template('/airlines.html', table="S", airline_table="s", date_look=date_x)
     except:
         return render_template('/airlines.html',table="Need to choose proper destination!",date="No date choosen")
+
+@app.route('/coronavirus_dashboard',methods=['GET','POST'])
+def coronavirus_dashboard():
+    county_data=pd.read_csv('static/data/us-counties.csv')
+    county_agg=county_data.groupby(['state','date']).agg({'cases':sum,'deaths':sum}).reset_index()
+    county_data['county_case_rank']=county_data.groupby(['state','date']).rank(method="min",ascending=False)['cases']
+
+    county_data['county_top']=county_data.apply(lambda x: 0 if x['county_case_rank']>5 else x['cases'],axis=1)
+    state_data=county_data.groupby(['state','date']).agg({'cases':sum,'deaths':sum,'county_top':sum,'county':'count'}).reset_index()
+    state_data['date']=pd.to_datetime(state_data['date'],format="%Y-%m-%d")
+    state_data['cluster']=state_data['county_top']/state_data['cases']
+    st_low=state_data.groupby('state').agg({'date':min}).reset_index()
+    state_data=state_data.merge(st_low,on='state',how='left',suffixes=('','_start'))
+    sd_temp=state_data.loc[state_data['cases']>9]
+    st_low2=sd_temp.groupby('state').agg({'date':min}).reset_index()
+    state_data=state_data.merge(st_low2,on='state',how='left',suffixes=('','_start_10'))
+    state_data['days_since_start']=state_data['date']-state_data['date_start']
+    state_data['days_since_start_plot']=state_data.apply(lambda x:
+                                        int(str(x['days_since_start']).split(' ')[0]),axis=1)
+    state_data['days_since_start_10']=state_data['date']-state_data['date_start_10']
+    state_data['raw_case_diff']=state_data['cases'].diff()
+    state_data['pct_case_diff']=state_data['cases'].pct_change()
+    starts=state_data.state != state_data.state.shift(1)
+    state_data['raw_case_diff'][starts] = np.nan
+    state_data['pct_case_diff'][starts] = np.nan
+    
+    p1 = figure(title="Cases by State (Log scale)",x_axis_type='datetime',y_axis_type='log',tools=['reset','box_zoom'],height=450)
+    p1.grid.grid_line_alpha=0.4
+    p1.xaxis.axis_label = 'Date'
+    p1.yaxis.axis_label = 'Cummulative Cases'
+    state_data_sub=state_data.loc[state_data['cases']>499]
+    states=set(state_data_sub['state'])
+    p1.yaxis.formatter=NumeralTickFormatter(format="0,0")
+    color_cnt=0
+
+    p2 = figure(title="Cases by State",tools=['reset','box_zoom'],height=450)
+    p2.grid.grid_line_alpha=0.4
+    p2.xaxis.axis_label = 'Days since first case in state'
+    p2.yaxis.axis_label = 'Cummulative Cases'
+    state_data_sub=state_data.loc[state_data['cases']>499]
+    states=set(state_data_sub['state'])
+    p2.yaxis.formatter=NumeralTickFormatter(format="0,0")
+    color_cnt=0
+
+    for state in states:
+        single_df=state_data.loc[state_data['state']==state]
+        source=ColumnDataSource(data={'date':list(single_df['date']),'cases':list(single_df['cases']),
+                                     'deaths':single_df['deaths'],'cluster':single_df['cluster'],
+                                     'days_since_start':single_df['days_since_start_plot'],
+                                     'date_label':single_df['date'].astype(str),'pct_diff':single_df['pct_case_diff']})    
+        p=p1.line('date','cases',source=source,color=Category20[20][(color_cnt+6)%20],line_alpha=0.9,line_width=2)
+        p1.add_tools(HoverTool(tooltips=[("State",f"{state}"),("date",'@date_label'),
+                                         ("cases",'@cases{0,}')],renderers=[p],toggleable=False))
+        source=ColumnDataSource(data={'date':list(single_df['date']),'cases':list(single_df['cases']),
+                                     'deaths':single_df['deaths'],'cluster':single_df['cluster'],
+                                     'days_since_start':single_df['days_since_start_plot'],
+                                     'date_label':single_df['date'].astype(str),'pct_diff':single_df['pct_case_diff']})
+        p=p2.line('days_since_start','cases',source=source,color=Category20[20][(color_cnt+6)%20],line_alpha=0.9,line_width=2)
+        color_cnt+=1
+        p2.add_tools(HoverTool(tooltips=[("State",f"{state}"),("date",'@date_label'),
+                                         ("cases",'@cases{0,}')],renderers=[p],toggleable=False))
+    cases_log_script,cases_log_div=components(p1)   
+        
+    cases_script,cases_div=components(p2)
+    nat_df=state_data.groupby('date').agg({'cases':sum}).reset_index()
+    nat_df['new_cases']=nat_df['cases'].diff()
+    nat_df['pct_chg_daily']=nat_df['cases'].pct_change()
+    nat_df['date_label']=nat_df['date'].astype(str)
+    today_vals=nat_df.loc[nat_df['date']==max(nat_df['date'])].to_json(orient='split')
+    return render_template('/coronavirus_dashboard.html',cases_log_div=cases_log_div,cases_log_script=cases_log_script,cases_div=cases_div,
+        cases_script=cases_script,today_vals=today_vals)
 
 @app.route('/blog_starting_airline_route_post',methods=['GET','POST'])
 def blog_starting_airline_route_post():

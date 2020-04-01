@@ -1,0 +1,115 @@
+<html lang="en">
+  <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-142498774-1');
+	</script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/stl_pop_style.css">
+    <title>STL Annex</title>
+    
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.css" type="text/css" />
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+    <style>
+    .col-xl-4{
+      padding:0px !important;
+    }
+    .col-lg-6{
+      padding:0px !important;
+    }
+    .col-lg-12{
+      padding:0px !important;
+    }
+    .btn-group{
+      padding:5px !important;
+    }
+    .container{
+      padding:0px !important;
+      max-width:1440px;
+    }
+  </style>
+  </head>
+  <body>
+    <center>
+      <div id="header-vue">
+        <header-bar></header-bar>
+      </div>
+      <div id="menu-vue">
+        <menu-bar></menu-bar>
+      </div>
+         
+      <br>
+      <div id="covid">
+        <div class="container">
+          <div class="row">
+            <div class="col-3">
+              <h2>COVID-19 USA Stats</h2>
+            </div>
+            <div class="col-3">
+              Total Cases: {{today_vals['data'][0][1]}}
+            </div>
+            <div class="col-3">
+              New Cases: {{today_vals['data'][0][2]}} ({{today_vals['data'][0][3]}})
+            </div>
+            <div class="col-3">
+              Most Recent Date with Data: {{today_vals['data'][0][4]}}
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-12">
+              Plot 1
+              <<%cases_div|safe%>>
+            </div>   
+            <div class="col-lg-6 col-md-12">
+              Plot 2
+              <<%cases_log_div|safe%>>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <a href="github.com/nytimes/covid-19-data">Based on Data provided by The New York Times</a>
+      </div>
+    <<%cases_script|safe%>>
+    <<%cases_log_script|safe%>>
+    <script>   
+      new Vue ({
+        el: '#covid',
+        data: {
+          dests: 'x',
+          today_vals: <<%today_vals|safe%>>
+          
+        }
+      })
+      </script>
+        
+    
+    </center>
+
+
+  	<script src="static/components/menu.vue">
+    </script>
+    <script src="static/components/header.vue">
+    </script>
+
+
+  </body>
+</html>

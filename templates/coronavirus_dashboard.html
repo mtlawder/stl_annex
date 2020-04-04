@@ -44,6 +44,17 @@
       padding:0px !important;
       max-width:1440px;
     }
+    .cardCOVID{
+      border:1pt solid black;
+      border-radius: 10px;
+      background-color:#220091;
+      padding:8px;
+      color:#e6e6e6;
+      min-height:70px;
+    }
+    .whiteRow{
+      background-color:white;
+    }
   </style>
   </head>
   <body>
@@ -59,35 +70,74 @@
       <div id="covid">
         <div class="container">
           <div class="row">
-            <div class="col-3">
+            <div class="col-lg-3 col-md-12">
               <h2>COVID-19 USA Stats</h2>
             </div>
-            <div class="col-3">
-              Total Cases: {{today_vals['data'][0][1]}}
+            <div class="col-lg-3 col-md-4">
+              <div class="cardCOVID">
+                <h5>Showing data through</h5>
+                {{today_vals['data'][0][5]}}
+              </div>
             </div>
-            <div class="col-3">
-              New Cases: {{today_vals['data'][0][2]}} ({{today_vals['data'][0][3]}})
+            <div class="col-lg-3 col-md-4">
+              <div class="cardCOVID">
+                <h5>Total Cases</h5>
+                {{formatNum(today_vals['data'][0][1])}}
+              </div>
             </div>
-            <div class="col-3">
-              Most Recent Date with Data: {{today_vals['data'][0][4]}}
+            <div class="col-lg-3 col-md-4">
+              <div class="cardCOVID">
+                <h5>New Cases</h5>
+                {{formatNum(today_vals['data'][0][3])}} ({{formatPct(today_vals['data'][0][4])}})
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-12">
+              <h4> National Cases and Deaths</h4>
+              <p>While the number of Cases has continued to grow rapidly across the county, the growth has been flattening (as seen in the log scale chart) and does not appear to be growing exponentially anymore based on the number of cases. (April 4, 2020)
+              </p>
+            </div>
+          </div>
+          <div class="row" class="whiteRow">
+            <div class="col-md-6 col-sm-12" style="padding-left:12px;">
+              <<%national_div|safe%>>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <<%national_log_div|safe%>>
             </div>
           </div>
         </div>
+        <hr>
         <div class="container">
           <div class="row">
+            <div class="col-12">
+              <h4>Cases by State</h4>
+              <p>Individual State growth rates have varied quite a bit, but all appear to be showing slowed growth turning away from exponential growth. While cases will continue to grow in every state, measures appear to be slowing that growth. (April 4, 2020)
+            </div> 
+          </div>
+          <div class="row" class="whiteRow">
             <div class="col-lg-6 col-md-12">
-              Plot 1
+             
               <<%cases_div|safe%>>
             </div>   
             <div class="col-lg-6 col-md-12">
-              Plot 2
+             
               <<%cases_log_div|safe%>>
             </div>
           </div>
         </div>
         <hr>
-        <a href="github.com/nytimes/covid-19-data">Based on Data provided by The New York Times</a>
+        <p>
+          <a href="github.com/nytimes/covid-19-data">Based on Data provided by The New York Times</a>
+        </p>
+        <p>Other Blogs on COVID-19</p>
+        <p><a href="/blog_coronavirus_march">A Look at State Coronavirus Case Numbers</a></p>
+        <hr>
       </div>
+      <<%national_log_script|safe%>>
+    <<%national_script|safe%>>
     <<%cases_script|safe%>>
     <<%cases_log_script|safe%>>
     <script>   
@@ -97,6 +147,24 @@
           dests: 'x',
           today_vals: <<%today_vals|safe%>>
           
+        },
+        methods:{
+          formatPct: function(val) {
+            if (val!=null) {
+              return ((val*100).toFixed(1)).toString()+'%';
+            }
+            else {
+              return "NA"
+            }
+          },
+          formatNum: function(val) {
+            if (val!=null) {
+              return val.toLocaleString()
+            }
+            else {
+              return "NA"
+            }
+          }
         }
       })
       </script>

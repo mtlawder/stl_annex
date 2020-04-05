@@ -129,6 +129,27 @@
           </div>
         </div>
         <hr>
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h4>Comparing Growth Rates across States</h4>
+              <p>In the first chart, five states are shown that showcase different types of case growth. Some case growth is unavoidable due to the initial lack of containment, but a major goal of state measures now has been to slow the rate of growth and keep it from becoming exponential. The line chart shows how cases have grown after a state's 500th case. While New York's cases continued to soar, Washington's have grown more modestly. So while Washington hit 500 cases a day before New York (on March 18th), the Evergreen state remains at <i>only</i> 6,075 cases (April 2, 2020) compared to the Empire state's 92,770.
+              </p>
+              <p>
+                The second plot, show the most recent five day growth rate for every state compared to it's current case today. In general states with lower growth rates are closer to hitting their peak. States with more cases (especially if they still have a high growth rate will likely have a higher peak). Note that cases is in log scale. Hover over each dot to see the state name and more detailed info.
+            </div> 
+          </div>
+          <div class="row" class="whiteRow">
+            <div class="col-lg-6 col-md-12">
+              <<%comp_st_div|safe%>>
+            </div>
+            <div class="col-lg-6 col-md-12">
+             
+              <<%st_div|safe%>>
+            </div>   
+          </div>
+        </div>
+        <hr>
         <p>
           <a href="github.com/nytimes/covid-19-data">Based on Data provided by The New York Times</a>
         </p>
@@ -140,6 +161,8 @@
     <<%national_script|safe%>>
     <<%cases_script|safe%>>
     <<%cases_log_script|safe%>>
+    <<%comp_st_script|safe%>>
+    <<%st_script|safe%>>
     <script>   
       new Vue ({
         el: '#covid',

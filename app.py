@@ -406,9 +406,68 @@ def coronavirus_dashboard():
     p_nat.yaxis.formatter=NumeralTickFormatter(format="0,0")
     pp_nat=gridplot([[p_nat]],sizing_mode='stretch_width',plot_height=280)
     national_log_script,national_log_div=components(pp_nat)
+    states=['New York','New Jersey','Michigan','Washington','Missouri']
+    sbs_df=state_data.loc[state_data['state'].isin(states)]
+    sbs_df['days_since_start_10_plot']=sbs_df.apply(lambda x:
+                                        int(str(x['days_since_start_10']).split(' ')[0]),axis=1)
+    sbs_df=sbs_df.loc[sbs_df['days_since_start_10_plot']>-1]
+    p1 = figure(title="Growth after hitting 500 cases",tools=['reset','box_zoom'],height=450,y_range=(0,40000))
+    p1.grid.grid_line_alpha=0.4
+    p1.xaxis.axis_label = 'Days since 500th case in state'
+    p1.yaxis.axis_label = 'Cummulative Cases'
+    p1.yaxis.formatter=NumeralTickFormatter(format="0,0")
+    color_cnt=0
+    p1.border_fill_alpha = 0
+    p1.background_fill_color ='#f7f7f7'
+    p1.background_fill_alpha = 0.6
+    for state in states:
+        single_df=sbs_df.loc[state_data['state']==state]
+
+        source=ColumnDataSource(data={'date':list(single_df['date']),'cases':list(single_df['cases']),
+                                     'deaths':single_df['deaths'],'cluster':single_df['cluster'],
+                                     'days_since_start_10':single_df['days_since_start_10_plot'],
+                                     'date_label':single_df['date'].astype(str),'pct_diff':single_df['pct_case_diff']})    
+        p=p1.line('days_since_start_10','cases',source=source,color=Category10[10][(color_cnt+6)%10],line_alpha=0.9,
+                  line_width=2,legend=state)
+        color_cnt+=1
+        p1.add_tools(HoverTool(tooltips=[("State",f"{state}"),('Days > 500','@days_since_start_10'),("date",'@date_label'),
+                                         ("cases",'@cases{0,}')],renderers=[p],toggleable=False))
+    p1.legend.location='top_left'
+    comp_st_script,comp_st_div=components(p1)
+
+    avg_growth_df=state_data.loc[state_data['date']>max(state_data['date'])-timedelta(5)]
+    avg_growth_df=avg_growth_df.groupby('state').agg({'cases':[max,min]}).reset_index()
+    avg_growth_df['pct_diff']=(avg_growth_df['cases']['max']-avg_growth_df['cases']['min'])/avg_growth_df['cases']['min']
+    avg_growth_df.columns=avg_growth_df.columns.droplevel(1)
+    last_df=state_data.loc[state_data['date']==max(state_data['date'])]
+    plot_df=last_df.merge(avg_growth_df[['state','pct_diff']],how='left',on='state')
+    p1 = figure(title="Cases v Growth",tools=['reset','box_zoom'],height=450,y_axis_type='log',x_range=(0,200))
+    p1.grid.grid_line_alpha=0.4
+    p1.border_fill_alpha = 0
+    p1.background_fill_color ='#f7f7f7'
+    p1.background_fill_alpha = 0.6
+    p1.xaxis.axis_label = '5 day growth (%)'
+    p1.yaxis.axis_label = 'Cummulative Cases'
+    p1.yaxis.formatter=NumeralTickFormatter(format="0,0")
+    p1.square([40, 40, 140, 140],[48, 45000, 48, 45000], size=247, color=['#b3ff99','#fff185','#dd99ff','#ff8d85'], alpha=0.5)
+    source=ColumnDataSource(data={'cases':plot_df['cases'],'deaths':plot_df['deaths'],
+                                     'pct_diff':plot_df['pct_diff']*100,'state':plot_df['state']})    
+    p=p1.scatter('pct_diff','cases',source=source,marker='circle',color='blue',size=8,fill_alpha=0.5)
+    p1.add_tools(HoverTool(tooltips=[("State","@state"),("Cases",'@cases{0,}'),("5 day chg",'@pct_diff'),
+                                    ("Deaths",'@deaths{0,}')],renderers=[p],toggleable=False))
+    label_list=[(10,90000,'High Cases'),(10,60000,'Slower Growth'),
+               (150,90000,'High Cases'),(150,60000,'Faster Growth'),
+               (10,16,'Low Cases'),(10,10,'Slower Growth'),
+               (150,16,'Low Cases'),(150,10,'Faster Growth')]
+    for dd in label_list:
+        mytext = Label(x=dd[0], y=dd[1], text=dd[2],text_font_size ="10pt")
+        p1.add_layout(mytext)
+
+    st_script,st_div=components(p1)
     return render_template('/coronavirus_dashboard.html',cases_log_div=cases_log_div,cases_log_script=cases_log_script,cases_div=cases_div,
         cases_script=cases_script,today_vals=today_vals,national_div=national_div,national_script=national_script,
-        national_log_div=national_log_div,national_log_script=national_log_script)
+        national_log_div=national_log_div,national_log_script=national_log_script,comp_st_script=comp_st_script,comp_st_div=comp_st_div,
+        st_script=st_script,st_div=st_div)
 
 @app.route('/blog_starting_airline_route_post',methods=['GET','POST'])
 def blog_starting_airline_route_post():

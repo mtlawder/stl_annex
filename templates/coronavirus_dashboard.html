@@ -70,7 +70,7 @@
       <div id="covid">
         <div class="container">
           <div class="row">
-            <div class="col-lg-3 col-md-12">
+            <div class="col-lg-3 col-md-12" v-on:click="apiTest()">
               <h2>COVID-19 USA Stats</h2>
             </div>
             <div class="col-lg-3 col-md-4">
@@ -159,6 +159,14 @@
               <img src="/static/images/covid_case_v_state_growth.gif"/>
             </div>   
           </div>
+          <div class="row" class="whiteRow">
+            <div class="col-lg-4 col-md-12">
+              .
+            </div>
+            <div class="col-lg-8 col-md-12">
+              <div id="enterDiv">Loading ...</div>
+            </div>   
+          </div>
         </div>
         <hr>
 
@@ -175,6 +183,8 @@
     <<%cases_log_script|safe%>>
     <<%comp_st_script|safe%>>
     <<%st_script|safe%>>
+    <script id="enterScript" type="text/javascript">
+    </script>
     <script>   
       new Vue ({
         el: '#covid',
@@ -199,6 +209,21 @@
             else {
               return "NA"
             }
+          },
+          apiTest: function(){
+            var req = new XMLHttpRequest()
+            req.open("GET",'/api' ,true);
+            req.send()
+            req.onload=function(){
+              console.log(this.response)
+              data=JSON.parse(this.response)
+              console.log(data.script)
+              var element = document.getElementById('enterDiv');
+              var element_script = document.getElementById('enterScript');
+              element_script.innerHTML=data.script.slice(8,-9)
+              element.innerHTML=data.div
+            }
+            console.log('a')
           }
         }
       })

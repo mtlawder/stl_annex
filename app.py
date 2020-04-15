@@ -581,6 +581,10 @@ def blog_marathon_times_yoy():
 def blog_coronavirus_march():
     return render_template('/blog_coronavirus_march.html')
 
+@app.route('/blog_coronavirus_april',methods=['GET','POST'])
+def blog_coronavirus_april():
+    return render_template('/blog_coronavirus_april.html')
+
 @app.route('/all_blogs',methods=['GET','POST'])
 def all_blogs():
     return render_template('/all_blogs.html')

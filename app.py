@@ -589,6 +589,10 @@ def blog_coronavirus_april():
 def blog_coronavirus_nj():
     return render_template('/blog_coronavirus_nj.html')
 
+@app.route('/blog_cptc_results',methods=['GET','POST'])
+def blog_cptc_results():
+    return render_template('/running/blog_cptc_results.html')
+
 @app.route('/all_blogs',methods=['GET','POST'])
 def all_blogs():
     return render_template('/all_blogs.html')

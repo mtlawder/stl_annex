@@ -593,6 +593,10 @@ def blog_coronavirus_nj():
 def blog_cptc_results():
     return render_template('/running/blog_cptc_results.html')
 
+@app.route('/airlines_in_2020',methods=['GET','POST'])
+def airlines_in_2020():
+    return render_template('/airlines_in_2020.html')
+
 @app.route('/all_blogs',methods=['GET','POST'])
 def all_blogs():
     return render_template('/all_blogs.html')

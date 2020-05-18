@@ -119,12 +119,22 @@
           </div>
           <div class="row" class="whiteRow">
             <div class="col-lg-6 col-md-12">
-             
-              <<%cases_div|safe%>>
+              <div id="enterCaseDiv">
+                <div style="height:450px;">
+                  Loading
+                  <br/>
+                  <img src="/static/images/loading.gif"/>
+                </div>
+              </div>
             </div>   
             <div class="col-lg-6 col-md-12">
-             
-              <<%cases_log_div|safe%>>
+              <div id="enterCaseLogDiv">
+                <div style="height:450px;">
+                  Loading
+                  <br/>
+                  <img src="/static/images/loading.gif"/>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -141,7 +151,13 @@
           </div>
           <div class="row" class="whiteRow">
             <div class="col-lg-6 col-md-12">
-              <<%comp_st_div|safe%>>
+              <div id="enterStateComp">
+                <div style="height:450px;">
+                  Loading
+                  <br/>
+                  <img src="/static/images/loading.gif"/>
+                </div>
+              </div>
             </div>
             <div class="col-lg-6 col-md-12">
              
@@ -164,7 +180,7 @@
               .
             </div>
             <div class="col-lg-8 col-md-12">
-              <div id="enterDiv">Loading ...</div>
+              
             </div>   
           </div>
         </div>
@@ -179,12 +195,9 @@
       </div>
       <<%national_log_script|safe%>>
     <<%national_script|safe%>>
-    <<%cases_script|safe%>>
     <<%cases_log_script|safe%>>
     <<%comp_st_script|safe%>>
     <<%st_script|safe%>>
-    <div id="enterScript">
-    </div>
     <script>   
       new Vue ({
         el: '#covid',
@@ -195,17 +208,34 @@
         },
         created: function(){
           
-            console.log('created')
+            
             var req = new XMLHttpRequest()
-            req.open("GET",'/api' ,true);
+            req.open("GET",'/api/states' ,true);
             req.send()
             req.onload=function(){
               data=JSON.parse(this.response)
-              var element = document.getElementById('enterDiv');
-              var element_script = document.getElementById('enterScript');
-              element.innerHTML=data.div
-              eval(data.script.slice(33,-9))
+              var element = document.getElementById('enterCaseDiv');
+              var element2 = document.getElementById('enterCaseLogDiv');
+              element.innerHTML=data.cases_div
+              element2.innerHTML=data.cases_log_div
+              eval(data.cases_script.slice(33,-9))
+              eval(data.cases_log_script.slice(33,-9))
             }
+            console.log('created')
+            var req2 = new XMLHttpRequest()
+            req2.open("GET",'/api/state_comp' ,true);
+            req2.send()
+            req2.onload=function(){
+              data=JSON.parse(this.response)
+              var element = document.getElementById('enterStateComp');
+              // var element2 = document.getElementById('enterCaseLogDiv');
+              element.innerHTML=data.comp_st_div
+              // element2.innerHTML=data.cases_log_div
+              eval(data.comp_st_script.slice(33,-9))
+              // eval(data.cases_log_script.slice(33,-9))
+            }
+            
+
             console.log('called_api')
 
         },

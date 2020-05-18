@@ -284,14 +284,15 @@ def airline_types():
 
 @app.route('/coronavirus_dashboard',methods=['GET','POST'])
 def coronavirus_dashboard():
-    county_data=pd.read_csv('static/data/us-counties.csv')
-    county_agg=county_data.groupby(['state','date']).agg({'cases':sum,'deaths':sum}).reset_index()
-    county_data['county_case_rank']=county_data.groupby(['state','date']).rank(method="min",ascending=False)['cases']
+    # county_data=pd.read_csv('static/data/us-counties.csv')
+    # county_agg=county_data.groupby(['state','date']).agg({'cases':sum,'deaths':sum}).reset_index()
+    # county_data['county_case_rank']=county_data.groupby(['state','date']).rank(method="min",ascending=False)['cases']
 
-    county_data['county_top']=county_data.apply(lambda x: 0 if x['county_case_rank']>5 else x['cases'],axis=1)
-    state_data=county_data.groupby(['state','date']).agg({'cases':sum,'deaths':sum,'county_top':sum,'county':'count'}).reset_index()
+    # county_data['county_top']=county_data.apply(lambda x: 0 if x['county_case_rank']>5 else x['cases'],axis=1)
+    # state_data=county_data.groupby(['state','date']).agg({'cases':sum,'deaths':sum,'county_top':sum,'county':'count'}).reset_index()
+    state_data=pd.read_csv('static/data/us-states.csv')
     state_data['date']=pd.to_datetime(state_data['date'],format="%Y-%m-%d")
-    state_data['cluster']=state_data['county_top']/state_data['cases']
+    # state_data['cluster']=state_data['county_top']/state_data['cases']
     st_low=state_data.groupby('state').agg({'date':min}).reset_index()
     state_data=state_data.merge(st_low,on='state',how='left',suffixes=('','_start'))
     sd_temp=state_data.loc[state_data['cases']>9]
@@ -307,60 +308,60 @@ def coronavirus_dashboard():
     state_data['raw_case_diff'][starts] = np.nan
     state_data['pct_case_diff'][starts] = np.nan
     
-    p1 = figure(title="Cases by State (Log scale)",x_axis_type='datetime',y_axis_type='log',tools=['reset','box_zoom'],height=450)
-    p1.grid.grid_line_alpha=0.4
-    p1.grid.grid_line_color='#c2c2c2'
-    p1.border_fill_alpha = 0
-    p1.background_fill_color ='#f7f7f7'
-    p1.background_fill_alpha = 0.6
-    p1.xaxis.axis_label = 'Date'
-    p1.yaxis.axis_label = 'Cummulative Cases'
-    state_data_sub=state_data.loc[state_data['cases']>499]
-    states=set(state_data_sub['state'])
-    p1.yaxis.formatter=NumeralTickFormatter(format="0,0")
-    color_cnt=0
+    # p1 = figure(title="Cases by State (Log scale)",x_axis_type='datetime',y_axis_type='log',tools=['reset','box_zoom'],height=450)
+    # p1.grid.grid_line_alpha=0.4
+    # p1.grid.grid_line_color='#c2c2c2'
+    # p1.border_fill_alpha = 0
+    # p1.background_fill_color ='#f7f7f7'
+    # p1.background_fill_alpha = 0.6
+    # p1.xaxis.axis_label = 'Date'
+    # p1.yaxis.axis_label = 'Cummulative Cases'
+    # state_data_sub=state_data.loc[state_data['cases']>499]
+    # states=set(state_data_sub['state'])
+    # p1.yaxis.formatter=NumeralTickFormatter(format="0,0")
+    # color_cnt=0
 
-    p2 = figure(title="Cases by State",tools=['reset','box_zoom'],height=450)
-    p2.grid.grid_line_alpha=0.4
-    p2.grid.grid_line_color='#c2c2c2'
-    p2.xaxis.axis_label = 'Days since first case in state'
-    p2.yaxis.axis_label = 'Cummulative Cases'
-    p2.border_fill_alpha = 0
-    p2.background_fill_color ='#f7f7f7'
-    p2.background_fill_alpha = 0.6
-    state_data_sub=state_data.loc[state_data['cases']>499]
-    states=set(state_data_sub['state'])
-    p2.yaxis.formatter=NumeralTickFormatter(format="0,0")
-    color_cnt=0
+    # p2 = figure(title="Cases by State",tools=['reset','box_zoom'],height=450)
+    # p2.grid.grid_line_alpha=0.4
+    # p2.grid.grid_line_color='#c2c2c2'
+    # p2.xaxis.axis_label = 'Days since first case in state'
+    # p2.yaxis.axis_label = 'Cummulative Cases'
+    # p2.border_fill_alpha = 0
+    # p2.background_fill_color ='#f7f7f7'
+    # p2.background_fill_alpha = 0.6
+    # state_data_sub=state_data.loc[state_data['cases']>499]
+    # states=set(state_data_sub['state'])
+    # p2.yaxis.formatter=NumeralTickFormatter(format="0,0")
+    # color_cnt=0
 
-    for state in states:
-        single_df=state_data.loc[state_data['state']==state]
-        source=ColumnDataSource(data={'date':list(single_df['date']),'cases':list(single_df['cases']),
-                                     'deaths':single_df['deaths'],'cluster':single_df['cluster'],
-                                     'days_since_start':single_df['days_since_start_plot'],
-                                     'date_label':single_df['date'].astype(str),'pct_diff':single_df['pct_case_diff']})    
-        p=p1.line('date','cases',source=source,color=Category20[20][(color_cnt+6)%20],line_alpha=0.9,line_width=2)
-        # labels=LabelSet(x='x', y='y', text='names', level='glyph',
-        #     x_offset=5, y_offset=5, source=source)
-        p1.add_tools(HoverTool(tooltips=[("State",f"{state}"),("date",'@date_label'),
-                                         ("cases",'@cases{0,}')],renderers=[p],toggleable=False))
-        source=ColumnDataSource(data={'date':list(single_df['date']),'cases':list(single_df['cases']),
-                                     'deaths':single_df['deaths'],'cluster':single_df['cluster'],
-                                     'days_since_start':single_df['days_since_start_plot'],
-                                     'date_label':single_df['date'].astype(str),'pct_diff':single_df['pct_case_diff']})
-        if max(single_df['cases'])>10000:
-            if state=='New York':
-                labels = Label(x=34, y=100000, text=state)
-            else:    
-                labels = Label(x=max(single_df['days_since_start_plot'])+0.5, y=max(single_df['cases']), text=state,angle=120)
-            p2.add_layout(labels)
-        p=p2.line('days_since_start','cases',source=source,color=Category20[20][(color_cnt+6)%20],line_alpha=0.9,line_width=2)
-        color_cnt+=1
-        p2.add_tools(HoverTool(tooltips=[("State",f"{state}"),("date",'@date_label'),
-                                         ("cases",'@cases{0,}')],renderers=[p],toggleable=False))
-    cases_log_script,cases_log_div=components(p1)   
+    # for state in states:
+    #     single_df=state_data.loc[state_data['state']==state]
+    #     source=ColumnDataSource(data={'date':list(single_df['date']),'cases':list(single_df['cases']),
+    #                                  'deaths':single_df['deaths'],'cluster':single_df['cluster'],
+    #                                  'days_since_start':single_df['days_since_start_plot'],
+    #                                  'date_label':single_df['date'].astype(str),'pct_diff':single_df['pct_case_diff']})    
+    #     p=p1.line('date','cases',source=source,color=Category20[20][(color_cnt+6)%20],line_alpha=0.9,line_width=2)
+    #     # labels=LabelSet(x='x', y='y', text='names', level='glyph',
+    #     #     x_offset=5, y_offset=5, source=source)
+    #     p1.add_tools(HoverTool(tooltips=[("State",f"{state}"),("date",'@date_label'),
+    #                                      ("cases",'@cases{0,}')],renderers=[p],toggleable=False))
+    #     source=ColumnDataSource(data={'date':list(single_df['date']),'cases':list(single_df['cases']),
+    #                                  'deaths':single_df['deaths'],'cluster':single_df['cluster'],
+    #                                  'days_since_start':single_df['days_since_start_plot'],
+    #                                  'date_label':single_df['date'].astype(str),'pct_diff':single_df['pct_case_diff']})
+    #     if max(single_df['cases'])>10000:
+    #         if state=='New York':
+    #             labels = Label(x=34, y=100000, text=state)
+    #         else:    
+    #             labels = Label(x=max(single_df['days_since_start_plot'])+0.5, y=max(single_df['cases']), text=state,angle=120)
+    #         p2.add_layout(labels)
+    #     p=p2.line('days_since_start','cases',source=source,color=Category20[20][(color_cnt+6)%20],line_alpha=0.9,line_width=2)
+    #     color_cnt+=1
+    #     p2.add_tools(HoverTool(tooltips=[("State",f"{state}"),("date",'@date_label'),
+    #                                      ("cases",'@cases{0,}')],renderers=[p],toggleable=False))
+    # cases_log_script,cases_log_div=components(p1)   
         
-    cases_script,cases_div=components(p2)
+    # cases_script,cases_div=components(p2)
     nat_df=state_data.groupby('date').agg({'cases':sum,'deaths':sum}).reset_index()
     nat_df['new_cases']=nat_df['cases'].diff()
     nat_df['pct_chg_daily']=nat_df['cases'].pct_change()
@@ -406,34 +407,34 @@ def coronavirus_dashboard():
     p_nat.yaxis.formatter=NumeralTickFormatter(format="0,0")
     pp_nat=gridplot([[p_nat]],sizing_mode='stretch_width',plot_height=280)
     national_log_script,national_log_div=components(pp_nat)
-    states=['New York','New Jersey','Michigan','Washington','Missouri']
-    sbs_df=state_data.loc[state_data['state'].isin(states)]
-    sbs_df['days_since_start_10_plot']=sbs_df.apply(lambda x:
-                                        int(str(x['days_since_start_10']).split(' ')[0]),axis=1)
-    sbs_df=sbs_df.loc[sbs_df['days_since_start_10_plot']>-1]
-    p1 = figure(title="Growth after hitting 500 cases",tools=['reset','box_zoom'],height=450,y_range=(0,40000))
-    p1.grid.grid_line_alpha=0.4
-    p1.xaxis.axis_label = 'Days since 500th case in state'
-    p1.yaxis.axis_label = 'Cummulative Cases'
-    p1.yaxis.formatter=NumeralTickFormatter(format="0,0")
-    color_cnt=0
-    p1.border_fill_alpha = 0
-    p1.background_fill_color ='#f7f7f7'
-    p1.background_fill_alpha = 0.6
-    for state in states:
-        single_df=sbs_df.loc[state_data['state']==state]
+    # states=['New York','New Jersey','Michigan','Washington','Missouri']
+    # sbs_df=state_data.loc[state_data['state'].isin(states)]
+    # sbs_df['days_since_start_10_plot']=sbs_df.apply(lambda x:
+    #                                     int(str(x['days_since_start_10']).split(' ')[0]),axis=1)
+    # sbs_df=sbs_df.loc[sbs_df['days_since_start_10_plot']>-1]
+    # p1 = figure(title="Growth after hitting 500 cases",tools=['reset','box_zoom'],height=450,y_range=(0,40000))
+    # p1.grid.grid_line_alpha=0.4
+    # p1.xaxis.axis_label = 'Days since 500th case in state'
+    # p1.yaxis.axis_label = 'Cummulative Cases'
+    # p1.yaxis.formatter=NumeralTickFormatter(format="0,0")
+    # color_cnt=0
+    # p1.border_fill_alpha = 0
+    # p1.background_fill_color ='#f7f7f7'
+    # p1.background_fill_alpha = 0.6
+    # for state in states:
+    #     single_df=sbs_df.loc[state_data['state']==state]
 
-        source=ColumnDataSource(data={'date':list(single_df['date']),'cases':list(single_df['cases']),
-                                     'deaths':single_df['deaths'],'cluster':single_df['cluster'],
-                                     'days_since_start_10':single_df['days_since_start_10_plot'],
-                                     'date_label':single_df['date'].astype(str),'pct_diff':single_df['pct_case_diff']})    
-        p=p1.line('days_since_start_10','cases',source=source,color=Category10[10][(color_cnt+6)%10],line_alpha=0.9,
-                  line_width=2,legend=state)
-        color_cnt+=1
-        p1.add_tools(HoverTool(tooltips=[("State",f"{state}"),('Days > 500','@days_since_start_10'),("date",'@date_label'),
-                                         ("cases",'@cases{0,}')],renderers=[p],toggleable=False))
-    p1.legend.location='top_left'
-    comp_st_script,comp_st_div=components(p1)
+    #     source=ColumnDataSource(data={'date':list(single_df['date']),'cases':list(single_df['cases']),
+    #                                  'deaths':single_df['deaths'],'cluster':single_df['cluster'],
+    #                                  'days_since_start_10':single_df['days_since_start_10_plot'],
+    #                                  'date_label':single_df['date'].astype(str),'pct_diff':single_df['pct_case_diff']})    
+    #     p=p1.line('days_since_start_10','cases',source=source,color=Category10[10][(color_cnt+6)%10],line_alpha=0.9,
+    #               line_width=2,legend=state)
+    #     color_cnt+=1
+    #     p1.add_tools(HoverTool(tooltips=[("State",f"{state}"),('Days > 500','@days_since_start_10'),("date",'@date_label'),
+    #                                      ("cases",'@cases{0,}')],renderers=[p],toggleable=False))
+    # p1.legend.location='top_left'
+    # comp_st_script,comp_st_div=components(p1)
 
     avg_growth_df=state_data.loc[state_data['date']>max(state_data['date'])-timedelta(5)]
     avg_growth_df=avg_growth_df.groupby('state').agg({'cases':[max,min]}).reset_index()
@@ -464,21 +465,60 @@ def coronavirus_dashboard():
         p1.add_layout(mytext)
 
     st_script,st_div=components(p1)
-    return render_template('/coronavirus_dashboard.html',cases_log_div=cases_log_div,cases_log_script=cases_log_script,cases_div=cases_div,
-        cases_script=cases_script,today_vals=today_vals,national_div=national_div,national_script=national_script,
-        national_log_div=national_log_div,national_log_script=national_log_script,comp_st_script=comp_st_script,comp_st_div=comp_st_div,
-        st_script=st_script,st_div=st_div)
+    return render_template('/coronavirus_dashboard.html',today_vals=today_vals,national_div=national_div,national_script=national_script,
+        national_log_div=national_log_div,national_log_script=national_log_script,st_script=st_script,st_div=st_div)
 
-@app.route('/api',methods=['GET','POST'])
-def send_api():
-    county_data=pd.read_csv('static/data/us-counties.csv')
-    county_agg=county_data.groupby(['state','date']).agg({'cases':sum,'deaths':sum}).reset_index()
-    county_data['county_case_rank']=county_data.groupby(['state','date']).rank(method="min",ascending=False)['cases']
-
-    county_data['county_top']=county_data.apply(lambda x: 0 if x['county_case_rank']>5 else x['cases'],axis=1)
-    state_data=county_data.groupby(['state','date']).agg({'cases':sum,'deaths':sum,'county_top':sum,'county':'count'}).reset_index()
+@app.route('/api/state_comp',methods=['GET','POST'])
+def api_state_comp():
+    print('startssss')
+    state_data=pd.read_csv('static/data/us-states.csv')
     state_data['date']=pd.to_datetime(state_data['date'],format="%Y-%m-%d")
-    state_data['cluster']=state_data['county_top']/state_data['cases']
+    states=['New York','New Jersey','Michigan','Washington','Missouri']
+    st_low=state_data.groupby('state').agg({'date':min}).reset_index()
+    state_data=state_data.merge(st_low,on='state',how='left',suffixes=('','_start'))
+    sd_temp=state_data.loc[state_data['cases']>9]
+    st_low2=sd_temp.groupby('state').agg({'date':min}).reset_index()
+    state_data=state_data.merge(st_low2,on='state',how='left',suffixes=('','_start_10'))
+    print('startssss 2')
+    state_data['days_since_start']=state_data['date']-state_data['date_start']
+    state_data['days_since_start_plot']=state_data.apply(lambda x:
+                                        int(str(x['days_since_start']).split(' ')[0]),axis=1)
+    state_data['days_since_start_10']=state_data['date']-state_data['date_start_10']
+    sbs_df=state_data.loc[state_data['state'].isin(states)]
+    sbs_df['days_since_start_10_plot']=sbs_df.apply(lambda x:
+                                        int(str(x['days_since_start_10']).split(' ')[0]),axis=1)
+    sbs_df=sbs_df.loc[sbs_df['days_since_start_10_plot']>-1]
+    print('startssss 3')
+    p1 = figure(title="Growth after hitting 500 cases",tools=['reset','box_zoom'],height=450,y_range=(0,40000))
+    p1.grid.grid_line_alpha=0.4
+    p1.xaxis.axis_label = 'Days since 500th case in state'
+    p1.yaxis.axis_label = 'Cummulative Cases'
+    p1.yaxis.formatter=NumeralTickFormatter(format="0,0")
+    color_cnt=0
+    print('startssss 4')
+    p1.border_fill_alpha = 0
+    p1.background_fill_color ='#f7f7f7'
+    p1.background_fill_alpha = 0.6
+    for state in states:
+        single_df=sbs_df.loc[state_data['state']==state]
+
+        source=ColumnDataSource(data={'date':list(single_df['date']),'cases':list(single_df['cases']),
+                                     'deaths':single_df['deaths'],
+                                     'days_since_start_10':single_df['days_since_start_10_plot'],
+                                     'date_label':single_df['date'].astype(str)})    
+        p=p1.line('days_since_start_10','cases',source=source,color=Category10[10][(color_cnt+6)%10],line_alpha=0.9,
+                  line_width=2,legend=state)
+        color_cnt+=1
+        p1.add_tools(HoverTool(tooltips=[("State",f"{state}"),('Days > 500','@days_since_start_10'),("date",'@date_label'),
+                                         ("cases",'@cases{0,}')],renderers=[p],toggleable=False))
+    p1.legend.location='top_left'
+    comp_st_script,comp_st_div=components(p1)
+    return {'comp_st_script':comp_st_script,'comp_st_div':comp_st_div}
+
+@app.route('/api/states',methods=['GET','POST'])
+def api_states():
+    state_data=pd.read_csv('static/data/us-states.csv')
+    state_data['date']=pd.to_datetime(state_data['date'],format="%Y-%m-%d")
     st_low=state_data.groupby('state').agg({'date':min}).reset_index()
     state_data=state_data.merge(st_low,on='state',how='left',suffixes=('','_start'))
     sd_temp=state_data.loc[state_data['cases']>9]
@@ -493,7 +533,6 @@ def send_api():
     starts=state_data.state != state_data.state.shift(1)
     state_data['raw_case_diff'][starts] = np.nan
     state_data['pct_case_diff'][starts] = np.nan
-    
     p1 = figure(title="Cases by State (Log scale)",x_axis_type='datetime',y_axis_type='log',tools=['reset','box_zoom'],height=450)
     p1.grid.grid_line_alpha=0.4
     p1.grid.grid_line_color='#c2c2c2'
@@ -506,7 +545,6 @@ def send_api():
     states=set(state_data_sub['state'])
     p1.yaxis.formatter=NumeralTickFormatter(format="0,0")
     color_cnt=0
-
     p2 = figure(title="Cases by State",tools=['reset','box_zoom'],height=450)
     p2.grid.grid_line_alpha=0.4
     p2.grid.grid_line_color='#c2c2c2'
@@ -519,11 +557,10 @@ def send_api():
     states=set(state_data_sub['state'])
     p2.yaxis.formatter=NumeralTickFormatter(format="0,0")
     color_cnt=0
-
     for state in states:
         single_df=state_data.loc[state_data['state']==state]
         source=ColumnDataSource(data={'date':list(single_df['date']),'cases':list(single_df['cases']),
-                                     'deaths':single_df['deaths'],'cluster':single_df['cluster'],
+                                     'deaths':single_df['deaths'],
                                      'days_since_start':single_df['days_since_start_plot'],
                                      'date_label':single_df['date'].astype(str),'pct_diff':single_df['pct_case_diff']})    
         p=p1.line('date','cases',source=source,color=Category20[20][(color_cnt+6)%20],line_alpha=0.9,line_width=2)
@@ -532,10 +569,10 @@ def send_api():
         p1.add_tools(HoverTool(tooltips=[("State",f"{state}"),("date",'@date_label'),
                                          ("cases",'@cases{0,}')],renderers=[p],toggleable=False))
         source=ColumnDataSource(data={'date':list(single_df['date']),'cases':list(single_df['cases']),
-                                     'deaths':single_df['deaths'],'cluster':single_df['cluster'],
+                                     'deaths':single_df['deaths'],
                                      'days_since_start':single_df['days_since_start_plot'],
                                      'date_label':single_df['date'].astype(str),'pct_diff':single_df['pct_case_diff']})
-        if max(single_df['cases'])>10000:
+        if max(single_df['cases'])>50000:
             if state=='New York':
                 labels = Label(x=34, y=100000, text=state)
             else:    
@@ -548,7 +585,7 @@ def send_api():
     cases_log_script,cases_log_div=components(p1)   
         
     cases_script,cases_div=components(p2)
-    return {'script':cases_script,'div':cases_div}
+    return {'cases_script':cases_script,'cases_div':cases_div,'cases_log_script':cases_log_script,'cases_log_div':cases_log_div}
 
 @app.route('/blog_starting_airline_route_post',methods=['GET','POST'])
 def blog_starting_airline_route_post():

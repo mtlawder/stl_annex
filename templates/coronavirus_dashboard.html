@@ -160,8 +160,13 @@
               </div>
             </div>
             <div class="col-lg-6 col-md-12">
-             
-              <<%st_div|safe%>>
+              <div id="enterStateDiv">
+                <div style="height:450px;">
+                  Loading
+                  <br/>
+                  <img src="/static/images/loading.gif"/>
+                </div>
+              </div>
             </div>   
           </div>
           <hr>
@@ -190,7 +195,9 @@
           <a href="github.com/nytimes/covid-19-data">Based on Data provided by The New York Times</a>
         </p>
         <p>Other Blogs on COVID-19</p>
-        <p><a href="/blog_coronavirus_march">A Look at State Coronavirus Case Numbers</a></p>
+        <a href="/blog_coronavirus_march">A Look at State Coronavirus Case Numbers</a><br/>
+        <a href="/blog_coronavirus_april">Coronavirus in US Metros</a><br/>
+        <a href="/blog_coronavirus_nj">Coronavirus in New Jersey - Numbers by County</a>
         <hr>
       </div>
       <<%national_log_script|safe%>>
@@ -228,11 +235,11 @@
             req2.onload=function(){
               data=JSON.parse(this.response)
               var element = document.getElementById('enterStateComp');
-              // var element2 = document.getElementById('enterCaseLogDiv');
+              var element2 = document.getElementById('enterStateDiv');
               element.innerHTML=data.comp_st_div
-              // element2.innerHTML=data.cases_log_div
+              element2.innerHTML=data.st_div
               eval(data.comp_st_script.slice(33,-9))
-              // eval(data.cases_log_script.slice(33,-9))
+              eval(data.st_script.slice(33,-9))
             }
             
 

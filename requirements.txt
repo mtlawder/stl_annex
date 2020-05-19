@@ -4,7 +4,7 @@ Flask==1.0
 
 gunicorn==19.3.0
 
-Jinja2==2.7.2
+Jinja2==2.10.1
 
 oauth==1.0.1
 

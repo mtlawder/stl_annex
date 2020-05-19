@@ -350,12 +350,14 @@ def coronavirus_dashboard():
 
 @app.route('/api/state_comp',methods=['GET','POST'])
 def api_state_comp():
-    comp_st_script,comp_st_div,st_script,st_div=coronavirus_dashboard_state_charts()
+    state_data=pd.read_csv('static/data/us-states.csv')
+    comp_st_script,comp_st_div,st_script,st_div=coronavirus_dashboard_state_charts(state_data)
     return {'comp_st_script':comp_st_script,'comp_st_div':comp_st_div,'st_script':st_script,'st_div':st_div}
 
 @app.route('/api/states',methods=['GET','POST'])
 def api_states():
-    cases_log_script,cases_log_div,cases_script,cases_div=coronavirus_dashboard_charts()
+    state_data=pd.read_csv('static/data/us-states.csv')
+    cases_log_script,cases_log_div,cases_script,cases_div=coronavirus_dashboard_charts(state_data)
     return {'cases_script':cases_script,'cases_div':cases_div,'cases_log_script':cases_log_script,'cases_log_div':cases_log_div}
 
 @app.route('/blog_starting_airline_route_post',methods=['GET','POST'])

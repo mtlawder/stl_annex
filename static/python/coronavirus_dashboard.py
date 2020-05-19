@@ -7,8 +7,7 @@ from bokeh.plotting import ColumnDataSource
 from bokeh.models import HoverTool, FixedTicker, Label, Legend, LegendItem, NumeralTickFormatter
 from bokeh.palettes import Category10, Category20
 
-def coronavirus_dashboard_state_charts():
-    state_data=pd.read_csv('static/data/us-states.csv')
+def coronavirus_dashboard_state_charts(state_data):
     state_data['date']=pd.to_datetime(state_data['date'],format="%Y-%m-%d")
     states=['New York','New Jersey','Michigan','Washington','Missouri']
     st_low=state_data.groupby('state').agg({'date':min}).reset_index()
@@ -77,8 +76,7 @@ def coronavirus_dashboard_state_charts():
     st_script,st_div=components(p1)
     return comp_st_script,comp_st_div,st_script,st_div
 
-def coronavirus_dashboard_charts():
-    state_data=pd.read_csv('static/data/us-states.csv')
+def coronavirus_dashboard_charts(state_data):
     state_data['date']=pd.to_datetime(state_data['date'],format="%Y-%m-%d")
     st_low=state_data.groupby('state').agg({'date':min}).reset_index()
     state_data=state_data.merge(st_low,on='state',how='left',suffixes=('','_start'))

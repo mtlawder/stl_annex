@@ -119,12 +119,22 @@
           </div>
           <div class="row" class="whiteRow">
             <div class="col-lg-6 col-md-12">
-             
-              <<%cases_div|safe%>>
+              <div id="enterCaseDiv">
+                <div style="height:450px;">
+                  Loading
+                  <br/>
+                  <img src="/static/images/loading.gif"/>
+                </div>
+              </div>
             </div>   
             <div class="col-lg-6 col-md-12">
-             
-              <<%cases_log_div|safe%>>
+              <div id="enterCaseLogDiv">
+                <div style="height:450px;">
+                  Loading
+                  <br/>
+                  <img src="/static/images/loading.gif"/>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -141,11 +151,22 @@
           </div>
           <div class="row" class="whiteRow">
             <div class="col-lg-6 col-md-12">
-              <<%comp_st_div|safe%>>
+              <div id="enterStateComp">
+                <div style="height:450px;">
+                  Loading
+                  <br/>
+                  <img src="/static/images/loading.gif"/>
+                </div>
+              </div>
             </div>
             <div class="col-lg-6 col-md-12">
-             
-              <<%st_div|safe%>>
+              <div id="enterStateDiv">
+                <div style="height:450px;">
+                  Loading
+                  <br/>
+                  <img src="/static/images/loading.gif"/>
+                </div>
+              </div>
             </div>   
           </div>
           <hr>
@@ -159,6 +180,14 @@
               <img src="/static/images/covid_case_v_state_growth.gif"/>
             </div>   
           </div>
+          <div class="row" class="whiteRow">
+            <div class="col-lg-4 col-md-12">
+              .
+            </div>
+            <div class="col-lg-8 col-md-12">
+              
+            </div>   
+          </div>
         </div>
         <hr>
 
@@ -166,17 +195,13 @@
           <a href="github.com/nytimes/covid-19-data">Based on Data provided by The New York Times</a>
         </p>
         <p>Other Blogs on COVID-19</p>
-        <p><a href="/blog_coronavirus_march">A Look at State Coronavirus Case Numbers</a></p>
-        <p><a href="/blog_coronavirus_april">Coronavirus in the US - Metros</a></p>
-        <p><a href="/blog_coronavirus_nj">Coronavirus in New Jersey - Numbers by County</a></p>
+        <a href="/blog_coronavirus_march">A Look at State Coronavirus Case Numbers</a><br/>
+        <a href="/blog_coronavirus_april">Coronavirus in US Metros</a><br/>
+        <a href="/blog_coronavirus_nj">Coronavirus in New Jersey - Numbers by County</a>
         <hr>
       </div>
       <<%national_log_script|safe%>>
     <<%national_script|safe%>>
-    <<%cases_script|safe%>>
-    <<%cases_log_script|safe%>>
-    <<%comp_st_script|safe%>>
-    <<%st_script|safe%>>
     <script>   
       new Vue ({
         el: '#covid',
@@ -184,6 +209,39 @@
           dests: 'x',
           today_vals: <<%today_vals|safe%>>
           
+        },
+        created: function(){
+          
+            
+            var req = new XMLHttpRequest()
+            req.open("GET",'/api/states' ,true);
+            req.send()
+            req.onload=function(){
+              data=JSON.parse(this.response)
+              var element = document.getElementById('enterCaseDiv');
+              var element2 = document.getElementById('enterCaseLogDiv');
+              element.innerHTML=data.cases_div
+              element2.innerHTML=data.cases_log_div
+              eval(data.cases_script.slice(33,-9))
+              eval(data.cases_log_script.slice(33,-9))
+            }
+            console.log('created')
+            var req2 = new XMLHttpRequest()
+            req2.open("GET",'/api/state_comp' ,true);
+            req2.send()
+            req2.onload=function(){
+              data=JSON.parse(this.response)
+              var element = document.getElementById('enterStateComp');
+              var element2 = document.getElementById('enterStateDiv');
+              element.innerHTML=data.comp_st_div
+              element2.innerHTML=data.st_div
+              eval(data.comp_st_script.slice(33,-9))
+              eval(data.st_script.slice(33,-9))
+            }
+            
+
+            console.log('called_api')
+
         },
         methods:{
           formatPct: function(val) {
@@ -200,6 +258,18 @@
             }
             else {
               return "NA"
+            }
+          },
+          apiStates: function(){
+            var req = new XMLHttpRequest()
+            req.open("GET",'/api' ,true);
+            req.send()
+            req.onload=function(){
+              data=JSON.parse(this.response)
+              var element = document.getElementById('enterDiv');
+              var element_script = document.getElementById('enterScript');
+              element.innerHTML=data.div
+              eval(data.script.slice(33,-9))
             }
           }
         }

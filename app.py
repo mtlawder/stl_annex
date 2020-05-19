@@ -2,22 +2,21 @@ from flask import Flask, render_template, redirect, request
 from bokeh.plotting import figure, show, output_file
 from bokeh.layouts import gridplot
 from bokeh.embed import components
-from bokeh.models import Range1d
 from bokeh.document import Document
 from bokeh.plotting import ColumnDataSource
-from bokeh.models import HoverTool, FixedTicker, Label, Legend, LegendItem, NumeralTickFormatter
+from bokeh.models import HoverTool, Label, Legend, LegendItem, NumeralTickFormatter
 from bokeh.palettes import Category10, Category20
 from bokeh.transform import cumsum
 import pandas as pd
 from static.python.bokeh_plot import pop_pie_chart, pop_line_chart, pop_create_table
 from math import pi
-import collections
 import numpy as np
 import sqlite3
 import datetime
 from datetime import datetime,timedelta
 import re
 import time
+from static.python.coronavirus_dashboard import coronavirus_dashboard_state_charts,coronavirus_dashboard_charts
 
 
 
@@ -284,14 +283,8 @@ def airline_types():
 
 @app.route('/coronavirus_dashboard',methods=['GET','POST'])
 def coronavirus_dashboard():
-    county_data=pd.read_csv('static/data/us-counties.csv')
-    county_agg=county_data.groupby(['state','date']).agg({'cases':sum,'deaths':sum}).reset_index()
-    county_data['county_case_rank']=county_data.groupby(['state','date']).rank(method="min",ascending=False)['cases']
-
-    county_data['county_top']=county_data.apply(lambda x: 0 if x['county_case_rank']>5 else x['cases'],axis=1)
-    state_data=county_data.groupby(['state','date']).agg({'cases':sum,'deaths':sum,'county_top':sum,'county':'count'}).reset_index()
+    state_data=pd.read_csv('static/data/us-states.csv')
     state_data['date']=pd.to_datetime(state_data['date'],format="%Y-%m-%d")
-    state_data['cluster']=state_data['county_top']/state_data['cases']
     st_low=state_data.groupby('state').agg({'date':min}).reset_index()
     state_data=state_data.merge(st_low,on='state',how='left',suffixes=('','_start'))
     sd_temp=state_data.loc[state_data['cases']>9]
@@ -307,60 +300,6 @@ def coronavirus_dashboard():
     state_data['raw_case_diff'][starts] = np.nan
     state_data['pct_case_diff'][starts] = np.nan
     
-    p1 = figure(title="Cases by State (Log scale)",x_axis_type='datetime',y_axis_type='log',tools=['reset','box_zoom'],height=450)
-    p1.grid.grid_line_alpha=0.4
-    p1.grid.grid_line_color='#c2c2c2'
-    p1.border_fill_alpha = 0
-    p1.background_fill_color ='#f7f7f7'
-    p1.background_fill_alpha = 0.6
-    p1.xaxis.axis_label = 'Date'
-    p1.yaxis.axis_label = 'Cummulative Cases'
-    state_data_sub=state_data.loc[state_data['cases']>499]
-    states=set(state_data_sub['state'])
-    p1.yaxis.formatter=NumeralTickFormatter(format="0,0")
-    color_cnt=0
-
-    p2 = figure(title="Cases by State",tools=['reset','box_zoom'],height=450)
-    p2.grid.grid_line_alpha=0.4
-    p2.grid.grid_line_color='#c2c2c2'
-    p2.xaxis.axis_label = 'Days since first case in state'
-    p2.yaxis.axis_label = 'Cummulative Cases'
-    p2.border_fill_alpha = 0
-    p2.background_fill_color ='#f7f7f7'
-    p2.background_fill_alpha = 0.6
-    state_data_sub=state_data.loc[state_data['cases']>499]
-    states=set(state_data_sub['state'])
-    p2.yaxis.formatter=NumeralTickFormatter(format="0,0")
-    color_cnt=0
-
-    for state in states:
-        single_df=state_data.loc[state_data['state']==state]
-        source=ColumnDataSource(data={'date':list(single_df['date']),'cases':list(single_df['cases']),
-                                     'deaths':single_df['deaths'],'cluster':single_df['cluster'],
-                                     'days_since_start':single_df['days_since_start_plot'],
-                                     'date_label':single_df['date'].astype(str),'pct_diff':single_df['pct_case_diff']})    
-        p=p1.line('date','cases',source=source,color=Category20[20][(color_cnt+6)%20],line_alpha=0.9,line_width=2)
-        # labels=LabelSet(x='x', y='y', text='names', level='glyph',
-        #     x_offset=5, y_offset=5, source=source)
-        p1.add_tools(HoverTool(tooltips=[("State",f"{state}"),("date",'@date_label'),
-                                         ("cases",'@cases{0,}')],renderers=[p],toggleable=False))
-        source=ColumnDataSource(data={'date':list(single_df['date']),'cases':list(single_df['cases']),
-                                     'deaths':single_df['deaths'],'cluster':single_df['cluster'],
-                                     'days_since_start':single_df['days_since_start_plot'],
-                                     'date_label':single_df['date'].astype(str),'pct_diff':single_df['pct_case_diff']})
-        if max(single_df['cases'])>10000:
-            if state=='New York':
-                labels = Label(x=34, y=100000, text=state)
-            else:    
-                labels = Label(x=max(single_df['days_since_start_plot'])+0.5, y=max(single_df['cases']), text=state,angle=120)
-            p2.add_layout(labels)
-        p=p2.line('days_since_start','cases',source=source,color=Category20[20][(color_cnt+6)%20],line_alpha=0.9,line_width=2)
-        color_cnt+=1
-        p2.add_tools(HoverTool(tooltips=[("State",f"{state}"),("date",'@date_label'),
-                                         ("cases",'@cases{0,}')],renderers=[p],toggleable=False))
-    cases_log_script,cases_log_div=components(p1)   
-        
-    cases_script,cases_div=components(p2)
     nat_df=state_data.groupby('date').agg({'cases':sum,'deaths':sum}).reset_index()
     nat_df['new_cases']=nat_df['cases'].diff()
     nat_df['pct_chg_daily']=nat_df['cases'].pct_change()
@@ -406,68 +345,18 @@ def coronavirus_dashboard():
     p_nat.yaxis.formatter=NumeralTickFormatter(format="0,0")
     pp_nat=gridplot([[p_nat]],sizing_mode='stretch_width',plot_height=280)
     national_log_script,national_log_div=components(pp_nat)
-    states=['New York','New Jersey','Michigan','Washington','Missouri']
-    sbs_df=state_data.loc[state_data['state'].isin(states)]
-    sbs_df['days_since_start_10_plot']=sbs_df.apply(lambda x:
-                                        int(str(x['days_since_start_10']).split(' ')[0]),axis=1)
-    sbs_df=sbs_df.loc[sbs_df['days_since_start_10_plot']>-1]
-    p1 = figure(title="Growth after hitting 500 cases",tools=['reset','box_zoom'],height=450,y_range=(0,40000))
-    p1.grid.grid_line_alpha=0.4
-    p1.xaxis.axis_label = 'Days since 500th case in state'
-    p1.yaxis.axis_label = 'Cummulative Cases'
-    p1.yaxis.formatter=NumeralTickFormatter(format="0,0")
-    color_cnt=0
-    p1.border_fill_alpha = 0
-    p1.background_fill_color ='#f7f7f7'
-    p1.background_fill_alpha = 0.6
-    for state in states:
-        single_df=sbs_df.loc[state_data['state']==state]
+    return render_template('/coronavirus_dashboard.html',today_vals=today_vals,national_div=national_div,national_script=national_script,
+        national_log_div=national_log_div,national_log_script=national_log_script)
 
-        source=ColumnDataSource(data={'date':list(single_df['date']),'cases':list(single_df['cases']),
-                                     'deaths':single_df['deaths'],'cluster':single_df['cluster'],
-                                     'days_since_start_10':single_df['days_since_start_10_plot'],
-                                     'date_label':single_df['date'].astype(str),'pct_diff':single_df['pct_case_diff']})    
-        p=p1.line('days_since_start_10','cases',source=source,color=Category10[10][(color_cnt+6)%10],line_alpha=0.9,
-                  line_width=2,legend=state)
-        color_cnt+=1
-        p1.add_tools(HoverTool(tooltips=[("State",f"{state}"),('Days > 500','@days_since_start_10'),("date",'@date_label'),
-                                         ("cases",'@cases{0,}')],renderers=[p],toggleable=False))
-    p1.legend.location='top_left'
-    comp_st_script,comp_st_div=components(p1)
+@app.route('/api/state_comp',methods=['GET','POST'])
+def api_state_comp():
+    comp_st_script,comp_st_div,st_script,st_div=coronavirus_dashboard_state_charts()
+    return {'comp_st_script':comp_st_script,'comp_st_div':comp_st_div,'st_script':st_script,'st_div':st_div}
 
-    avg_growth_df=state_data.loc[state_data['date']>max(state_data['date'])-timedelta(5)]
-    avg_growth_df=avg_growth_df.groupby('state').agg({'cases':[max,min]}).reset_index()
-    avg_growth_df['pct_diff']=(avg_growth_df['cases']['max']-avg_growth_df['cases']['min'])/avg_growth_df['cases']['min']
-    avg_growth_df.columns=avg_growth_df.columns.droplevel(1)
-    last_df=state_data.loc[state_data['date']==max(state_data['date'])]
-    plot_df=last_df.merge(avg_growth_df[['state','pct_diff']],how='left',on='state')
-    p1 = figure(title="Cases v Growth",tools=['reset','box_zoom'],height=450,y_axis_type='log',x_range=(0,200))
-    p1.grid.grid_line_alpha=0.4
-    p1.border_fill_alpha = 0
-    p1.background_fill_color ='#f7f7f7'
-    p1.background_fill_alpha = 0.6
-    p1.xaxis.axis_label = '5 day growth (%)'
-    p1.yaxis.axis_label = 'Cummulative Cases'
-    p1.yaxis.formatter=NumeralTickFormatter(format="0,0")
-    p1.square([40, 40, 140, 140],[48, 45000, 48, 45000], size=247, color=['#b3ff99','#fff185','#dd99ff','#ff8d85'], alpha=0.5)
-    source=ColumnDataSource(data={'cases':plot_df['cases'],'deaths':plot_df['deaths'],
-                                     'pct_diff':plot_df['pct_diff']*100,'state':plot_df['state']})    
-    p=p1.scatter('pct_diff','cases',source=source,marker='circle',color='blue',size=8,fill_alpha=0.5)
-    p1.add_tools(HoverTool(tooltips=[("State","@state"),("Cases",'@cases{0,}'),("5 day chg",'@pct_diff'),
-                                    ("Deaths",'@deaths{0,}')],renderers=[p],toggleable=False))
-    label_list=[(10,90000,'High Cases'),(10,60000,'Slower Growth'),
-               (150,90000,'High Cases'),(150,60000,'Faster Growth'),
-               (10,16,'Low Cases'),(10,10,'Slower Growth'),
-               (150,16,'Low Cases'),(150,10,'Faster Growth')]
-    for dd in label_list:
-        mytext = Label(x=dd[0], y=dd[1], text=dd[2],text_font_size ="10pt")
-        p1.add_layout(mytext)
-
-    st_script,st_div=components(p1)
-    return render_template('/coronavirus_dashboard.html',cases_log_div=cases_log_div,cases_log_script=cases_log_script,cases_div=cases_div,
-        cases_script=cases_script,today_vals=today_vals,national_div=national_div,national_script=national_script,
-        national_log_div=national_log_div,national_log_script=national_log_script,comp_st_script=comp_st_script,comp_st_div=comp_st_div,
-        st_script=st_script,st_div=st_div)
+@app.route('/api/states',methods=['GET','POST'])
+def api_states():
+    cases_log_script,cases_log_div,cases_script,cases_div=coronavirus_dashboard_charts()
+    return {'cases_script':cases_script,'cases_div':cases_div,'cases_log_script':cases_log_script,'cases_log_div':cases_log_div}
 
 @app.route('/blog_starting_airline_route_post',methods=['GET','POST'])
 def blog_starting_airline_route_post():

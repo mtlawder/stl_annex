@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from datetime import datetime,timedelta
 from bokeh.plotting import figure
+from bokeh.layouts import gridplot
 from bokeh.embed import components
 from bokeh.plotting import ColumnDataSource
 from bokeh.models import HoverTool, FixedTicker, Label, Legend, LegendItem, NumeralTickFormatter
@@ -144,3 +145,67 @@ def coronavirus_dashboard_charts(state_data):
     cases_log_script,cases_log_div=components(p1)   
     cases_script,cases_div=components(p2)
     return cases_log_script,cases_log_div,cases_script,cases_div
+
+def coronavirus_national_charts(state_data):
+    state_data['date']=pd.to_datetime(state_data['date'],format="%Y-%m-%d")
+    st_low=state_data.groupby('state').agg({'date':min}).reset_index()
+    state_data=state_data.merge(st_low,on='state',how='left',suffixes=('','_start'))
+    sd_temp=state_data.loc[state_data['cases']>9]
+    st_low2=sd_temp.groupby('state').agg({'date':min}).reset_index()
+    state_data=state_data.merge(st_low2,on='state',how='left',suffixes=('','_start_10'))
+    state_data['days_since_start']=state_data['date']-state_data['date_start']
+    state_data['days_since_start_plot']=state_data.apply(lambda x:
+                                        int(str(x['days_since_start']).split(' ')[0]),axis=1)
+    state_data['days_since_start_10']=state_data['date']-state_data['date_start_10']
+    state_data['raw_case_diff']=state_data['cases'].diff()
+    state_data['pct_case_diff']=state_data['cases'].pct_change()
+    starts=state_data.state != state_data.state.shift(1)
+    state_data['raw_case_diff'][starts] = np.nan
+    state_data['pct_case_diff'][starts] = np.nan
+    
+    nat_df=state_data.groupby('date').agg({'cases':sum,'deaths':sum}).reset_index()
+    nat_df['new_cases']=nat_df['cases'].diff()
+    nat_df['pct_chg_daily']=nat_df['cases'].pct_change()
+    nat_df['date_label']=nat_df['date'].astype(str)
+    today_vals=nat_df.loc[nat_df['date']==max(nat_df['date'])].to_json(orient='split')
+    nat_df=nat_df.loc[nat_df['date']>datetime(2020,2,15,0,0,0)]
+    p_nat=figure(title="Cases Nationally",x_axis_type='datetime',tools=['reset','box_zoom'])
+    p_nat.grid.grid_line_alpha=0.4
+    p_nat.grid.grid_line_color='#c2c2c2'
+    p_nat.xaxis.axis_label = 'Date'
+    p_nat.yaxis.axis_label = 'People (in thousands)'
+    source=ColumnDataSource(data={'date':nat_df['date'],'cases':nat_df['cases']/1000,'cases_label':nat_df['cases'],
+                                     'deaths':nat_df['deaths']/1000,'deaths_label':nat_df['deaths'],'date_label':nat_df['date'].astype(str)})    
+    p2=p_nat.line('date','deaths',source=source,color='red',legend_label='Deaths',line_width=2)
+    p=p_nat.line('date','cases',source=source,legend_label='Cases',line_width=2)
+    p_nat.border_fill_alpha = 0
+    p_nat.background_fill_color ='#f7f7f7'
+    p_nat.background_fill_alpha = 0.6
+    p_nat.legend.location = "top_left"
+    
+    p_nat.add_tools(HoverTool(tooltips=[],renderers=[p2],mode='vline',toggleable=False))
+    p_nat.add_tools(HoverTool(tooltips=[("Date",'@date_label'),("Cases",'@cases_label{0,}'),
+                                        ("Deaths",'@deaths_label{0,}')],renderers=[p],mode='vline',toggleable=False))
+    pp_nat=gridplot([[p_nat]],sizing_mode='stretch_width',plot_height=280)
+    national_script,national_div=components(pp_nat)
+
+    p_nat=figure(title="Cases National (Log scale)",y_axis_type='log',x_axis_type='datetime',tools=['reset','box_zoom'])
+    p_nat.grid.grid_line_alpha=0.4
+    p_nat.grid.grid_line_color='#c2c2c2'
+    p_nat.xaxis.axis_label = 'Date'
+    p_nat.yaxis.axis_label = 'People'
+    source=ColumnDataSource(data={'date':nat_df['date'],'cases':nat_df['cases'],'cases_label':nat_df['cases'],
+                                     'deaths':nat_df['deaths'],'deaths_label':nat_df['deaths'],'date_label':nat_df['date'].astype(str)})    
+    p2=p_nat.line('date','deaths',source=source,color='red',line_width=2,legend_label='Deaths')
+    p=p_nat.line('date','cases',source=source,line_width=2,legend_label='Cases')
+    p_nat.border_fill_alpha = 0
+    p_nat.background_fill_color ='#f7f7f7'
+    p_nat.background_fill_alpha = 0.6
+    p_nat.legend.location = "top_left"
+    p_nat.add_tools(HoverTool(tooltips=[],renderers=[p2],mode='vline',toggleable=False))
+    p_nat.add_tools(HoverTool(tooltips=[("Date",'@date_label'),("Cases",'@cases_label{0,}'),
+                                        ("Deaths",'@deaths_label{0,}')],renderers=[p],mode='vline',toggleable=False))
+    p_nat.yaxis.formatter=NumeralTickFormatter(format="0,0")
+    pp_nat=gridplot([[p_nat]],sizing_mode='stretch_width',plot_height=280)
+    national_log_script,national_log_div=components(pp_nat)
+    return today_vals,national_div,national_script,national_log_div,national_log_script

@@ -72,8 +72,9 @@
               
               <br>
 
-              <h3>An Unprecendented Drop</h3>
+              <h3>An Unprecedented Drop</h3>
               <h4>Comparing Route Statistics from 2020 to 2019</h4>
+              <h5>Showing data through {{ latest_month_label}}, 2020</h5>
               <br>
               <div class="row">
                 
@@ -107,33 +108,37 @@
             <div class="col-md-1">
             </div>
             <div class="col-md-10 col-sm-12">
-              <div >
-                <h4>{{airport_sel}}</h4>
+              <div>
+                <h4>Showing {{ latest_month_label}} and YTD Statistics for {{airport_sel}}</h4>
                 Choose a Different Airport:
                 <select v-model="airport_sel" class="btn dropdown-toggle" style="width:300px; margin-left:8px; margin-right:8px;">
                   <option class="dropdown-item" v-for="a in airport_list.data" :value=a[0]>{{a[0]}}-{{a[1]}}</option>
                 </select>
                 <button class="btn btn-primary" v-on:click="chooseAirport()">Update Statistics</button>
                 <hr/>
-                <table class="table air-table">
-                  <thead style="text-align: center;">
-                    <tr>
-                      <th v-for="colhead in totals_display.columns" class="yearTotalChart">{{colhead}}</th>
-                      
-                    </tr>
-                  </thead>
-                  <tbody id="totalTable" style="text-align: center;">
-                    <tr v-for="row in totals_display.data">
-                      <td class="yearTotalChart">{{displayNum(row[0])}}</td>
-                      <td v-for="d in row.slice(1)" class="displayTotalChart">{{displayNum(d)}}</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="air-table">
+                  <h5>Total Airport Statistics for {{ latest_month_label}} 2020 & 2019</h5>
+                  <table class="table">
+                    <thead style="text-align: center;">
+                      <tr>
+                        <th v-for="colhead in totals_display.columns" class="yearTotalChart">{{colhead}}</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody id="totalTable" style="text-align: center;">
+                      <tr v-for="row in totals_display.data">
+                        <td class="yearTotalChart">{{displayNum(row[0])}}</td>
+                        <td v-for="d in row.slice(1)" class="displayTotalChart">{{displayNum(d)}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
             <div class="col-md-1">
             </div>
           </div>
+          <h5>Charting Monthly Statistics</h5>
           <div class="row">
             <div class="col-lg-6 col-md-12">
               <<%seats_div|safe%>>
@@ -151,17 +156,80 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-12">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+              <hr/>
+            </div>
+            <div class="col-2">
+            </div>
+          </div>
+          
+          <h5>Individual Routes Statistics from {{airport_sel}} to Destination</h5>
+          <div class="col-12">
+            <center>
               <div class="btn-group" role="group">
                   <button class="btn" v-on:click="route_metric_sel='Passengers'" v-bind:class="{active: route_metric_sel==='Passengers'}">Passengers Flown</button>
                   <button class="btn" v-on:click="route_metric_sel='Available Seats'" v-bind:class="{active: route_metric_sel==='Available Seats'}">Seat Capacity</button>
                   <button class="btn" v-on:click="route_metric_sel='Flights'" v-bind:class="{active: route_metric_sel==='Flights'}">Flights Completed</button>
                 </div>
-              <table class="table">
+              </center>
+          </div>
+          <div class="row">
+            <div class="col-xl-3 col-lg-2">
+            </div>
+            <div class="col-xl-7 col-lg-8 col-md-12">
+              <center>
+              <div class='tableauPlaceholder' id='viz1590371558671' style='position: relative'>
+                <noscript>
+                  <a href='http:&#47;&#47;www.stlannex.com&#47;airlines_in_2020'>
+                    <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ST&#47;STLFebruary20192020PassengerComparison&#47;Feb2020Pass&#47;1_rss.png' style='border: none' />
+                  </a>
+                </noscript>
+                <object class='tableauViz'  style='display:none;'>
+                  <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                  <param name='embed_code_version' value='3' /> <param name='site_root' value='' />
+                  <param name='name' value='STLFebruary20192020PassengerComparison&#47;Feb2020Pass' />
+                  <param name='tabs' value='no' /><param name='toolbar' value='yes' />
+                  <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ST&#47;STLFebruary20192020PassengerComparison&#47;Feb2020Pass&#47;1.png' />
+                  <param name='animate_transition' value='yes' />
+                  <param name='display_static_image' value='yes' />
+                  <param name='display_spinner' value='yes' />
+                  <param name='display_overlay' value='yes' />
+                  <param name='display_count' value='yes' />
+                  <param name='filter' :value="'publish=yes&AIRPORT='+airport_sel" />
+                </object>
+              </div>
+              <script type='text/javascript'>
+                var divElement = document.getElementById('viz1590371558671');
+                var vizElement = divElement.getElementsByTagName('object')[0];
+                vizElement.style.width='100%';
+                vizElement.style.maxHeight='600px';
+                vizElement.style.height=(Math.min(divElement.offsetWidth*0.75,600))+'px';
+                var scriptElement = document.createElement('script');
+                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);
+              </script>
+            </center>
+            </div>
+            <div class="col-lg-2">
+            </div>
+          </div>
+          <br/>
+          <div class="row">
+            <div class="col-lg-1">
+            </div>
+            <div class="col-lg-10 col-md-12">
+              <div class="btn-group" role="group">
+                <button class="btn" v-on:click="route_metric_sel='Passengers'" v-bind:class="{active: route_metric_sel==='Passengers'}">Passengers Flown</button>
+                <button class="btn" v-on:click="route_metric_sel='Available Seats'" v-bind:class="{active: route_metric_sel==='Available Seats'}">Seat Capacity</button>
+                <button class="btn" v-on:click="route_metric_sel='Flights'" v-bind:class="{active: route_metric_sel==='Flights'}">Flights Completed</button>
+              </div>
+              <table class="table" style="max-width:1300px;">
                 <thead style="text-align: center;">
                   <tr>
                     <th></th>
-                    <th colspan="3">Last Month {{route_metric_sel}}</th>
+                    <th colspan="3">{{ latest_month_label}} {{route_metric_sel}}</th>
                     <th colspan="3">Year to Date {{route_metric_sel}}</th>
                     
                   </tr>
@@ -177,7 +245,7 @@
                 </thead>
                 <tbody style="text-align: center;">
                   <tr v-for="(row, index) in routes_display.data" v-show="index<routeDisplay">
-                    <td>{{row[13]}} ({{row[0]}})</td>
+                    <td style="text-align: left;">{{row[13]}} ({{row[0]}})</td>
                     <template v-if="route_metric_sel=='Passengers'">
                       <td>{{displayNum(row[7])}}</td>
                       <td >{{displayNum(row[8])}}</td>
@@ -206,26 +274,10 @@
                   </tr>
                 </tbody>
               </table>
-              <button class="btn secondary-btn" v-on:click="routeDisplay+=30">Show More Routes</button>
+              <button class="btn btn-secondary" v-on:click="routeDisplay+=30">Show More Routes</button>
             </div>
-          </div>
-              <br/>
-              Lots
-              <br/>
-              Lots
-              <br/>
-              Lots
-              <br/>
-              Lots
-              <br/>
-              Lots
-              <br/>
-              Lots
-              <br/>
-              Lots
-              <br/>
+            <div class="col-lg-1">
             </div>
-
             <hr/>
           </div>
           <div class="col-lg-2 col-md-1">
@@ -234,7 +286,7 @@
             <div class="blog-container left-group">
 
               <div id="commentary">
-              My new section
+              <h3>Commentary</h3>
               <br/>
               Lots
               <br/>
@@ -277,7 +329,8 @@
           airport_sel: '<<%air_sel|safe%>>',
           totals_display: <<%totals_display|safe%>>,
           airport_list: <<%airport_list|safe%>>,
-          routes_display:<<%routes_display|safe%>>
+          routes_display:<<%routes_display|safe%>>,
+          latest_month_label:'<<% latest_month_label|safe%>>'
           
         },
         mounted: function changeColors(){
@@ -285,6 +338,21 @@
             this.changeColorsMethod();
           }
         ,
+        watch: {
+          route_metric_sel: function(val){
+            var tableauFrame = document.getElementById('viz1590371558671')
+            var iframeTab = tableauFrame.getElementsByTagName('iframe')
+            if (val=='Passengers'){
+              iframeTab[0].src='http://public.tableau.com/views/STLFebruary20192020PassengerComparison/Feb2020Pass?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableau.com%2F&:embed_code_version=3&:tabs=no&:toolbar=yes&:animate_transition=yes&:display_static_image=no&:display_spinner=no&:display_overlay=yes&:display_count=yes&publish=yes&:loadOrderID=0&AIRPORT='+this.airport_sel
+            }
+            else if (val=='Flights'){
+              iframeTab[0].src='http://public.tableau.com/views/STLFebruary20192020PassengerComparison/Feb2020Dept?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableau.com%2F&:embed_code_version=3&:tabs=no&:toolbar=yes&:animate_transition=yes&:display_static_image=no&:display_spinner=no&:display_overlay=yes&:display_count=yes&publish=yes&:loadOrderID=0&AIRPORT='+this.airport_sel
+            }
+            else if (val=='Available Seats'){
+              iframeTab[0].src='http://public.tableau.com/views/STLFebruary20192020PassengerComparison/Feb2020Seat?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableau.com%2F&:embed_code_version=3&:tabs=no&:toolbar=yes&:animate_transition=yes&:display_static_image=no&:display_spinner=no&:display_overlay=yes&:display_count=yes&publish=yes&:loadOrderID=0&AIRPORT='+this.airport_sel
+            }
+          }
+        },
         methods:{
           formatTotalTable(){
             var totTab=document.getElementById('totalTable')

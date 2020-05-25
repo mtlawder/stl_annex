@@ -459,6 +459,8 @@ def airlines_in_2020():
     airport_table=pd.read_sql(f"SELECT * FROM monthly_2020_2019_airport_comp WHERE AIRPORT='{air_sel}'",conn)
     latest_year=max(airport_table['YEAR'])
     latest_month=max(airport_table.loc[airport_table['YEAR']==latest_year]['MONTH'])
+    months_full=['January','February','March','April','May','June','July','August','September','October','November','December']
+    latest_month_label=months_full[latest_month-1]
     m_totals=airport_table.loc[airport_table['MONTH']==latest_month].copy()
     a_totals=m_totals.groupby(['YEAR','AIRPORT']).agg({'PASSENGERS':sum,'SEATS':sum,'DEPARTURES_PERFORMED':sum,
                                          'DEPARTURES_SCHEDULED':sum}).reset_index()
@@ -510,7 +512,7 @@ def airlines_in_2020():
     routes_display=routes_df.to_json(orient='split')
     return render_template('/airlines_in_2020.html',air_sel=air_sel,totals_display=totals_display,pass_script=pass_script,pass_div=pass_div,
         dept_script=dept_script,dept_div=dept_div,seats_script=seats_script,seats_div=seats_div,canc_script=canc_script,canc_div=canc_div,
-        airport_list=airport_list,routes_display=routes_display)
+        airport_list=airport_list,routes_display=routes_display, latest_month_label= latest_month_label)
 
 @app.route('/all_blogs',methods=['GET','POST'])
 def all_blogs():

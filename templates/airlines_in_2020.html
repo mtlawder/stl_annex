@@ -52,6 +52,17 @@
     .displayTotalChart{
       font-size:1.15rem;
     }
+    .flip-btn{
+      background-color:#c4c4c4;
+      border:0.5pt #787878 solid;
+    }
+    .flip-btn:hover{
+      background-color:#adadad;
+    }
+    .active{
+      background-color:#616161;
+      color:#dbdbdb;
+    }
   </style>
   </head>
   <body>
@@ -104,10 +115,10 @@
             <div class="col-lg-2 col-md-1">
             </div>
           </div>
-          <div  class="row">
-            <div class="col-md-1">
+          <div  class="row" style="width:100%">
+            <div class="col-lg-2 col-md-1">
             </div>
-            <div class="col-md-10 col-sm-12">
+            <div class="col-lg-8 col-md-10 col-sm-12">
               <div>
                 <h4>Showing {{ latest_month_label}} and YTD Statistics for {{airport_sel}}</h4>
                 Choose a Different Airport:
@@ -135,11 +146,23 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-1">
+            <div class="col-lg-2 col-md-1">
             </div>
           </div>
-          <h5>Charting Monthly Statistics</h5>
-          <div class="row">
+          <br/>
+          <h5>Charting Total Monthly Statistics</h5>
+          <div class="row" style="width:100%">
+            <div class="col-xl-4 col-lg-6 col-md-12">
+              <<%pass_div|safe%>>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-12">
+              <<%seats_div|safe%>>
+            </div>
+            <div class="col-xl-4 col-lg-12">
+              <<%dept_div|safe%>>
+            </div>
+          </div>
+          <!-- <div class="row">
             <div class="col-lg-6 col-md-12">
               <<%seats_div|safe%>>
             </div>
@@ -154,8 +177,8 @@
             <div class="col-lg-6 col-md-12">
               <<%canc_div|safe%>>
             </div>
-          </div>
-          <div class="row">
+          </div> -->
+          <div class="row" style="width:100%">
             <div class="col-2">
             </div>
             <div class="col-8">
@@ -169,13 +192,13 @@
           <div class="col-12">
             <center>
               <div class="btn-group" role="group">
-                  <button class="btn" v-on:click="route_metric_sel='Passengers'" v-bind:class="{active: route_metric_sel==='Passengers'}">Passengers Flown</button>
-                  <button class="btn" v-on:click="route_metric_sel='Available Seats'" v-bind:class="{active: route_metric_sel==='Available Seats'}">Seat Capacity</button>
-                  <button class="btn" v-on:click="route_metric_sel='Flights'" v-bind:class="{active: route_metric_sel==='Flights'}">Flights Completed</button>
+                  <button class="btn flip-btn" v-on:click="route_metric_sel='Passengers'" v-bind:class="{active: route_metric_sel==='Passengers'}">Passengers Flown</button>
+                  <button class="btn flip-btn" v-on:click="route_metric_sel='Available Seats'" v-bind:class="{active: route_metric_sel==='Available Seats'}">Seat Capacity</button>
+                  <button class="btn flip-btn" v-on:click="route_metric_sel='Flights'" v-bind:class="{active: route_metric_sel==='Flights'}">Flights Completed</button>
                 </div>
               </center>
           </div>
-          <div class="row">
+          <div class="row" style="width:100%">
             <div class="col-xl-3 col-lg-2">
             </div>
             <div class="col-xl-7 col-lg-8 col-md-12">
@@ -216,14 +239,14 @@
             </div>
           </div>
           <br/>
-          <div class="row">
+          <div class="row" style="width:100%">
             <div class="col-lg-1">
             </div>
             <div class="col-lg-10 col-md-12">
               <div class="btn-group" role="group">
-                <button class="btn" v-on:click="route_metric_sel='Passengers'" v-bind:class="{active: route_metric_sel==='Passengers'}">Passengers Flown</button>
-                <button class="btn" v-on:click="route_metric_sel='Available Seats'" v-bind:class="{active: route_metric_sel==='Available Seats'}">Seat Capacity</button>
-                <button class="btn" v-on:click="route_metric_sel='Flights'" v-bind:class="{active: route_metric_sel==='Flights'}">Flights Completed</button>
+                <button class="btn flip-btn" v-on:click="route_metric_sel='Passengers'" v-bind:class="{active: route_metric_sel==='Passengers'}">Passengers Flown</button>
+                <button class="btn flip-btn" v-on:click="route_metric_sel='Available Seats'" v-bind:class="{active: route_metric_sel==='Available Seats'}">Seat Capacity</button>
+                <button class="btn flip-btn" v-on:click="route_metric_sel='Flights'" v-bind:class="{active: route_metric_sel==='Flights'}">Flights Completed</button>
               </div>
               <table class="table" style="max-width:1300px;">
                 <thead style="text-align: center;">
@@ -274,7 +297,8 @@
                   </tr>
                 </tbody>
               </table>
-              <button class="btn btn-secondary" v-on:click="routeDisplay+=30">Show More Routes</button>
+              <button class="btn flip-btn" v-on:click="routeDisplay+=30">Show More Routes</button>
+              <hr/>
             </div>
             <div class="col-lg-1">
             </div>
@@ -287,10 +311,7 @@
 
               <div id="commentary">
               <h3>Commentary</h3>
-              <br/>
-              Lots
-              <br/>
-              Lots
+              Additional Commentary to be added for select airports.
               <br/>
               </div>  
               <hr/>
@@ -300,9 +321,37 @@
                   All data from the above statistics comes from the <a href="https://www.transtats.bts.gov/Tables.asp?DB_ID=110&DB_Name=Air%20Carrier%20Statistics%20%28Form%2041%20Traffic%29-%20%20U.S.%20Carriers&DB_Short_Name=Air%20Carriers">Bureau of Transportation Statistics T-100 Domestic Segment (U.S. Carriers) data set</a>. The data is reported for all domestic flight segments, so no International flight passengers are included. However, if a person has an itinerary with a domestic and international segment, the international segment is not included, but the domestic section would be included. For example, if I was flying from STL (St. Louis) to EWR (Newark) and then on to LHR (London), my flight from STL to EWR would be shown in the data, but my flight from EWR to LHR would not. This data is released publicly with a three month delay, so in early June, all of the data for March will be released.
                 </p>
                 <p>
-                  The we aggregate the data to the Year-Month-Origin-Destination level and combined both departing and arriving statistics. This means that if you fly a round-trip from STL-ORD. You will be counted as a passenger for Lambert both when you depart and when you arrive and the round trip will count as two flights completed in the data above. The columns from the raw data used for the calculation are:
-                  PUT CHART HERE
+                  I aggregate the data to the Year-Month-Origin-Destination level and combined both departing and arriving statistics. This means that if you fly a round-trip from STL-ORD. You will be counted as a passenger for Lambert both when you depart and when you arrive and the round trip will count as two flights completed in the data above. The columns from the raw data used for the calculation are:
+                  <br/>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Metric</th>
+                        <th>T-100 Data Column</th>
+                        <th>Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Passengers</td>
+                        <td>PASSENGERS</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Seat Capacity</td>
+                        <td>SEATS</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Flights Completed</td>
+                        <td>DEPARTURES_PERFORMED</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </p>
+                <p>
+                  Total Airport Statistics are calculated for the month recent month of available data by aggregating all records from T-100 Segment data that contain the Airport (AIR) being viewed as either an ORIGIN or DEST. In order to do the aggregation for both arrival routes (where AIR is the DEST) and departure routes (where AIR is the ORIGIN), two new columns are created, AIRPORT is set as AIR and AIRPORT2 is the respective ORIGIN or DEST column. In the Charting section the same metrics are aggregated for each available month in 2019 and 2020. Data is plotted using bokeh charting tool and allows for hovering over the data to see the values for each month. The Individual Routes use the same T-100 Segment data grouped on AIRPORT2 which shows the statistics for each route. The embedded Tableau Dashboard accepts the AIR as a filter parameter and uses different tabs (passed via source URL) to look at the different statistics.
                 </p>
               </div>
               <hr/>

@@ -424,12 +424,12 @@ def blog_coronavirus_nj():
 def blog_cptc_results():
     return render_template('/running/blog_cptc_results.html')
 
-def airline_chart(df19,df20,col_type,hover,label,t_form):
+def airline_chart(df19,df20,col_type,hover,label,t_form,airport):
     month_labels=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
     source=ColumnDataSource({'month_19':list(zip(df19['MONTH_labels'],[-0.2]*12)),
                 'pass_19':df19[col_type],'pass_20':df20[col_type],
                 'month_20':list(zip(df20['MONTH_labels'],[0.2]*12)),'month':month_labels})
-    f_pass=figure(title='Monthly '+label,x_range=df19['MONTH_labels'],tools='reset',height=380)
+    f_pass=figure(title=airport+' '+label,x_range=df19['MONTH_labels'],tools='reset',height=330,width=470)
     p=f_pass.vbar(x='month_19',top='pass_19',source=source, width=0.4,color="#0087c4",line_width=1,
                   line_color="#004d70",alpha=0.8,legend_label='2019')
     p2=f_pass.vbar(x='month_20',top='pass_20',source=source, width=0.4,color='#ce5555',line_width=1,
@@ -437,7 +437,7 @@ def airline_chart(df19,df20,col_type,hover,label,t_form):
     f_pass.add_tools(HoverTool(tooltips=[("Month", "@month"),(hover+" '19", "@pass_19{,f}"),(hover+" '20", "@pass_20{,f}"),
                                      ],renderers=[p,p2]))
     f_pass.xgrid.grid_line_color = None
-    f_pass.legend.location='top_left'
+    f_pass.legend.location='bottom_left'
     f_pass.toolbar_location=None
     f_pass.y_range.start=0
     f_pass.border_fill_alpha = 0
@@ -473,7 +473,8 @@ def airlines_in_2020():
                   'Cancelled Flights':[a_totals['Cancelled Flights'].pct_change()[1]],
                       'Year':['Pct Change']})
     a_totals['Year']=a_totals["Year"].astype('str')
-    a_totals=a_totals.append(pcts)[['Year','Flights Completed','Cancelled Flights','Seat Capacity','Passengers']]
+    # a_totals=a_totals.append(pcts)[['Year','Flights Completed','Cancelled Flights','Seat Capacity','Passengers']]
+    a_totals=a_totals.append(pcts)[['Year','Passengers','Seat Capacity','Flights Completed']]
     totals_display=a_totals.to_json(orient='split')
 
     plot_totals=airport_table.groupby(['YEAR','MONTH']).agg({'PASSENGERS':sum,'SEATS':sum,'DEPARTURES_PERFORMED':sum,
@@ -485,10 +486,10 @@ def airlines_in_2020():
     plot_totals_20=plot_totals.loc[plot_totals['YEAR']==2020].copy()
     plot_totals_20=plot_totals_19[['MONTH_labels']].merge(plot_totals_20,how='left',on='MONTH_labels').fillna(0)
 
-    pass_script,pass_div=airline_chart(plot_totals_19,plot_totals_20,'PASSENGERS','Pass','Passengers','0.0a') 
-    dept_script,dept_div=airline_chart(plot_totals_19,plot_totals_20,'DEPARTURES_PERFORMED','Dept','Departures','0a')
-    seats_script,seats_div=airline_chart(plot_totals_19,plot_totals_20,'SEATS','Seats','Seat Capacity','0.0a')
-    canc_script,canc_div=airline_chart(plot_totals_19,plot_totals_20,'Cancelled Flights','X Flights','Cancelled Flights','0')
+    pass_script,pass_div=airline_chart(plot_totals_19,plot_totals_20,'PASSENGERS','Pass','Passengers','0.0a',air_sel) 
+    dept_script,dept_div=airline_chart(plot_totals_19,plot_totals_20,'DEPARTURES_PERFORMED','Dept','Departures','0a',air_sel)
+    seats_script,seats_div=airline_chart(plot_totals_19,plot_totals_20,'SEATS','Seats','Seat Capacity','0.0a',air_sel)
+    # canc_script,canc_div=airline_chart(plot_totals_19,plot_totals_20,'Cancelled Flights','X Flights','Cancelled Flights','0')
 
 
     airports2=pd.read_sql("SELECT DISTINCT(A.AIRPORT2),B.DISPLAY_AIRPORT_NAME FROM monthly_2020_2019_airport_comp as A "+
@@ -511,7 +512,7 @@ def airlines_in_2020():
     routes_df=routes_df.merge(airports2,how='left',on='AIRPORT2')
     routes_display=routes_df.to_json(orient='split')
     return render_template('/airlines_in_2020.html',air_sel=air_sel,totals_display=totals_display,pass_script=pass_script,pass_div=pass_div,
-        dept_script=dept_script,dept_div=dept_div,seats_script=seats_script,seats_div=seats_div,canc_script=canc_script,canc_div=canc_div,
+        dept_script=dept_script,dept_div=dept_div,seats_script=seats_script,seats_div=seats_div,
         airport_list=airport_list,routes_display=routes_display, latest_month_label= latest_month_label)
 
 @app.route('/all_blogs',methods=['GET','POST'])

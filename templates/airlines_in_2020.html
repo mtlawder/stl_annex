@@ -400,6 +400,21 @@
             else if (val=='Available Seats'){
               iframeTab[0].src='http://public.tableau.com/views/STLFebruary20192020PassengerComparison/Feb2020Seat?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableau.com%2F&:embed_code_version=3&:tabs=no&:toolbar=yes&:animate_transition=yes&:display_static_image=no&:display_spinner=no&:display_overlay=yes&:display_count=yes&publish=yes&:loadOrderID=0&AIRPORT='+this.airport_sel
             }
+            Vue.nextTick(function () {
+              var cells=[].slice.call(document.getElementsByClassName('colorCellValue'),0)
+              console.log(cells)
+              cells.forEach(function(cell){
+                var cellValue=parseFloat(cell.innerText.slice(0,cell.innerText.length-1))
+                var cellValueAbs=Math.abs(cellValue)/80
+                if(cellValue<0){
+                  cell.style.backgroundColor='rgba(168, 50, 50, '+(cellValueAbs+0.2)+')'
+                }
+                else{
+                  cell.style.backgroundColor='rgba(50, 168, 81, '+(cellValueAbs+0.2)+')'
+                }
+              })
+            })
+            
           }
         },
         methods:{
@@ -431,7 +446,6 @@
                 cell.style.backgroundColor='rgba(50, 168, 81, '+(cellValueAbs+0.2)+')'
               }
             })
-            console.log(cells)
           },
           displayNum(val){
             if (typeof val != 'string'){

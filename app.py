@@ -446,6 +446,30 @@ def airline_chart(df19,df20,col_type,hover,label,t_form,airport):
     f_pass.yaxis.formatter=NumeralTickFormatter(format=t_form)
     return components(f_pass)
 
+@app.route('/api/airline_2020_comp',methods=['GET','POST'])
+def api_airlines_2020_comp():
+    airport = request.form["airport"]
+    print(airport)
+    conn=sqlite3.connect('airport_comp_2020.db')
+    airport_table=pd.read_sql(f"SELECT * FROM monthly_2020_2019_airport_comp WHERE AIRPORT='{airport}'",conn)
+    latest_year=max(airport_table['YEAR'])
+    latest_month=max(airport_table.loc[airport_table['YEAR']==latest_year]['MONTH'])
+    a_2020=airport_table.loc[airport_table['YEAR']==max(airport_table['YEAR'])].copy()
+    a_2019=airport_table.loc[airport_table['YEAR']==max(airport_table['YEAR']-1)].copy()
+    a_2019=a_2019.loc[a_2019['MONTH']<=latest_month].copy()
+    send_df=a_2020.groupby('AIRPORT').agg({'PASSENGERS':sum,'SEATS':sum,'DEPARTURES_PERFORMED':sum}).reset_index()
+    send_df2=a_2019.groupby('AIRPORT').agg({'PASSENGERS':sum,'SEATS':sum,'DEPARTURES_PERFORMED':sum}).reset_index()
+    send_df=send_df.merge(send_df2,on='AIRPORT',suffixes=('_20','_19'))
+    send_df=send_df.set_index('AIRPORT')
+    send_df['Pct Chg YTD Pass']=(send_df['PASSENGERS_20']-send_df['PASSENGERS_19'])/send_df['PASSENGERS_19']
+    send_df['Pct Chg YTD Seats']=(send_df['SEATS_20']-send_df['SEATS_19'])/send_df['SEATS_19']
+    send_df['Pct Chg YTD Flights']=(send_df['DEPARTURES_PERFORMED_20']-send_df['DEPARTURES_PERFORMED_19'
+                                    ])/send_df['DEPARTURES_PERFORMED_19']
+    send_df.columns=['2020 Passengers', '2020 Seat Capacity', '2020 Flights', '2019 Passengers',
+           '2019 Seat Capacity', '2019 Flights', 'Pct Chg YTD Pass',
+           'Pct Chg YTD Seats', 'Pct Chg YTD Flights']
+    return send_df.to_json(orient='index')
+
 @app.route('/airlines_in_2020',methods=['GET','POST'])
 def airlines_in_2020():
     conn=sqlite3.connect('airport_comp_2020.db')

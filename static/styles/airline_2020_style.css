@@ -1,0 +1,62 @@
+:root {
+  --dashboard-head-color:#003b99;
+  --dashboard-main-color:#e5e5e5;
+}
+
+.yearTotalChart{
+  font-size:1.3rem;
+  font-weight:bold;
+}
+.displayTotalChart{
+  font-size:1.15rem;
+}
+.flip-btn{
+  background-color:#c4c4c4;
+  border:0.5pt #787878 solid;
+}
+.flip-btn:hover{
+  background-color:#adadad;
+}
+.active{
+  background-color:#616161;
+  color:#dbdbdb;
+}
+.dashboardButton{
+  border: 1pt black solid;
+  background-color: var(--dashboard-head-color);
+  margin-top:6px;
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+  font-size:1.4em;
+  color: var(--dashboard-main-color);
+  padding: 6px 20px 2px 20px;
+}
+.dashboardButton:hover{
+  cursor: pointer;
+  border: 1pt solid #9c9c9c;
+}
+.updateStatsButton{
+  background-color: var(--dashboard-head-color);
+}
+.dashbaordButtonActive{
+  border-bottom: 1pt var(--dashboard-main-color) solid;
+  background-color: var(--dashboard-main-color);
+  color: black;
+}
+
+.dashboardHeader{
+  background-color: var(--dashboard-head-color);
+}
+.dashboardFooter{
+  background-color: var(--dashboard-head-color);
+  height:10px;
+}
+.dashboardMain{
+  background-color: var(--dashboard-main-color);
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+}
+.table td{
+  border-top:1px solid white;
+}
+.table thead th{
+  border-bottom:2px solid black;
+}

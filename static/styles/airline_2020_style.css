@@ -45,10 +45,12 @@
 
 .dashboardHeader{
   background-color: var(--dashboard-head-color);
+  width:100%;
 }
 .dashboardFooter{
   background-color: var(--dashboard-head-color);
   height:10px;
+  width:100%;
 }
 .dashboardMain{
   background-color: var(--dashboard-main-color);

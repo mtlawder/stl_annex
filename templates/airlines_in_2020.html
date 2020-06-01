@@ -296,38 +296,45 @@
               <div class="col-lg-8 col-md-10 col-sm-12">
                 <div>
                   <h4>Comparing Airports</h4>
-                  <template v-for="(air,index) in comps">
-                  <select v-model="comps[index]" class="btn dropdown-toggle" style="width:20%; margin-left:8px; margin-right:8px;">
-                    <option value=""></option>
-                    <option class="dropdown-item" v-for="a in airport_list.data" :value=a[0]>{{a[0]}}-{{a[1]}}</option>
-                  </select>
-                </template>
-                <h5>Year-to-Date Comparison</h5>
-                <table class="table" style="max-width:1300px;">
-                  <thead style="text-align: center;">
-                    <tr>
-                      <th>Metric</th>
-                      <th>{{comps[0]}}</th>
-                      <th>{{comps[1]}}</th>
-                      <th>{{comps[2]}}</th>
-                      <th>{{comps[3]}}</th>
-                    </tr>
-                  </thead>
-                  <tbody style="text-align: center;">
-                    <tr v-for="(row, index) in metrics">
-                      <td>{{row}}</td>
-                      <td v-if="compDisplay[comps[0]]">{{displayNum(compDisplay[comps[0]][row]) || ''}}</td>
-                      <td v-else></td>
-                      <td v-if="compDisplay[comps[1]]">{{displayNum(compDisplay[comps[1]][row]) || ''}}</td>
-                      <td v-else></td>
-                      <td v-if="compDisplay[comps[2]]">{{displayNum(compDisplay[comps[2]][row]) || ''}}</td>
-                      <td v-else></td>
-                      <td v-if="compDisplay[comps[3]]">{{displayNum(compDisplay[comps[3]][row]) || ''}}</td>
-                      <td v-else></td>
-                    </tr>
-                  </tbody>
-                </table>
-
+                  <div class="row">
+                    <template v-for="(air,index) in comps">
+                      <div class="col-3">
+                        <h6>Airport {{index+1}}</h6>
+                        <select v-model="comps[index]" class="btn dropdown-toggle" style="width:100%; margin-left:8px; margin-right:8px;">
+                          <option value=""></option>
+                          <option class="dropdown-item" v-for="a in airport_list.data" :value=a[0]>{{a[0]}}-{{a[1]}}</option>
+                        </select>
+                      </div>  
+                    </template>
+                  </div>
+                  <br/>
+                  <h5>Year-to-Date Comparison</h5>
+                  <div class="air-table">
+                    <table class="table" style="max-width:1300px;">
+                      <thead style="text-align: center;">
+                        <tr>
+                          <th>Metric</th>
+                          <th>{{comps[0]}}</th>
+                          <th>{{comps[1]}}</th>
+                          <th>{{comps[2]}}</th>
+                          <th>{{comps[3]}}</th>
+                        </tr>
+                      </thead>
+                      <tbody style="text-align: center;">
+                        <tr v-for="(row, index) in metrics">
+                          <td style="text-align: left;">{{row}}</td>
+                          <td v-if="compDisplay[comps[0]]" class="colorCellValueComp">{{displayNum(compDisplay[comps[0]][row]) || ''}}</td>
+                          <td v-else></td>
+                          <td v-if="compDisplay[comps[1]]" class="colorCellValueComp">{{displayNum(compDisplay[comps[1]][row]) || ''}}</td>
+                          <td v-else></td>
+                          <td v-if="compDisplay[comps[2]]" class="colorCellValueComp">{{displayNum(compDisplay[comps[2]][row]) || ''}}</td>
+                          <td v-else></td>
+                          <td v-if="compDisplay[comps[3]]" class="colorCellValueComp">{{displayNum(compDisplay[comps[3]][row]) || ''}}</td>
+                          <td v-else></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
               <div class="col-lg-2 col-md-1">
@@ -461,14 +468,16 @@
             
           },
           comps: function(){
-            console.log(this.comps)
-            console.log(this.compDisplay)
             ap=this.comps.filter(x=>!Object.keys(this.compDisplay).includes(x))
-            console.log(ap[0])
             if(ap.length>0){
               this.getCompData(this.compDisplay,ap[0])
             }
-            // this.getCompData(this.compDisplay,)
+            else{
+              this.setCellColor();
+            }
+          },
+          compDisplay: function(){
+            this.setCellColor();
           }
         },
         methods:{
@@ -537,6 +546,24 @@
               var airKey = Object.keys(data)[0]
               Vue.set(vm.compDisplay,airKey,data[airKey])
             }
+          },
+          setCellColor(){
+            Vue.nextTick(function () {
+                var cells=[].slice.call(document.getElementsByClassName('colorCellValueComp'),0)
+                console.log(cells)
+                cells.forEach(function(cell){
+                  if(cell.innerText.slice(-1)=='%'){
+                    var cellValue=parseFloat(cell.innerText.slice(0,cell.innerText.length-1))
+                    var cellValueAbs=Math.abs(cellValue)/25
+                    if(cellValue<0){
+                      cell.style.backgroundColor='rgba(168, 50, 50, '+(cellValueAbs+0.15)+')'
+                    }
+                    else{
+                      cell.style.backgroundColor='rgba(50, 168, 81, '+(cellValueAbs+0.15)+')'
+                    }
+                  }
+                })
+              })
           }
         }
       })

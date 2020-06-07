@@ -4,9 +4,9 @@ from bokeh.layouts import gridplot
 from bokeh.embed import components
 from bokeh.document import Document
 from bokeh.plotting import ColumnDataSource
-from bokeh.models import HoverTool, Label, Legend, LegendItem, NumeralTickFormatter
+from bokeh.models import HoverTool, Label, Legend, LegendItem, NumeralTickFormatter, FactorRange
 from bokeh.palettes import Category10, Category20
-from bokeh.transform import cumsum
+from bokeh.transform import cumsum, dodge
 import pandas as pd
 from static.python.bokeh_plot import pop_pie_chart, pop_line_chart, pop_create_table
 from math import pi
@@ -469,6 +469,41 @@ def api_airlines_2020_comp():
            '2019 Seat Capacity', '2019 Flights', 'Pct Chg YTD Pass',
            'Pct Chg YTD Seats', 'Pct Chg YTD Flights']
     return send_df.to_json(orient='index')
+
+@app.route('/api/airline_2020_comp_chart',methods=['GET','POST'])
+def api_airlines_2020_comp_chart():
+    airports = request.form["airports"].split(',')
+    airports=[x for x in airports if x!='']
+    airports_join="','".join(airports)
+    conn=sqlite3.connect('airport_comp_2020.db')
+    airport_table=pd.read_sql(f"SELECT * FROM monthly_2020_2019_airport_comp WHERE AIRPORT IN ('{airports_join}')",conn)
+    latest_year=max(airport_table['YEAR'])
+    latest_month=max(airport_table.loc[airport_table['YEAR']==latest_year]['MONTH'])
+    month_labels=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+    a_2020=airport_table.loc[airport_table['YEAR']==max(airport_table['YEAR'])].copy()
+    send_df=a_2020.groupby(['AIRPORT','MONTH']).agg({'PASSENGERS':sum,'SEATS':sum,'DEPARTURES_PERFORMED':sum}).reset_index()
+    f_pass=figure(title='2020 Monthly Passenger Totals',tools='reset',height=425,x_range=month_labels)
+    move=-0.8
+    colors=Category10[4]
+    tal=0
+    for airp in airports:
+        temp_df=send_df.loc[send_df['AIRPORT']==airp].copy()
+        source=ColumnDataSource({airp:temp_df['PASSENGERS'],'Month':temp_df['MONTH'],"Month_l":month_labels[:latest_month]})
+        p=f_pass.vbar(x=dodge('Month', move, range=f_pass.x_range),top=airp,source=source,width=0.18,
+                      color=colors[tal],legend_label=airp,alpha=0.8)
+        f_pass.add_tools(HoverTool(tooltips=[("Year","2020"),("Month", "@Month_l"),(airp, "@"+airp+"{,f}")],renderers=[p]))
+        move+=0.22
+        tal+=1    
+    f_pass.xgrid.grid_line_color = None
+    f_pass.legend.location='top_right'
+    f_pass.toolbar_location=None
+    f_pass.y_range.start=0
+    f_pass.yaxis.axis_label="Monthly Passengers"
+    f_pass.yaxis.formatter=NumeralTickFormatter(format='0.0a')
+    f_pass.border_fill_alpha = 0
+    f_pass.background_fill_color ='#f7f7f7'
+    airport_comp_script,airport_comp_div=components(f_pass)
+    return jsonify({'airport_comp_script':airport_comp_script,'airport_comp_div':airport_comp_div})
 
 @app.route('/airlines_in_2020',methods=['GET','POST'])
 def airlines_in_2020():

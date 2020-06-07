@@ -335,6 +335,8 @@
                       </tbody>
                     </table>
                   </div>
+                  <div id="enterCompDiv">
+                  </div>
                 </div>
               </div>
               <div class="col-lg-2 col-md-1">
@@ -471,6 +473,7 @@
             ap=this.comps.filter(x=>!Object.keys(this.compDisplay).includes(x))
             if(ap.length>0){
               this.getCompData(this.compDisplay,ap[0])
+              this.getCompChart(this.comps)
             }
             else{
               this.setCellColor();
@@ -545,6 +548,20 @@
               var data=JSON.parse(this.response)
               var airKey = Object.keys(data)[0]
               Vue.set(vm.compDisplay,airKey,data[airKey])
+            }
+          },
+          getCompChart(airports){
+            var req = new XMLHttpRequest()
+            req.open("POST",'/api/airline_2020_comp_chart' ,true);
+            var formData = new FormData();
+            formData.append('airports', airports);
+            req.send(formData)
+            req.onload=function(){
+              data=JSON.parse(this.response)
+              console.log(data)
+              var element = document.getElementById('enterCompDiv');
+              element.innerHTML=data.airport_comp_div
+              eval(data.airport_comp_script.slice(33,-9))
             }
           },
           setCellColor(){

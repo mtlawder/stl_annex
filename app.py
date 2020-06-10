@@ -37,6 +37,24 @@ def main():
 def index_Main():
     return render_template('/index.html')
 
+@app.route('/api/nieghbhoor_pop_data',methods=['POST'])
+def api_nieghbhoor_pop_data():
+    conn=sqlite3.connect('stl_census.db')
+    nbhood=request.form['nbhoods_send']
+    full_table=pd.read_sql('SELECT * FROM neighborhood_pop',conn)
+    dd=full_table
+    nb=dd.loc[dd['Neighborhood']==nbhood]
+    line_script,line_div=pop_line_chart(nb,nbhood)
+    pie_script,pie_div=pop_pie_chart(nb)
+    table_data_10=pop_create_table(dd,nbhood,2010)
+    table_data_00=pop_create_table(dd,nbhood,2000)
+    table_data_90=pop_create_table(dd,nbhood,1990)
+    coords_df=pd.read_csv('static/data/STL_neighborhood_lat_lon.csv')
+    nb_coords=coords_df.loc[coords_df['Neighborhood']==nbhood]
+    coords={'lat':nb_coords.reset_index()['Lat'][0],'lon':nb_coords.reset_index()['Lon'][0]}
+    return jsonify({'table_data_10':table_data_10,'table_data_00':table_data_00,'table_data_90':table_data_90,'coords':coords,\
+        'line_script':line_script,'line_div':line_div,'pie_script':pie_script,'pie_div':pie_div})
+
 @app.route('/stl_pop',methods=['GET','POST'])
 def stl_pop():
     conn=sqlite3.connect('stl_census.db')

@@ -63,16 +63,16 @@ def pop_line_chart(nb,nbhood):
         source=ColumnDataSource(nb)
         color_cnt=0
         legend_p2=[]
-        for pop in ['Total_Population','Black_Total','White_Total','Other_Total']:
-            if pop=='Total_Population':
+        for pop in ['Total Population','Black Total','White Total','Other Total']:
+            if pop=='Total Population':
                 p=p2.line(x='Year',y=pop,source=source,color=Category10[5][2],line_width=3)#,legend={'value':pop})
             else:
                 p=p2.line(x='Year',y=pop,source=source,color=Category20[7][color_cnt],line_width=3)#,legend={'value':pop})
                 color_cnt+=1
-            hover='@'+pop
-            p2.add_tools(HoverTool(tooltips=[(str(pop),hover)],renderers=[p]))
+            hover='@'+pop.replace(' ','_')+'{,f}'
+            p2.add_tools(HoverTool(tooltips=[(str(pop),hover)],renderers=[p],mode='vline'))
             
-            legend_p2+=[LegendItem(label=pop[:pop.find('_')],renderers=[p])]
+            legend_p2+=[LegendItem(label=pop[:pop.find(' ')],renderers=[p])]
             print(legend_p2)
         p2.add_layout(Legend(items=legend_p2),'right')
         p2.toolbar_location = None

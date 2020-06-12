@@ -63,14 +63,13 @@ Comparing Route Statistics from 2020 to 2019">
   </style>
   </head>
   <body>
-        <center>
-        <div id="header-vue">
-      <header-bar></header-bar>
-    </div>
-          <div id="menu-vue">
-          <menu-bar></menu-bar>
-        </div>
-         
+    <center>
+      <div id="header-vue">
+        <header-bar></header-bar>
+      </div>
+      <div id="menu-vue">
+        <menu-bar></menu-bar>
+      </div>
         <br>
         <div id="aviationVue">
           <div class="container">
@@ -195,18 +194,20 @@ Comparing Route Statistics from 2020 to 2019">
               </div>
               <div class="col-xl-7 col-lg-8 col-md-12">
                 <center>
+                  
                 <div class='tableauPlaceholder' id='viz1590371558671' style='position: relative'>
                   <noscript>
                     <a href='http:&#47;&#47;www.stlannex.com&#47;airlines_in_2020'>
-                      <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ST&#47;STLFebruary20192020PassengerComparison&#47;Feb2020Pass&#47;1_rss.png' style='border: none' />
+                      <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ST&#47;STLMarch20192020PassengerComparison&#47;March2020Pass&#47;1_rss.png' style='border: none' />
                     </a>
                   </noscript>
                   <object class='tableauViz'  style='display:none;'>
                     <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
                     <param name='embed_code_version' value='3' /> <param name='site_root' value='' />
-                    <param name='name' value='STLFebruary20192020PassengerComparison&#47;Feb2020Pass' />
+                    <param name='name' value='STLMarch20192020PassengerComparison&#47;March2020Pass' />
                     <param name='tabs' value='no' /><param name='toolbar' value='yes' />
-                    <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ST&#47;STLFebruary20192020PassengerComparison&#47;Feb2020Pass&#47;1.png' />
+                    <param name='static_image'
+                        value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ST&#47;STLMarch20192020PassengerComparison&#47;March2020Pass&#47;1.png' />
                     <param name='animate_transition' value='yes' />
                     <param name='display_static_image' value='yes' />
                     <param name='display_spinner' value='yes' />
@@ -459,13 +460,13 @@ Comparing Route Statistics from 2020 to 2019">
             var tableauFrame = document.getElementById('viz1590371558671')
             var iframeTab = tableauFrame.getElementsByTagName('iframe')
             if (val=='Passengers'){
-              iframeTab[0].src='http://public.tableau.com/views/STLFebruary20192020PassengerComparison/Feb2020Pass?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableau.com%2F&:embed_code_version=3&:tabs=no&:toolbar=yes&:animate_transition=yes&:display_static_image=no&:display_spinner=no&:display_overlay=yes&:display_count=yes&publish=yes&:loadOrderID=0&AIRPORT='+this.airport_sel
+              iframeTab[0].src='http://public.tableau.com/views/STLMarch20192020PassengerComparison/March2020Pass?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableau.com%2F&:embed_code_version=3&:tabs=no&:toolbar=yes&:animate_transition=yes&:display_static_image=no&:display_spinner=no&:display_overlay=yes&:display_count=yes&publish=yes&:loadOrderID=0&AIRPORT='+this.airport_sel
             }
             else if (val=='Flights'){
-              iframeTab[0].src='http://public.tableau.com/views/STLFebruary20192020PassengerComparison/Feb2020Dept?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableau.com%2F&:embed_code_version=3&:tabs=no&:toolbar=yes&:animate_transition=yes&:display_static_image=no&:display_spinner=no&:display_overlay=yes&:display_count=yes&publish=yes&:loadOrderID=0&AIRPORT='+this.airport_sel
+              iframeTab[0].src='http://public.tableau.com/views/STLMarch20192020PassengerComparison/March2020Dept?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableau.com%2F&:embed_code_version=3&:tabs=no&:toolbar=yes&:animate_transition=yes&:display_static_image=no&:display_spinner=no&:display_overlay=yes&:display_count=yes&publish=yes&:loadOrderID=0&AIRPORT='+this.airport_sel
             }
             else if (val=='Available Seats'){
-              iframeTab[0].src='http://public.tableau.com/views/STLFebruary20192020PassengerComparison/Feb2020Seat?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableau.com%2F&:embed_code_version=3&:tabs=no&:toolbar=yes&:animate_transition=yes&:display_static_image=no&:display_spinner=no&:display_overlay=yes&:display_count=yes&publish=yes&:loadOrderID=0&AIRPORT='+this.airport_sel
+              iframeTab[0].src='http://public.tableau.com/views/STLMarch20192020PassengerComparison/March2020Seat?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableau.com%2F&:embed_code_version=3&:tabs=no&:toolbar=yes&:animate_transition=yes&:display_static_image=no&:display_spinner=no&:display_overlay=yes&:display_count=yes&publish=yes&:loadOrderID=0&AIRPORT='+this.airport_sel
             }
             Vue.nextTick(function () {
               var cells=[].slice.call(document.getElementsByClassName('colorCellValue'),0)

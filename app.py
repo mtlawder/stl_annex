@@ -442,6 +442,14 @@ def blog_coronavirus_nj():
 def blog_cptc_results():
     return render_template('/running/blog_cptc_results.html')
 
+@app.route('/blog_amtrak_routes',methods=['GET','POST'])
+def blog_amtrak_routes():
+    return render_template('/blog_amtrak_routes.html')
+
+@app.route('/amtrak_timeline_scroll',methods=['GET','POST'])
+def amtrak_timeline_scroll():
+    return render_template('/amtrak_timeline_scroll.html')
+
 def airline_chart(df19,df20,col_type,hover,label,t_form,airport):
     month_labels=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
     source=ColumnDataSource({'month_19':list(zip(df19['MONTH_labels'],[-0.2]*12)),

@@ -1,0 +1,261 @@
+<html lang="en">
+  <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-142498774-1');
+	</script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@mtl_stl">
+  <meta name="twitter:creator" content="@mtl_stl">
+  <meta name="twitter:title" content="Amtrak Route Analysis">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/scroll_template_style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/airline_2020_style.css">
+    <title>STL Annex</title>
+    
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.css" type="text/css" />
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.js"></script>
+    <script src="static/components/menu.vue" defer>
+    </script>
+    <script src="static/components/header.vue" defer>
+    </script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+    <style>
+    .col-xl-4{
+      padding:0px !important;
+    }
+    .col-lg-6{
+      padding:0px !important;
+    }
+    .col-lg-12{
+      padding:0px !important;
+    }
+    .btn-group{
+      padding:5px !important;
+    }
+    .container{
+      padding:0px !important;
+      max-width:1240px;
+    }
+    
+
+  </style>
+  </head>
+  <body>
+    <center>
+      <div id="header-vue">
+        <header-bar></header-bar>
+      </div>
+      <div id="menu-vue">
+        <menu-bar></menu-bar>
+      </div>
+        <br>
+        <div id="amtrakMove">
+            <h3>Scroll down</h3>
+            <div style="height:300;">
+            </div>
+            <br/>
+            <div id="nineteen_seventy_track">
+
+            </div>
+            <div style="height: 800px;">
+                <div id="nineteen_seventy" style="width:100%;">
+                    <div  class="leftYear">
+                        <div class="yrBar">
+                            <h3>1970</h3>
+                        </div>
+                        
+                        <h4></h4>
+                        
+                    </div>
+                    <div class="container">
+                        <div class="col-lg-2 col-md-1">
+                        </div>
+                        <div class="col-lg-8 col-md-10 col-sm-12">
+                            <div style="text-align: center;width:100%;">
+                                <center>
+                                    <div class="bk-root" id="3b1e153a-53ab-41a0-b239-723b59b755ae" data-root-id="19513"></div>
+                                </center>
+                            </div>
+                            <div style="height:300;">
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+          <div class="container">
+            <div class="col-lg-2 col-md-1">
+            </div>
+            <div class="col-lg-8 col-md-10 col-sm-12">
+                <div style="height:300;">
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-1">
+            </div>
+          </div>
+                <div class="rightYear">
+                    <div class="yrBar">
+                        <h4>1972</h4>
+                    </div>
+                </div>
+
+
+                <div style="height:1000px;">
+                    <transition name="fade">
+                        <div v-show="showDivAnchored">
+                            <div style="border: 1px black solid;height: 100px;">
+                                Hello Another
+                            </div>
+                        </div>
+                    </transition>
+                </div>
+                <p>
+                    
+                    
+                </p>
+                <transition name="fade">
+                    <div v-show="showDiv" class="showScrollDiv">
+                        <div style="height: 150px;width:250px;">
+                            Hello
+                        </div>
+                    </div>
+                </transition>
+          
+  </div>
+</div>
+
+<script type="application/json" id="19830">
+    {"27c4c97f-7f33-4e2c-b5bb-b70710c8082c":{"roots":{"references":[{"attributes":{"callback":null,"renderers":[{"id":"19628","type":"GlyphRenderer"}],"tooltips":[["Method","@t"],["Passengers","@2000{0.f}M"]]},"id":"19643","type":"HoverTool"},{"attributes":{},"id":"19579","type":"UnionRenderers"},{"attributes":{"field":"angle","include_zero":true},"id":"19601","type":"CumSum"},{"attributes":{"end_angle":{"expr":{"id":"19623","type":"CumSum"},"units":"rad"},"fill_color":{"field":"color"},"line_color":{"value":"white"},"radius":{"units":"data","value":1.3656500283747663},"start_angle":{"expr":{"id":"19622","type":"CumSum"},"units":"rad"},"x":{"value":7.9},"y":{"value":3}},"id":"19626","type":"Wedge"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"19563","type":"HoverTool"},{"id":"19580","type":"HoverTool"},{"id":"19599","type":"HoverTool"},{"id":"19620","type":"HoverTool"},{"id":"19643","type":"HoverTool"}]},"id":"19540","type":"Toolbar"},{"attributes":{},"id":"19618","type":"Selection"},{"attributes":{"end_angle":{"expr":{"id":"19602","type":"CumSum"},"units":"rad"},"fill_color":{"field":"color"},"line_color":{"value":"white"},"radius":{"units":"data","value":1.118033988749895},"start_angle":{"expr":{"id":"19601","type":"CumSum"},"units":"rad"},"x":{"value":5.4},"y":{"value":3}},"id":"19605","type":"Wedge"},{"attributes":{"text":"1990","text_font_size":{"value":"14pt"},"x":4.9,"y":2.5},"id":"19648","type":"Label"},{"attributes":{"end_angle":{"expr":{"id":"19623","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"radius":{"units":"data","value":1.3656500283747663},"start_angle":{"expr":{"id":"19622","type":"CumSum"},"units":"rad"},"x":{"value":7.9},"y":{"value":3}},"id":"19627","type":"Wedge"},{"attributes":{"callback":null,"renderers":[{"id":"19607","type":"GlyphRenderer"}],"tooltips":[["Method","@t"],["Passengers","@1990{0.f}M"]]},"id":"19620","type":"HoverTool"},{"attributes":{"text":""},"id":"19514","type":"Title"},{"attributes":{},"id":"19530","type":"BasicTicker"},{"attributes":{"end_angle":{"expr":{"id":"19566","type":"CumSum"},"units":"rad"},"fill_color":{"field":"color"},"line_color":{"value":"white"},"radius":{"units":"data","value":0.682886032463202},"start_angle":{"expr":{"id":"19565","type":"CumSum"},"units":"rad"},"x":{"value":1.5},"y":{"value":3}},"id":"19569","type":"Wedge"},{"attributes":{"end_angle":{"expr":{"id":"19583","type":"CumSum"},"units":"rad"},"fill_color":{"field":"color"},"line_color":{"value":"white"},"radius":{"units":"data","value":0.8875058685251984},"start_angle":{"expr":{"id":"19582","type":"CumSum"},"units":"rad"},"x":{"value":3.3},"y":{"value":3}},"id":"19586","type":"Wedge"},{"attributes":{"formatter":{"id":"19557","type":"BasicTickFormatter"},"ticker":{"id":"19530","type":"BasicTicker"},"visible":false},"id":"19529","type":"LinearAxis"},{"attributes":{"source":{"id":"19550","type":"ColumnDataSource"}},"id":"19555","type":"CDSView"},{"attributes":{"field":"angle"},"id":"19602","type":"CumSum"},{"attributes":{"field":"angle"},"id":"19583","type":"CumSum"},{"attributes":{"source":{"id":"19584","type":"ColumnDataSource"}},"id":"19589","type":"CDSView"},{"attributes":{"end_angle":{"expr":{"id":"19549","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"radius":{"units":"data","value":0.4743416490252569},"start_angle":{"expr":{"id":"19548","type":"CumSum"},"units":"rad"},"x":{"value":0},"y":{"value":3}},"id":"19553","type":"Wedge"},{"attributes":{"field":"angle"},"id":"19623","type":"CumSum"},{"attributes":{"data_source":{"id":"19603","type":"ColumnDataSource"},"glyph":{"id":"19605","type":"Wedge"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"19606","type":"Wedge"},"selection_glyph":null,"view":{"id":"19608","type":"CDSView"}},"id":"19607","type":"GlyphRenderer"},{"attributes":{},"id":"19664","type":"UnionRenderers"},{"attributes":{"callback":null,"end":10,"start":-1.1},"id":"19516","type":"Range1d"},{"attributes":{"end_angle":{"expr":{"id":"19566","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"radius":{"units":"data","value":0.682886032463202},"start_angle":{"expr":{"id":"19565","type":"CumSum"},"units":"rad"},"x":{"value":1.5},"y":{"value":3}},"id":"19570","type":"Wedge"},{"attributes":{},"id":"19597","type":"Selection"},{"attributes":{"callback":null,"data":{"1960":{"__ndarray__":"mpmZmZkZP0CamZmZmRkxQM3MzMzMTDNA","dtype":"float64","shape":[3]},"angle":{"__ndarray__":"ATCth8soB0A+U0+nxHf5PyIBZ5qRvvw/","dtype":"float64","shape":[3]},"color":["#1f77b4","#ff7f0e","#2ca02c"],"index":[0,1,2],"t":["Airplanes","Railroads","Buses"]},"selected":{"id":"19578","type":"Selection"},"selection_policy":{"id":"19579","type":"UnionRenderers"}},"id":"19550","type":"ColumnDataSource"},{"attributes":{"field":"angle","include_zero":true},"id":"19622","type":"CumSum"},{"attributes":{},"id":"19663","type":"Selection"},{"attributes":{"data_source":{"id":"19567","type":"ColumnDataSource"},"glyph":{"id":"19569","type":"Wedge"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"19570","type":"Wedge"},"selection_glyph":null,"view":{"id":"19572","type":"CDSView"}},"id":"19571","type":"GlyphRenderer"},{"attributes":{"callback":null,"end":3.6,"start":2.5},"id":"19518","type":"Range1d"},{"attributes":{"field":"angle"},"id":"19549","type":"CumSum"},{"attributes":{"end_angle":{"expr":{"id":"19602","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"radius":{"units":"data","value":1.118033988749895},"start_angle":{"expr":{"id":"19601","type":"CumSum"},"units":"rad"},"x":{"value":5.4},"y":{"value":3}},"id":"19606","type":"Wedge"},{"attributes":{"end_angle":{"expr":{"id":"19549","type":"CumSum"},"units":"rad"},"fill_color":{"field":"color"},"line_color":{"value":"white"},"radius":{"units":"data","value":0.4743416490252569},"start_angle":{"expr":{"id":"19548","type":"CumSum"},"units":"rad"},"x":{"value":0},"y":{"value":3}},"id":"19552","type":"Wedge"},{"attributes":{},"id":"19598","type":"UnionRenderers"},{"attributes":{"dimension":1,"ticker":{"id":"19530","type":"BasicTicker"},"visible":false},"id":"19533","type":"Grid"},{"attributes":{"source":{"id":"19624","type":"ColumnDataSource"}},"id":"19629","type":"CDSView"},{"attributes":{"ticker":{"id":"19525","type":"BasicTicker"},"visible":false},"id":"19528","type":"Grid"},{"attributes":{"text":"1970","text_font_size":{"value":"14pt"},"x":1.1,"y":2.5},"id":"19646","type":"Label"},{"attributes":{"callback":null,"data":{"1990":{"__ndarray__":"ZmZmZmaedUBmZmZmZmYYQAAAAAAAADdA","dtype":"float64","shape":[3]},"angle":{"__ndarray__":"eDXVa7QuF0D9CFI1NCq6P6/3mnnhqdg/","dtype":"float64","shape":[3]},"color":["#1f77b4","#ff7f0e","#2ca02c"],"index":[0,1,2],"t":["Airplanes","Railroads","Buses"]},"selected":{"id":"19641","type":"Selection"},"selection_policy":{"id":"19642","type":"UnionRenderers"}},"id":"19603","type":"ColumnDataSource"},{"attributes":{"callback":null,"renderers":[{"id":"19554","type":"GlyphRenderer"}],"tooltips":[["Method","@t"],["Passengers","@1960{0.f}M"]]},"id":"19563","type":"HoverTool"},{"attributes":{"text":"2000","text_font_size":{"value":"14pt"},"x":7.4,"y":2.5},"id":"19649","type":"Label"},{"attributes":{"text":"1960","text_font_size":{"value":"14pt"},"x":-0.5,"y":2.5},"id":"19645","type":"Label"},{"attributes":{"end_angle":{"expr":{"id":"19583","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"radius":{"units":"data","value":0.8875058685251984},"start_angle":{"expr":{"id":"19582","type":"CumSum"},"units":"rad"},"x":{"value":3.3},"y":{"value":3}},"id":"19587","type":"Wedge"},{"attributes":{},"id":"19559","type":"BasicTickFormatter"},{"attributes":{"items":[{"id":"19562","type":"LegendItem"}],"location":"top_left","orientation":"horizontal"},"id":"19561","type":"Legend"},{"attributes":{"callback":null,"renderers":[{"id":"19571","type":"GlyphRenderer"}],"tooltips":[["Method","@t"],["Passengers","@1970{0.f}M"]]},"id":"19580","type":"HoverTool"},{"attributes":{"callback":null,"data":{"1980":{"__ndarray__":"zczMzMyMaUAAAAAAAAASQGZmZmZmZjtA","dtype":"float64","shape":[3]},"angle":{"__ndarray__":"RoCoZ2i9FUDDwJinq6G+P3JO6u9hUOc/","dtype":"float64","shape":[3]},"color":["#1f77b4","#ff7f0e","#2ca02c"],"index":[0,1,2],"t":["Airplanes","Railroads","Buses"]},"selected":{"id":"19618","type":"Selection"},"selection_policy":{"id":"19619","type":"UnionRenderers"}},"id":"19584","type":"ColumnDataSource"},{"attributes":{},"id":"19641","type":"Selection"},{"attributes":{"data_source":{"id":"19624","type":"ColumnDataSource"},"glyph":{"id":"19626","type":"Wedge"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"19627","type":"Wedge"},"selection_glyph":null,"view":{"id":"19629","type":"CDSView"}},"id":"19628","type":"GlyphRenderer"},{"attributes":{"text":"1980","text_font_size":{"value":"14pt"},"x":2.8,"y":2.5},"id":"19647","type":"Label"},{"attributes":{},"id":"19520","type":"LinearScale"},{"attributes":{"formatter":{"id":"19559","type":"BasicTickFormatter"},"ticker":{"id":"19525","type":"BasicTicker"},"visible":false},"id":"19524","type":"LinearAxis"},{"attributes":{"field":"angle","include_zero":true},"id":"19565","type":"CumSum"},{"attributes":{"field":"angle"},"id":"19566","type":"CumSum"},{"attributes":{"source":{"id":"19567","type":"ColumnDataSource"}},"id":"19572","type":"CDSView"},{"attributes":{},"id":"19642","type":"UnionRenderers"},{"attributes":{},"id":"19525","type":"BasicTicker"},{"attributes":{"field":"angle","include_zero":true},"id":"19582","type":"CumSum"},{"attributes":{},"id":"19522","type":"LinearScale"},{"attributes":{"data_source":{"id":"19550","type":"ColumnDataSource"},"glyph":{"id":"19552","type":"Wedge"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"19553","type":"Wedge"},"selection_glyph":null,"view":{"id":"19555","type":"CDSView"}},"id":"19554","type":"GlyphRenderer"},{"attributes":{},"id":"19619","type":"UnionRenderers"},{"attributes":{},"id":"19578","type":"Selection"},{"attributes":{"callback":null,"renderers":[{"id":"19588","type":"GlyphRenderer"}],"tooltips":[["Method","@t"],["Passengers","@1980{0.f}M"]]},"id":"19599","type":"HoverTool"},{"attributes":{},"id":"19557","type":"BasicTickFormatter"},{"attributes":{"field":"angle","include_zero":true},"id":"19548","type":"CumSum"},{"attributes":{"callback":null,"data":{"1970":{"__ndarray__":"mpmZmZkZW0DNzMzMzMwYQM3MzMzMTDlA","dtype":"float64","shape":[3]},"angle":{"__ndarray__":"ikcYFE15E0AiRybBMdLRP3AEZpAsLvI/","dtype":"float64","shape":[3]},"color":["#1f77b4","#ff7f0e","#2ca02c"],"index":[0,1,2],"t":["Airplanes","Railroads","Buses"]},"selected":{"id":"19597","type":"Selection"},"selection_policy":{"id":"19598","type":"UnionRenderers"}},"id":"19567","type":"ColumnDataSource"},{"attributes":{"callback":null,"data":{"2000":{"__ndarray__":"zczMzMwggEAAAAAAAAAWQDMzMzMz80JA","dtype":"float64","shape":[3]},"angle":{"__ndarray__":"6C5QDucuF0CtbAOYqZ+vP3Z1PyxPPds/","dtype":"float64","shape":[3]},"color":["#1f77b4","#ff7f0e","#2ca02c"],"index":[0,1,2],"t":["Airplanes","Railroads","Buses"]},"selected":{"id":"19663","type":"Selection"},"selection_policy":{"id":"19664","type":"UnionRenderers"}},"id":"19624","type":"ColumnDataSource"},{"attributes":{"label":{"field":"t"},"renderers":[{"id":"19554","type":"GlyphRenderer"},{"id":"19571","type":"GlyphRenderer"},{"id":"19588","type":"GlyphRenderer"},{"id":"19607","type":"GlyphRenderer"},{"id":"19628","type":"GlyphRenderer"}]},"id":"19562","type":"LegendItem"},{"attributes":{"source":{"id":"19603","type":"ColumnDataSource"}},"id":"19608","type":"CDSView"},{"attributes":{"data_source":{"id":"19584","type":"ColumnDataSource"},"glyph":{"id":"19586","type":"Wedge"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"19587","type":"Wedge"},"selection_glyph":null,"view":{"id":"19589","type":"CDSView"}},"id":"19588","type":"GlyphRenderer"},{"attributes":{"background_fill_alpha":{"value":0},"below":[{"id":"19524","type":"LinearAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"19528","type":"Grid"},{"id":"19533","type":"Grid"},{"id":"19561","type":"Legend"},{"id":"19645","type":"Label"},{"id":"19646","type":"Label"},{"id":"19647","type":"Label"},{"id":"19648","type":"Label"},{"id":"19649","type":"Label"}],"left":[{"id":"19529","type":"LinearAxis"}],"outline_line_color":{"value":null},"plot_height":200,"plot_width":550,"renderers":[{"id":"19554","type":"GlyphRenderer"},{"id":"19571","type":"GlyphRenderer"},{"id":"19588","type":"GlyphRenderer"},{"id":"19607","type":"GlyphRenderer"},{"id":"19628","type":"GlyphRenderer"}],"title":{"id":"19514","type":"Title"},"toolbar":{"id":"19540","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"19516","type":"Range1d"},"x_scale":{"id":"19520","type":"LinearScale"},"y_range":{"id":"19518","type":"Range1d"},"y_scale":{"id":"19522","type":"LinearScale"}},"id":"19513","subtype":"Figure","type":"Plot"}],"root_ids":["19513"]},"title":"Bokeh Application","version":"1.4.0"}}
+  </script>
+  <script type="text/javascript">
+    (function() {
+      var fn = function() {
+        Bokeh.safely(function() {
+          (function(root) {
+            function embed_document(root) {
+              
+            var docs_json = document.getElementById('19830').textContent;
+            var render_items = [{"docid":"27c4c97f-7f33-4e2c-b5bb-b70710c8082c","roots":{"19513":"3b1e153a-53ab-41a0-b239-723b59b755ae"}}];
+            root.Bokeh.embed.embed_items(docs_json, render_items);
+          
+            }
+            if (root.Bokeh !== undefined) {
+              embed_document(root);
+            } else {
+              var attempts = 0;
+              var timer = setInterval(function(root) {
+                if (root.Bokeh !== undefined) {
+                  clearInterval(timer);
+                  embed_document(root);
+                } else {
+                  attempts++;
+                  if (attempts > 100) {
+                    clearInterval(timer);
+                    console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                  }
+                }
+              }, 10, root)
+            }
+          })(window);
+        });
+      };
+      if (document.readyState != "loading") fn();
+      else document.addEventListener("DOMContentLoaded", fn);
+    })();
+  </script>
+
+    <script>   
+      var vm =new Vue ({
+        el: '#amtrakMove',
+        data: {
+            showDiv: false,
+            showDivAnchored: false,
+            inN70: false
+        },
+        mounted: function scrollSetUp(){
+            var myScrollFunc = function() {
+            console.log('A')
+            var wh = window.innerHeight;
+            var whAdjust = 85
+            if (wh>480){
+                whAdjust=Math.floor(0.3*wh)
+            }
+            var n70t = document.getElementById("nineteen_seventy_track")
+            var n70=document.getElementById("nineteen_seventy")
+            // console.log('b')
+            // var n70_chart=document.getElementById("3b1e153a-53ab-41a0-b239-723b59b755ae")
+            // console.log('c')
+            var y = window.scrollY;
+
+            if (y > n70t.offsetTop-whAdjust && y <= n70t.offsetTop+300){
+                // vm.inN70 = true
+                n70.style.position="fixed"
+                n70.style.top=(n70.offsetHeight/2+whAdjust)+"px"
+                n70.style.left="50%"
+                n70.style.transform="translate(-50%, -50%)"
+                if (y > n70t.offsetTop-whAdjust+75){
+                    vm.showDiv = true
+                }
+            }
+            else{
+                if(y > n70t.offsetTop+300){
+                    n70t.style.height=(whAdjust+300)+"px"
+                }
+                else{
+                    n70t.style.height="0px"
+                }
+                n70.style.position=""
+                n70.style.transform="translate(0%, 0%)"
+                vm.showDiv = false
+                // vm.inN70 = false
+            }
+            // if (y >= 450 && y <= 900) {
+            //     vm.showDiv = true
+            // } else {
+            //     vm.showDiv = false
+            // }
+
+
+
+            if (y >= 50 && y <= 600) {
+                vm.showDivAnchored = true
+            } else {
+                vm.showDivAnchored = false
+            }
+            
+            };
+
+            window.addEventListener("scroll", myScrollFunc);
+        }
+        })
+    </script>
+        
+       
+</center>
+
+	
+
+
+  </body>
+</html>

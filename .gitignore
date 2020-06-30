@@ -9,3 +9,4 @@ static/images/US_marathon_trial_logo.png
 static/images/New Balance Shoe.jpeg
 static/python/__pycache__/bokeh_plot.cpython-37.pyc
 static/python/__pycache__/coronavirus_dashboard.cpython-37.pyc
+.vscode/settings.json

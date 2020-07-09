@@ -164,7 +164,7 @@
           <div id="nineteen_ninety_track">
 
           </div>
-          <div  id="nineteen_ninety_outer" style="height: 800px;">
+          <div  id="nineteen_ninety_outer" style="height: 950px;">
             <div id="nineteen_ninety" style="width:100%;">
                 <div class="leftYear">
                     <div class="yrBar">
@@ -193,6 +193,87 @@
               </div>
             </div>
           </div>
+
+          <div id="year_2000_track">
+
+          </div>
+          <div  id="year_2000_outer" style="height: 950px;">
+            <div id="year_2000" style="width:100%;">
+                <div class="rightYear">
+                    <div class="yrBar">
+                        <h3>Acela launches and overall ridership trends up :2000</h3>
+                    </div>
+                </div>
+                <div class="container">
+                  <div class="col-lg-2 col-md-1">
+                  </div>
+                  <div class="col-lg-8 col-md-10 col-sm-12">
+                    <div style="max-height: 400px;">
+                      <img src="/static/images/train2.jpg" class="image"/>
+                      <i>New Acela train image from <a href="https://media.amtrak.com/media-images/">Amtrak Media Center</a></i>
+                    </div>
+                      <div id="holdn00" style="height:320px;">
+                      </div>
+                  </div>
+                  <div class="col-lg-2 col-md-1">
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="year_2008_track">
+
+          </div>
+          <div  id="year_2008_outer" style="height: 950px;">
+            <div id="year_2008" style="width:100%;">
+                <div class="leftYear">
+                    <div class="yrBar">
+                        <h3>2008: Sustained Growth</h3>
+                    </div>
+                </div>
+                <div class="container">
+                  <div class="col-lg-1">
+                  </div>
+                  <div class="col-lg-10 col-md-12">
+                    <div style="max-height: 500px;">
+                      <img src="/static/images/pct_diff_map.png" class="image"/>
+                      <!-- <i>New Acela train image from <a href="https://media.amtrak.com/media-images/">Amtrak Media Center</a></i> -->
+                    </div>
+                      <div id="holdn00" style="height:320px;">
+                      </div>
+                  </div>
+                  <div class="col-lg-1">
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="year_2010_track">
+
+          </div>
+          <div  id="year_2010_outer" style="height: 950px;">
+            <div id="year_2010" style="width:100%;">
+                <div class="rightYear">
+                    <div class="yrBar">
+                        <h3>Big routes get bigger :2010</h3>
+                    </div>
+                </div>
+                <div class="container">
+                  <div class="col-lg-1">
+                  </div>
+                  <div class="col-lg-10 col-md-12">
+                    <div style="max-height: 500px;">
+                      <div class='tableauPlaceholder' id='viz1594260197148' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Am&#47;AmtrakRoutes2010&#47;BigRoutes&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='AmtrakRoutes2010&#47;BigRoutes' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Am&#47;AmtrakRoutes2010&#47;BigRoutes&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1594260197148');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='720px';vizElement.style.maxWidth='1020px';vizElement.style.width='100%';vizElement.style.minHeight='487px';vizElement.style.maxHeight='587px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='720px';vizElement.style.maxWidth='1020px';vizElement.style.width='100%';vizElement.style.minHeight='487px';vizElement.style.maxHeight='587px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='877px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                    </div>  
+                    <div id="holdn00" style="height:320px;">
+                      </div>
+                  </div>
+                  <div class="col-lg-1">
+                  </div>
+              </div>
+            </div>
+          </div>
+
           <div id="end_track">
 
           </div>
@@ -264,6 +345,52 @@
                     </div>
                 </div>    
             </transition>
+
+            <transition name="fade">
+              <div v-show="showDivn00" class="showScrollDiv">
+                  <div class="showScrollInterior">
+                      After much anticipation, Acela Express service launches in December 2000. While a commercial success for Amtrak, its average speeds remained dwarfed by high speed service in other countries around the globe.
+                  </div>
+              </div>    
+          </transition>
+
+          <transition name="fade">
+            <div v-show="showDivn08" class="showScrollDiv">
+                <div class="showScrollInterior">
+                    After several decades of minimal passenger growth, Amtrak started steady growth in the 2000's. From 2003 to 2008, ridership grew 23.4M to 28.7M a 22.6% increase.
+                </div>
+            </div>    
+        </transition>
+        <transition name="fade">
+            <div v-show="showDivn08Right" class="showScrollDivRight">
+                <div class="showScrollInterior">
+                    The biggest gainers in percent growth during these years came on shorter Midwest routes linked to Chicago, but most routes saw at least moderate gains in percentage growth.
+                </div>
+            </div>    
+        </transition>
+        <!-- <transition name="fade">
+          <div v-show="showDivn08_2" class="showScrollDiv2">
+              <div class="showScrollInterior">
+                  X
+              </div>
+          </div>    
+      </transition> -->
+
+      <transition name="fade">
+        <div v-show="showDivn10" class="showScrollDiv">
+            <div class="showScrollInterior">
+                During the first decade of the 2000's, Amtrak's largest routes solidified their popularity with large gains in raw passenger numbers even if other smaller routes had high percentage growth.
+            </div>
+        </div>    
+    </transition>
+    <transition name="fade">
+        <div v-show="showDivn10Right" class="showScrollDivRight">
+            <div class="showScrollInterior">
+                While the Midwest has a very diverse network of routes and stations, the largest passengers totals for Amtrak are still driven by the routes of the Northeast and West Coast. 
+            </div>
+        </div>    
+    </transition>
+
   </div>
 </div>
 
@@ -357,6 +484,11 @@
             showDivn80Right: false,
             showDivn90: false,
             showDivn90Right: false,
+            showDivn00: false,
+            showDivn08: false,
+            showDivn08Right: false,
+            showDivn10: false,
+            showDivn10Right: false,
             showDivAnchored: false,
             inN70: false
         },
@@ -462,16 +594,125 @@
                 else{
                     if(y > n90t.offsetTop+300){
                         n90t.style.height=(whAdjust+300)+"px"
-                        n90o.style.height=(800-(whAdjust+300))+"px"
+                        n90o.style.height=(950-(whAdjust+300))+"px"
                     }
                     else{
                         n90t.style.height="0px"
-                        n90o.style.height="800px"
+                        n90o.style.height="950px"
                     }
                     n90.style.position=""
                     n90.style.transform="translate(0%, 0%)"
                     vm.showDivn90 = false
                     vm.showDivn90Right = false
+                }
+
+                // 2000
+                var n00t = document.getElementById("year_2000_track")
+                var n00o = document.getElementById("year_2000_outer")
+                var n00=document.getElementById("year_2000")
+                var y = window.scrollY;
+                if (y > n00t.offsetTop-whAdjust && y <= n00t.offsetTop+300){
+                    n00.style.position="fixed"
+                    n00.style.top=(n00.offsetHeight/2+whAdjust)+"px"
+                    n00.style.left="50%"
+                    n00.style.transform="translate(-50%, -50%)"
+                    if (y > n00t.offsetTop-whAdjust+75){
+                        vm.showDivn00 = true
+                    }
+                    
+                }
+                else{
+                    if(y > n00t.offsetTop+300){
+                        n00t.style.height=(whAdjust+300)+"px"
+                        n00o.style.height=(950-(whAdjust+300))+"px"
+                    }
+                    else{
+                        n00t.style.height="0px"
+                        n00o.style.height="950px"
+                    }
+                    n00.style.position=""
+                    n00.style.transform="translate(0%, 0%)"
+                    vm.showDivn00 = false
+                }
+
+                // 2008
+                var n08t = document.getElementById("year_2008_track")
+                var n08o = document.getElementById("year_2008_outer")
+                var n08=document.getElementById("year_2008")
+                var whAdjustLarge = 45
+                if (wh>480){
+                    whAdjustLarge=Math.floor(0.15*wh)
+                }
+                var y = window.scrollY;
+                if (y > n08t.offsetTop-whAdjustLarge && y <= n08t.offsetTop+300){
+                    n08.style.position="fixed"
+                    n08.style.top=(n08.offsetHeight/2+whAdjustLarge)+"px"
+                    n08.style.left="50%"
+                    n08.style.transform="translate(-50%, -50%)"
+                    if (y > n08t.offsetTop-whAdjustLarge+75){
+                        vm.showDivn08 = true
+                    }
+                    if (y > n08t.offsetTop-whAdjustLarge+275){
+                        vm.showDivn08Right = true
+                    }
+                    if (y > n08t.offsetTop+150){
+                        vm.showDivn08 = false
+                    }
+                    
+                }
+                else{
+                    if(y > n08t.offsetTop+300){
+                        n08t.style.height=(whAdjustLarge+300)+"px"
+                        n08o.style.height=(970-(whAdjustLarge+300))+"px"
+                    }
+                    else{
+                        n08t.style.height="0px"
+                        n08o.style.height="970px"
+                    }
+                    n08.style.position=""
+                    n08.style.transform="translate(0%, 0%)"
+                    vm.showDivn08 = false
+                    vm.showDivn08Right = false
+                }
+
+                // 2010
+                var n10t = document.getElementById("year_2010_track")
+                var n10o = document.getElementById("year_2010_outer")
+                var n10=document.getElementById("year_2010")
+                var whAdjustLarge = 45
+                if (wh>480){
+                    whAdjustLarge=Math.floor(0.15*wh)
+                }
+                var y = window.scrollY;
+                if (y > n10t.offsetTop-whAdjustLarge && y <= n10t.offsetTop+300){
+                    n10.style.position="fixed"
+                    n10.style.top=(n10.offsetHeight/2+whAdjustLarge)+"px"
+                    n10.style.left="50%"
+                    n10.style.transform="translate(-50%, -50%)"
+                    if (y > n10t.offsetTop-whAdjustLarge+75){
+                        vm.showDivn10 = true
+                    }
+                    if (y > n10t.offsetTop-whAdjustLarge+275){
+                        vm.showDivn10Right = true
+                    }
+                    if (y > n10t.offsetTop+150){
+                        vm.showDivn10 = false
+                    }
+                    
+                }
+                else{
+                    if(y > n10t.offsetTop+300){
+                        n10t.style.height=(whAdjustLarge+300)+"px"
+                        n10o.style.height=(1050-(whAdjustLarge+300))+"px"
+                    }
+                    else{
+                        n10t.style.height="0px"
+                        n10o.style.height="1050px"
+                    }
+                    n10.style.position=""
+                    n10.style.transform="translate(0%, 0%)"
+                    vm.showDivn10 = false
+                    vm.showDivn10Right = false
                 }
 
             };

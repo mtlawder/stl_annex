@@ -42,6 +42,7 @@
     .nonActivePop{
       background-color:#9e9e9e;
     }
+    
     /*.bk-root {
       background-color: #edeff2;
     }*/
@@ -108,6 +109,13 @@
                   <img src="/static/images/legend_stl_pop.png" align="center" style="width:100%;"/>
                 
               </div>
+              <div class="leftHandPanel loadFrost" v-show="loading">
+                <br/><br/><br/><br/>
+                <h4>Loading</h4>
+              </div>
+              <div class="panelBack">
+                Back
+              </div>
               <br>
             </div>
             <div class="col-lg-6">
@@ -153,6 +161,7 @@
                     </tbody>
                   </table>
                 </div>
+
                 <div>
                   <p class="left-group">
                     <i>Notes: Data and map obtained from <a href="https://www.stlouis-mo.gov/data/">St. Louis government website</a>. In 1990, only Black, White, and Other (Which includes Asian, Multi-racial, Pacific Islander and Native American) data is available. Hispanic data represents a subset of other demographics. Click on the map below for links to the St. Louis government webpages for each neighborhood.</i>
@@ -196,10 +205,12 @@
           table_data_90: <<%table_data_90|safe%>>,
           table_yr_sel: 2010,
           coords: <<%coords|safe%>>,
-          scroll: <<%scroll|safe%>>
+          scroll: <<%scroll|safe%>>,
+          loading: false
         },
         watch: {
           nbhoods_sel: function() {
+            vm.loading = true
             var req = new XMLHttpRequest()
             req.open("POST",'/api/nieghbhoor_pop_data' ,true);
             var formData = new FormData();
@@ -218,6 +229,7 @@
               var element2 = document.getElementById('pieDiv');
               element2.innerHTML=data.pie_div
               eval(data.pie_script.slice(33,-9))
+              vm.loading = false
             }
           }
         },

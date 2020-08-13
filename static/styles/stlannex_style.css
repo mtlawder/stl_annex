@@ -69,9 +69,25 @@ table{
 .leftHandPanel {
   background-color:white;
   min-width: 550px;
+  min-height: 575px;
   border: black solid 1pt;
-  margin-right: 20px
+  margin-right: 20px;
+  position: absolute;
   /*padding:3px;*/
+}
+.panelBack{
+  min-height: 575px;
+  z-index:-10;
+}
+.popTable{
+  position: absolute;
+}
+.loadFrost{
+  z-index:10;
+  background-color: rgba(250, 250, 250, 0.5);
+  width: 100%;
+  height: 100%;
+  border:  none;
 }
 .pop-pick-left{
   text-align:center;

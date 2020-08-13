@@ -73,7 +73,6 @@ def pop_line_chart(nb,nbhood):
             p2.add_tools(HoverTool(tooltips=[(str(pop),hover)],renderers=[p],mode='vline'))
             
             legend_p2+=[LegendItem(label=pop[:pop.find(' ')],renderers=[p])]
-            print(legend_p2)
         p2.add_layout(Legend(items=legend_p2),'right')
         p2.toolbar_location = None
         curdoc().theme=Theme(json={'attrs': {

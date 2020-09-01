@@ -450,6 +450,10 @@ def blog_amtrak_routes():
 def amtrak_timeline_scroll():
     return render_template('/amtrak_timeline_scroll.html')
 
+@app.route('/blog_southwest_2020',methods=['GET','POST'])
+def blog_southwest_2020():
+    return render_template('/blog_southwest_2020.html')
+
 def airline_chart(df19,df20,col_type,hover,label,t_form,airport):
     month_labels=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
     source=ColumnDataSource({'month_19':list(zip(df19['MONTH_labels'],[-0.2]*12)),

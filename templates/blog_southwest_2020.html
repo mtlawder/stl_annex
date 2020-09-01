@@ -1,0 +1,654 @@
+<html lang="en">
+  <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-142498774-1');
+	</script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/stl_pop_style.css">
+    <title>STL Annex</title>
+    
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.css" type="text/css" />
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+    <style>
+
+    .btn-group{
+      padding:5px !important;
+    }
+    .container{
+      padding:0px !important;
+      max-width:1240px;
+    }
+  </style>
+  </head>
+  <body>
+        <center>
+        <div id="header-vue">
+      <header-bar></header-bar>
+    </div>
+          <div id="menu-vue">
+          <menu-bar></menu-bar>
+        </div>
+         
+        <br>
+        <div id="sw_2020">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-2 col-md-1">
+              </div>
+              <div class="col-lg-8 col-md-10 col-sm-12">
+                
+                <br>
+                
+                <br><br>
+                <h3>Southwest Staying Big?</h3> <h5>The airline has stayed larger than other mainline competitors during early months of pandemic, and maintained significant presence at STL</h5>
+                <br>
+                <div class="blog-container left-group">
+                    <p>
+                        COVID-19 has shrunk every carrier this year, but each carrier has taken their own approach at how much and where to trim flights. In April as passenger counts reached their nadir in the US, every major airline cut at least half of its departures. Southwest had by far the least cuts with "only" a 58.8% drop in flights year over year for April. Southwest still flew 45k flights in April, even though they only carried 537k passengers (or a little under 12 per flight). Compared to American (65.2% less flights), Delta (76.8% less), and United (82.6% less), Southwest held their service much higher than the other major airlines. Stats are for Mainline flights only.
+                    </p>
+                    <p>
+                        Flight cuts were even deeper in May for all four major airlines, but Southwest still kept the highest percentage of mainline flights, flying 42k flights or a 62.6% drop compared to the May 2019 (AA -72.3%; DL -80.3%; UA -86.7%). While flights dropped, passengers flown started making a comeback in May. Southwest's passengers jumped to 1.9M in May. That 355% increase over April was much larger than the other major three airlines with American having the second biggest bump at 262%. But because Southwest was flying by far the most mainline flights, their flights had the lowest load factors in April (7.6%) and May (28.9%).
+                    </p>
+                    <div class="air-table">
+                      <h5>Carrier Stats April and May 2020</h5>
+                      <center>
+                        <table class="table">
+                          <thead>
+                            <tr style="text-align: center;">
+                            <th></th>
+                            <th colspan="2">April</th>
+                            <th colspan="2">May</th>
+                            </tr>
+                            <tr style="text-align: center;">
+                              <th>Carrier</th>
+                              <th>Passengers</th>
+                              <th>Load Factor</th>
+                              <th>Passengers</th>
+                              <th>Load Factor</th>
+                            </tr>
+                          </thead>
+                          <tbody style="text-align: center;" >
+                            <tr>
+                              <td>Southwest</td>
+                              <td>537,150</td>
+                              <td>7.6%</td>
+                              <td>1,907,958</td>
+                              <td>28.9%</td>
+                            </tr>
+                            <tr>
+                              <td>American</td>
+                              <td>633,314</td>
+                              <td>15.1%</td>
+                              <td>1,662,121</td>
+                              <td>47.0%</td>
+                            </tr>
+                            <tr>
+                              <td>Delta</td>
+                              <td>452,406</td>
+                              <td>15.8%</td>
+                              <td>844,044</td>
+                              <td>34.7%</td>
+                            </tr>
+                            <tr>
+                              <td>United</td>
+                              <td>185,649</td>
+                              <td>12.2%</td>
+                              <td>398,903</td>
+                              <td>28.9%</td>
+                            </tr>
+                            
+                          </tbody>
+                        </table>
+                      </center>
+                    </div>
+                  </div>
+                
+              </div>
+              <div class="col-lg-2 col-md-1">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-6 col-lg-12">
+                <div class="air-table">
+                  <div class="bk-root" id="1ce6f159-5f81-49f6-a080-d110337ea3c2" data-root-id="30723"></div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-12">
+                <div class="air-table">
+                  <div class="bk-root" id="99b2354c-bc0c-4127-9024-62a2cd149ea2" data-root-id="31567"></div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 col-md-1">
+              </div>
+              <div class="col-lg-8 col-md-10 col-sm-12">
+                <i>Mainline Domestics Flights and Passengers for Major 4 US Airlines. Dotted lines for 2019 stats and solid lines for 2019.</i>
+                <br/><br/>
+                <div class="blog-container left-group">
+                  While Southwest cut more than half its flights in April and May, certain airport saw much more drastic cuts than others. When looking at Airports with the 15 most Southwest Passengers from 2019, all airports flew between 30-46% as the carrier cut flights across the board. In May, several airports started gaining flights back even while overall flights for Southwest continued to decrease. Year of year comparison of flights per month went up in May (compared to April) for ATL, LAS, DAL, BWI, MDW, and DEN with Denver leading the way moving up to 52.6% of 2019's May flight totals. Southwest's strategy appeared to focus on slowing adding flights to its more interior well established hubs while dropping flights to coastal destinations. California airports fared particularly poorly with LAX, SAN, OAK only flying 29.6%, 29.7%, and 32.5% of their 2019 domestic totals which were the worst three totals outside of San Juan that I looked at. You can take a look at the passenger and flight totals for each of the top 15 airports in April and May below.
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-1">
+              </div>
+            </div>
+            <br/>
+            <div class="row">
+              <div class="col-xl-6 col-lg-12">
+                <div class="air-table">
+                  <div class="bk-root" id="ca6825cf-ed2a-4e04-9ad7-736790a0f9d2" data-root-id="24465"></div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-12">
+                <div class="air-table">
+                  <div class="bk-root" id="4f40cf2d-27b0-417e-b527-e7f06755c107" data-root-id="24359"></div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 col-md-1">
+              </div>
+              <div class="col-lg-8 col-md-10 col-sm-12">
+                <i>Percentage of flights Southwest flew to/from each airport in 2020 compared to 2019 for Southwest's top 15 airports.</i>
+                <br/><br/>
+                <div class="blog-container left-group">
+                  <p>
+                  Digging in closer at Southwest's STL route changes, we see flights dropping (almost) across all destinations in April and May. Pre-pandemic in February, Southwest was adding flights year-over-year at STL with some major (over 25% increase to a top 30 destination) adds to Dallas (DAL), Denver (DEN), Orlando (MCO), Phoenix (PHX), Nashville (BNA), and Tampa Bay (TPA). Below, I shown the year-over-year monthly flight comparisons for the top 30 Southwest destinations from STL for February through May. From the charts you can see flight cuts starting in March, accelerating in April, and hitting what appears to be the bottom in May with a significant amount of destinations being suspended. In May, 16 Destinations that had daily service from STL the previous May on Southwest were dropped due to COVID-19 (EWR was dropped earlier in the year). 
+                  </p>
+                  <div class="air-table">
+                    <hr/>
+                    <h5>Dropped Routes <button class="btn flip-btn" v-on:click="droppedRoutes=true" v-show="!droppedRoutes">Show Dropped Routes</button>
+                      <button class="btn flip-btn" v-on:click="droppedRoutes=false" v-show="droppedRoutes">Hide Dropped Routes</button>
+                    </h5>
+                    <center>
+                      <table class="table" v-show="droppedRoutes">
+                        <thead>
+                          <tr style="text-align: center;">
+                            <th>Airport</th>
+                            <th>City</th>
+                          </tr>
+                        </thead>
+                        <tbody style="text-align: center;">
+                          <tr>
+                            <td>BDL</td>
+                            <td>Hartford, CT</td>
+                          </tr>
+                          <tr>
+                            <td>CLE</td>
+                            <td>Cleveland</td>
+                          </tr>
+                          <tr>
+                            <td>CMH</td>
+                            <td>Columbus</td>
+                          </tr>
+                          <tr>
+                            <td>DTW</td>
+                            <td>Detroit</td>
+                          </tr>
+                          <tr>
+                            <td>LGA</td>
+                            <td>New York</td>
+                          </tr>
+                          <tr>
+                            <td>MSP</td>
+                            <td>Minneapolis</td>
+                          </tr>
+                          <tr>
+                            <td>MSY</td>
+                            <td>New Orleans</td>
+                          </tr>
+                          <tr>
+                            <td>OAK</td>
+                            <td>Oakland</td>
+                          </tr>
+                          <tr>
+                            <td>OKC</td>
+                            <td>Oklahoma City</td>
+                          </tr>
+                          <tr>
+                            <td>PHL</td>
+                            <td>Philadelphia</td>
+                          </tr>
+                          <tr>
+                            <td>PIT</td>
+                            <td>Pittsburgh</td>
+                          </tr>
+                          <tr>
+                            <td>RDU</td>
+                            <td>Raleigh, NC</td>
+                          </tr>
+                          <tr>
+                            <td>SAT</td>
+                            <td>San Antonio, TX</td>
+                          </tr>
+                          <tr>
+                            <td>SEA</td>
+                            <td>Seattle</td>
+                          </tr>
+                          <tr>
+                            <td>SFO</td>
+                            <td>San Francisco</td>
+                          </tr>
+                          <tr>
+                            <td>SJC</td>
+                            <td>San Jose, CA</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </center>
+                    <hr/>
+                  </div>
+                  <p>While lots of destinations were cut entirely, a few outside of the top 30 actually saw a small increase with Des Moines (DSM 120 flights in May 2020/115 flights in May 2019), Wichita (ICT 118/113) and Panama City (ECP 71/66) all showing slight gains. Portland (PDX 60/62) and Sacramento (SMF  60/62) also basically matched 2019 numbers. Southwest clearly tried to maintain service at STL on many routes. While some of that effort may have been aimed at trying to maintain their brand presence at STL and other airports, it is hard to tell if that led to more passengers in May. DSM and ICT are two routes that stick out where Southwest kept twice daily service even though Load Factor on the routes in May were only 13.6% and 13.3%, respectively. The best performing routes from a Load Factor perspective in May were to either hubs or warm weather locations with roughly only once per day service. Nine destinations had above a 30% Load Factor in May with San Diego leading the way with 45.1% load factor over 60 flights. THe other destinations over 30% were RSW (43.8%), LAX (40.9%), HOU (40.7%), ATL (39.2%), SMF (37.0%), PHX (36.2%), ECP (34.7%), and TPA (31.9%). </p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-1">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="air-table">
+                  <div class="bk-root" id="9c00749e-9bc6-4ec1-bdb6-790f878185a7" data-root-id="29718"></div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="air-table">
+                  <div class="bk-root" id="8d005d51-62c4-49a2-9796-03934343c9d2" data-root-id="29883"></div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="air-table">
+                  <div class="bk-root" id="edc5669f-0ef1-42c2-bbbd-3b91a0e0ece0" data-root-id="30048"></div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="air-table">
+                  <div class="bk-root" id="6c67c68c-e826-4835-9891-4f79e67fe173" data-root-id="30213"></div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 col-md-1">
+              </div>
+              <div class="col-lg-8 col-md-10 col-sm-12">
+                <i>Comparing monthly Southwest flights to/from top 30 destinations served by Southwest at STL (2019 v 2020)</i>
+                <br/><br/>
+                <div class="blog-container left-group">
+                  Pre-pandemic, Southwest was in clear growth mode at STL, adding flights in January and February year-over-year. The below visual shows monthly percent change for domestic flights/passengers at all Southwest destinations and the monthly Load Factors. St. Louis was ranking well into the upper half of Southwest destinations early in the year. Once the pandemic hit, service to and from St. Louis by Southwest was maintained at a reasonable level, but compared to other Southwest destinations, St. Louis has ranked at about the median of all Southwest destinations in terms of percentage of flights cut compared to the previous year. In April Southwest flew 57.1% less flights to/from STL than in April 2019 which was the median value when comparing all Southwest destinations. In May, flights to/from STL were down 64.6%, just below the median value of 63.7%. While there are some interesting takeaways from the data so far, there is only so much insight that can be gleaned with the data through May. Once more data becomes available in the coming weeks to see June data, some more insights into how airlines are trying to bounce back will become clear. Ultimately, many efforts at maintaining service in April and May might have been focused on keeping customers long term (or just meeting <a href="https://thepointsguy.com/news/coronavirus-minimum-airline-service-requirements/">minimum requirements to receive government assistance</a> in some cases) and we will have to wait and see how that plays out. Please explore the visuals provided for more information about airline service and check back next month for more updates after June's data is made available by the <a href="https://www.transtats.bts.gov/DatabaseInfo.asp?DB_ID=111">Bureau of Transportation Statistics</a>.
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-1">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                 <div class='tableauPlaceholder' id='viz1598926354204' style='position: relative'><noscript><a href='http:&#47;&#47;www.stlannex.com&#47;blog_southwest_2020'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;So&#47;SouthwestAirlines2020AirportStats&#47;Southwest&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='SouthwestAirlines2020AirportStats&#47;Southwest' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;So&#47;SouthwestAirlines2020AirportStats&#47;Southwest&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1598926354204');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='820px';vizElement.style.maxWidth='920px';vizElement.style.width='100%';vizElement.style.minHeight='560px';vizElement.style.maxHeight='760px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='820px';vizElement.style.maxWidth='920px';vizElement.style.width='100%';vizElement.style.minHeight='560px';vizElement.style.maxHeight='760px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='1350px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+              </div>
+            </div>
+           
+           
+  </div>
+</div>
+
+<script type="application/json" id="24570">
+  {"c0364b86-1b1d-4161-ba3f-6e2480e098aa":{"roots":{"references":[{"attributes":{"fill_alpha":{"value":0.8},"fill_color":{"value":"#0087c4"},"line_alpha":{"value":0.8},"line_color":{"value":"#004d70"},"top":{"field":"flight_ch"},"width":{"value":0.8},"x":{"field":"airport"}},"id":"24490","type":"VBar"},{"attributes":{},"id":"24472","type":"CategoricalScale"},{"attributes":{"dimension":1,"ticker":{"id":"24481","type":"BasicTicker"}},"id":"24484","type":"Grid"},{"attributes":{"below":[{"id":"24476","type":"CategoricalAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"24479","type":"Grid"},{"id":"24484","type":"Grid"}],"left":[{"id":"24480","type":"LinearAxis"}],"plot_height":425,"plot_width":500,"renderers":[{"id":"24492","type":"GlyphRenderer"}],"title":{"id":"24466","type":"Title"},"toolbar":{"id":"24486","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"24468","type":"FactorRange"},"x_scale":{"id":"24472","type":"CategoricalScale"},"y_range":{"id":"24470","type":"DataRange1d"},"y_scale":{"id":"24474","type":"LinearScale"}},"id":"24465","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"24501","type":"CategoricalTickFormatter"},{"attributes":{"ticker":{"id":"24477","type":"CategoricalTicker"},"visible":false},"id":"24479","type":"Grid"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"top":{"field":"flight_ch"},"width":{"value":0.8},"x":{"field":"airport"}},"id":"24491","type":"VBar"},{"attributes":{},"id":"24503","type":"Selection"},{"attributes":{"format":"0%"},"id":"24496","type":"NumeralTickFormatter"},{"attributes":{},"id":"24477","type":"CategoricalTicker"},{"attributes":{"data_source":{"id":"24488","type":"ColumnDataSource"},"glyph":{"id":"24490","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"24491","type":"VBar"},"selection_glyph":null,"view":{"id":"24493","type":"CDSView"}},"id":"24492","type":"GlyphRenderer"},{"attributes":{"formatter":{"id":"24501","type":"CategoricalTickFormatter"},"ticker":{"id":"24477","type":"CategoricalTicker"}},"id":"24476","type":"CategoricalAxis"},{"attributes":{"text":"Southwest Top 15 Stations (April 2020)"},"id":"24466","type":"Title"},{"attributes":{},"id":"24502","type":"UnionRenderers"},{"attributes":{"source":{"id":"24488","type":"ColumnDataSource"}},"id":"24493","type":"CDSView"},{"attributes":{"axis_label":"Percent Monthly Departure (YoY)","formatter":{"id":"24496","type":"NumeralTickFormatter"},"ticker":{"id":"24481","type":"BasicTicker"}},"id":"24480","type":"LinearAxis"},{"attributes":{"callback":null,"renderers":[{"id":"24492","type":"GlyphRenderer"}],"tooltips":[["Airport","@airport"],["Passengers","@pass{,f}"],["Flights","@dept{,f}"]]},"id":"24494","type":"HoverTool"},{"attributes":{"callback":null,"data":{"airport":["MCO","DEN","MDW","PHX","BWI","STL","HOU","DAL","BNA","ATL","SAN","LAS","OAK","LAX","SJC"],"dept":{"__ndarray__":"AAAAAACCqEAAAAAAAH2zQAAAAAAAALZAAAAAAABPsUAAAAAAADSzQAAAAAAAAqZAAAAAAACorEAAAAAAAC2xQAAAAAAAPKVAAAAAAAAipEAAAAAAAFyiQAAAAAAA17BAAAAAAAD4oUAAAAAAAFShQAAAAAAArJpA","dtype":"float64","shape":[15]},"flight_ch":{"__ndarray__":"vDvTUSgQ3T9ua6GD4wbdP7DF+k52T9w/uDvX40rg2z82DGCtJJbbP7gZjG39cds/sMgNd8dM2z9k9rr46tDaP8wfesJsGNo/HIQ2Qcmc2D9WuQWzJTHXP+psps/Y2tY/SmOuIXTo1T+4qG5hDVLVPxZ9vVEyk9M/","dtype":"float64","shape":[15]},"pass":{"__ndarray__":"AAAAAMAT2EAAAAAAIDnyQAAAAAAgQO9AAAAAAICI80AAAAAAwDLmQAAAAADADtxAAAAAAECE5kAAAAAAQP7qQAAAAABAxNxAAAAAAIDr3UAAAAAAQEbeQAAAAADAZOtAAAAAAIDb3EAAAAAAQAbhQAAAAAAAs9FA","dtype":"float64","shape":[15]}},"selected":{"id":"24503","type":"Selection"},"selection_policy":{"id":"24502","type":"UnionRenderers"}},"id":"24488","type":"ColumnDataSource"},{"attributes":{},"id":"24474","type":"LinearScale"},{"attributes":{"callback":null,"factors":["MCO","DEN","MDW","PHX","BWI","STL","HOU","DAL","BNA","ATL","SAN","LAS","OAK","LAX","SJC"]},"id":"24468","type":"FactorRange"},{"attributes":{},"id":"24485","type":"ResetTool"},{"attributes":{},"id":"24481","type":"BasicTicker"},{"attributes":{"callback":null,"start":0},"id":"24470","type":"DataRange1d"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"24485","type":"ResetTool"},{"id":"24494","type":"HoverTool"}]},"id":"24486","type":"Toolbar"}],"root_ids":["24465"]},"title":"Bokeh Application","version":"1.4.0"}}
+</script>
+<script type="text/javascript">
+  (function() {
+    var fn = function() {
+      Bokeh.safely(function() {
+        (function(root) {
+          function embed_document(root) {
+            
+          var docs_json = document.getElementById('24570').textContent;
+          var render_items = [{"docid":"c0364b86-1b1d-4161-ba3f-6e2480e098aa","roots":{"24465":"ca6825cf-ed2a-4e04-9ad7-736790a0f9d2"}}];
+          root.Bokeh.embed.embed_items(docs_json, render_items);
+        
+          }
+          if (root.Bokeh !== undefined) {
+            embed_document(root);
+          } else {
+            var attempts = 0;
+            var timer = setInterval(function(root) {
+              if (root.Bokeh !== undefined) {
+                clearInterval(timer);
+                embed_document(root);
+              } else {
+                attempts++;
+                if (attempts > 100) {
+                  clearInterval(timer);
+                  console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                }
+              }
+            }, 10, root)
+          }
+        })(window);
+      });
+    };
+    if (document.readyState != "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  })();
+</script>
+
+<script type="application/json" id="24464">
+  {"3f88752d-b8e5-458d-8720-8266c5572305":{"roots":{"references":[{"attributes":{"callback":null,"renderers":[{"id":"24386","type":"GlyphRenderer"}],"tooltips":[["Airport","@airport"],["Passengers","@pass{,f}"],["Flights","@dept{,f}"]]},"id":"24388","type":"HoverTool"},{"attributes":{"format":"0%"},"id":"24390","type":"NumeralTickFormatter"},{"attributes":{},"id":"24368","type":"LinearScale"},{"attributes":{},"id":"24395","type":"CategoricalTickFormatter"},{"attributes":{"data_source":{"id":"24382","type":"ColumnDataSource"},"glyph":{"id":"24384","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"24385","type":"VBar"},"selection_glyph":null,"view":{"id":"24387","type":"CDSView"}},"id":"24386","type":"GlyphRenderer"},{"attributes":{"callback":null,"start":0},"id":"24364","type":"DataRange1d"},{"attributes":{"source":{"id":"24382","type":"ColumnDataSource"}},"id":"24387","type":"CDSView"},{"attributes":{},"id":"24397","type":"Selection"},{"attributes":{},"id":"24375","type":"BasicTicker"},{"attributes":{},"id":"24379","type":"ResetTool"},{"attributes":{"callback":null,"data":{"airport":["DEN","MDW","BWI","MCO","DAL","LAS","ATL","BNA","PHX","STL","HOU","OAK","SAN","LAX","SJC"],"dept":{"__ndarray__":"AAAAAACPt0AAAAAAAH64QAAAAAAA47RAAAAAAADqpkAAAAAAAO+xQAAAAAAA8rNAAAAAAADUpEAAAAAAANKkQAAAAAAA7qxAAAAAAAD6okAAAAAAAOSmQAAAAAAAhKFAAAAAAABgnkAAAAAAADyfQAAAAAAADJdA","dtype":"float64","shape":[15]},"flight_ch":{"__ndarray__":"xi5xz6fS4D8wBGjxGGHeP3jMiKe6E90/7PWdd22Q2z+mSw5sl4fbP6p/QB9Rhto/CEd4LHTd2D8evQ2NH6zYP+yQu8ceOdc/0nqwQNSg1j9YSiOuTjDVP04pHs/K0dQ/0i/90i/90j88CflpDOrSPzrkGlhCT9A/","dtype":"float64","shape":[15]},"pass":{"__ndarray__":"AAAAAAw5E0EAAAAAeCARQQAAAABIVQtBAAAAAPCg90AAAAAACCYNQQAAAADofgtBAAAAAKglAEEAAAAAILf+QAAAAACw+gtBAAAAAJAq+EAAAAAA2DcAQQAAAADQkvVAAAAAABCx9UAAAAAA8Ab7QAAAAABgTeZA","dtype":"float64","shape":[15]}},"selected":{"id":"24397","type":"Selection"},"selection_policy":{"id":"24396","type":"UnionRenderers"}},"id":"24382","type":"ColumnDataSource"},{"attributes":{"formatter":{"id":"24395","type":"CategoricalTickFormatter"},"ticker":{"id":"24371","type":"CategoricalTicker"}},"id":"24370","type":"CategoricalAxis"},{"attributes":{"dimension":1,"ticker":{"id":"24375","type":"BasicTicker"}},"id":"24378","type":"Grid"},{"attributes":{"text":"Southwest Top 15 Stations (May 2020)"},"id":"24360","type":"Title"},{"attributes":{"fill_alpha":{"value":0.8},"fill_color":{"value":"#0087c4"},"line_alpha":{"value":0.8},"line_color":{"value":"#004d70"},"top":{"field":"flight_ch"},"width":{"value":0.8},"x":{"field":"airport"}},"id":"24384","type":"VBar"},{"attributes":{},"id":"24366","type":"CategoricalScale"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"top":{"field":"flight_ch"},"width":{"value":0.8},"x":{"field":"airport"}},"id":"24385","type":"VBar"},{"attributes":{"ticker":{"id":"24371","type":"CategoricalTicker"},"visible":false},"id":"24373","type":"Grid"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"24379","type":"ResetTool"},{"id":"24388","type":"HoverTool"}]},"id":"24380","type":"Toolbar"},{"attributes":{},"id":"24371","type":"CategoricalTicker"},{"attributes":{"axis_label":"Percent Monthly Departure (YoY)","formatter":{"id":"24390","type":"NumeralTickFormatter"},"ticker":{"id":"24375","type":"BasicTicker"}},"id":"24374","type":"LinearAxis"},{"attributes":{"below":[{"id":"24370","type":"CategoricalAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"24373","type":"Grid"},{"id":"24378","type":"Grid"}],"left":[{"id":"24374","type":"LinearAxis"}],"plot_height":425,"plot_width":500,"renderers":[{"id":"24386","type":"GlyphRenderer"}],"title":{"id":"24360","type":"Title"},"toolbar":{"id":"24380","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"24362","type":"FactorRange"},"x_scale":{"id":"24366","type":"CategoricalScale"},"y_range":{"id":"24364","type":"DataRange1d"},"y_scale":{"id":"24368","type":"LinearScale"}},"id":"24359","subtype":"Figure","type":"Plot"},{"attributes":{"callback":null,"factors":["DEN","MDW","BWI","MCO","DAL","LAS","ATL","BNA","PHX","STL","HOU","OAK","SAN","LAX","SJC"]},"id":"24362","type":"FactorRange"},{"attributes":{},"id":"24396","type":"UnionRenderers"}],"root_ids":["24359"]},"title":"Bokeh Application","version":"1.4.0"}}
+</script>
+<script type="text/javascript">
+  (function() {
+    var fn = function() {
+      Bokeh.safely(function() {
+        (function(root) {
+          function embed_document(root) {
+            
+          var docs_json = document.getElementById('24464').textContent;
+          var render_items = [{"docid":"3f88752d-b8e5-458d-8720-8266c5572305","roots":{"24359":"4f40cf2d-27b0-417e-b527-e7f06755c107"}}];
+          root.Bokeh.embed.embed_items(docs_json, render_items);
+        
+          }
+          if (root.Bokeh !== undefined) {
+            embed_document(root);
+          } else {
+            var attempts = 0;
+            var timer = setInterval(function(root) {
+              if (root.Bokeh !== undefined) {
+                clearInterval(timer);
+                embed_document(root);
+              } else {
+                attempts++;
+                if (attempts > 100) {
+                  clearInterval(timer);
+                  console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                }
+              }
+            }, 10, root)
+          }
+        })(window);
+      });
+    };
+    if (document.readyState != "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  })();
+</script>
+
+<script type="application/json" id="31988">
+  {"d14f111f-bf0d-4b3c-ad16-b3dfdfba5831":{"roots":{"references":[{"attributes":{"line_color":"#a88f32","line_width":2,"x":{"field":"month"},"y":{"field":"flights"}},"id":"31731","type":"Line"},{"attributes":{"callback":null,"end":5.2,"start":0.8},"id":"31570","type":"Range1d"},{"attributes":{},"id":"31584","type":"BasicTicker"},{"attributes":{"data_source":{"id":"31591","type":"ColumnDataSource"},"glyph":{"id":"31593","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"31594","type":"Line"},"selection_glyph":null,"view":{"id":"31596","type":"CDSView"}},"id":"31595","type":"GlyphRenderer"},{"attributes":{"line_color":"red","line_width":2,"x":{"field":"month"},"y":{"field":"flights"}},"id":"31682","type":"Line"},{"attributes":{},"id":"31588","type":"ResetTool"},{"attributes":{"line_color":"green","line_width":2,"x":{"field":"month"},"y":{"field":"flights"}},"id":"31608","type":"Line"},{"attributes":{},"id":"31676","type":"Selection"},{"attributes":{"label":{"value":"WN"},"renderers":[{"id":"31595","type":"GlyphRenderer"},{"id":"31610","type":"GlyphRenderer"}]},"id":"31603","type":"LegendItem"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_dash":[6],"line_width":2,"x":{"field":"month"},"y":{"field":"flights"}},"id":"31661","type":"Line"},{"attributes":{},"id":"31752","type":"UnionRenderers"},{"attributes":{"callback":null,"data":{"flights":{"__ndarray__":"AAAAAOCS50AAAAAAgJPmQAAAAAAgRuRAAAAAAAClwUAAAAAAABe8QA==","dtype":"float64","shape":[5]},"month":[1,2,3,4,5]},"selected":{"id":"31778","type":"Selection"},"selection_policy":{"id":"31777","type":"UnionRenderers"}},"id":"31729","type":"ColumnDataSource"},{"attributes":{"line_color":"blue","line_width":2,"x":{"field":"month"},"y":{"field":"flights"}},"id":"31641","type":"Line"},{"attributes":{"callback":null,"start":0},"id":"31572","type":"DataRange1d"},{"attributes":{"label":{"value":"DL"},"renderers":[{"id":"31662","type":"GlyphRenderer"},{"id":"31684","type":"GlyphRenderer"}]},"id":"31677","type":"LegendItem"},{"attributes":{"callback":null,"renderers":[{"id":"31625","type":"GlyphRenderer"}],"tooltips":[["Airline","AA"],["Year","2019"],["Flights","@flights{,f}"]]},"id":"31637","type":"HoverTool"},{"attributes":{"label":{"value":"UA"},"renderers":[{"id":"31707","type":"GlyphRenderer"},{"id":"31733","type":"GlyphRenderer"}]},"id":"31726","type":"LegendItem"},{"attributes":{"data_source":{"id":"31606","type":"ColumnDataSource"},"glyph":{"id":"31608","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"31609","type":"Line"},"selection_glyph":null,"view":{"id":"31611","type":"CDSView"}},"id":"31610","type":"GlyphRenderer"},{"attributes":{"data_source":{"id":"31729","type":"ColumnDataSource"},"glyph":{"id":"31731","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"31732","type":"Line"},"selection_glyph":null,"view":{"id":"31734","type":"CDSView"}},"id":"31733","type":"GlyphRenderer"},{"attributes":{"label":{"value":"AA"},"renderers":[{"id":"31625","type":"GlyphRenderer"},{"id":"31643","type":"GlyphRenderer"}]},"id":"31636","type":"LegendItem"},{"attributes":{"line_color":"green","line_dash":[6],"line_width":2,"x":{"field":"month"},"y":{"field":"flights"}},"id":"31593","type":"Line"},{"attributes":{"line_color":"blue","line_dash":[6],"line_width":2,"x":{"field":"month"},"y":{"field":"flights"}},"id":"31623","type":"Line"},{"attributes":{"callback":null,"data":{"flights":{"__ndarray__":"AAAAAMBc+kAAAAAAkI34QAAAAADgp/dAAAAAAOBN5kAAAAAAANnkQA==","dtype":"float64","shape":[5]},"month":[1,2,3,4,5]},"selected":{"id":"31635","type":"Selection"},"selection_policy":{"id":"31634","type":"UnionRenderers"}},"id":"31606","type":"ColumnDataSource"},{"attributes":{},"id":"31576","type":"LinearScale"},{"attributes":{"dimension":1,"ticker":{"id":"31584","type":"BasicTicker"}},"id":"31587","type":"Grid"},{"attributes":{},"id":"31724","type":"UnionRenderers"},{"attributes":{"callback":null,"data":{"flights":{"__ndarray__":"AAAAAOB98kAAAAAAIIfxQAAAAADAz+9AAAAAAEBE2UAAAAAAwGnVQA==","dtype":"float64","shape":[5]},"month":[1,2,3,4,5]},"selected":{"id":"31676","type":"Selection"},"selection_policy":{"id":"31675","type":"UnionRenderers"}},"id":"31639","type":"ColumnDataSource"},{"attributes":{"source":{"id":"31639","type":"ColumnDataSource"}},"id":"31644","type":"CDSView"},{"attributes":{"source":{"id":"31703","type":"ColumnDataSource"}},"id":"31708","type":"CDSView"},{"attributes":{},"id":"31675","type":"UnionRenderers"},{"attributes":{"callback":null,"renderers":[{"id":"31684","type":"GlyphRenderer"}],"tooltips":[["Airline","DL"],["Year","2020"],["Flights","@flights{,f}"]]},"id":"31701","type":"HoverTool"},{"attributes":{"source":{"id":"31591","type":"ColumnDataSource"}},"id":"31596","type":"CDSView"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"month"},"y":{"field":"flights"}},"id":"31609","type":"Line"},{"attributes":{"callback":null,"renderers":[{"id":"31643","type":"GlyphRenderer"}],"tooltips":[["Airline","AA"],["Year","2020"],["Flights","@flights{,f}"]]},"id":"31656","type":"HoverTool"},{"attributes":{"callback":null,"renderers":[{"id":"31733","type":"GlyphRenderer"}],"tooltips":[["Airline","UA"],["Year","2020"],["Flights","@flights{,f}"]]},"id":"31754","type":"HoverTool"},{"attributes":{"ticker":{"id":"31579","type":"BasicTicker"}},"id":"31582","type":"Grid"},{"attributes":{},"id":"31753","type":"Selection"},{"attributes":{"callback":null,"renderers":[{"id":"31662","type":"GlyphRenderer"}],"tooltips":[["Airline","DL"],["Year","2019"],["Flights","@flights{,f}"]]},"id":"31678","type":"HoverTool"},{"attributes":{},"id":"31725","type":"Selection"},{"attributes":{"callback":null,"renderers":[{"id":"31707","type":"GlyphRenderer"}],"tooltips":[["Airline","UA"],["Year","2019"],["Flights","@flights{,f}"]]},"id":"31727","type":"HoverTool"},{"attributes":{"axis_label":"Flights","formatter":{"id":"31756","type":"NumeralTickFormatter"},"ticker":{"id":"31584","type":"BasicTicker"}},"id":"31583","type":"LinearAxis"},{"attributes":{"text":"Carrier Cuts in Flights"},"id":"31568","type":"Title"},{"attributes":{"line_color":"red","line_dash":[6],"line_width":2,"x":{"field":"month"},"y":{"field":"flights"}},"id":"31660","type":"Line"},{"attributes":{"code":"\nreturn {1: 'January', 5: 'May', 4: 'April', 3: 'March', 2: 'February'}\n[tick]\n"},"id":"31758","type":"FuncTickFormatter"},{"attributes":{"data_source":{"id":"31703","type":"ColumnDataSource"},"glyph":{"id":"31705","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"31706","type":"Line"},"selection_glyph":null,"view":{"id":"31708","type":"CDSView"}},"id":"31707","type":"GlyphRenderer"},{"attributes":{"items":[{"id":"31603","type":"LegendItem"},{"id":"31636","type":"LegendItem"},{"id":"31677","type":"LegendItem"},{"id":"31726","type":"LegendItem"}],"location":"bottom_left"},"id":"31602","type":"Legend"},{"attributes":{},"id":"31618","type":"Selection"},{"attributes":{},"id":"31700","type":"Selection"},{"attributes":{"line_color":"#a88f32","line_dash":[6],"line_width":2,"x":{"field":"month"},"y":{"field":"flights"}},"id":"31705","type":"Line"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_dash":[6],"line_width":2,"x":{"field":"month"},"y":{"field":"flights"}},"id":"31706","type":"Line"},{"attributes":{"source":{"id":"31658","type":"ColumnDataSource"}},"id":"31663","type":"CDSView"},{"attributes":{},"id":"31634","type":"UnionRenderers"},{"attributes":{"callback":null,"data":{"flights":{"__ndarray__":"AAAAANAi8kAAAAAAMJPwQAAAAAAguPRAAAAAALAd9EAAAAAAkAH1QA==","dtype":"float64","shape":[5]},"month":[1,2,3,4,5]},"selected":{"id":"31700","type":"Selection"},"selection_policy":{"id":"31699","type":"UnionRenderers"}},"id":"31658","type":"ColumnDataSource"},{"attributes":{"callback":null,"data":{"flights":{"__ndarray__":"AAAAAAA/+kAAAAAAIDv3QAAAAAAA5ftAAAAAAOAY+0AAAAAAsNr7QA==","dtype":"float64","shape":[5]},"month":[1,2,3,4,5]},"selected":{"id":"31618","type":"Selection"},"selection_policy":{"id":"31617","type":"UnionRenderers"}},"id":"31591","type":"ColumnDataSource"},{"attributes":{"callback":null,"data":{"flights":{"__ndarray__":"AAAAAIDB80AAAAAAIJjyQAAAAABQafBAAAAAAEC00kAAAAAAAJTQQA==","dtype":"float64","shape":[5]},"month":[1,2,3,4,5]},"selected":{"id":"31725","type":"Selection"},"selection_policy":{"id":"31724","type":"UnionRenderers"}},"id":"31680","type":"ColumnDataSource"},{"attributes":{},"id":"31777","type":"UnionRenderers"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"month"},"y":{"field":"flights"}},"id":"31642","type":"Line"},{"attributes":{"data_source":{"id":"31658","type":"ColumnDataSource"},"glyph":{"id":"31660","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"31661","type":"Line"},"selection_glyph":null,"view":{"id":"31663","type":"CDSView"}},"id":"31662","type":"GlyphRenderer"},{"attributes":{},"id":"31579","type":"BasicTicker"},{"attributes":{"callback":null,"renderers":[{"id":"31595","type":"GlyphRenderer"}],"tooltips":[["Airline","WN"],["Year","2019"],["Flights","@flights{,f}"]]},"id":"31604","type":"HoverTool"},{"attributes":{"data_source":{"id":"31639","type":"ColumnDataSource"},"glyph":{"id":"31641","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"31642","type":"Line"},"selection_glyph":null,"view":{"id":"31644","type":"CDSView"}},"id":"31643","type":"GlyphRenderer"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_dash":[6],"line_width":2,"x":{"field":"month"},"y":{"field":"flights"}},"id":"31624","type":"Line"},{"attributes":{},"id":"31617","type":"UnionRenderers"},{"attributes":{},"id":"31654","type":"UnionRenderers"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"31588","type":"ResetTool"},{"id":"31604","type":"HoverTool"},{"id":"31619","type":"HoverTool"},{"id":"31637","type":"HoverTool"},{"id":"31656","type":"HoverTool"},{"id":"31678","type":"HoverTool"},{"id":"31701","type":"HoverTool"},{"id":"31727","type":"HoverTool"},{"id":"31754","type":"HoverTool"}]},"id":"31589","type":"Toolbar"},{"attributes":{"below":[{"id":"31578","type":"LinearAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"31582","type":"Grid"},{"id":"31587","type":"Grid"},{"id":"31602","type":"Legend"}],"left":[{"id":"31583","type":"LinearAxis"}],"plot_height":425,"renderers":[{"id":"31595","type":"GlyphRenderer"},{"id":"31610","type":"GlyphRenderer"},{"id":"31625","type":"GlyphRenderer"},{"id":"31643","type":"GlyphRenderer"},{"id":"31662","type":"GlyphRenderer"},{"id":"31684","type":"GlyphRenderer"},{"id":"31707","type":"GlyphRenderer"},{"id":"31733","type":"GlyphRenderer"}],"title":{"id":"31568","type":"Title"},"toolbar":{"id":"31589","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"31570","type":"Range1d"},"x_scale":{"id":"31574","type":"LinearScale"},"y_range":{"id":"31572","type":"DataRange1d"},"y_scale":{"id":"31576","type":"LinearScale"}},"id":"31567","subtype":"Figure","type":"Plot"},{"attributes":{"formatter":{"id":"31758","type":"FuncTickFormatter"},"minor_tick_line_color":{"value":null},"ticker":{"id":"31579","type":"BasicTicker"}},"id":"31578","type":"LinearAxis"},{"attributes":{"source":{"id":"31680","type":"ColumnDataSource"}},"id":"31685","type":"CDSView"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_dash":[6],"line_width":2,"x":{"field":"month"},"y":{"field":"flights"}},"id":"31594","type":"Line"},{"attributes":{"source":{"id":"31606","type":"ColumnDataSource"}},"id":"31611","type":"CDSView"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"month"},"y":{"field":"flights"}},"id":"31683","type":"Line"},{"attributes":{},"id":"31574","type":"LinearScale"},{"attributes":{"source":{"id":"31729","type":"ColumnDataSource"}},"id":"31734","type":"CDSView"},{"attributes":{"source":{"id":"31621","type":"ColumnDataSource"}},"id":"31626","type":"CDSView"},{"attributes":{},"id":"31655","type":"Selection"},{"attributes":{"callback":null,"renderers":[{"id":"31610","type":"GlyphRenderer"}],"tooltips":[["Airline","WN"],["Year","2020"],["Flights","@flights{,f}"]]},"id":"31619","type":"HoverTool"},{"attributes":{},"id":"31635","type":"Selection"},{"attributes":{"callback":null,"data":{"flights":{"__ndarray__":"AAAAAMCi5kAAAAAAIEvlQAAAAABA9+lAAAAAAEBj6UAAAAAAAIrqQA==","dtype":"float64","shape":[5]},"month":[1,2,3,4,5]},"selected":{"id":"31753","type":"Selection"},"selection_policy":{"id":"31752","type":"UnionRenderers"}},"id":"31703","type":"ColumnDataSource"},{"attributes":{},"id":"31778","type":"Selection"},{"attributes":{},"id":"31699","type":"UnionRenderers"},{"attributes":{"format":"0a"},"id":"31756","type":"NumeralTickFormatter"},{"attributes":{"data_source":{"id":"31621","type":"ColumnDataSource"},"glyph":{"id":"31623","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"31624","type":"Line"},"selection_glyph":null,"view":{"id":"31626","type":"CDSView"}},"id":"31625","type":"GlyphRenderer"},{"attributes":{"data_source":{"id":"31680","type":"ColumnDataSource"},"glyph":{"id":"31682","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"31683","type":"Line"},"selection_glyph":null,"view":{"id":"31685","type":"CDSView"}},"id":"31684","type":"GlyphRenderer"},{"attributes":{"callback":null,"data":{"flights":{"__ndarray__":"AAAAAAB78kAAAAAAgC7xQAAAAADwJfNAAAAAAJAq8kAAAAAAkFbzQA==","dtype":"float64","shape":[5]},"month":[1,2,3,4,5]},"selected":{"id":"31655","type":"Selection"},"selection_policy":{"id":"31654","type":"UnionRenderers"}},"id":"31621","type":"ColumnDataSource"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"month"},"y":{"field":"flights"}},"id":"31732","type":"Line"}],"root_ids":["31567"]},"title":"Bokeh Application","version":"1.4.0"}}
+</script>
+<script type="text/javascript">
+  (function() {
+    var fn = function() {
+      Bokeh.safely(function() {
+        (function(root) {
+          function embed_document(root) {
+            
+          var docs_json = document.getElementById('31988').textContent;
+          var render_items = [{"docid":"d14f111f-bf0d-4b3c-ad16-b3dfdfba5831","roots":{"31567":"99b2354c-bc0c-4127-9024-62a2cd149ea2"}}];
+          root.Bokeh.embed.embed_items(docs_json, render_items);
+        
+          }
+          if (root.Bokeh !== undefined) {
+            embed_document(root);
+          } else {
+            var attempts = 0;
+            var timer = setInterval(function(root) {
+              if (root.Bokeh !== undefined) {
+                clearInterval(timer);
+                embed_document(root);
+              } else {
+                attempts++;
+                if (attempts > 100) {
+                  clearInterval(timer);
+                  console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                }
+              }
+            }, 10, root)
+          }
+        })(window);
+      });
+    };
+    if (document.readyState != "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  })();
+</script>
+
+<script type="application/json" id="31144">
+  {"d4bff561-6c09-4cd4-b322-d041a003707d":{"roots":{"references":[{"attributes":{"code":"\nreturn {1: 'January', 5: 'May', 4: 'April', 3: 'March', 2: 'February'}\n[tick]\n"},"id":"30914","type":"FuncTickFormatter"},{"attributes":{},"id":"30855","type":"UnionRenderers"},{"attributes":{"source":{"id":"30814","type":"ColumnDataSource"}},"id":"30819","type":"CDSView"},{"attributes":{"label":{"value":"WN"},"renderers":[{"id":"30751","type":"GlyphRenderer"},{"id":"30766","type":"GlyphRenderer"}]},"id":"30759","type":"LegendItem"},{"attributes":{"data_source":{"id":"30836","type":"ColumnDataSource"},"glyph":{"id":"30838","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"30839","type":"Line"},"selection_glyph":null,"view":{"id":"30841","type":"CDSView"}},"id":"30840","type":"GlyphRenderer"},{"attributes":{"line_color":"blue","line_dash":[6],"line_width":2,"x":{"field":"month"},"y":{"field":"pass"}},"id":"30779","type":"Line"},{"attributes":{"callback":null,"renderers":[{"id":"30863","type":"GlyphRenderer"}],"tooltips":[["Airline","UA"],["Year","2019"],["Passengers","@pass{,f}"]]},"id":"30883","type":"HoverTool"},{"attributes":{"source":{"id":"30836","type":"ColumnDataSource"}},"id":"30841","type":"CDSView"},{"attributes":{"source":{"id":"30885","type":"ColumnDataSource"}},"id":"30890","type":"CDSView"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"month"},"y":{"field":"pass"}},"id":"30839","type":"Line"},{"attributes":{"dimension":1,"ticker":{"id":"30740","type":"BasicTicker"}},"id":"30743","type":"Grid"},{"attributes":{"callback":null,"renderers":[{"id":"30799","type":"GlyphRenderer"}],"tooltips":[["Airline","AA"],["Year","2020"],["Passengers","@pass{,f}"]]},"id":"30812","type":"HoverTool"},{"attributes":{"data_source":{"id":"30762","type":"ColumnDataSource"},"glyph":{"id":"30764","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"30765","type":"Line"},"selection_glyph":null,"view":{"id":"30767","type":"CDSView"}},"id":"30766","type":"GlyphRenderer"},{"attributes":{"line_color":"#a88f32","line_dash":[6],"line_width":2,"x":{"field":"month"},"y":{"field":"pass"}},"id":"30861","type":"Line"},{"attributes":{"source":{"id":"30747","type":"ColumnDataSource"}},"id":"30752","type":"CDSView"},{"attributes":{},"id":"30791","type":"Selection"},{"attributes":{"callback":null,"data":{"month":[1,2,3,4,5],"pass":{"__ndarray__":"AAAAwHNEV0EAAAAAnDFWQQAAAIBY4FxBAAAAwEgmXEEAAADA5N5dQQ==","dtype":"float64","shape":[5]}},"selected":{"id":"30909","type":"Selection"},"selection_policy":{"id":"30908","type":"UnionRenderers"}},"id":"30859","type":"ColumnDataSource"},{"attributes":{"format":"0a"},"id":"30912","type":"NumeralTickFormatter"},{"attributes":{},"id":"30811","type":"Selection"},{"attributes":{},"id":"30790","type":"UnionRenderers"},{"attributes":{},"id":"30856","type":"Selection"},{"attributes":{},"id":"30880","type":"UnionRenderers"},{"attributes":{"text":"Carrier Drop in Passengers"},"id":"30724","type":"Title"},{"attributes":{"callback":null,"renderers":[{"id":"30781","type":"GlyphRenderer"}],"tooltips":[["Airline","AA"],["Year","2019"],["Passengers","@pass{,f}"]]},"id":"30793","type":"HoverTool"},{"attributes":{"callback":null,"data":{"month":[1,2,3,4,5],"pass":{"__ndarray__":"AAAAQJiyZkEAAADANpdlQQAAAOCiUmtBAAAAgFg2akEAAADApX5rQQ==","dtype":"float64","shape":[5]}},"selected":{"id":"30774","type":"Selection"},"selection_policy":{"id":"30773","type":"UnionRenderers"}},"id":"30747","type":"ColumnDataSource"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"month"},"y":{"field":"pass"}},"id":"30765","type":"Line"},{"attributes":{"ticker":{"id":"30735","type":"BasicTicker"}},"id":"30738","type":"Grid"},{"attributes":{},"id":"30832","type":"Selection"},{"attributes":{"items":[{"id":"30759","type":"LegendItem"},{"id":"30792","type":"LegendItem"},{"id":"30833","type":"LegendItem"},{"id":"30882","type":"LegendItem"}],"location":"bottom_left"},"id":"30758","type":"Legend"},{"attributes":{},"id":"30740","type":"BasicTicker"},{"attributes":{},"id":"30908","type":"UnionRenderers"},{"attributes":{"line_color":"red","line_dash":[6],"line_width":2,"x":{"field":"month"},"y":{"field":"pass"}},"id":"30816","type":"Line"},{"attributes":{},"id":"30735","type":"BasicTicker"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_dash":[6],"line_width":2,"x":{"field":"month"},"y":{"field":"pass"}},"id":"30817","type":"Line"},{"attributes":{},"id":"30773","type":"UnionRenderers"},{"attributes":{"formatter":{"id":"30914","type":"FuncTickFormatter"},"minor_tick_line_color":{"value":null},"ticker":{"id":"30735","type":"BasicTicker"}},"id":"30734","type":"LinearAxis"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_dash":[6],"line_width":2,"x":{"field":"month"},"y":{"field":"pass"}},"id":"30780","type":"Line"},{"attributes":{"source":{"id":"30859","type":"ColumnDataSource"}},"id":"30864","type":"CDSView"},{"attributes":{},"id":"30881","type":"Selection"},{"attributes":{"source":{"id":"30777","type":"ColumnDataSource"}},"id":"30782","type":"CDSView"},{"attributes":{},"id":"30730","type":"LinearScale"},{"attributes":{},"id":"30909","type":"Selection"},{"attributes":{"callback":null,"data":{"month":[1,2,3,4,5],"pass":{"__ndarray__":"AAAAQNWNWEEAAAAAc0hXQQAAAIBNhkpBAAAAAIipBkEAAAAA3FgYQQ==","dtype":"float64","shape":[5]}},"selected":{"id":"30934","type":"Selection"},"selection_policy":{"id":"30933","type":"UnionRenderers"}},"id":"30885","type":"ColumnDataSource"},{"attributes":{"line_color":"green","line_dash":[6],"line_width":2,"x":{"field":"month"},"y":{"field":"pass"}},"id":"30749","type":"Line"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"month"},"y":{"field":"pass"}},"id":"30888","type":"Line"},{"attributes":{"callback":null,"end":5.2,"start":0.8},"id":"30726","type":"Range1d"},{"attributes":{"source":{"id":"30795","type":"ColumnDataSource"}},"id":"30800","type":"CDSView"},{"attributes":{},"id":"30933","type":"UnionRenderers"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"month"},"y":{"field":"pass"}},"id":"30798","type":"Line"},{"attributes":{"callback":null,"renderers":[{"id":"30751","type":"GlyphRenderer"}],"tooltips":[["Airline","WN"],["Year","2019"],["Passengers","@pass{,f}"]]},"id":"30760","type":"HoverTool"},{"attributes":{},"id":"30934","type":"Selection"},{"attributes":{"data_source":{"id":"30795","type":"ColumnDataSource"},"glyph":{"id":"30797","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"30798","type":"Line"},"selection_glyph":null,"view":{"id":"30800","type":"CDSView"}},"id":"30799","type":"GlyphRenderer"},{"attributes":{},"id":"30732","type":"LinearScale"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_dash":[6],"line_width":2,"x":{"field":"month"},"y":{"field":"pass"}},"id":"30862","type":"Line"},{"attributes":{},"id":"30744","type":"ResetTool"},{"attributes":{"source":{"id":"30762","type":"ColumnDataSource"}},"id":"30767","type":"CDSView"},{"attributes":{},"id":"30774","type":"Selection"},{"attributes":{"line_color":"green","line_width":2,"x":{"field":"month"},"y":{"field":"pass"}},"id":"30764","type":"Line"},{"attributes":{"label":{"value":"DL"},"renderers":[{"id":"30818","type":"GlyphRenderer"},{"id":"30840","type":"GlyphRenderer"}]},"id":"30833","type":"LegendItem"},{"attributes":{"data_source":{"id":"30859","type":"ColumnDataSource"},"glyph":{"id":"30861","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"30862","type":"Line"},"selection_glyph":null,"view":{"id":"30864","type":"CDSView"}},"id":"30863","type":"GlyphRenderer"},{"attributes":{"callback":null,"data":{"month":[1,2,3,4,5],"pass":{"__ndarray__":"AAAAYF7TYkEAAACAmiRiQQAAAEABd1RBAAAAAMRTI0EAAAAAqVw5QQ==","dtype":"float64","shape":[5]}},"selected":{"id":"30832","type":"Selection"},"selection_policy":{"id":"30831","type":"UnionRenderers"}},"id":"30795","type":"ColumnDataSource"},{"attributes":{"callback":null,"renderers":[{"id":"30889","type":"GlyphRenderer"}],"tooltips":[["Airline","UA"],["Year","2020"],["Passengers","@pass{,f}"]]},"id":"30910","type":"HoverTool"},{"attributes":{"data_source":{"id":"30814","type":"ColumnDataSource"},"glyph":{"id":"30816","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"30817","type":"Line"},"selection_glyph":null,"view":{"id":"30819","type":"CDSView"}},"id":"30818","type":"GlyphRenderer"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_dash":[6],"line_width":2,"x":{"field":"month"},"y":{"field":"pass"}},"id":"30750","type":"Line"},{"attributes":{"callback":null,"data":{"month":[1,2,3,4,5],"pass":{"__ndarray__":"AAAAoO+lZkEAAAAAj9xlQQAAAMAQT1hBAAAAAHxkIEEAAAAA9hw9QQ==","dtype":"float64","shape":[5]}},"selected":{"id":"30791","type":"Selection"},"selection_policy":{"id":"30790","type":"UnionRenderers"}},"id":"30762","type":"ColumnDataSource"},{"attributes":{},"id":"30831","type":"UnionRenderers"},{"attributes":{"data_source":{"id":"30747","type":"ColumnDataSource"},"glyph":{"id":"30749","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"30750","type":"Line"},"selection_glyph":null,"view":{"id":"30752","type":"CDSView"}},"id":"30751","type":"GlyphRenderer"},{"attributes":{"callback":null,"data":{"month":[1,2,3,4,5],"pass":{"__ndarray__":"AAAAwAZAYkEAAABgKadhQQAAAEBR0WRBAAAAQHJzY0EAAAAgehFlQQ==","dtype":"float64","shape":[5]}},"selected":{"id":"30811","type":"Selection"},"selection_policy":{"id":"30810","type":"UnionRenderers"}},"id":"30777","type":"ColumnDataSource"},{"attributes":{"label":{"value":"UA"},"renderers":[{"id":"30863","type":"GlyphRenderer"},{"id":"30889","type":"GlyphRenderer"}]},"id":"30882","type":"LegendItem"},{"attributes":{"line_color":"red","line_width":2,"x":{"field":"month"},"y":{"field":"pass"}},"id":"30838","type":"Line"},{"attributes":{"axis_label":"Passengers","formatter":{"id":"30912","type":"NumeralTickFormatter"},"ticker":{"id":"30740","type":"BasicTicker"}},"id":"30739","type":"LinearAxis"},{"attributes":{"callback":null,"start":0},"id":"30728","type":"DataRange1d"},{"attributes":{"data_source":{"id":"30885","type":"ColumnDataSource"},"glyph":{"id":"30887","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"30888","type":"Line"},"selection_glyph":null,"view":{"id":"30890","type":"CDSView"}},"id":"30889","type":"GlyphRenderer"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"30744","type":"ResetTool"},{"id":"30760","type":"HoverTool"},{"id":"30775","type":"HoverTool"},{"id":"30793","type":"HoverTool"},{"id":"30812","type":"HoverTool"},{"id":"30834","type":"HoverTool"},{"id":"30857","type":"HoverTool"},{"id":"30883","type":"HoverTool"},{"id":"30910","type":"HoverTool"}]},"id":"30745","type":"Toolbar"},{"attributes":{"line_color":"blue","line_width":2,"x":{"field":"month"},"y":{"field":"pass"}},"id":"30797","type":"Line"},{"attributes":{"callback":null,"data":{"month":[1,2,3,4,5],"pass":{"__ndarray__":"AAAAoMO4YUEAAABA/fpgQQAAAIDedWZBAAAAQMGDZUEAAACA8gZnQQ==","dtype":"float64","shape":[5]}},"selected":{"id":"30856","type":"Selection"},"selection_policy":{"id":"30855","type":"UnionRenderers"}},"id":"30814","type":"ColumnDataSource"},{"attributes":{"callback":null,"renderers":[{"id":"30766","type":"GlyphRenderer"}],"tooltips":[["Airline","WN"],["Year","2020"],["Passengers","@pass{,f}"]]},"id":"30775","type":"HoverTool"},{"attributes":{"data_source":{"id":"30777","type":"ColumnDataSource"},"glyph":{"id":"30779","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"30780","type":"Line"},"selection_glyph":null,"view":{"id":"30782","type":"CDSView"}},"id":"30781","type":"GlyphRenderer"},{"attributes":{"callback":null,"data":{"month":[1,2,3,4,5],"pass":{"__ndarray__":"AAAAwFafY0EAAACgaw5jQQAAAABB/lRBAAAAANicG0EAAAAAGMIpQQ==","dtype":"float64","shape":[5]}},"selected":{"id":"30881","type":"Selection"},"selection_policy":{"id":"30880","type":"UnionRenderers"}},"id":"30836","type":"ColumnDataSource"},{"attributes":{"below":[{"id":"30734","type":"LinearAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"30738","type":"Grid"},{"id":"30743","type":"Grid"},{"id":"30758","type":"Legend"}],"left":[{"id":"30739","type":"LinearAxis"}],"plot_height":425,"renderers":[{"id":"30751","type":"GlyphRenderer"},{"id":"30766","type":"GlyphRenderer"},{"id":"30781","type":"GlyphRenderer"},{"id":"30799","type":"GlyphRenderer"},{"id":"30818","type":"GlyphRenderer"},{"id":"30840","type":"GlyphRenderer"},{"id":"30863","type":"GlyphRenderer"},{"id":"30889","type":"GlyphRenderer"}],"title":{"id":"30724","type":"Title"},"toolbar":{"id":"30745","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"30726","type":"Range1d"},"x_scale":{"id":"30730","type":"LinearScale"},"y_range":{"id":"30728","type":"DataRange1d"},"y_scale":{"id":"30732","type":"LinearScale"}},"id":"30723","subtype":"Figure","type":"Plot"},{"attributes":{"callback":null,"renderers":[{"id":"30818","type":"GlyphRenderer"}],"tooltips":[["Airline","DL"],["Year","2019"],["Passengers","@pass{,f}"]]},"id":"30834","type":"HoverTool"},{"attributes":{},"id":"30810","type":"UnionRenderers"},{"attributes":{"callback":null,"renderers":[{"id":"30840","type":"GlyphRenderer"}],"tooltips":[["Airline","DL"],["Year","2020"],["Passengers","@pass{,f}"]]},"id":"30857","type":"HoverTool"},{"attributes":{"line_color":"#a88f32","line_width":2,"x":{"field":"month"},"y":{"field":"pass"}},"id":"30887","type":"Line"},{"attributes":{"label":{"value":"AA"},"renderers":[{"id":"30781","type":"GlyphRenderer"},{"id":"30799","type":"GlyphRenderer"}]},"id":"30792","type":"LegendItem"}],"root_ids":["30723"]},"title":"Bokeh Application","version":"1.4.0"}}
+</script>
+<script type="text/javascript">
+  (function() {
+    var fn = function() {
+      Bokeh.safely(function() {
+        (function(root) {
+          function embed_document(root) {
+            
+          var docs_json = document.getElementById('31144').textContent;
+          var render_items = [{"docid":"d4bff561-6c09-4cd4-b322-d041a003707d","roots":{"30723":"1ce6f159-5f81-49f6-a080-d110337ea3c2"}}];
+          root.Bokeh.embed.embed_items(docs_json, render_items);
+        
+          }
+          if (root.Bokeh !== undefined) {
+            embed_document(root);
+          } else {
+            var attempts = 0;
+            var timer = setInterval(function(root) {
+              if (root.Bokeh !== undefined) {
+                clearInterval(timer);
+                embed_document(root);
+              } else {
+                attempts++;
+                if (attempts > 100) {
+                  clearInterval(timer);
+                  console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                }
+              }
+            }, 10, root)
+          }
+        })(window);
+      });
+    };
+    if (document.readyState != "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  })();
+</script>
+
+<script type="application/json" id="29882">
+  {"45f1ef3f-2353-42e1-8f27-c24f9c63890b":{"roots":{"references":[{"attributes":{"data_source":{"id":"29757","type":"ColumnDataSource"},"glyph":{"id":"29760","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"29761","type":"VBar"},"selection_glyph":null,"view":{"id":"29763","type":"CDSView"}},"id":"29762","type":"GlyphRenderer"},{"attributes":{},"id":"29730","type":"CategoricalTicker"},{"attributes":{"source":{"id":"29741","type":"ColumnDataSource"}},"id":"29747","type":"CDSView"},{"attributes":{"callback":null,"renderers":[{"id":"29762","type":"GlyphRenderer"}],"tooltips":[["Flights","@dept"],["Airport","@airport"],["% Chg","@pct_ch{0%}"]]},"id":"29772","type":"HoverTool"},{"attributes":{"label":{"value":"2019"},"renderers":[{"id":"29746","type":"GlyphRenderer"}]},"id":"29754","type":"LegendItem"},{"attributes":{},"id":"29769","type":"UnionRenderers"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"29738","type":"ResetTool"},{"id":"29755","type":"HoverTool"},{"id":"29772","type":"HoverTool"}]},"id":"29739","type":"Toolbar"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"top":{"field":"dept"},"width":{"value":0.4},"x":{"field":"airport","transform":{"id":"29742","type":"Dodge"}}},"id":"29745","type":"VBar"},{"attributes":{"callback":null,"data":{"airport":["MDW","DAL","DEN","MCO","HOU","BWI","DCA","ATL","LAS","MCI","PHX","OMA","BNA","LGA","LAX","BOS","PHL","CMH","MSP","TPA","MSY","FLL","SAT","CLE","RSW","AUS","TUL","MKE","EWR","SAN"],"dept":{"__ndarray__":"AAAAAABAc0AAAAAAAPB2QAAAAAAAAHRAAAAAAABAckAAAAAAAEBqQAAAAAAAAGFAAAAAAABga0AAAAAAAMBnQAAAAAAAIGZAAAAAAADgZUAAAAAAAABsQAAAAAAAAFxAAAAAAABgYUAAAAAAAABkQAAAAAAAQGFAAAAAAABAY0AAAAAAAMBeQAAAAAAAAFVAAAAAAADAWEAAAAAAAKBhQAAAAAAAQGBAAAAAAADAXUAAAAAAAEBaQAAAAAAAQF9AAAAAAADgYUAAAAAAAEBaQAAAAAAAwFlAAAAAAAAAWUAAAAAAAAD4fwAAAAAAgFpA","dtype":"float64","shape":[30]},"pct_ch":{"__ndarray__":"HEyRz7rBpD8EBw4cOHDQP4TWnInY8tA/sXpYPawe1j+SJEmSJEmyP8rEle4NKLO/J5tssskmuz9bv1Kg1q+kvxQUFBQUFMQ/bhCcyoRtsL/jVihuheLWPyI1wXgr+6w/h9QE463s0z8C3Zinj1bDP8IU+awbTLG/XvyJhFOatz/4M+HPhD+zv5IkSZIkScK/Ffji6gcdlT8lSZIkSZLQPzAbNPmyQcM/HYGirQbPoT8eHh4eHh6eP/hGFJh0as4/CAQCgUAgwD+amZmZmZmpP/vZYmX4RpQ/+9liZfhGhL8AAAAAAADwvzkFL6fg5bQ/","dtype":"float64","shape":[30]}},"selected":{"id":"29782","type":"Selection"},"selection_policy":{"id":"29781","type":"UnionRenderers"}},"id":"29757","type":"ColumnDataSource"},{"attributes":{"data_source":{"id":"29741","type":"ColumnDataSource"},"glyph":{"id":"29744","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"29745","type":"VBar"},"selection_glyph":null,"view":{"id":"29747","type":"CDSView"}},"id":"29746","type":"GlyphRenderer"},{"attributes":{"callback":null,"data":{"airport":["MDW","DAL","DEN","MCO","HOU","BWI","DCA","ATL","LAS","MCI","PHX","OMA","BNA","LGA","LAX","BOS","PHL","CMH","MSP","TPA","MSY","FLL","SAT","CLE","RSW","AUS","TUL","MKE","EWR","SAN"],"dept":{"__ndarray__":"AAAAAACAckAAAAAAAEByQAAAAAAAoG9AAAAAAAAga0AAAAAAAIBoQAAAAAAAYGJAAAAAAADAaEAAAAAAAMBoQAAAAAAAIGNAAAAAAABgZ0AAAAAAAKBkQAAAAAAAgFpAAAAAAACAWkAAAAAAAGBhQAAAAAAAgGJAAAAAAACgYUAAAAAAAKBgQAAAAAAAgFhAAAAAAABAWEAAAAAAAABcQAAAAAAAQFxAAAAAAADAXEAAAAAAAIBZQAAAAAAAQFlAAAAAAADAX0AAAAAAAABZQAAAAAAAQFlAAAAAAABAWUAAAAAAAABaQAAAAAAAgFhA","dtype":"float64","shape":[30]},"pct_ch":{"__ndarray__":"HEyRz7rBpD8EBw4cOHDQP4TWnInY8tA/sXpYPawe1j+SJEmSJEmyP8rEle4NKLO/J5tssskmuz9bv1Kg1q+kvxQUFBQUFMQ/bhCcyoRtsL/jVihuheLWPyI1wXgr+6w/h9QE463s0z8C3Zinj1bDP8IU+awbTLG/XvyJhFOatz/4M+HPhD+zv5IkSZIkScK/Ffji6gcdlT8lSZIkSZLQPzAbNPmyQcM/HYGirQbPoT8eHh4eHh6eP/hGFJh0as4/CAQCgUAgwD+amZmZmZmpP/vZYmX4RpQ/+9liZfhGhL8AAAAAAADwvzkFL6fg5bQ/","dtype":"float64","shape":[30]}},"selected":{"id":"29770","type":"Selection"},"selection_policy":{"id":"29769","type":"UnionRenderers"}},"id":"29741","type":"ColumnDataSource"},{"attributes":{},"id":"29738","type":"ResetTool"},{"attributes":{"axis_label":"Monthly Flights","formatter":{"id":"29750","type":"BasicTickFormatter"},"ticker":{"id":"29734","type":"BasicTicker"}},"id":"29733","type":"LinearAxis"},{"attributes":{},"id":"29727","type":"LinearScale"},{"attributes":{"callback":null,"start":0},"id":"29723","type":"DataRange1d"},{"attributes":{},"id":"29781","type":"UnionRenderers"},{"attributes":{},"id":"29725","type":"CategoricalScale"},{"attributes":{"callback":null,"renderers":[{"id":"29746","type":"GlyphRenderer"}],"tooltips":[["Flights","@dept"],["Airport","@airport"],["% Chg","@pct_ch{0%}"]]},"id":"29755","type":"HoverTool"},{"attributes":{"range":{"id":"29721","type":"FactorRange"},"value":-0.22},"id":"29742","type":"Dodge"},{"attributes":{},"id":"29782","type":"Selection"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"top":{"field":"dept"},"width":{"value":0.4},"x":{"field":"airport","transform":{"id":"29758","type":"Dodge"}}},"id":"29761","type":"VBar"},{"attributes":{},"id":"29750","type":"BasicTickFormatter"},{"attributes":{"fill_alpha":{"value":0.8},"fill_color":{"value":"#ff7f0e"},"line_alpha":{"value":0.8},"line_color":{"value":"#ff7f0e"},"top":{"field":"dept"},"width":{"value":0.4},"x":{"field":"airport","transform":{"id":"29758","type":"Dodge"}}},"id":"29760","type":"VBar"},{"attributes":{"dimension":1,"ticker":{"id":"29734","type":"BasicTicker"}},"id":"29737","type":"Grid"},{"attributes":{"items":[{"id":"29754","type":"LegendItem"},{"id":"29771","type":"LegendItem"}]},"id":"29753","type":"Legend"},{"attributes":{"callback":null,"factors":["MDW","DAL","DEN","MCO","HOU","BWI","DCA","ATL","LAS","MCI","PHX","OMA","BNA","LGA","LAX","BOS","PHL","CMH","MSP","TPA","MSY","FLL","SAT","CLE","RSW","AUS","TUL","MKE","EWR","SAN"]},"id":"29721","type":"FactorRange"},{"attributes":{},"id":"29734","type":"BasicTicker"},{"attributes":{"below":[{"id":"29729","type":"CategoricalAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"29732","type":"Grid"},{"id":"29737","type":"Grid"},{"id":"29753","type":"Legend"}],"left":[{"id":"29733","type":"LinearAxis"}],"plot_height":375,"plot_width":850,"renderers":[{"id":"29746","type":"GlyphRenderer"},{"id":"29762","type":"GlyphRenderer"}],"title":{"id":"29719","type":"Title"},"toolbar":{"id":"29739","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"29721","type":"FactorRange"},"x_scale":{"id":"29725","type":"CategoricalScale"},"y_range":{"id":"29723","type":"DataRange1d"},"y_scale":{"id":"29727","type":"LinearScale"}},"id":"29718","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"29752","type":"CategoricalTickFormatter"},{"attributes":{"grid_line_color":null,"ticker":{"id":"29730","type":"CategoricalTicker"}},"id":"29732","type":"Grid"},{"attributes":{"formatter":{"id":"29752","type":"CategoricalTickFormatter"},"ticker":{"id":"29730","type":"CategoricalTicker"}},"id":"29729","type":"CategoricalAxis"},{"attributes":{},"id":"29770","type":"Selection"},{"attributes":{"fill_alpha":{"value":0.8},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.8},"line_color":{"value":"#1f77b4"},"top":{"field":"dept"},"width":{"value":0.4},"x":{"field":"airport","transform":{"id":"29742","type":"Dodge"}}},"id":"29744","type":"VBar"},{"attributes":{"label":{"value":"2020"},"renderers":[{"id":"29762","type":"GlyphRenderer"}]},"id":"29771","type":"LegendItem"},{"attributes":{"range":{"id":"29721","type":"FactorRange"},"value":0.22},"id":"29758","type":"Dodge"},{"attributes":{"text":"February Flights to/from STL 2019 v 2020"},"id":"29719","type":"Title"},{"attributes":{"source":{"id":"29757","type":"ColumnDataSource"}},"id":"29763","type":"CDSView"}],"root_ids":["29718"]},"title":"Bokeh Application","version":"1.4.0"}}
+</script>
+<script type="text/javascript">
+  (function() {
+    var fn = function() {
+      Bokeh.safely(function() {
+        (function(root) {
+          function embed_document(root) {
+            
+          var docs_json = document.getElementById('29882').textContent;
+          var render_items = [{"docid":"45f1ef3f-2353-42e1-8f27-c24f9c63890b","roots":{"29718":"9c00749e-9bc6-4ec1-bdb6-790f878185a7"}}];
+          root.Bokeh.embed.embed_items(docs_json, render_items);
+        
+          }
+          if (root.Bokeh !== undefined) {
+            embed_document(root);
+          } else {
+            var attempts = 0;
+            var timer = setInterval(function(root) {
+              if (root.Bokeh !== undefined) {
+                clearInterval(timer);
+                embed_document(root);
+              } else {
+                attempts++;
+                if (attempts > 100) {
+                  clearInterval(timer);
+                  console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                }
+              }
+            }, 10, root)
+          }
+        })(window);
+      });
+    };
+    if (document.readyState != "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  })();
+</script>
+
+<script type="application/json" id="30047">
+  {"47768f8a-91fa-4e43-9e30-d7d8ccd43835":{"roots":{"references":[{"attributes":{"source":{"id":"29922","type":"ColumnDataSource"}},"id":"29928","type":"CDSView"},{"attributes":{"data_source":{"id":"29922","type":"ColumnDataSource"},"glyph":{"id":"29925","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"29926","type":"VBar"},"selection_glyph":null,"view":{"id":"29928","type":"CDSView"}},"id":"29927","type":"GlyphRenderer"},{"attributes":{},"id":"29934","type":"UnionRenderers"},{"attributes":{},"id":"29947","type":"Selection"},{"attributes":{"source":{"id":"29906","type":"ColumnDataSource"}},"id":"29912","type":"CDSView"},{"attributes":{"callback":null,"data":{"airport":["MDW","DAL","DEN","MCO","HOU","BWI","DCA","ATL","LAS","MCI","PHX","OMA","BNA","LGA","LAX","BOS","PHL","CMH","MSP","TPA","MSY","FLL","SAT","CLE","RSW","AUS","TUL","MKE","EWR","SAN"],"dept":{"__ndarray__":"AAAAAABQcEAAAAAAAIB0QAAAAAAAEHJAAAAAAAAAckAAAAAAACBnQAAAAAAAoGZAAAAAAACAakAAAAAAAGBoQAAAAAAAIGNAAAAAAADgY0AAAAAAAABrQAAAAAAAwFxAAAAAAABAY0AAAAAAACBiQAAAAAAAoGBAAAAAAADAXkAAAAAAAABcQAAAAAAAAExAAAAAAAAAWEAAAAAAAKBkQAAAAAAAgFxAAAAAAACgZEAAAAAAAMBZQAAAAAAAgF5AAAAAAADgYkAAAAAAAABYQAAAAAAAwFpAAAAAAADAWUAAAAAAAAD4fwAAAAAAQFlA","dtype":"float64","shape":[30]},"pct_ch":{"__ndarray__":"rQBNShbt078AAAAAAAAAAOHOi9TxALE/PGhxqPKvr79t1Hc26jvLv5lbnZGKucW/reDwhRQBu78eHh4eHh6+v5eAS8Al4NK/iWxENiIb0b/BeCv7HFKTPx+D8zE4H9O/v/aQy4qBsr9kN5HdRHbDv0dT59cecsm/vvBeeC+8x79eQ3kN5TXEv34E9xHcR+C/kiRJkiRJwr/nnHPOOee8v7pJDAIrh7a/K1nJSlaysr8RyDURyDXBv7dt27Zt27Y/uRWKW6G4tb9eQ3kN5TXEvwT3EdxHcK+/OovpLKazuL8AAAAAAADwvxQ4gRM4gaO/","dtype":"float64","shape":[30]}},"selected":{"id":"29947","type":"Selection"},"selection_policy":{"id":"29946","type":"UnionRenderers"}},"id":"29922","type":"ColumnDataSource"},{"attributes":{"data_source":{"id":"29906","type":"ColumnDataSource"},"glyph":{"id":"29909","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"29910","type":"VBar"},"selection_glyph":null,"view":{"id":"29912","type":"CDSView"}},"id":"29911","type":"GlyphRenderer"},{"attributes":{},"id":"29946","type":"UnionRenderers"},{"attributes":{"callback":null,"factors":["MDW","DAL","DEN","MCO","HOU","BWI","DCA","ATL","LAS","MCI","PHX","OMA","BNA","LGA","LAX","BOS","PHL","CMH","MSP","TPA","MSY","FLL","SAT","CLE","RSW","AUS","TUL","MKE","EWR","SAN"]},"id":"29886","type":"FactorRange"},{"attributes":{"axis_label":"Monthly Flights","formatter":{"id":"29915","type":"BasicTickFormatter"},"ticker":{"id":"29899","type":"BasicTicker"}},"id":"29898","type":"LinearAxis"},{"attributes":{"grid_line_color":null,"ticker":{"id":"29895","type":"CategoricalTicker"}},"id":"29897","type":"Grid"},{"attributes":{"range":{"id":"29886","type":"FactorRange"},"value":-0.22},"id":"29907","type":"Dodge"},{"attributes":{},"id":"29899","type":"BasicTicker"},{"attributes":{},"id":"29935","type":"Selection"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"top":{"field":"dept"},"width":{"value":0.4},"x":{"field":"airport","transform":{"id":"29907","type":"Dodge"}}},"id":"29910","type":"VBar"},{"attributes":{},"id":"29890","type":"CategoricalScale"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"29903","type":"ResetTool"},{"id":"29920","type":"HoverTool"},{"id":"29937","type":"HoverTool"}]},"id":"29904","type":"Toolbar"},{"attributes":{"dimension":1,"ticker":{"id":"29899","type":"BasicTicker"}},"id":"29902","type":"Grid"},{"attributes":{},"id":"29917","type":"CategoricalTickFormatter"},{"attributes":{"formatter":{"id":"29917","type":"CategoricalTickFormatter"},"ticker":{"id":"29895","type":"CategoricalTicker"}},"id":"29894","type":"CategoricalAxis"},{"attributes":{"callback":null,"start":0},"id":"29888","type":"DataRange1d"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"top":{"field":"dept"},"width":{"value":0.4},"x":{"field":"airport","transform":{"id":"29923","type":"Dodge"}}},"id":"29926","type":"VBar"},{"attributes":{"callback":null,"data":{"airport":["MDW","DAL","DEN","MCO","HOU","BWI","DCA","ATL","LAS","MCI","PHX","OMA","BNA","LGA","LAX","BOS","PHL","CMH","MSP","TPA","MSY","FLL","SAT","CLE","RSW","AUS","TUL","MKE","EWR","SAN"],"dept":{"__ndarray__":"AAAAAACwd0AAAAAAAIB0QAAAAAAA8HBAAAAAAAAwc0AAAAAAAGBtQAAAAAAAQGtAAAAAAACgbUAAAAAAAKBrQAAAAAAAIGtAAAAAAAAga0AAAAAAAIBqQAAAAAAAgGRAAAAAAADAZEAAAAAAAGBlQAAAAAAAwGRAAAAAAADgYkAAAAAAAKBgQAAAAAAAgFxAAAAAAAAAXEAAAAAAAEBnQAAAAAAAQF9AAAAAAABAZkAAAAAAAMBdQAAAAAAAAFxAAAAAAACgZEAAAAAAAIBcQAAAAAAAgFxAAAAAAACAXEAAAAAAAABcQAAAAAAAQFpA","dtype":"float64","shape":[30]},"pct_ch":{"__ndarray__":"rQBNShbt078AAAAAAAAAAOHOi9TxALE/PGhxqPKvr79t1Hc26jvLv5lbnZGKucW/reDwhRQBu78eHh4eHh6+v5eAS8Al4NK/iWxENiIb0b/BeCv7HFKTPx+D8zE4H9O/v/aQy4qBsr9kN5HdRHbDv0dT59cecsm/vvBeeC+8x79eQ3kN5TXEv34E9xHcR+C/kiRJkiRJwr/nnHPOOee8v7pJDAIrh7a/K1nJSlaysr8RyDURyDXBv7dt27Zt27Y/uRWKW6G4tb9eQ3kN5TXEvwT3EdxHcK+/OovpLKazuL8AAAAAAADwvxQ4gRM4gaO/","dtype":"float64","shape":[30]}},"selected":{"id":"29935","type":"Selection"},"selection_policy":{"id":"29934","type":"UnionRenderers"}},"id":"29906","type":"ColumnDataSource"},{"attributes":{},"id":"29895","type":"CategoricalTicker"},{"attributes":{},"id":"29903","type":"ResetTool"},{"attributes":{"callback":null,"renderers":[{"id":"29911","type":"GlyphRenderer"}],"tooltips":[["Flights","@dept"],["Airport","@airport"],["% Chg","@pct_ch{0%}"]]},"id":"29920","type":"HoverTool"},{"attributes":{},"id":"29892","type":"LinearScale"},{"attributes":{"fill_alpha":{"value":0.8},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.8},"line_color":{"value":"#1f77b4"},"top":{"field":"dept"},"width":{"value":0.4},"x":{"field":"airport","transform":{"id":"29907","type":"Dodge"}}},"id":"29909","type":"VBar"},{"attributes":{},"id":"29915","type":"BasicTickFormatter"},{"attributes":{"callback":null,"renderers":[{"id":"29927","type":"GlyphRenderer"}],"tooltips":[["Flights","@dept"],["Airport","@airport"],["% Chg","@pct_ch{0%}"]]},"id":"29937","type":"HoverTool"},{"attributes":{"below":[{"id":"29894","type":"CategoricalAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"29897","type":"Grid"},{"id":"29902","type":"Grid"},{"id":"29918","type":"Legend"}],"left":[{"id":"29898","type":"LinearAxis"}],"plot_height":375,"plot_width":850,"renderers":[{"id":"29911","type":"GlyphRenderer"},{"id":"29927","type":"GlyphRenderer"}],"title":{"id":"29884","type":"Title"},"toolbar":{"id":"29904","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"29886","type":"FactorRange"},"x_scale":{"id":"29890","type":"CategoricalScale"},"y_range":{"id":"29888","type":"DataRange1d"},"y_scale":{"id":"29892","type":"LinearScale"}},"id":"29883","subtype":"Figure","type":"Plot"},{"attributes":{"label":{"value":"2019"},"renderers":[{"id":"29911","type":"GlyphRenderer"}]},"id":"29919","type":"LegendItem"},{"attributes":{"label":{"value":"2020"},"renderers":[{"id":"29927","type":"GlyphRenderer"}]},"id":"29936","type":"LegendItem"},{"attributes":{"text":"March Flights to/from STL 2019 v 2020"},"id":"29884","type":"Title"},{"attributes":{"fill_alpha":{"value":0.8},"fill_color":{"value":"#ff7f0e"},"line_alpha":{"value":0.8},"line_color":{"value":"#ff7f0e"},"top":{"field":"dept"},"width":{"value":0.4},"x":{"field":"airport","transform":{"id":"29923","type":"Dodge"}}},"id":"29925","type":"VBar"},{"attributes":{"range":{"id":"29886","type":"FactorRange"},"value":0.22},"id":"29923","type":"Dodge"},{"attributes":{"items":[{"id":"29919","type":"LegendItem"},{"id":"29936","type":"LegendItem"}]},"id":"29918","type":"Legend"}],"root_ids":["29883"]},"title":"Bokeh Application","version":"1.4.0"}}
+</script>
+<script type="text/javascript">
+  (function() {
+    var fn = function() {
+      Bokeh.safely(function() {
+        (function(root) {
+          function embed_document(root) {
+            
+          var docs_json = document.getElementById('30047').textContent;
+          var render_items = [{"docid":"47768f8a-91fa-4e43-9e30-d7d8ccd43835","roots":{"29883":"8d005d51-62c4-49a2-9796-03934343c9d2"}}];
+          root.Bokeh.embed.embed_items(docs_json, render_items);
+        
+          }
+          if (root.Bokeh !== undefined) {
+            embed_document(root);
+          } else {
+            var attempts = 0;
+            var timer = setInterval(function(root) {
+              if (root.Bokeh !== undefined) {
+                clearInterval(timer);
+                embed_document(root);
+              } else {
+                attempts++;
+                if (attempts > 100) {
+                  clearInterval(timer);
+                  console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                }
+              }
+            }, 10, root)
+          }
+        })(window);
+      });
+    };
+    if (document.readyState != "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  })();
+</script>
+
+<script type="application/json" id="30212">
+  {"8809db78-e9c9-469f-806c-0fb8c3e02d60":{"roots":{"references":[{"attributes":{"label":{"value":"2019"},"renderers":[{"id":"30076","type":"GlyphRenderer"}]},"id":"30084","type":"LegendItem"},{"attributes":{},"id":"30111","type":"UnionRenderers"},{"attributes":{"callback":null,"factors":["MDW","DAL","DEN","MCO","HOU","BWI","DCA","ATL","LAS","MCI","PHX","OMA","BNA","LGA","LAX","BOS","PHL","CMH","MSP","TPA","MSY","FLL","SAT","CLE","RSW","AUS","TUL","MKE","EWR","SAN"]},"id":"30051","type":"FactorRange"},{"attributes":{"items":[{"id":"30084","type":"LegendItem"},{"id":"30101","type":"LegendItem"}]},"id":"30083","type":"Legend"},{"attributes":{"callback":null,"renderers":[{"id":"30092","type":"GlyphRenderer"}],"tooltips":[["Flights","@dept"],["Airport","@airport"],["% Chg","@pct_ch{0%}"]]},"id":"30102","type":"HoverTool"},{"attributes":{"callback":null,"data":{"airport":["MDW","DAL","DEN","MCO","HOU","BWI","DCA","ATL","LAS","MCI","PHX","OMA","BNA","LGA","LAX","BOS","PHL","CMH","MSP","TPA","MSY","FLL","SAT","CLE","RSW","AUS","TUL","MKE","EWR","SAN"],"dept":{"__ndarray__":"AAAAAAAgYkAAAAAAAMBjQAAAAAAAQGNAAAAAAADAZEAAAAAAAEBQQAAAAAAAwF5AAAAAAAAAUUAAAAAAAIBXQAAAAAAAwFpAAAAAAAAAT0AAAAAAAEBYQAAAAAAAAFBAAAAAAACATkAAAAAAAIBNQAAAAAAAAFJAAAAAAAAAVEAAAAAAAABVQAAAAAAAAD5AAAAAAACAQUAAAAAAAABUQAAAAAAAgEpAAAAAAADAUEAAAAAAAABKQAAAAAAAgEtAAAAAAABAVEAAAAAAAIBKQAAAAAAAgEZAAAAAAACAQUAAAAAAAAD4fwAAAAAAgEJA","dtype":"float64","shape":[30]},"pct_ch":{"__ndarray__":"aY9EZXmZ5L8AAAAAAADgv2RitEre7Ny/tSVtSVvS1r8rgoaTui/nv5TXUF5Ded2/aPJlgyZf5r9tketMwODhvx1SE4y3st+/Yid2Yid25r/st9oYmu7gv/Tz8/Pz8+O/hYSEhISE5L8xDMMwDMPkvwnylCBPCeK/vjZiXXrM379ZnNHuYevbvzeYIp91g+m/Ug6IDPcq6L9vj7UMHbDbv97d3d3d3eG/PbYiaDip27+Wexphuafhv8s9jbDc0+C/LPc0wnJP078UbTV4jkDhv0mSJEmSJOO/AAAAAAAA5r8AAAAAAADwv1VVVVVVVeW/","dtype":"float64","shape":[30]}},"selected":{"id":"30112","type":"Selection"},"selection_policy":{"id":"30111","type":"UnionRenderers"}},"id":"30087","type":"ColumnDataSource"},{"attributes":{},"id":"30082","type":"CategoricalTickFormatter"},{"attributes":{"range":{"id":"30051","type":"FactorRange"},"value":0.22},"id":"30088","type":"Dodge"},{"attributes":{"source":{"id":"30071","type":"ColumnDataSource"}},"id":"30077","type":"CDSView"},{"attributes":{},"id":"30060","type":"CategoricalTicker"},{"attributes":{"label":{"value":"2020"},"renderers":[{"id":"30092","type":"GlyphRenderer"}]},"id":"30101","type":"LegendItem"},{"attributes":{"fill_alpha":{"value":0.8},"fill_color":{"value":"#ff7f0e"},"line_alpha":{"value":0.8},"line_color":{"value":"#ff7f0e"},"top":{"field":"dept"},"width":{"value":0.4},"x":{"field":"airport","transform":{"id":"30088","type":"Dodge"}}},"id":"30090","type":"VBar"},{"attributes":{},"id":"30112","type":"Selection"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"top":{"field":"dept"},"width":{"value":0.4},"x":{"field":"airport","transform":{"id":"30072","type":"Dodge"}}},"id":"30075","type":"VBar"},{"attributes":{"callback":null,"data":{"airport":["MDW","DAL","DEN","MCO","HOU","BWI","DCA","ATL","LAS","MCI","PHX","OMA","BNA","LGA","LAX","BOS","PHL","CMH","MSP","TPA","MSY","FLL","SAT","CLE","RSW","AUS","TUL","MKE","EWR","SAN"],"dept":{"__ndarray__":"AAAAAABweUAAAAAAAMBzQAAAAAAAkHFAAAAAAAAgcEAAAAAAAIBtQAAAAAAAgGxAAAAAAABAbEAAAAAAAKBqQAAAAAAAgGpAAAAAAAAAakAAAAAAAMBpQAAAAAAAQGVAAAAAAABAZUAAAAAAAABlQAAAAAAAoGRAAAAAAADgY0AAAAAAAKBiQAAAAAAAgGJAAAAAAADgYUAAAAAAAKBhQAAAAAAAAF5AAAAAAACAXUAAAAAAAABdQAAAAAAAAF1AAAAAAAAAXUAAAAAAAMBcQAAAAAAAAFxAAAAAAAAAXEAAAAAAAMBbQAAAAAAAwFtA","dtype":"float64","shape":[30]},"pct_ch":{"__ndarray__":"aY9EZXmZ5L8AAAAAAADgv2RitEre7Ny/tSVtSVvS1r8rgoaTui/nv5TXUF5Ded2/aPJlgyZf5r9tketMwODhvx1SE4y3st+/Yid2Yid25r/st9oYmu7gv/Tz8/Pz8+O/hYSEhISE5L8xDMMwDMPkvwnylCBPCeK/vjZiXXrM379ZnNHuYevbvzeYIp91g+m/Ug6IDPcq6L9vj7UMHbDbv97d3d3d3eG/PbYiaDip27+Wexphuafhv8s9jbDc0+C/LPc0wnJP078UbTV4jkDhv0mSJEmSJOO/AAAAAAAA5r8AAAAAAADwv1VVVVVVVeW/","dtype":"float64","shape":[30]}},"selected":{"id":"30100","type":"Selection"},"selection_policy":{"id":"30099","type":"UnionRenderers"}},"id":"30071","type":"ColumnDataSource"},{"attributes":{},"id":"30080","type":"BasicTickFormatter"},{"attributes":{"dimension":1,"ticker":{"id":"30064","type":"BasicTicker"}},"id":"30067","type":"Grid"},{"attributes":{"callback":null,"renderers":[{"id":"30076","type":"GlyphRenderer"}],"tooltips":[["Flights","@dept"],["Airport","@airport"],["% Chg","@pct_ch{0%}"]]},"id":"30085","type":"HoverTool"},{"attributes":{"formatter":{"id":"30082","type":"CategoricalTickFormatter"},"ticker":{"id":"30060","type":"CategoricalTicker"}},"id":"30059","type":"CategoricalAxis"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"30068","type":"ResetTool"},{"id":"30085","type":"HoverTool"},{"id":"30102","type":"HoverTool"}]},"id":"30069","type":"Toolbar"},{"attributes":{"data_source":{"id":"30087","type":"ColumnDataSource"},"glyph":{"id":"30090","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"30091","type":"VBar"},"selection_glyph":null,"view":{"id":"30093","type":"CDSView"}},"id":"30092","type":"GlyphRenderer"},{"attributes":{},"id":"30064","type":"BasicTicker"},{"attributes":{},"id":"30055","type":"CategoricalScale"},{"attributes":{},"id":"30057","type":"LinearScale"},{"attributes":{"source":{"id":"30087","type":"ColumnDataSource"}},"id":"30093","type":"CDSView"},{"attributes":{},"id":"30100","type":"Selection"},{"attributes":{"fill_alpha":{"value":0.8},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.8},"line_color":{"value":"#1f77b4"},"top":{"field":"dept"},"width":{"value":0.4},"x":{"field":"airport","transform":{"id":"30072","type":"Dodge"}}},"id":"30074","type":"VBar"},{"attributes":{"callback":null,"start":0},"id":"30053","type":"DataRange1d"},{"attributes":{},"id":"30099","type":"UnionRenderers"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"top":{"field":"dept"},"width":{"value":0.4},"x":{"field":"airport","transform":{"id":"30088","type":"Dodge"}}},"id":"30091","type":"VBar"},{"attributes":{"grid_line_color":null,"ticker":{"id":"30060","type":"CategoricalTicker"}},"id":"30062","type":"Grid"},{"attributes":{"axis_label":"Monthly Flights","formatter":{"id":"30080","type":"BasicTickFormatter"},"ticker":{"id":"30064","type":"BasicTicker"}},"id":"30063","type":"LinearAxis"},{"attributes":{"data_source":{"id":"30071","type":"ColumnDataSource"},"glyph":{"id":"30074","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"30075","type":"VBar"},"selection_glyph":null,"view":{"id":"30077","type":"CDSView"}},"id":"30076","type":"GlyphRenderer"},{"attributes":{"range":{"id":"30051","type":"FactorRange"},"value":-0.22},"id":"30072","type":"Dodge"},{"attributes":{"below":[{"id":"30059","type":"CategoricalAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"30062","type":"Grid"},{"id":"30067","type":"Grid"},{"id":"30083","type":"Legend"}],"left":[{"id":"30063","type":"LinearAxis"}],"plot_height":375,"plot_width":850,"renderers":[{"id":"30076","type":"GlyphRenderer"},{"id":"30092","type":"GlyphRenderer"}],"title":{"id":"30049","type":"Title"},"toolbar":{"id":"30069","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"30051","type":"FactorRange"},"x_scale":{"id":"30055","type":"CategoricalScale"},"y_range":{"id":"30053","type":"DataRange1d"},"y_scale":{"id":"30057","type":"LinearScale"}},"id":"30048","subtype":"Figure","type":"Plot"},{"attributes":{"text":"April Flights to/from STL 2019 v 2020"},"id":"30049","type":"Title"},{"attributes":{},"id":"30068","type":"ResetTool"}],"root_ids":["30048"]},"title":"Bokeh Application","version":"1.4.0"}}
+</script>
+<script type="text/javascript">
+  (function() {
+    var fn = function() {
+      Bokeh.safely(function() {
+        (function(root) {
+          function embed_document(root) {
+            
+          var docs_json = document.getElementById('30212').textContent;
+          var render_items = [{"docid":"8809db78-e9c9-469f-806c-0fb8c3e02d60","roots":{"30048":"edc5669f-0ef1-42c2-bbbd-3b91a0e0ece0"}}];
+          root.Bokeh.embed.embed_items(docs_json, render_items);
+        
+          }
+          if (root.Bokeh !== undefined) {
+            embed_document(root);
+          } else {
+            var attempts = 0;
+            var timer = setInterval(function(root) {
+              if (root.Bokeh !== undefined) {
+                clearInterval(timer);
+                embed_document(root);
+              } else {
+                attempts++;
+                if (attempts > 100) {
+                  clearInterval(timer);
+                  console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                }
+              }
+            }, 10, root)
+          }
+        })(window);
+      });
+    };
+    if (document.readyState != "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  })();
+</script>
+
+<script type="application/json" id="30377">
+  {"5ceb8460-0901-4567-8285-c12e15a5ea94":{"roots":{"references":[{"attributes":{"formatter":{"id":"30247","type":"CategoricalTickFormatter"},"ticker":{"id":"30225","type":"CategoricalTicker"}},"id":"30224","type":"CategoricalAxis"},{"attributes":{},"id":"30264","type":"UnionRenderers"},{"attributes":{"fill_alpha":{"value":0.8},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.8},"line_color":{"value":"#1f77b4"},"top":{"field":"dept"},"width":{"value":0.4},"x":{"field":"airport","transform":{"id":"30237","type":"Dodge"}}},"id":"30239","type":"VBar"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"top":{"field":"dept"},"width":{"value":0.4},"x":{"field":"airport","transform":{"id":"30237","type":"Dodge"}}},"id":"30240","type":"VBar"},{"attributes":{},"id":"30229","type":"BasicTicker"},{"attributes":{},"id":"30277","type":"Selection"},{"attributes":{"fill_alpha":{"value":0.8},"fill_color":{"value":"#ff7f0e"},"line_alpha":{"value":0.8},"line_color":{"value":"#ff7f0e"},"top":{"field":"dept"},"width":{"value":0.4},"x":{"field":"airport","transform":{"id":"30253","type":"Dodge"}}},"id":"30255","type":"VBar"},{"attributes":{},"id":"30233","type":"ResetTool"},{"attributes":{"items":[{"id":"30249","type":"LegendItem"},{"id":"30266","type":"LegendItem"}]},"id":"30248","type":"Legend"},{"attributes":{},"id":"30265","type":"Selection"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"30233","type":"ResetTool"},{"id":"30250","type":"HoverTool"},{"id":"30267","type":"HoverTool"}]},"id":"30234","type":"Toolbar"},{"attributes":{"callback":null,"start":0},"id":"30218","type":"DataRange1d"},{"attributes":{},"id":"30276","type":"UnionRenderers"},{"attributes":{},"id":"30247","type":"CategoricalTickFormatter"},{"attributes":{"grid_line_color":null,"ticker":{"id":"30225","type":"CategoricalTicker"}},"id":"30227","type":"Grid"},{"attributes":{"source":{"id":"30236","type":"ColumnDataSource"}},"id":"30242","type":"CDSView"},{"attributes":{"callback":null,"data":{"airport":["MDW","DAL","DEN","MCO","HOU","BWI","DCA","ATL","LAS","MCI","PHX","OMA","BNA","LGA","LAX","BOS","PHL","CMH","MSP","TPA","MSY","FLL","SAT","CLE","RSW","AUS","TUL","MKE","EWR","SAN"],"dept":{"__ndarray__":"AAAAAACAekAAAAAAAEB0QAAAAAAAwHJAAAAAAADAckAAAAAAACBtQAAAAAAAAG1AAAAAAABAbEAAAAAAACBtQAAAAAAAIGtAAAAAAABgbEAAAAAAAOBpQAAAAAAAwGVAAAAAAABAZkAAAAAAACBlQAAAAAAAgGVAAAAAAACgZUAAAAAAAEBkQAAAAAAAoGRAAAAAAAAgZEAAAAAAAMBfQAAAAAAAgF5AAAAAAABAXEAAAAAAAMBeQAAAAAAAgF5AAAAAAADAXEAAAAAAAIBdQAAAAAAAgFxAAAAAAABAXEAAAAAAAABdQAAAAAAAwF5A","dtype":"float64","shape":[30]},"pct_ch":{"__ndarray__":"DqkJxlvZ578jZeDp1vzQvylcj8L1KNy/xpJfLPnF4r/3x7rm/ljnv8s9jbDc0+C/IBJ4+yGB57/HE77beMLnv9u2bdu2bdu/l779lYlC57/KExCdr+7hvy+QSfECmeS/U5va1KY25b8JaipEGz7vvx5xR9wRd+S/xcd9txT647/dmh8WKQPvvzl/lvNnOe+/rbMvolpn77/w9/v9fr/fv1wyBOto8+6/7BjFuY5R3L84H4PzMTjvv8UlQ7CONu+/bTV4jkDR1r+PrQgaTurevwnuI7iP4N6/f0jg7YcE3r8AAAAAAADwvyHQFAJNIeC/","dtype":"float64","shape":[30]}},"selected":{"id":"30265","type":"Selection"},"selection_policy":{"id":"30264","type":"UnionRenderers"}},"id":"30236","type":"ColumnDataSource"},{"attributes":{"text":"May Flights to/from STL 2019 v 2020"},"id":"30214","type":"Title"},{"attributes":{"source":{"id":"30252","type":"ColumnDataSource"}},"id":"30258","type":"CDSView"},{"attributes":{"axis_label":"Monthly Flights","formatter":{"id":"30245","type":"BasicTickFormatter"},"ticker":{"id":"30229","type":"BasicTicker"}},"id":"30228","type":"LinearAxis"},{"attributes":{"callback":null,"renderers":[{"id":"30257","type":"GlyphRenderer"}],"tooltips":[["Flights","@dept"],["Airport","@airport"],["% Chg","@pct_ch{0%}"]]},"id":"30267","type":"HoverTool"},{"attributes":{"range":{"id":"30216","type":"FactorRange"},"value":-0.22},"id":"30237","type":"Dodge"},{"attributes":{"below":[{"id":"30224","type":"CategoricalAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"30227","type":"Grid"},{"id":"30232","type":"Grid"},{"id":"30248","type":"Legend"}],"left":[{"id":"30228","type":"LinearAxis"}],"plot_height":375,"plot_width":850,"renderers":[{"id":"30241","type":"GlyphRenderer"},{"id":"30257","type":"GlyphRenderer"}],"title":{"id":"30214","type":"Title"},"toolbar":{"id":"30234","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"30216","type":"FactorRange"},"x_scale":{"id":"30220","type":"CategoricalScale"},"y_range":{"id":"30218","type":"DataRange1d"},"y_scale":{"id":"30222","type":"LinearScale"}},"id":"30213","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"30245","type":"BasicTickFormatter"},{"attributes":{"label":{"value":"2019"},"renderers":[{"id":"30241","type":"GlyphRenderer"}]},"id":"30249","type":"LegendItem"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"top":{"field":"dept"},"width":{"value":0.4},"x":{"field":"airport","transform":{"id":"30253","type":"Dodge"}}},"id":"30256","type":"VBar"},{"attributes":{"range":{"id":"30216","type":"FactorRange"},"value":0.22},"id":"30253","type":"Dodge"},{"attributes":{"callback":null,"data":{"airport":["MDW","DAL","DEN","MCO","HOU","BWI","DCA","ATL","LAS","MCI","PHX","OMA","BNA","LGA","LAX","BOS","PHL","CMH","MSP","TPA","MSY","FLL","SAT","CLE","RSW","AUS","TUL","MKE","EWR","SAN"],"dept":{"__ndarray__":"AAAAAAAAW0AAAAAAAMBtQAAAAAAAAGVAAAAAAAAAX0AAAAAAAIBPQAAAAAAAgFtAAAAAAAAATkAAAAAAAABOQAAAAAAAAF9AAAAAAAAAT0AAAAAAAMBWQAAAAAAAAE9AAAAAAAAATkAAAAAAAAAQQAAAAAAAAE9AAAAAAABAUEAAAAAAAAAUQAAAAAAAABBAAAAAAAAACEAAAAAAAABQQAAAAAAAABBAAAAAAACAT0AAAAAAAAAIQAAAAAAAAAhAAAAAAACAUkAAAAAAAIBOQAAAAAAAgE1AAAAAAAAATkAAAAAAAAD4fwAAAAAAgE5A","dtype":"float64","shape":[30]},"pct_ch":{"__ndarray__":"DqkJxlvZ578jZeDp1vzQvylcj8L1KNy/xpJfLPnF4r/3x7rm/ljnv8s9jbDc0+C/IBJ4+yGB57/HE77beMLnv9u2bdu2bdu/l779lYlC57/KExCdr+7hvy+QSfECmeS/U5va1KY25b8JaipEGz7vvx5xR9wRd+S/xcd9txT647/dmh8WKQPvvzl/lvNnOe+/rbMvolpn77/w9/v9fr/fv1wyBOto8+6/7BjFuY5R3L84H4PzMTjvv8UlQ7CONu+/bTV4jkDR1r+PrQgaTurevwnuI7iP4N6/f0jg7YcE3r8AAAAAAADwvyHQFAJNIeC/","dtype":"float64","shape":[30]}},"selected":{"id":"30277","type":"Selection"},"selection_policy":{"id":"30276","type":"UnionRenderers"}},"id":"30252","type":"ColumnDataSource"},{"attributes":{"callback":null,"renderers":[{"id":"30241","type":"GlyphRenderer"}],"tooltips":[["Flights","@dept"],["Airport","@airport"],["% Chg","@pct_ch{0%}"]]},"id":"30250","type":"HoverTool"},{"attributes":{"data_source":{"id":"30252","type":"ColumnDataSource"},"glyph":{"id":"30255","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"30256","type":"VBar"},"selection_glyph":null,"view":{"id":"30258","type":"CDSView"}},"id":"30257","type":"GlyphRenderer"},{"attributes":{"data_source":{"id":"30236","type":"ColumnDataSource"},"glyph":{"id":"30239","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"30240","type":"VBar"},"selection_glyph":null,"view":{"id":"30242","type":"CDSView"}},"id":"30241","type":"GlyphRenderer"},{"attributes":{},"id":"30220","type":"CategoricalScale"},{"attributes":{"dimension":1,"ticker":{"id":"30229","type":"BasicTicker"}},"id":"30232","type":"Grid"},{"attributes":{},"id":"30225","type":"CategoricalTicker"},{"attributes":{"callback":null,"factors":["MDW","DAL","DEN","MCO","HOU","BWI","DCA","ATL","LAS","MCI","PHX","OMA","BNA","LGA","LAX","BOS","PHL","CMH","MSP","TPA","MSY","FLL","SAT","CLE","RSW","AUS","TUL","MKE","EWR","SAN"]},"id":"30216","type":"FactorRange"},{"attributes":{"label":{"value":"2020"},"renderers":[{"id":"30257","type":"GlyphRenderer"}]},"id":"30266","type":"LegendItem"},{"attributes":{},"id":"30222","type":"LinearScale"}],"root_ids":["30213"]},"title":"Bokeh Application","version":"1.4.0"}}
+</script>
+<script type="text/javascript">
+  (function() {
+    var fn = function() {
+      Bokeh.safely(function() {
+        (function(root) {
+          function embed_document(root) {
+            
+          var docs_json = document.getElementById('30377').textContent;
+          var render_items = [{"docid":"5ceb8460-0901-4567-8285-c12e15a5ea94","roots":{"30213":"6c67c68c-e826-4835-9891-4f79e67fe173"}}];
+          root.Bokeh.embed.embed_items(docs_json, render_items);
+        
+          }
+          if (root.Bokeh !== undefined) {
+            embed_document(root);
+          } else {
+            var attempts = 0;
+            var timer = setInterval(function(root) {
+              if (root.Bokeh !== undefined) {
+                clearInterval(timer);
+                embed_document(root);
+              } else {
+                attempts++;
+                if (attempts > 100) {
+                  clearInterval(timer);
+                  console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                }
+              }
+            }, 10, root)
+          }
+        })(window);
+      });
+    };
+    if (document.readyState != "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  })();
+</script>
+
+    <script>   
+      new Vue ({
+        el: '#sw_2020',
+        data: {
+          dests: 'x',
+          chart_sel: 1,
+          droppedRoutes: false
+          
+        }
+      })
+      </script>
+        
+
+
+    </center>
+
+	<script src="static/components/menu.vue">
+    </script>
+    <script src="static/components/header.vue">
+    </script>
+
+
+  </body>
+</html>

@@ -158,13 +158,13 @@ Comparing Route Statistics from 2020 to 2019">
             <br/>
             <h5>Charting Total Monthly Statistics</h5>
             <div class="row" style="width:100%">
-              <div class="col-xl-4 col-lg-6 col-md-12">
+              <div class="col-xl-4 col-lg-6 col-md-12 air-table">
                 <<%pass_div|safe%>>
               </div>
-              <div class="col-xl-4 col-lg-6 col-md-12">
+              <div class="col-xl-4 col-lg-6 col-md-12 air-table">
                 <<%seats_div|safe%>>
               </div>
-              <div class="col-xl-4 col-lg-12">
+              <div class="col-xl-4 col-lg-12 air-table">
                 <<%dept_div|safe%>>
               </div>
             </div>
@@ -180,7 +180,7 @@ Comparing Route Statistics from 2020 to 2019">
             </div>
             
             <h5>Individual Routes Statistics from {{airport_sel}} to Destination</h5>
-            <div class="col-12">
+            <div class="col-12 air-table">
               <center>
                 <div class="btn-group" role="group">
                     <button class="btn flip-btn" v-on:click="route_metric_sel='Passengers'" v-bind:class="{active: route_metric_sel==='Passengers'}">Passengers Flown</button>
@@ -235,7 +235,7 @@ Comparing Route Statistics from 2020 to 2019">
             <div class="row" style="width:100%">
               <div class="col-lg-1">
               </div>
-              <div class="col-lg-10 col-md-12">
+              <div class="col-lg-10 col-md-12 air-table">
                 <div class="btn-group" role="group">
                   <button class="btn flip-btn" v-on:click="route_metric_sel='Passengers'" v-bind:class="{active: route_metric_sel==='Passengers'}">Passengers Flown</button>
                   <button class="btn flip-btn" v-on:click="route_metric_sel='Available Seats'" v-bind:class="{active: route_metric_sel==='Available Seats'}">Seat Capacity</button>
@@ -350,7 +350,7 @@ Comparing Route Statistics from 2020 to 2019">
                       </tbody>
                     </table>
                   </div>
-                  <div id="enterCompDiv">
+                  <div id="enterCompDiv" class="air-table">
                   </div>
                 </div>
               </div>

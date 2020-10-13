@@ -82,6 +82,12 @@ table{
 .popTable{
   position: absolute;
 }
+.regularPhoto{
+  max-width:450px;
+}
+.thinPhoto{
+  max-width:300px;
+}
 .loadFrost{
   z-index:10;
   background-color: rgba(250, 250, 250, 0.5);

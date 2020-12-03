@@ -1,0 +1,489 @@
+<html lang="en">
+  <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-142498774-1');
+	</script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/stl_pop_style.css">
+    <title>STL Annex</title>
+    
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.css" type="text/css" />
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+    <style>
+
+    .btn-group{
+      padding:5px !important;
+    }
+    .container{
+      padding:0px !important;
+      max-width:1240px;
+    }
+    .left-group{
+      padding-left:5px;
+    }
+  </style>
+  </head>
+  <body>
+        <center>
+        <div id="header-vue">
+      <header-bar></header-bar>
+    </div>
+          <div id="menu-vue">
+          <menu-bar></menu-bar>
+        </div>
+         
+        <br>
+        <div id="sw_2020">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-2 col-md-1">
+              </div>
+              <div class="col-lg-8 col-md-10 col-sm-12">
+               
+                <img src="/static/images/Cardinals_Records.png" align="right" class="image"/>
+                <br><br><br>
+                <h3>Cardinal's High Flying Decades</h3> <h5>As a continual playoff entrant and with above average playoff success in the last 20 years, the St. Louis Cardinals have created a fanbase that is only satisfied with top tier success</h5>
+                <br>
+                <div class="blog-container left-group">
+                    <p>
+                        This year, the St. Louis Cardinals had a below average season. This year, the Cardinals made the playoffs and based on the win % would have won 84 games in a full season. Between 2000 and 2019, the Cardinals have won more than 84 games in 17 out of the 20 seasons. The previous 20 seasons have been an easy time to be a Cardinals fan while watching the team rack up playoff appearances and postseason trophies. But in recent years, after so much success, have fans set their expectations too high? I decided to put together this blog post comparing the Cardinals success with the rest of the league since 2000 after several of my friends the past two seasons continued to complain about how bad the team was even as they made the postseason both years. While I was not quite as pessimistic as them in 2019, it was not hard to <a href="https://redbirdrants.com/2019/08/11/st-louis-cardinals-playoffs-still/">find other fans</a> and <a href="https://www.stltoday.com/sports/cardinals-fans-disinterested/article_81f059c1-0fca-5c01-888d-04a52654181a.html">the media </a> <a href="https://stlbullpen.com/2019/07/02/the-st-louis-cardinals-have-a-culture-problem/"></a>questioning interest</a> in a team that eventually went on to win the Central Division. Just after the 2019 season midpoint, Post-Dispatch Columnist Ben Hochman asked, "<a href="https://www.stltoday.com/sports/columns/benjamin-hochman/hochman-cardinals-continue-to-confound-as-they-limp-into-all-star-break/article_1ef7cf4b-777b-57db-9b93-5ee1a77e9924.html">If the Cards limp into the playoffs, even without 90 wins, is that satisfying?</a>"
+                    </p>
+                    <p>
+                        In 2019, the Cardinals ended up winning 91 games and made the NL Championship Series. <a href="https://www.stltoday.com/sports/columns/ben-frederickson/benfred-four-reasons-the-cardinals-went-down-4-0-to-the-nationals-in-the-nlcs/article_f8550581-a25c-5948-8952-07a90bf2c7fa.html"></a>St. Louis lost that series disappointingly</a> (sense a theme) to eventually World Series Champions Washington Nationals four games to none. Maybe I was missing the pulse of the average Cardinal fan, but among my friends and family, the season was rarely considered very successful even though the team was one of the final four squads standing. Feelings towards the season were often something like "not bad, but the team did not meet its potential". Maybe the lack of offense (which <a href="https://www.baseball-reference.com/leagues/MLB/2019.shtml">ranked 21st in runs per game</a>, lowest of any playoff team) turned off fans. But the team kept winning and remained either in first place or within a few games of first in the NL Central the entire season. And in some assessments of <a href="https://www.teamrankings.com/mlb/ranking/luck-by-other?date=2019-10-31">quantifiable luck</a> the team ranked basically right in the middle of the league, so did not necessarily back into all those wins. There were some (really) rough patches such as the month of May were the team went 9-18, but in contrast several stretches the Cardinals racked up wins as fast as anyone in the league. So if you are trying to be hater, there were ample areas to sour on the 2019 squad.
+                    </p>
+                    <p>
+                        The shortened 2020 had so much craziness with the ongoing COVID pandemic impacting the Cardinals player and its schedule, I hesitate a little to pull any trends from the year, but colloquially I will say that it felt like the personal fanbase I interacted with was as disengaged in 2020 as they were in 2019 and not just because they could not attend any games in person. The Cardinals again were in solid contention for the playoffs (bolstered by the expanded qualifiers), but my pessimistic friends I mentioned earlier were always quick to point out where the team was lacking, like the fact that they actual fell to 24th in runs per game (they did play a lot of 7 inning games which may have weighed on that metric though).
+                    </p>
+                    <p>
+                        One additional major sticking point for any Cardinals detractors the last two years has revolved around all the great talent the team has either let walk or sent packing in a trade. I am not going to hash through every transaction, but it's not too difficult to build a pretty solid squad from players that could've been Cardinals.
+                    </p>
+                    <div class="air-table">
+                      <h5>No Longer Cardinals</h5>
+                      <table class="table">
+                        <thead style="text-align: center;">
+                          <tr><th>Player</th></tr>
+                          </thead>
+                          <tbody style="text-align: center;">
+                            <tr><td>Randy Arozarena</td></tr>
+                            <tr><td>Luke Voit</td></tr>
+                            <tr><td>Aledmys Diaz</td></tr>
+                            <tr><td>Zac Gallen</td></tr>
+                            <tr><td>Sandy Alcantara</td></tr>
+                            <tr><td>Randal Grichuk</td></tr>
+                            <tr><td>Tommy Pham</td></tr>
+                            <tr><td>Marco Gonzales</td></tr>
+                            <tr><td>Jose Martinez</td></tr>
+                            <tr><td>Kolten Wong</td></tr>
+                          </tbody>
+                        </table>
+                    </div>
+                        <p>
+                          The Cards also just non-tendered John Brebbia who was a top reliever for the 2019 squad. The team did get players back in many of trades so it not like they were left with nothing (letting Kolten Wong walk notwithstanding), but many of the deals seem like losers in hind sight. Watching players like Aronzarena tear it up elsewhere when leadership in St. Louis refused to get him playing time in 2019, provides one lense into why fans might feel less than enthused about the players that remains in St. Louis even if they are winning. It's an easy complaint to say "If we had kept player XX we would have won more games", and on a WAR basis that might be true. I know I've imagined a beautiful cost controlled outfield of Voit, Carlson, and Arzonarena that could drive the team for years to come. But I'm not sure fans would be completely satisfied even if Arozarena had been in the OF in 2020 and the team had picked up two more wins for a 32-26 record or had made it past the Padres in the playoffs.
+                        </p>
+                        <p>
+                            Are these expectations too high? Does the fanbase have too short of a memory and not enough appreciation for a franchise that has only had a single losing season in 20 years? The short, qualitative answer is NO. Winning the World Series is the expectation every year and unless the team wins it all, the fans can question trades and coaching decisions as much as they want. But the more nuanced fan should definitely consider the privilege they have had cheering for one of the best teams in baseball in the recent (20-year past) before (rightfully) ripping into leadership for endangering the future of the Cardinals. The rest of the blog quantifies just how much better the Cardinals have preformed than the rest of the league since 2000 focusing on regular season records and playoff success. I should clarify that (as mentioned above) noting that the Cardinals have been mostly crushing the past 20 year over the rest of this post is not meant to give a pass to leadership; they need to stop giving away (or letting walk away) talent. I mean seriously, someone please explain to me, why Kolten Wong is no longer a Cardinal?  
+                        </p>
+                        <h3>Regular Season 2000-2020</h3>
+                        <p>
+                            When looking at the NL Central, it's a pretty easy case to state that the Cardinals were the best team over the last 20 years in the division. Since 2000, the Cardinals have racked up 1,842 wins which is 184 wins more than the next best team from the Central, the Cubs. While the Cards only had 1 losing season (2007) since 2000, the rest of the division had 61 losing seasons (PIT-17, CIN-16, MIL-13, CHC-9, HOU-6). Just a reminder that Houston was in the Central until switching to the AL after the 2013 season. The below chart shows the yearly records for the Cardinals. Having a winning record doesn't guarantee a playoff spot though (especially before the second wild card was introduced in 2012). In fact, outside of squeaking out an NL Central title in 2006 with an 83 win season, the Cardinals have needed at least 88 wins to secure each of their playoff spots and generally getting to 90 wins is a goal on the way to securing a playoff spot. Since 2000 only 4 teams in the NL have won 90 or more games and failed to make the playoffs and all of those seasons occurred before the introduction of the 2nd wild card (it has been a little more frequent occurrence in the AL). The Cardinals lead the NL since 2000 in 90+ win seasons with 11 (LA has the second most at 10).
+                        </p>
+                        <center>
+                          <div class="air-table">
+                            <div class="bk-root" id="3a290563-5719-4a13-8689-243f8c02a54b" data-root-id="12259"></div>
+                          </div>
+                          <div class="air-table">
+                            <div class="bk-root" id="14ecfd98-88dd-4389-a51a-7f1d75a36c20" data-root-id="11941"></div>
+                          </div>
+                        </center>
+                        <p>
+                            When looking beyond the NL Central, the Cardinals have the second most total wins since 2000 behind the Yankees (1,919 total wins and no losing seasons) and are tops in the NL ahead of the 2nd best Dodgers (1,824). The Cardinals, Yankees, and Dodgers each have 11 division titles to go along with all their wins which is tops across both leagues (<a href="http://www.astroscounty.com/2015/04/2001-co-champions.html">as a Cards fan I'm being a bit of a homer and claiming the Cardinals Co-Champs in 2001</a>). Within the NL, the Dodgers, Cardinals, and Braves (10 titles) have been the clear dominant teams in their respective divisions, but all three teams have gone about accumulating their titles in different ways. The Braves won 6 titles in a row from '00-'05 and have won the last 3 NL East titles with only 1 title in the 12 seasons in between. The Dodgers picked a a few (3) scattered titles prior to running off 8 titles in a row starting in 2013. The Cardinals titles have been more distributed, never going more than 3 years without without a title, picking up 6 between '00-'06, grabbing another in '09', before rattling off three more between '13-'15, and winning last year's title.
+                        </p>
+                        <p>
+                            The consistent winning seasons and regular season titles put the Cardinals into short company for the argument of best regular season team since 2000. I should note here that the 2000 cutoff is definitely arbitrary to favor the Cardinals. If we pushed back the window a few years into the 90's the Yankees (and Braves) would really start pulling away in wins, titles (and playoff success), but starting at the millenium offers a nice round starting point and helps the Cards so let's keep it there. Looking at 90+ win season, there have been a total of 163 such seasons since 2000. Six teams have each had at least 10 90+ win seasons:
+                            <div class="air-table">
+                              <h5>Best Regular Season Teams</h5>
+                              <table class="table">
+                                <thead style="text-align: center;">
+                                    <tr>
+                                        <th>Teams</th>
+                                        <th>Total Wins</th>
+                                        <th>90+ win seasons</th>
+                                        <th>Below .500 seasons</th>
+                                        <th>Division Titles</th>
+                                    </tr>
+                                </thead>
+                                <tbody style="text-align: center;">
+                                    <tr>
+                                        <td>New York Yankees</td>
+                                        <td>1,919</td>
+                                        <td>14</td>
+                                        <td>0</td>
+                                        <td>11</td>
+                                    </tr>
+                                    <tr>
+                                        <td>St. Louis Cardinals</td>
+                                        <td>1,842</td>
+                                        <td>11</td>
+                                        <td>1</td>
+                                        <td>11</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Los Angeles Dodgers</td>
+                                        <td>1,824</td>
+                                        <td>10</td>
+                                        <td>2</td>
+                                        <td>11</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Boston Red Sox</td>
+                                        <td>1,816</td>
+                                        <td>12</td>
+                                        <td>3</td>
+                                        <td>5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Atlanta Braves</td>
+                                        <td>1,770</td>
+                                        <td>10</td>
+                                        <td>6</td>
+                                        <td>10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Oakland Athletics</td>
+                                        <td>1,765</td>
+                                        <td>10</td>
+                                        <td>8</td>
+                                        <td>7</td>
+                                    </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                        </p>
+                        <p>
+                            If we are looking for best regular season teams, these six teams are a good place to start. They also happen to be the top 6 teams in total wins and the have the sixth fewest below .500 seasons. In terms of division titles a few other teams could be considered: Minnesota (8 titles), Chicago Cubs (6) and Los Angeles Angels (6). But the win totals for each of the teams are dinged by their lower number of 90+ win seasons (6, 5, 7 respectively) and each have at least 8 losing seasons since 2000.
+                        </p>
+                        <h3>Playoffs 2000-2020</h3>
+                        <p>
+                          While winning in the regular season is great, you need to have some success in the playoffs as well and the Cardinals have fared well on that front, too. To be successful in the playoff you have to get there first and the Cardinals have done that more times since 2000 than every team other than (surprise, surprise) the Yankees. Below is a tree map that shows every team's aggregated playoff results. Each section represents a team and each subsection within a team represents different playoff rounds (WC, DS, LCS, or WS) with size based on how many appearances each team has made at each round and the color showing series record for the round. It is easy to see both, how frequently teams make the playoffs, and how well they do once they get there. For example, Boston has a fairly large section with lots of green winning 6 out 10 Divisional series, 4 out of 6 League Championship series, and 4 out of 4 (!) World Series. On the other end, Oakland has made the playoffs over half of the seasons since 2000 (11 times), but is just 1 out of 4 in Wild Card match ups and is an abysmal 1 out of 8 in the divisional series. The one time they made the League Championship Series in 2006, <a href="https://www.youtube.com/watch?v=ZbGXgwHE_YA">they were promptly swept by the Tigers</a>. On the right hand side (or top if you are on your phone) of the graphic you can see each teams raw number of victories in each round.
+                        </p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-1">
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class='tableauPlaceholder' id='viz1606587404818' style='position: relative'>
+                        <noscript>
+                            <a href='#'>
+                                <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ML&#47;MLBPlayoffOverview&#47;MLBSummary&#47;1_rss.png' style='border: none' />
+                            </a>
+                        </noscript>
+                        <object class='tableauViz'  style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='MLBPlayoffOverview&#47;MLBSummary' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ML&#47;MLBPlayoffOverview&#47;MLBSummary&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /><param name='filter' value='publish=yes' />
+                        </object>
+                    </div>
+                    <script type='text/javascript'>
+                        var divElement = document.getElementById('viz1606587404818');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1120px';vizElement.style.height='787px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1120px';vizElement.style.height='787px';} else { vizElement.style.width='100%';vizElement.style.height='1377px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                    </script>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 col-md-1">
+              </div>
+              <div class="col-lg-8 col-md-10 col-sm-12">
+                <div class="blog-container left-group">
+                  <p>
+                    The treemap shows an undeniable success for the Cardinals in terms of making the playoffs and then performing well. The Cardinal's most successful round is easily the division series round where they have an astounding 10-3 overall series record. No team has won more division series since 2000 and no team with more than 5 appearances in the divisional series can match the Card's winning pct of .769  When the Cardinals make the playoffs they more often than not are in the Championship series. Just to reiterate, the Cardinals have been one of the final 2 teams remaining, out of 15 teams in the NL (or 16 before the Astros switched leagues), in just under half of the seasons since 2000 (10/21). They basically make an LCS every other year. Their longest drought between LCS has been 4 years ('07-'10 and '15-'18). Compare that with 3 teams that made 0 appearances and 6 teams with a single appearance over the 21 year period.
+                  </p>
+                  <p>
+                    The team's record in the LCS is not quite as stellar at 4-6 and the last LCS win was in 2013. That 7 years since a win might be one of the issues weighing on disillusioned Cards fans that have come to expect a World Series appearance every few years. Still no other team has more than the Cardinal's 4 LCS wins since 2000 (the Yankees, Red Sox, and Giants have 4 as well). The team's 2-2 record in the World Series is just ok. But if their is a silver lining to that record, it is that both of those losses have come at the hands of the most successful franchise in the World Series, the Red Sox, who are a perfect 4-0 in the World Series the past two decades. Again the raw number of 2 titles is still tied for 3rd most. When adding up all the (non-Wild Card) series wins, the Cardinals have won 16 total series, the most of any team since 2000. 
+                  </p>
+                  <h3>Are the fans spoiled?</h3>
+                  <p>
+                    The Cardinals have regular season success and they have postseason success. They have been a little less successful in the playoffs recently, but they appeared in the LCS just last year (but were swept). My general assessment is fans should be appreciative that even the recent "slump" has included multiple playoff appearances, but let's take a quick look at how much the cardinals recent season have differed from the the earlier years of the millennium. Below, I Break down the seasons into 5 year segments and compare. Since we have 21 seasons, I will tag the shortened 2020 season to the last quintet.
+                  </p>
+                  <div class="air-table">
+                    <h5>Cardinal's Success in 5-year Segments</h5>
+                    <table class="table">
+                      <thead style="text-align: center;">
+                        <tr>
+                          <th></th>
+                          <th>Regular Season</th>
+                          <th>90+ win</th>
+                          <th>DS</th>
+                          <th>LCS</th>
+                          <th>WS</th>
+                        </tr>
+                        <tr>
+                          <th>Years</th>
+                          <th>Win %</th>
+                          <th>Seasons</th>
+                          <th>Wins</th>
+                          <th>Wins</th>
+                          <th>Wins</th>
+                        </tr>
+                      </thead>
+                      <tbody style="text-align: center;">
+                        <tr>
+                          <td>2000-2004</td>
+                          <td>0.586</td>
+                          <td>4</td>
+                          <td>3</td>
+                          <td>1</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <td>2005-2009</td>
+                          <td>0.541</td>
+                          <td>2</td>
+                          <td>2</td>
+                          <td>1</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <td>2010-2014</td>
+                          <td>0.557</td>
+                          <td>3</td>
+                          <td>4</td>
+                          <td>2</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <td>2015-2020</td>
+                          <td>0.551</td>
+                          <td>2</td>
+                          <td>1</td>
+                          <td>0</td>
+                          <td>0</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <p>
+                    First, the breaks between these segments are clearly arbitrary, but the most recent 6 year group is definitely the lightest on post season success, although it is not far off total win % from the previous 2 segments. The '00-'04 segment is the best regular season performer. With teams buoyed by the MV3 of Rolen, Pujols, and Edmonds, it's easy to see why they won so many games, but they missed out on a WS title. Seasons '05-'09 has the worst regular season record and contains the one losing season in the past 21 years, but it also include the surprise 2006 WS and a 100-win 2005. Seasons '10-'14 while not quite matching the MV3's regular season success, does outpace every other segment in terms of postseason success, making the LCS 4 out of 5 years and winning an epic World Series in 2011. The drop off from the best postseason segment to the worst postseason segment ('15-'20) might also explain some of the fans jadedness. I for one can recall growing up in the early 2000 thinking that the Division Series was basically just a warm up to the exciting post season series in the LCS because of the Cardinals continued Division Series success.
+                  </p>
+                  <p>
+                    Based on all of the Cardinals stats, the fans definitely have some valid grievances when they might bemoan "these Cardinals are the worst in a generation", at least when it comes to the postseason. But based on the regular season results, the Cardinals are only a series win or two away from being their normal selves in terms recent success(a couple of more regular season wins to get them into the playoffs would help too). While the '10-'14 Cards may have set up unreasonable high expectations on an ongoing basis, after the last 6 years, the Cardinals will need to show some playoff success in upcoming seasons or will continue to face growing fan malcontents.
+                  </p>
+                  <h3>Bonus: Are the Cards the best?</h3>
+                  <p>
+                    Comparing both postseason and regular season success for all franchises how do the Cardinals stack up? I am going to set a high standard for success and look at only World Series appearances and titles for post season success and for the regular season how many 90+ win seasons (when you "should" make the playoffs) and seasons with 90+ losses will count against you (don't tank or if you do, you'd better make up for it with some WS titles!). The below chart shows 90+ win seasons on the y-axis and 90+ loss seasons on the x-axis. Each bubble represents a team and the bubble's size is representative of postseason success (1-point for WS appearance and 2-points if you win). Hover of each bubble to find more info about each team. The Cardinals do great by these metrics showing up in the top left quadrant. I break down a static version of the chart with a some groupings of teams. I'll save walking through the grouping for a future post.
+                  </p>
+                </div>
+                
+                
+              </div>
+            </div>
+              <div class="row" style="background-color: white;">
+                <div class="col-xl-6 col-lg-12">
+                  <div class="air-table">
+                    <div class="bk-root" id="2e099919-287d-43e2-9d33-bcb265b8c3ec" data-root-id="10008"></div>
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-12">
+                  <div class="air-table">
+                    <img src="/static/images/Teams_by_segments.png" style="max-width:460px;"/>
+                  </div>
+                </div>
+              </div>
+              <br/>
+              <div class="row">
+                <div class="col-lg-2 col-md-1">
+                </div>
+                <div class="col-lg-8 col-md-10 col-sm-12">
+                  <div class="blog-container left-group">
+                    <p>
+                    Looking at the 6 teams that were earlier determined to have the most regular season success above, the Cardinals postseason success far outstrips Oakland and the Atlanta who have no LCS wins (and only 3 combined appearance). The Dodgers are just behind in regular season success in total wins and 90+ win seasons. In the postseason, they finally broke through with a World Series title this year, but don't have as many wins in any of the post season rounds as the Cardinals. The Red Sox lag behind in total wins slightly, but do have more 90+ win seasons. And while they have fewer postseason and LCS appearances make up for it with 4 World Series titles. They have had some boom-bust cycles with two 90+ loss seasons, but have capitalized when in the post season. And the Yankees match or exceed the Cardinals slightly in all of the main metrics looked at. The one bright spot for the Cards is they have more LCS appearances and more overall non-Wild Card series wins (16 to 15). So, overall I feel good stating the Cardinals are arguably the best NL team over the past 21 seasons based on regular season and post season wins, but are probably edged out when looking at both leagues.
+                    </p>
+                    <p>
+                      In closing, I'll leave the below dashboard where you can look at each team's individual series performances. And after all this analysis, I'm going relive some of my youth and <a href="https://www.youtube.com/watch?v=GuB3HgM9LMw">watch Pujols crush baseball off of the Astros in the early 2000's</a>.
+                    </p>
+                  </div>
+                </div>
+              <div class="col-lg-2 col-md-1">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                  <div class='tableauPlaceholder' id='viz1606587404819' style='position: relative'>
+                      <noscript>
+                          <a href='#'>
+                              <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ML&#47;MLBPlayoffOverview&#47;BaseballHome&#47;1_rss.png' style='border: none' />
+                          </a>
+                      </noscript>
+                      <object class='tableauViz'  style='display:none;'>
+                          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='MLBPlayoffOverview&#47;BaseballHome' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ML&#47;MLBPlayoffOverview&#47;BaseballHome&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /><param name='filter' value='publish=yes' />
+                      </object>
+                  </div>
+                  <script type='text/javascript'>
+                      var divElement = document.getElementById('viz1606587404819');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1120px';vizElement.style.height='787px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1120px';vizElement.style.height='787px';} else { vizElement.style.width='100%';vizElement.style.height='1377px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                  </script>
+              </div>
+          </div>
+                <hr/>        
+                 
+            </div>           
+           </div>
+          </div>
+        </div>
+
+
+
+    <script>   
+      new Vue ({
+        el: '#sw_2020',
+        data: {
+          dests: 'x',
+          chart_sel: 1,
+          droppedRoutes: false
+          
+        }
+      })
+      </script>
+        
+        <script type="application/json" id="12399">
+            {"0d01a6f5-3419-4b7a-bd8b-f88d9e7f7bb4":{"roots":{"references":[{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"top":{"field":"wins"},"width":{"value":0.36},"x":{"field":"year","transform":{"id":"12308","type":"Dodge"}}},"id":"12311","type":"VBar"},{"attributes":{"data_source":{"id":"12293","type":"ColumnDataSource"},"glyph":{"id":"12310","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"12311","type":"VBar"},"selection_glyph":null,"view":{"id":"12313","type":"CDSView"}},"id":"12312","type":"GlyphRenderer"},{"attributes":{"source":{"id":"12293","type":"ColumnDataSource"}},"id":"12299","type":"CDSView"},{"attributes":{},"id":"12320","type":"UnionRenderers"},{"attributes":{},"id":"12268","type":"LinearScale"},{"attributes":{},"id":"12285","type":"HelpTool"},{"attributes":{"dimension":1,"ticker":{"id":"12276","type":"BasicTicker"}},"id":"12279","type":"Grid"},{"attributes":{},"id":"12321","type":"Selection"},{"attributes":{"fill_alpha":{"value":0.8},"fill_color":{"value":"#3ca351"},"line_color":{"value":"#256131"},"top":{"field":"wins"},"width":{"value":0.36},"x":{"field":"year","transform":{"id":"12308","type":"Dodge"}}},"id":"12310","type":"VBar"},{"attributes":{},"id":"12281","type":"WheelZoomTool"},{"attributes":{"ticker":{"id":"12271","type":"BasicTicker"}},"id":"12274","type":"Grid"},{"attributes":{"range":null,"value":-0.18},"id":"12308","type":"Dodge"},{"attributes":{"background_fill_alpha":{"value":0},"below":[{"id":"12270","type":"LinearAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"12274","type":"Grid"},{"id":"12279","type":"Grid"},{"id":"12306","type":"Legend"}],"left":[{"id":"12275","type":"LinearAxis"}],"plot_height":420,"plot_width":750,"renderers":[{"id":"12298","type":"GlyphRenderer"},{"id":"12312","type":"GlyphRenderer"}],"title":{"id":"12260","type":"Title"},"toolbar":{"id":"12286","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"12262","type":"DataRange1d"},"x_scale":{"id":"12266","type":"LinearScale"},"y_range":{"id":"12264","type":"Range1d"},"y_scale":{"id":"12268","type":"LinearScale"}},"id":"12259","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"12280","type":"PanTool"},{"attributes":{"callback":null,"renderers":[{"id":"12312","type":"GlyphRenderer"}],"tooltips":[["Year","@year"],["Win %","@win_pct"],["Wins","@wins"],["Losses","@losses"]]},"id":"12325","type":"HoverTool"},{"attributes":{"callback":null,"end":116},"id":"12264","type":"Range1d"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"top":{"field":"losses"},"width":{"value":0.36},"x":{"field":"year","transform":{"id":"12294","type":"Dodge"}}},"id":"12297","type":"VBar"},{"attributes":{"callback":null,"renderers":[{"id":"12298","type":"GlyphRenderer"}],"tooltips":[["Year","@year"],["Win %","@win_pct"],["Wins","@wins"],["Losses","@losses"]]},"id":"12323","type":"HoverTool"},{"attributes":{},"id":"12271","type":"BasicTicker"},{"attributes":{"fill_alpha":{"value":0.8},"fill_color":{"value":"#d14949"},"line_color":{"value":"#a33333"},"top":{"field":"losses"},"width":{"value":0.36},"x":{"field":"year","transform":{"id":"12294","type":"Dodge"}}},"id":"12296","type":"VBar"},{"attributes":{"range":null,"value":0.18},"id":"12294","type":"Dodge"},{"attributes":{"items":[{"id":"12307","type":"LegendItem"},{"id":"12322","type":"LegendItem"}]},"id":"12306","type":"Legend"},{"attributes":{},"id":"12266","type":"LinearScale"},{"attributes":{"data_source":{"id":"12293","type":"ColumnDataSource"},"glyph":{"id":"12296","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"12297","type":"VBar"},"selection_glyph":null,"view":{"id":"12299","type":"CDSView"}},"id":"12298","type":"GlyphRenderer"},{"attributes":{"source":{"id":"12293","type":"ColumnDataSource"}},"id":"12313","type":"CDSView"},{"attributes":{"formatter":{"id":"12303","type":"BasicTickFormatter"},"ticker":{"id":"12276","type":"BasicTicker"}},"id":"12275","type":"LinearAxis"},{"attributes":{"text":"Cardinals Records since 2000"},"id":"12260","type":"Title"},{"attributes":{"callback":null},"id":"12262","type":"DataRange1d"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"12305","type":"BoxAnnotation"},{"attributes":{"overlay":{"id":"12305","type":"BoxAnnotation"}},"id":"12282","type":"BoxZoomTool"},{"attributes":{"label":{"value":"Wins"},"renderers":[{"id":"12312","type":"GlyphRenderer"}]},"id":"12322","type":"LegendItem"},{"attributes":{"callback":null,"data":{"index":[130,161,190,222,250,280,310,342,373,400,431,461,491,521,551,581,612,643,673,701,732],"losses":[67,69,65,77,57,62,78,84,76,71,76,72,74,65,72,62,76,79,74,71,28],"win_pct":{"__ndarray__":"lYGnW/PD4j/tJbSX0F7iPzzdmh8WKeM/T7fmh0XK4D/aS2gvob3kP7fmh0XKwOM/mj/YeDR/4D8J7SW0l9DePyNl4OnW/OA/RsrA06354T8jZeDp1vzgP3Icx3Ecx+E/ysDTrflh4T883ZofFinjP3Icx3Ecx+E/t+aHRcrA4z8jZeDp1vzgP6hb88MiZeA/ysDTrflh4T9GysDTrfnhP93TCMs9jeA/","dtype":"float64","shape":[21]},"wins":[95,93,97,85,105,100,83,78,86,91,86,90,88,97,90,100,86,83,88,91,30],"year":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020]},"selected":{"id":"12321","type":"Selection"},"selection_policy":{"id":"12320","type":"UnionRenderers"}},"id":"12293","type":"ColumnDataSource"},{"attributes":{},"id":"12303","type":"BasicTickFormatter"},{"attributes":{"label":{"value":"Losses"},"renderers":[{"id":"12298","type":"GlyphRenderer"}]},"id":"12307","type":"LegendItem"},{"attributes":{},"id":"12301","type":"BasicTickFormatter"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"12280","type":"PanTool"},{"id":"12281","type":"WheelZoomTool"},{"id":"12282","type":"BoxZoomTool"},{"id":"12283","type":"SaveTool"},{"id":"12284","type":"ResetTool"},{"id":"12285","type":"HelpTool"},{"id":"12323","type":"HoverTool"},{"id":"12325","type":"HoverTool"}]},"id":"12286","type":"Toolbar"},{"attributes":{"formatter":{"id":"12301","type":"BasicTickFormatter"},"ticker":{"id":"12271","type":"BasicTicker"}},"id":"12270","type":"LinearAxis"},{"attributes":{},"id":"12276","type":"BasicTicker"},{"attributes":{},"id":"12283","type":"SaveTool"},{"attributes":{},"id":"12284","type":"ResetTool"}],"root_ids":["12259"]},"title":"Bokeh Application","version":"1.3.4"}}
+        </script>
+        <script type="text/javascript">
+        (function() {
+            var fn = function() {
+            Bokeh.safely(function() {
+                (function(root) {
+                function embed_document(root) {
+                    
+                var docs_json = document.getElementById('12399').textContent;
+                var render_items = [{"docid":"0d01a6f5-3419-4b7a-bd8b-f88d9e7f7bb4","roots":{"12259":"3a290563-5719-4a13-8689-243f8c02a54b"}}];
+                root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                }
+                if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                    if (root.Bokeh !== undefined) {
+                        embed_document(root);
+                        clearInterval(timer);
+                    }
+                    attempts++;
+                    if (attempts > 100) {
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        clearInterval(timer);
+                    }
+                    }, 10, root)
+                }
+                })(window);
+            });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+        })();
+        </script>
+        <script type="application/json" id="12258">
+            {"8561f071-3e9d-46fb-a401-09ac63f6dae3":{"roots":{"references":[{"attributes":{},"id":"12022","type":"UnionRenderers"},{"attributes":{"text":"NL Central Win Differential"},"id":"11942","type":"Title"},{"attributes":{"label":{"field":"team"},"renderers":[{"id":"11979","type":"GlyphRenderer"}]},"id":"11988","type":"LegendItem"},{"attributes":{"source":{"id":"12027","type":"ColumnDataSource"}},"id":"12032","type":"CDSView"},{"attributes":{},"id":"12113","type":"Selection"},{"attributes":{"callback":null,"renderers":[{"id":"12031","type":"GlyphRenderer"}],"tooltips":[["Year","@year"],["Team","@team"],["Wins","@wins"],["Losses","@losses"]]},"id":"12046","type":"HoverTool"},{"attributes":{},"id":"12112","type":"UnionRenderers"},{"attributes":{"background_fill_alpha":{"value":0},"items":[{"id":"11988","type":"LegendItem"},{"id":"12005","type":"LegendItem"},{"id":"12024","type":"LegendItem"},{"id":"12045","type":"LegendItem"},{"id":"12068","type":"LegendItem"},{"id":"12093","type":"LegendItem"}],"location":"bottom_center","orientation":"horizontal"},"id":"11987","type":"Legend"},{"attributes":{"source":{"id":"12048","type":"ColumnDataSource"}},"id":"12053","type":"CDSView"},{"attributes":{"label":{"field":"team"},"renderers":[{"id":"12031","type":"GlyphRenderer"}]},"id":"12045","type":"LegendItem"},{"attributes":{"callback":null,"renderers":[{"id":"11995","type":"GlyphRenderer"}],"tooltips":[["Year","@year"],["Team","@team"],["Wins","@wins"],["Losses","@losses"]]},"id":"12006","type":"HoverTool"},{"attributes":{},"id":"12066","type":"UnionRenderers"},{"attributes":{"callback":null,"renderers":[{"id":"12012","type":"GlyphRenderer"}],"tooltips":[["Year","@year"],["Team","@team"],["Wins","@wins"],["Losses","@losses"]]},"id":"12025","type":"HoverTool"},{"attributes":{"callback":null,"data":{"index":[133,160,191,221,251,281,311,343,372,404,433,465,495],"losses":[90,69,78,75,70,73,80,89,75,88,86,106,107],"team":["Houston Astros","Houston Astros","Houston Astros","Houston Astros","Houston Astros","Houston Astros","Houston Astros","Houston Astros","Houston Astros","Houston Astros","Houston Astros","Houston Astros","Houston Astros"],"teamID_2":["hou","hou","hou","hou","hou","hou","hou","hou","hou","hou","hou","hou","hou"],"win_diff":[-18,24,6,12,22,16,2,-16,11,-14,-10,-50,-52],"win_pct":{"__ndarray__":"HMdxHMdx3D/tJbSX0F7iP3sJ7SW0l+A/9xLaS2gv4T8ZeLo1PyziP55uzQ+LlOE/1K35YZEy4D/EImXg6dbcP+2LqNbZF+E/a35YpAw83T+6NT8sUgbeP6QMPN2aH9Y//bBIGXi61T8=","dtype":"float64","shape":[13]},"wins":[72,93,84,87,92,89,82,73,86,74,76,56,55],"year":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012]},"selected":{"id":"12113","type":"Selection"},"selection_policy":{"id":"12112","type":"UnionRenderers"}},"id":"12071","type":"ColumnDataSource"},{"attributes":{"data_source":{"id":"12071","type":"ColumnDataSource"},"glyph":{"id":"12073","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"12074","type":"Line"},"selection_glyph":null,"view":{"id":"12076","type":"CDSView"}},"id":"12075","type":"GlyphRenderer"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":3,"x":{"field":"year"},"y":{"field":"win_diff"}},"id":"11994","type":"Line"},{"attributes":{"callback":null,"data":{"index":[135,162,194,220,252,283,315,340,370,401,434,464,494,525,555,583,611,641,672,703,731],"losses":[97,74,95,74,73,83,96,77,64,78,87,91,101,96,89,65,58,70,68,78,26],"team":["Chicago Cubs","Chicago Cubs","Chicago Cubs","Chicago Cubs","Chicago Cubs","Chicago Cubs","Chicago Cubs","Chicago Cubs","Chicago Cubs","Chicago Cubs","Chicago Cubs","Chicago Cubs","Chicago Cubs","Chicago Cubs","Chicago Cubs","Chicago Cubs","Chicago Cubs","Chicago Cubs","Chicago Cubs","Chicago Cubs","Chicago Cubs"],"teamID_2":["chn","chn","chn","chn","chn","chn","chn","chn","chn","chn","chn","chn","chn","chn","chn","chn","chn","chn","chn","chn","chn"],"win_diff":[-32,14,-28,14,16,-4,-30,8,33,5,-12,-20,-40,-30,-16,32,45,22,27,6,8],"win_pct":{"__ndarray__":"iEXKwNOt2T/KwNOt+WHhP9f8sEgZeNo/ysDTrflh4T+ebs0Pi5ThP7FIGXi6Nd8/L6G9hPYS2j9Pt+aHRcrgP8ej+YONR+M/mj/YeDR/4D8T2ktoL6HdP3VrflikDNw/6tb8sEgZ2D8vob2E9hLaP8QiZeDp1tw/PN2aHxYp4z9sPJo/2HjkPxl4ujU/LOI/2gfJgHqm4j97Ce0ltJfgPyIiIiIiIuI/","dtype":"float64","shape":[21]},"wins":[65,88,67,88,89,79,66,85,97,83,75,71,61,66,73,97,103,92,95,84,34],"year":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020]},"selected":{"id":"12023","type":"Selection"},"selection_policy":{"id":"12022","type":"UnionRenderers"}},"id":"11991","type":"ColumnDataSource"},{"attributes":{"callback":null,"data":{"index":[131,164,192,224,253,284,312,344,374,403,430,462,490,523,554,585,615,645,675,704,733],"losses":[77,96,84,93,86,89,82,90,88,84,71,83,65,72,86,98,94,94,95,87,29],"team":["Cincinnati Reds","Cincinnati Reds","Cincinnati Reds","Cincinnati Reds","Cincinnati Reds","Cincinnati Reds","Cincinnati Reds","Cincinnati Reds","Cincinnati Reds","Cincinnati Reds","Cincinnati Reds","Cincinnati Reds","Cincinnati Reds","Cincinnati Reds","Cincinnati Reds","Cincinnati Reds","Cincinnati Reds","Cincinnati Reds","Cincinnati Reds","Cincinnati Reds","Cincinnati Reds"],"teamID_2":["cin","cin","cin","cin","cin","cin","cin","cin","cin","cin","cin","cin","cin","cin","cin","cin","cin","cin","cin","cin","cin"],"win_diff":[8,-30,-6,-24,-10,-16,-2,-18,-14,-6,20,-4,32,18,-10,-34,-26,-26,-28,-12,2],"win_pct":{"__ndarray__":"T7fmh0XK4D8vob2E9hLaPwntJbSX0N4/JrSX0F5C2z+6NT8sUgbeP8QiZeDp1tw/WKQMPN2a3z8cx3Ecx3HcP2t+WKQMPN0/Ce0ltJfQ3j9GysDTrfnhP7FIGXi6Nd8/PN2aHxYp4z9yHMdxHMfhP7o1PyxSBt4/4OnW/LBI2T9+WKQMPN3aP35YpAw83do/1/ywSBl42j8T2ktoL6HdP4mIiIiIiOA/","dtype":"float64","shape":[21]},"wins":[85,66,78,69,76,73,80,72,74,78,91,79,97,90,76,64,68,68,67,75,31],"year":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020]},"selected":{"id":"12044","type":"Selection"},"selection_policy":{"id":"12043","type":"UnionRenderers"}},"id":"12008","type":"ColumnDataSource"},{"attributes":{},"id":"11982","type":"BasicTickFormatter"},{"attributes":{"callback":null,"data":{"index":[134,165,193,223,254,285,314,345,375,405,435,463,493,522,552,582,613,644,674,705,735],"losses":[93,100,89,87,89,95,95,94,95,99,105,90,83,68,74,64,83,87,79,93,41],"team":["Pittsburgh Pirates","Pittsburgh Pirates","Pittsburgh Pirates","Pittsburgh Pirates","Pittsburgh Pirates","Pittsburgh Pirates","Pittsburgh Pirates","Pittsburgh Pirates","Pittsburgh Pirates","Pittsburgh Pirates","Pittsburgh Pirates","Pittsburgh Pirates","Pittsburgh Pirates","Pittsburgh Pirates","Pittsburgh Pirates","Pittsburgh Pirates","Pittsburgh Pirates","Pittsburgh Pirates","Pittsburgh Pirates","Pittsburgh Pirates","Pittsburgh Pirates"],"teamID_2":["pit","pit","pit","pit","pit","pit","pit","pit","pit","pit","pit","pit","pit","pit","pit","pit","pit","pit","pit","pit","pit"],"win_diff":[-24,-38,-17,-12,-17,-28,-28,-26,-28,-37,-48,-18,-4,26,14,34,-5,-12,3,-24,-22],"win_pct":{"__ndarray__":"JrSX0F5C2z+RMvB0a37YP4FPDpcBn9w/E9pLaC+h3T+BTw6XAZ/cP9f8sEgZeNo/1/ywSBl42j9+WKQMPN3aP9f8sEgZeNo/r1JM0F2l2D9MaC+hvYTWPxzHcRzHcdw/sUgZeLo13z/B0635YZHiP8rA0635YeE/EIuUgadb4z/MgE8OlwHfPxPaS2gvod0/KSborlJM4D8mtJfQXkLbP0RERERERNQ/","dtype":"float64","shape":[21]},"wins":[69,62,72,75,72,67,67,68,67,62,57,72,79,94,88,98,78,75,82,69,19],"year":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020]},"selected":{"id":"12092","type":"Selection"},"selection_policy":{"id":"12091","type":"UnionRenderers"}},"id":"12048","type":"ColumnDataSource"},{"attributes":{"background_fill_alpha":{"value":0},"below":[{"id":"11952","type":"LinearAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"11956","type":"Grid"},{"id":"11961","type":"Grid"},{"id":"11987","type":"Legend"}],"left":[{"id":"11957","type":"LinearAxis"}],"plot_height":400,"plot_width":800,"renderers":[{"id":"11979","type":"GlyphRenderer"},{"id":"11995","type":"GlyphRenderer"},{"id":"12012","type":"GlyphRenderer"},{"id":"12031","type":"GlyphRenderer"},{"id":"12052","type":"GlyphRenderer"},{"id":"12075","type":"GlyphRenderer"}],"title":{"id":"11942","type":"Title"},"toolbar":{"id":"11968","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"11944","type":"DataRange1d"},"x_scale":{"id":"11948","type":"LinearScale"},"y_range":{"id":"11946","type":"Range1d"},"y_scale":{"id":"11950","type":"LinearScale"}},"id":"11941","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"12091","type":"UnionRenderers"},{"attributes":{"data_source":{"id":"12008","type":"ColumnDataSource"},"glyph":{"id":"12010","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"12011","type":"Line"},"selection_glyph":null,"view":{"id":"12013","type":"CDSView"}},"id":"12012","type":"GlyphRenderer"},{"attributes":{"formatter":{"id":"11984","type":"BasicTickFormatter"},"ticker":{"id":"11958","type":"BasicTicker"}},"id":"11957","type":"LinearAxis"},{"attributes":{},"id":"11963","type":"WheelZoomTool"},{"attributes":{"label":{"field":"team"},"renderers":[{"id":"12012","type":"GlyphRenderer"}]},"id":"12024","type":"LegendItem"},{"attributes":{},"id":"12003","type":"UnionRenderers"},{"attributes":{},"id":"11967","type":"HelpTool"},{"attributes":{},"id":"12004","type":"Selection"},{"attributes":{"overlay":{"id":"11986","type":"BoxAnnotation"}},"id":"11964","type":"BoxZoomTool"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":3,"x":{"field":"year"},"y":{"field":"win_diff"}},"id":"12030","type":"Line"},{"attributes":{},"id":"11966","type":"ResetTool"},{"attributes":{"label":{"field":"team"},"renderers":[{"id":"12075","type":"GlyphRenderer"}]},"id":"12093","type":"LegendItem"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":3,"x":{"field":"year"},"y":{"field":"win_diff"}},"id":"11978","type":"Line"},{"attributes":{"dimension":1,"ticker":{"id":"11958","type":"BasicTicker"}},"id":"11961","type":"Grid"},{"attributes":{},"id":"11965","type":"SaveTool"},{"attributes":{},"id":"12044","type":"Selection"},{"attributes":{},"id":"11953","type":"BasicTicker"},{"attributes":{"line_color":"#e09b34","line_width":3,"x":{"field":"year"},"y":{"field":"win_diff"}},"id":"12073","type":"Line"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"11986","type":"BoxAnnotation"},{"attributes":{"callback":null,"data":{"index":[132,163,195,225,255,282,313,341,371,402,432,460,492,524,553,584,614,642,671,702,734],"losses":[89,94,106,94,94,81,87,79,72,82,85,66,79,88,80,94,89,76,67,73,31],"team":["Milwaukee Brewers","Milwaukee Brewers","Milwaukee Brewers","Milwaukee Brewers","Milwaukee Brewers","Milwaukee Brewers","Milwaukee Brewers","Milwaukee Brewers","Milwaukee Brewers","Milwaukee Brewers","Milwaukee Brewers","Milwaukee Brewers","Milwaukee Brewers","Milwaukee Brewers","Milwaukee Brewers","Milwaukee Brewers","Milwaukee Brewers","Milwaukee Brewers","Milwaukee Brewers","Milwaukee Brewers","Milwaukee Brewers"],"teamID_2":["mil","mil","mil","mil","mil","mil","mil","mil","mil","mil","mil","mil","mil","mil","mil","mil","mil","mil","mil","mil","mil"],"win_diff":[-16,-26,-50,-26,-27,0,-12,4,18,-2,-8,30,4,-14,2,-26,-16,10,29,16,-2],"win_pct":{"__ndarray__":"xCJl4OnW3D9+WKQMPN3aP6QMPN2aH9Y/flikDDzd2j8YUa2zL6LaPwAAAAAAAOA/E9pLaC+h3T+oW/PDImXgP3Icx3Ecx+E/WKQMPN2a3z9ikTLwdGveP2gvob2E9uI/qFvzwyJl4D9rflikDDzdP9St+WGRMuA/flikDDzd2j/EImXg6dbcPyNl4OnW/OA/n6lcd7zY4j+ebs0Pi5ThP+/u7u7u7t4/","dtype":"float64","shape":[21]},"wins":[73,68,56,68,67,81,75,83,90,80,77,96,83,74,82,68,73,86,96,89,29],"year":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020]},"selected":{"id":"12067","type":"Selection"},"selection_policy":{"id":"12066","type":"UnionRenderers"}},"id":"12027","type":"ColumnDataSource"},{"attributes":{"source":{"id":"12008","type":"ColumnDataSource"}},"id":"12013","type":"CDSView"},{"attributes":{"source":{"id":"11975","type":"ColumnDataSource"}},"id":"11980","type":"CDSView"},{"attributes":{"data_source":{"id":"12048","type":"ColumnDataSource"},"glyph":{"id":"12050","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"12051","type":"Line"},"selection_glyph":null,"view":{"id":"12053","type":"CDSView"}},"id":"12052","type":"GlyphRenderer"},{"attributes":{},"id":"12023","type":"Selection"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"11962","type":"PanTool"},{"id":"11963","type":"WheelZoomTool"},{"id":"11964","type":"BoxZoomTool"},{"id":"11965","type":"SaveTool"},{"id":"11966","type":"ResetTool"},{"id":"11967","type":"HelpTool"},{"id":"11989","type":"HoverTool"},{"id":"12006","type":"HoverTool"},{"id":"12025","type":"HoverTool"},{"id":"12046","type":"HoverTool"},{"id":"12069","type":"HoverTool"},{"id":"12094","type":"HoverTool"}]},"id":"11968","type":"Toolbar"},{"attributes":{"source":{"id":"11991","type":"ColumnDataSource"}},"id":"11996","type":"CDSView"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":3,"x":{"field":"year"},"y":{"field":"win_diff"}},"id":"12074","type":"Line"},{"attributes":{"ticker":{"id":"11953","type":"BasicTicker"}},"id":"11956","type":"Grid"},{"attributes":{"callback":null,"data":{"index":[130,161,190,222,250,280,310,342,373,400,431,461,491,521,551,581,612,643,673,701,732],"losses":[67,69,65,77,57,62,78,84,76,71,76,72,74,65,72,62,76,79,74,71,28],"team":["St. Louis Cardinals","St. Louis Cardinals","St. Louis Cardinals","St. Louis Cardinals","St. Louis Cardinals","St. Louis Cardinals","St. Louis Cardinals","St. Louis Cardinals","St. Louis Cardinals","St. Louis Cardinals","St. Louis Cardinals","St. Louis Cardinals","St. Louis Cardinals","St. Louis Cardinals","St. Louis Cardinals","St. Louis Cardinals","St. Louis Cardinals","St. Louis Cardinals","St. Louis Cardinals","St. Louis Cardinals","St. Louis Cardinals"],"teamID_2":["sln","sln","sln","sln","sln","sln","sln","sln","sln","sln","sln","sln","sln","sln","sln","sln","sln","sln","sln","sln","sln"],"win_diff":[28,24,32,8,48,38,5,-6,10,20,10,18,14,32,18,38,10,4,14,20,2],"win_pct":{"__ndarray__":"lYGnW/PD4j/tJbSX0F7iPzzdmh8WKeM/T7fmh0XK4D/aS2gvob3kP7fmh0XKwOM/mj/YeDR/4D8J7SW0l9DePyNl4OnW/OA/RsrA06354T8jZeDp1vzgP3Icx3Ecx+E/ysDTrflh4T883ZofFinjP3Icx3Ecx+E/t+aHRcrA4z8jZeDp1vzgP6hb88MiZeA/ysDTrflh4T9GysDTrfnhP93TCMs9jeA/","dtype":"float64","shape":[21]},"wins":[95,93,97,85,105,100,83,78,86,91,86,90,88,97,90,100,86,83,88,91,30],"year":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020]},"selected":{"id":"12004","type":"Selection"},"selection_policy":{"id":"12003","type":"UnionRenderers"}},"id":"11975","type":"ColumnDataSource"},{"attributes":{"data_source":{"id":"11975","type":"ColumnDataSource"},"glyph":{"id":"11977","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"11978","type":"Line"},"selection_glyph":null,"view":{"id":"11980","type":"CDSView"}},"id":"11979","type":"GlyphRenderer"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":3,"x":{"field":"year"},"y":{"field":"win_diff"}},"id":"12011","type":"Line"},{"attributes":{},"id":"11962","type":"PanTool"},{"attributes":{},"id":"12043","type":"UnionRenderers"},{"attributes":{"callback":null,"renderers":[{"id":"12075","type":"GlyphRenderer"}],"tooltips":[["Year","@year"],["Team","@team"],["Wins","@wins"],["Losses","@losses"]]},"id":"12094","type":"HoverTool"},{"attributes":{"line_color":"#c21919","line_width":3,"x":{"field":"year"},"y":{"field":"win_diff"}},"id":"11977","type":"Line"},{"attributes":{},"id":"12067","type":"Selection"},{"attributes":{},"id":"11948","type":"LinearScale"},{"attributes":{},"id":"11950","type":"LinearScale"},{"attributes":{"callback":null,"renderers":[{"id":"11979","type":"GlyphRenderer"}],"tooltips":[["Year","@year"],["Team","@team"],["Wins","@wins"],["Losses","@losses"]]},"id":"11989","type":"HoverTool"},{"attributes":{"data_source":{"id":"11991","type":"ColumnDataSource"},"glyph":{"id":"11993","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"11994","type":"Line"},"selection_glyph":null,"view":{"id":"11996","type":"CDSView"}},"id":"11995","type":"GlyphRenderer"},{"attributes":{},"id":"11958","type":"BasicTicker"},{"attributes":{"label":{"field":"team"},"renderers":[{"id":"11995","type":"GlyphRenderer"}]},"id":"12005","type":"LegendItem"},{"attributes":{"callback":null},"id":"11944","type":"DataRange1d"},{"attributes":{"callback":null,"renderers":[{"id":"12052","type":"GlyphRenderer"}],"tooltips":[["Year","@year"],["Team","@team"],["Wins","@wins"],["Losses","@losses"]]},"id":"12069","type":"HoverTool"},{"attributes":{"line_width":3,"x":{"field":"year"},"y":{"field":"win_diff"}},"id":"12050","type":"Line"},{"attributes":{"formatter":{"id":"11982","type":"BasicTickFormatter"},"ticker":{"id":"11953","type":"BasicTicker"}},"id":"11952","type":"LinearAxis"},{"attributes":{"line_color":"#0a52f0","line_width":3,"x":{"field":"year"},"y":{"field":"win_diff"}},"id":"11993","type":"Line"},{"attributes":{"callback":null,"end":52,"start":-74},"id":"11946","type":"Range1d"},{"attributes":{"line_color":"#7d0202","line_width":3,"x":{"field":"year"},"y":{"field":"win_diff"}},"id":"12010","type":"Line"},{"attributes":{"label":{"field":"team"},"renderers":[{"id":"12052","type":"GlyphRenderer"}]},"id":"12068","type":"LegendItem"},{"attributes":{"source":{"id":"12071","type":"ColumnDataSource"}},"id":"12076","type":"CDSView"},{"attributes":{},"id":"12092","type":"Selection"},{"attributes":{"data_source":{"id":"12027","type":"ColumnDataSource"},"glyph":{"id":"12029","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"12030","type":"Line"},"selection_glyph":null,"view":{"id":"12032","type":"CDSView"}},"id":"12031","type":"GlyphRenderer"},{"attributes":{"line_color":"#030663","line_width":3,"x":{"field":"year"},"y":{"field":"win_diff"}},"id":"12029","type":"Line"},{"attributes":{},"id":"11984","type":"BasicTickFormatter"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":3,"x":{"field":"year"},"y":{"field":"win_diff"}},"id":"12051","type":"Line"}],"root_ids":["11941"]},"title":"Bokeh Application","version":"1.3.4"}}
+        </script>
+        <script type="text/javascript">
+        (function() {
+            var fn = function() {
+            Bokeh.safely(function() {
+                (function(root) {
+                function embed_document(root) {
+                    
+                var docs_json = document.getElementById('12258').textContent;
+                var render_items = [{"docid":"8561f071-3e9d-46fb-a401-09ac63f6dae3","roots":{"11941":"14ecfd98-88dd-4389-a51a-7f1d75a36c20"}}];
+                root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                }
+                if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                    if (root.Bokeh !== undefined) {
+                        embed_document(root);
+                        clearInterval(timer);
+                    }
+                    attempts++;
+                    if (attempts > 100) {
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        clearInterval(timer);
+                    }
+                    }, 10, root)
+                }
+                })(window);
+            });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+        })();
+        </script>
+        <script type="application/json" id="10122">
+          {"8213def2-f7b0-4668-b54f-01a4de9145fe":{"roots":{"references":[{"attributes":{"axis_label":"Season with 90+ losses","formatter":{"id":"10051","type":"BasicTickFormatter"},"ticker":{"id":"10020","type":"BasicTicker"}},"id":"10019","type":"LinearAxis"},{"attributes":{"callback":null,"renderers":[{"id":"10046","type":"GlyphRenderer"}],"tooltips":[["Team","@team"],["Win % '00-'20","@win_pct{,.f}%"]]},"id":"10048","type":"HoverTool"},{"attributes":{},"id":"10056","type":"UnionRenderers"},{"attributes":{"ticker":{"id":"10020","type":"BasicTicker"}},"id":"10023","type":"Grid"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"field":"size","units":"screen"},"x":{"field":"losses90ormore"},"y":{"field":"wins90ormore"}},"id":"10045","type":"Scatter"},{"attributes":{},"id":"10032","type":"SaveTool"},{"attributes":{},"id":"10030","type":"WheelZoomTool"},{"attributes":{"dimension":1,"ticker":{"id":"10025","type":"BasicTicker"}},"id":"10028","type":"Grid"},{"attributes":{"axis_label":"Season with 90+ wins","formatter":{"id":"10053","type":"BasicTickFormatter"},"ticker":{"id":"10025","type":"BasicTicker"}},"id":"10024","type":"LinearAxis"},{"attributes":{"source":{"id":"10042","type":"ColumnDataSource"}},"id":"10047","type":"CDSView"},{"attributes":{},"id":"10053","type":"BasicTickFormatter"},{"attributes":{"data_source":{"id":"10042","type":"ColumnDataSource"},"glyph":{"id":"10044","type":"Scatter"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"10045","type":"Scatter"},"selection_glyph":null,"view":{"id":"10047","type":"CDSView"}},"id":"10046","type":"GlyphRenderer"},{"attributes":{},"id":"10020","type":"BasicTicker"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"10029","type":"PanTool"},{"id":"10030","type":"WheelZoomTool"},{"id":"10031","type":"BoxZoomTool"},{"id":"10032","type":"SaveTool"},{"id":"10033","type":"ResetTool"},{"id":"10034","type":"HelpTool"},{"id":"10048","type":"HoverTool"}]},"id":"10035","type":"Toolbar"},{"attributes":{},"id":"10051","type":"BasicTickFormatter"},{"attributes":{},"id":"10017","type":"LinearScale"},{"attributes":{},"id":"10033","type":"ResetTool"},{"attributes":{"callback":null,"data":{"color1":["#BA0021","#A71930","#CE1141","#DF4601","#BD3039","#27251F","#0E3386","#C6011F","#0C2340","#33006F","#0C2340","#002D62","#004687","#005A9C","#00A3E0","#B6922E","#0C2340","#0C2340","#FF5910","#003831","#E81828","#27251F","#FFC425","#005C5C","#FD5A1E","#C41E3A","#8FBCE6","#003278","#134A8E","#14225A"],"color2":["#003263","#E3D4AD","#13274F","#000000","#0C2340","#C4CED4","#CC3433","#000000","#E31937","#C4CED4","#FA4616","#EB6E1F","#BD9B60","#A5ACAF","#EF3340","#0a2351","#BA0C2F","#e6e6e6","#002D72","#EFB21E","#e6e6e6","#FDB827","#2F241D","#0C2C56","#27251F","#FEDB00","#092C5C","#C0111F","#1D2D5C","#AB0003"],"index":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29],"losses":[1552,1677,1527,1820,1483,1665,1640,1743,1592,1755,1761,1649,1844,1476,1747,1706,1637,1377,1664,1533,1634,1803,1756,1678,1592,1455,1704,1660,1668,1682],"losses90ormore":{"__ndarray__":"AAAAAAAA8D8AAAAAAAAUQAAAAAAAABBAAAAAAAAAJkAAAAAAAAAAQAAAAAAAABBAAAAAAAAAGEAAAAAAAAAcQAAAAAAAABBAAAAAAAAAGEAAAAAAAAAgQAAAAAAAABRAAAAAAAAAKEAAAAAAAADwPwAAAAAAABxAAAAAAAAAFEAAAAAAAAAYQAAAAAAAAAAAAAAAAAAAEEAAAAAAAAAAQAAAAAAAABBAAAAAAAAAJEAAAAAAAAAgQAAAAAAAABxAAAAAAAAACEAAAAAAAAAAAAAAAAAAACJAAAAAAAAAFEAAAAAAAAAAQAAAAAAAABxA","dtype":"float64","shape":[30]},"size":{"__ndarray__":"AAAAAAAAJEAAAAAAAAAkQAAAAAAAACFAAAAAAAAAHEAAAAAAAAAzQAAAAAAAACRAAAAAAAAAJEAAAAAAAAAcQAAAAAAAACFAAAAAAAAAIUAAAAAAAAAkQAAAAAAAACpAAAAAAAAAJ0AAAAAAAAAqQAAAAAAAACRAAAAAAAAAHEAAAAAAAAAcQAAAAAAAADBAAAAAAAAAJEAAAAAAAAAcQAAAAAAAACdAAAAAAAAAHEAAAAAAAAAcQAAAAAAAABxAAAAAAACAMUAAAAAAAAAwQAAAAAAAACdAAAAAAAAAJEAAAAAAAAAcQAAAAAAAACRA","dtype":"float64","shape":[30]},"team":["Los Angeles Angels","Arizona Diamondbacks","Atlanta Braves","Baltimore Orioles","Boston Red Sox","Chicago White Sox","Chicago Cubs","Cincinnati Reds","Cleveland Indians","Colorado Rockies","Detroit Tigers","Houston Astros","Kansas City Royals","Los Angeles Dodgers","Miami Marlins","Milwaukee Brewers","Minnesota Twins","New York Yankees","New York Mets","Oakland Athletics","Philadelphia Phillies","Pittsburgh Pirates","San Diego Padres","Seattle Mariners","San Francisco Giants","St. Louis Cardinals","Tampa Bay Rays","Texas Rangers","Toronto Blue Jays","Washington Nationals"],"teamID_2":["ana","ari","atl","bal","bos","cha","chn","cin","cle","col","det","hou","kca","lan","mia","mil","min","nya","nyn","oak","phi","pit","sdn","sea","sfn","sln","tba","tex","tor","was"],"win_pct":{"__ndarray__":"fPDBBx98SkAXXXTRRZdIQKw3k5iz10pAYUMuNlNoRkDLHM+RA4ZLQEYXXXTRxUhAj8aRJe4iSUAXXXTRRZdHQOE+m5g53UlAm81ms9lsR0BQRmnrFkdHQEHopaLwAUlAED744IMPRkCjiy666KJLQKSS87KIf0dAJ5tssskmSEABfK0HWTRJQOkO9lttHE1AZwoNbMjFSEBujQFWNsJKQOUfF7IjPElAh7FN6O6jRkAjxapu6WZHQJNNNtlkk0hAl+w51lnbSUDPDLt3Ou9LQM7QL4yJKkhAS4xDpSnbSECVbgV+OLhIQEh96SDsf0hA","dtype":"float64","shape":[30]},"wins":[1748,1623,1770,1478,1816,1635,1658,1557,1706,1547,1534,1650,1456,1824,1549,1594,1664,1919,1634,1765,1665,1492,1545,1622,1705,1842,1594,1641,1631,1616],"wins90ormore":{"__ndarray__":"AAAAAAAAHEAAAAAAAAAUQAAAAAAAACRAAAAAAAAAAEAAAAAAAAAoQAAAAAAAAAhAAAAAAAAAFEAAAAAAAAAIQAAAAAAAACJAAAAAAAAACEAAAAAAAAAQQAAAAAAAABRAAAAAAAAA8D8AAAAAAAAkQAAAAAAAAPA/AAAAAAAACEAAAAAAAAAYQAAAAAAAACxAAAAAAAAACEAAAAAAAAAkQAAAAAAAABBAAAAAAAAAAEAAAAAAAADwPwAAAAAAABBAAAAAAAAAHEAAAAAAAAAmQAAAAAAAABxAAAAAAAAAFEAAAAAAAADwPwAAAAAAABRA","dtype":"float64","shape":[30]}},"selected":{"id":"10057","type":"Selection"},"selection_policy":{"id":"10056","type":"UnionRenderers"}},"id":"10042","type":"ColumnDataSource"},{"attributes":{},"id":"10015","type":"LinearScale"},{"attributes":{},"id":"10034","type":"HelpTool"},{"attributes":{"callback":null},"id":"10011","type":"DataRange1d"},{"attributes":{},"id":"10029","type":"PanTool"},{"attributes":{"fill_color":{"field":"color1"},"line_color":{"field":"color2"},"size":{"field":"size","units":"screen"},"x":{"field":"losses90ormore"},"y":{"field":"wins90ormore"}},"id":"10044","type":"Scatter"},{"attributes":{},"id":"10057","type":"Selection"},{"attributes":{"below":[{"id":"10019","type":"LinearAxis"}],"center":[{"id":"10023","type":"Grid"},{"id":"10028","type":"Grid"}],"left":[{"id":"10024","type":"LinearAxis"}],"plot_height":450,"plot_width":450,"renderers":[{"id":"10046","type":"GlyphRenderer"}],"title":{"id":"10009","type":"Title"},"toolbar":{"id":"10035","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"10011","type":"DataRange1d"},"x_scale":{"id":"10015","type":"LinearScale"},"y_range":{"id":"10013","type":"DataRange1d"},"y_scale":{"id":"10017","type":"LinearScale"}},"id":"10008","subtype":"Figure","type":"Plot"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"10055","type":"BoxAnnotation"},{"attributes":{"callback":null},"id":"10013","type":"DataRange1d"},{"attributes":{"text":"MLB Competitiveness"},"id":"10009","type":"Title"},{"attributes":{"overlay":{"id":"10055","type":"BoxAnnotation"}},"id":"10031","type":"BoxZoomTool"},{"attributes":{},"id":"10025","type":"BasicTicker"}],"root_ids":["10008"]},"title":"Bokeh Application","version":"1.3.4"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('10122').textContent;
+                  var render_items = [{"docid":"8213def2-f7b0-4668-b54f-01a4de9145fe","roots":{"10008":"2e099919-287d-43e2-9d33-bcb265b8c3ec"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        embed_document(root);
+                        clearInterval(timer);
+                      }
+                      attempts++;
+                      if (attempts > 100) {
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        clearInterval(timer);
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+
+    </center>
+
+	<script src="static/components/menu.vue">
+    </script>
+    <script src="static/components/header.vue">
+    </script>
+
+
+  </body>
+</html>

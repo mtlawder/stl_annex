@@ -610,10 +610,12 @@ def airlines_in_2020():
 
 @app.route('/all_blogs',methods=['GET','POST'])
 def all_blogs():
-    return render_template('/all_blogs.html')
+    conn=sqlite3.connect("website_meta.db")
+    blogs=pd.read_sql("SELECT ID, URL, Title, StartDate, Author, RawSummary "+
+                "From blogs_meta",conn).sort_values('ID',ascending=False).to_json(orient='records')
+    return render_template('/all_blogs.html',blogs=blogs)
 
 if __name__ == '__main__':
     app.run()
-    #app.run(host='159.203.65.80',port=33506)
 
 

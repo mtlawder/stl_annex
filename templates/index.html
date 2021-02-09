@@ -148,10 +148,22 @@
     <script src="static/components/header.vue">
     </script>
     <script>   
-      new Vue ({
+      vm = new Vue ({
         el: '#blog_head',
         data: {
-          blogs: <<%blogs|safe%>>
+          blogs: []
+        },
+        created: function getBlogs() {
+          var req = new XMLHttpRequest()
+          req.open("POST",'/api/blog_return' ,true);
+          var formData = new FormData();
+          formData.append('totalPosts', 6);
+          req.send(formData)
+          req.onload=function(){
+            data=JSON.parse(this.response)
+            console.log(data)
+            vm.blogs=data
+          }
         }
       })
     </script>

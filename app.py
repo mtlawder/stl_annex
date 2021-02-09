@@ -35,10 +35,7 @@ def main():
 
 @app.route('/index_Main',methods=['GET','POST'])
 def index_Main():
-    conn=sqlite3.connect("website_meta.db")
-    blogs=pd.read_sql("SELECT URL, Title, StartDate, Author, RawSummary From blogs_meta ORDER BY ID DESC"+
-            " LIMIT 6",conn).to_json(orient='records')
-    return render_template('/index.html',blogs=blogs)
+    return render_template('/index.html')
 
 @app.route('/api/nieghbhoor_pop_data',methods=['POST'])
 def api_nieghbhoor_pop_data():
@@ -611,12 +608,19 @@ def airlines_in_2020():
         dept_script=dept_script,dept_div=dept_div,seats_script=seats_script,seats_div=seats_div,
         airport_list=airport_list,routes_display=routes_display, latest_month_label= latest_month_label)
 
+@app.route('/api/blog_return',methods=['POST'])
+def api_blog_return():
+    total_post = request.form["totalPosts"]
+    conn=sqlite3.connect("website_meta.db")
+    sql_command="SELECT URL, Title, StartDate, Author, RawSummary From blogs_meta ORDER BY ID DESC"
+    if total_post != 'all':
+        sql_command+=f" LIMIT {total_post}"
+    blogs=pd.read_sql(sql_command,conn).to_json(orient='records')
+    return blogs
+
 @app.route('/all_blogs',methods=['GET','POST'])
 def all_blogs():
-    conn=sqlite3.connect("website_meta.db")
-    blogs=pd.read_sql("SELECT ID, URL, Title, StartDate, Author, RawSummary "+
-                "From blogs_meta",conn).sort_values('ID',ascending=False).to_json(orient='records')
-    return render_template('/all_blogs.html',blogs=blogs)
+    return render_template('/all_blogs.html')
 
 if __name__ == '__main__':
     app.run()

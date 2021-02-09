@@ -35,7 +35,10 @@ def main():
 
 @app.route('/index_Main',methods=['GET','POST'])
 def index_Main():
-    return render_template('/index.html')
+    conn=sqlite3.connect("website_meta.db")
+    blogs=pd.read_sql("SELECT URL, Title, StartDate, Author, RawSummary From blogs_meta ORDER BY ID DESC"+
+            " LIMIT 6",conn).to_json(orient='records')
+    return render_template('/index.html',blogs=blogs)
 
 @app.route('/api/nieghbhoor_pop_data',methods=['POST'])
 def api_nieghbhoor_pop_data():

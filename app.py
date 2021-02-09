@@ -95,11 +95,6 @@ def stl_pop():
         coords_df=pd.read_csv('static/data/STL_neighborhood_lat_lon.csv')
         nb_coords=coords_df.loc[coords_df['Neighborhood']==nbhood]
         coords={'lat':nb_coords.reset_index()['Lat'][0],'lon':nb_coords.reset_index()['Lon'][0]}
-        # table_data={'columns':[],'data':{}}
-        # nbh_table=pd.read_sql('SELECT * FROM neighborhood_pop WHERE neighborhood="%s"' %(neighborhood), conn)
-        # p1 = figure(title="Population Change")
-        # p1.line(pd.to_numeric(nbh_table['Year']), pd.to_numeric(nbh_table['Total Population'].str.replace(',','')))
-        # script, div = components(p1)
         return render_template('/stl_neighborhood_pop.html',neighbohoods=neighborhoods,line_script=line_script,line_div=line_div,\
             pie_script=pie_script,pie_div=pie_div,table_data_10=table_data_10,table_data_00=table_data_00,\
             table_data_90=table_data_90,nb_sel=nbhood,coords=coords,scroll=1)
@@ -112,9 +107,6 @@ def all_airlines():
           WHERE (ORIGIN IN ("STL","IND","DSM","MCI","MEM","CVG","SBN","COU","SGF")) AND PASSENGERS>100 GROUP BY ORIGIN, DEST', conn)
         dest_options={city: list(d_ops[d_ops["ORIGIN"]==city]["DEST"]) for city in ["STL","IND","DSM","MCI","MEM","CVG","SBN","COU","SGF"]}
         carrier = "WN"
-        # airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS)\
-        #     AS "TOTAL PASSENGERS", UNIQUE_CARRIER_NAME, DEST, DEST_CITY_NAME,YEAR FROM domestic_routes\
-        #     WHERE ORIGIN="STL" AND YEAR=2017 AND UNIQUE_CARRIER="{carrier}" GROUP BY DEST,UNIQUE_CARRIER ORDER BY "TOTAL PASSENGERS" DESC', conn)
         airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS) \
             AS "TOTAL PASSENGERS",UNIQUE_CARRIER_NAME,DEST,DEST_CITY_NAME,YEAR,ORIGIN,ORIGIN_CITY_NAME FROM domestic_routes WHERE ORIGIN="STL" AND YEAR="2018" AND UNIQUE_CARRIER="{carrier}"\
             GROUP BY DEST,UNIQUE_CARRIER ORDER BY "TOTAL PASSENGERS" DESC',conn)
@@ -143,7 +135,6 @@ def all_airlines():
         dest_insert=""
         combined_insert = ""
         join_insert=""
-        #combined_org_insert=""
         cols_insert="A.DEST, DEST_CITY_NAME"
         groupby_insert="A.DEST"
         origin_insert=f'A.ORIGIN="{airport_sel}"'
@@ -165,10 +156,6 @@ def all_airlines():
             groupby_insert="A.ORIGIN"
         else:
             pass
-        #    if dest_code!='' and dest_code!='ALL':
-        #        dest_insert='AND A.DEST="'+str(dest_code)+'"'
-        #        combined_org_insert='AND A.ORIGIN="'+str(dest_code)+'"'
-        #    combined_insert=f'OR (A.DEST="{airport_sel}" {combined_org_insert} {year_insert} {carrier_insert} {month_insert})'
         if year_sel=='All':
             year_insert=""
         else:
@@ -178,24 +165,11 @@ def all_airlines():
           WHERE (ORIGIN IN ("STL","IND","DSM","MCI","MEM","CVG","SBN","COU","SGF")) AND PASSENGERS>100 GROUP BY ORIGIN, DEST', conn)
         dest_options={city: list(d_ops[d_ops["ORIGIN"]==city]["DEST"]) for city in ["STL","IND","DSM","MCI","MEM","CVG","SBN","COU","SGF"]}
         if regional_sel=='mainline':
-            # airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES) AS DEPARTURES,SUM("TOTAL CAPACITY") AS "TOTAL CAPACITY",SUM("TOTAL PASSENGERS") \
-            #     AS "TOTAL PASSENGERS", UNIQUE_CN AS UNIQUE_CARRIER_NAME, DEST, DEST_CITY_NAME,YEAR FROM \
-            #     (SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS) \
-            #     AS "TOTAL PASSENGERS", COALESCE(mainline_desc,UNIQUE_CARRIER_NAME) AS UNIQUE_CN, \
-            #     {cols_insert},A.YEAR FROM domestic_routes AS A LEFT JOIN regional_conversion as B \
-            #     ON {join_insert} AND A.UNIQUE_CARRIER=B.regional_code AND A.YEAR=B.year WHERE \
-            #     ({origin_insert} {year_insert} {dest_insert} {carrier_insert} {month_insert}) {combined_insert} GROUP BY {groupby_insert}, \
-            #     UNIQUE_CARRIER_NAME) AS COMB GROUP BY DEST,UNIQUE_CARRIER_NAME ORDER BY "TOTAL PASSENGERS" DESC', conn)
             airline_table=pd.read_sql(f'SELECT SUM(DEPT_ADJ) AS DEPARTURES,SUM(SEATS_ADJ) AS "TOTAL CAPACITY",SUM(PASS_ADJ) AS "TOTAL PASSENGERS",B.UNIQUE_CARRIER_NAME,\
                 DEST,DEST_CITY_NAME,YEAR,ORIGIN,ORIGIN_CITY_NAME FROM domestic_routes AS A LEFT JOIN carrier_mapping AS B ON A.MAIN_CARRIER=B.UNIQUE_CARRIER \
                 WHERE ({origin_insert} {year_insert} {dest_insert} {carrier_insert} {month_insert}) {combined_insert} \
                 GROUP BY {groupby_insert},MAIN_CARRIER ORDER BY "TOTAL PASSENGERS" DESC', conn)
         else:
-            # airline_table=pd.read_sql(f'SELECT SUM(DEPARTURES_PERFORMED) AS DEPARTURES,SUM(SEATS) AS "TOTAL CAPACITY",SUM(PASSENGERS) \
-            #     AS "TOTAL PASSENGERS", UNIQUE_CARRIER_NAME, \
-            #     {cols_insert},A.YEAR FROM domestic_routes AS A LEFT JOIN regional_conversion as B \
-            #     ON {join_insert} AND A.UNIQUE_CARRIER=B.regional_code AND A.YEAR=B.year WHERE \
-            #     ({origin_insert} {year_insert} {dest_insert} {carrier_insert} {month_insert}) {combined_insert} GROUP BY {groupby_insert},UNIQUE_CARRIER_NAME ORDER BY "TOTAL PASSENGERS" DESC', conn)
             airline_table=pd.read_sql(f'SELECT SUM(DEPT_ADJ) AS DEPARTURES,SUM(SEATS_ADJ) AS "TOTAL CAPACITY",SUM(PASS_ADJ) AS "TOTAL PASSENGERS",UNIQUE_CARRIER_NAME,\
                 DEST,DEST_CITY_NAME,YEAR,ORIGIN,ORIGIN_CITY_NAME FROM domestic_routes AS A WHERE ({origin_insert} {year_insert} {dest_insert} {carrier_insert} {month_insert}) {combined_insert} \
                 GROUP BY {groupby_insert},UNIQUE_CARRIER_NAME ORDER BY "TOTAL PASSENGERS" DESC', conn)
@@ -215,15 +189,12 @@ def all_airlines():
         airline_table=airline_table[cols[:3]+['LOAD FACTOR']+cols[3:-1]]
         total_df=total_df.append(airline_table)
         carriers = list(set(total_df["UNIQUE_CARRIER_NAME"].tolist()))
-        #carriers='a'
         air_dest = total_df.values.tolist()
         script=""
         div=""
         if dest_code!='' and dest_code!='ALL':
             p_air_tab=pd.read_sql(f'SELECT SUM(PASSENGERS) AS PASS, YEAR, MONTH FROM domestic_routes AS A WHERE {origin_insert} \
             {dest_insert} {carrier_insert} GROUP BY YEAR, MONTH', conn)
-            #p1 = figure(title="Airline Passengers")
-            #p1.line(pd.to_numeric(p_air_tab['YEAR']+(p_air_tab['MONTH']-1)/12), pd.to_numeric(p_air_tab['PASS']))
             p1 = figure(x_range=list(p_air_tab['YEAR'].astype(str)+'-'+p_air_tab['MONTH'].astype(str)), plot_height=250,
                 plot_width=700,title="Passenger Counts all Carriers", toolbar_location=None, tools="")
             d_source=ColumnDataSource({'x':list(p_air_tab['YEAR'].astype(str)+'-'+p_air_tab['MONTH'].astype(str)),
@@ -286,15 +257,7 @@ def airline_types():
         date_y=datetime.strptime(date,'%Y-%m-%d').strftime('%Y-%m-%d')+'T01:00:00'
         date_z=(datetime.strptime(date,'%Y-%m-%d')-timedelta(days=1)).strftime('%Y-%m-%d')+'T01:00:00'
         print(destination)
-        #sample_table=pd.read_sql('SELECT * FROM stl_airport WHERE (Airline LIKE "%Air Canada%") and Date="%s"' %(destination,date_x),conn)
-        #airlines=pd.read_sql('SELECT * FROM stl_airport WHERE Datetime>="%s" AND Datetime<="%s"  ORDER BY Destination' %(date_z,date_y),conn)
         print(date_x)
-        #airlines[['Airline_only','flight_number']]=airlines.Airline.str.split(' #',expand=True)
-        #airlines['Airline_only']=airlines['Airline_only'].str.strip()
-        #airline_table=airlines[['Airline_only','flight_number']].groupby('Airline_only').agg([len])
-        #airline_table.columns=['flights']
-        #airline_table.reset_index(inplace=True)
-        #return render_template('/airlines.html', table=sample_table.to_html(classes='table table-striped',index=False), airline_table=airline_table.to_html(classes='table table-striped',index=False), date_look=date_x)
         return render_template('/airlines.html', table="S", airline_table="s", date_look=date_x)
     except:
         return render_template('/airlines.html',table="Need to choose proper destination!",date="No date choosen")
@@ -318,13 +281,9 @@ def api_states():
     cases_log_script,cases_log_div,cases_script,cases_div=coronavirus_dashboard_charts(state_data)
     return jsonify({'cases_script':cases_script,'cases_div':cases_div,'cases_log_script':cases_log_script,'cases_log_div':cases_log_div})
 
-@app.route('/blog_starting_airline_route_post',methods=['GET','POST'])
-def blog_starting_airline_route_post():
-    return render_template('/blog_starting_airline_route_post.html')
-
-@app.route('/blog_load_factors_from_STL',methods=['GET','POST'])
-def blog_load_factors_from_stl():
-    return render_template('/blog_load_factors_from_STL.html')
+@app.route('/blogs_2019/<blog_title>',methods=['GET','POST'])
+def blog2019(blog_title):
+    return render_template(f'/blogs_2019/{blog_title}.html')
 
 @app.route('/blog_uswnt_ranking',methods=['GET','POST'])
 def blog_uswnt_ranking():

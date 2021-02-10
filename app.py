@@ -59,45 +59,30 @@ def api_nieghbhoor_pop_data():
 def stl_pop():
     conn=sqlite3.connect('stl_census.db')
     if request.method =='GET':
-        full_table=pd.read_sql('SELECT * FROM neighborhood_pop',conn)
-        neighborhoods=list(set(full_table['Neighborhood']))
-        neighborhoods.sort()
         nbhood="Midtown"
-        dd=full_table
-        nb=dd.loc[dd['Neighborhood']==nbhood]
-        # dd=pd.read_sql('SELECT * FROM neighborhood_pop WHERE neighborhood="'+nbhood+'"',conn)
-        line_script,line_div=pop_line_chart(nb,nbhood)
-        pie_script,pie_div=pop_pie_chart(nb)
-        table_data_10=pop_create_table(dd,nbhood,2010)
-        table_data_00=pop_create_table(dd,nbhood,2000)
-        table_data_90=pop_create_table(dd,nbhood,1990)
-        coords_df=pd.read_csv('static/data/STL_neighborhood_lat_lon.csv')
-        nb_coords=coords_df.loc[coords_df['Neighborhood']==nbhood]
-        coords={'lat':nb_coords.reset_index()['Lat'][0],'lon':nb_coords.reset_index()['Lon'][0]}
-        #Creating data table to send
-                
-        return render_template('/stl_neighborhood_pop.html',neighbohoods=neighborhoods,line_script=line_script,line_div=line_div,\
-            pie_script=pie_script,pie_div=pie_div,table_data_10=table_data_10,table_data_00=table_data_00,\
-            table_data_90=table_data_90,nb_sel=nbhood,coords=coords,scroll=0)
+        scroll=0
     else:
         nbhood=request.form['nbhoods_send']
-        full_table=pd.read_sql('SELECT * FROM neighborhood_pop',conn)
-        neighborhoods=list(set(full_table['Neighborhood']))
-        neighborhoods.sort()
-        dd=full_table
-        nb=dd.loc[dd['Neighborhood']==nbhood]
-        # dd=pd.read_sql('SELECT * FROM neighborhood_pop WHERE neighborhood="'+nbhood+'"',conn)
-        line_script,line_div=pop_line_chart(nb,nbhood)
-        pie_script,pie_div=pop_pie_chart(nb)
-        table_data_10=pop_create_table(dd,nbhood,2010)
-        table_data_00=pop_create_table(dd,nbhood,2000)
-        table_data_90=pop_create_table(dd,nbhood,1990)
-        coords_df=pd.read_csv('static/data/STL_neighborhood_lat_lon.csv')
-        nb_coords=coords_df.loc[coords_df['Neighborhood']==nbhood]
-        coords={'lat':nb_coords.reset_index()['Lat'][0],'lon':nb_coords.reset_index()['Lon'][0]}
-        return render_template('/stl_neighborhood_pop.html',neighbohoods=neighborhoods,line_script=line_script,line_div=line_div,\
-            pie_script=pie_script,pie_div=pie_div,table_data_10=table_data_10,table_data_00=table_data_00,\
-            table_data_90=table_data_90,nb_sel=nbhood,coords=coords,scroll=1)
+        scroll=1
+    full_table=pd.read_sql('SELECT * FROM neighborhood_pop',conn)
+    neighborhoods=list(set(full_table['Neighborhood']))
+    neighborhoods.sort()
+    dd=full_table
+    nb=dd.loc[dd['Neighborhood']==nbhood]
+    # dd=pd.read_sql('SELECT * FROM neighborhood_pop WHERE neighborhood="'+nbhood+'"',conn)
+    line_script,line_div=pop_line_chart(nb,nbhood)
+    pie_script,pie_div=pop_pie_chart(nb)
+    table_data_10=pop_create_table(dd,nbhood,2010)
+    table_data_00=pop_create_table(dd,nbhood,2000)
+    table_data_90=pop_create_table(dd,nbhood,1990)
+    coords_df=pd.read_csv('static/data/STL_neighborhood_lat_lon.csv')
+    nb_coords=coords_df.loc[coords_df['Neighborhood']==nbhood]
+    coords={'lat':nb_coords.reset_index()['Lat'][0],'lon':nb_coords.reset_index()['Lon'][0]}
+    #Creating data table to send
+            
+    return render_template('/stl_neighborhood_pop.html',neighbohoods=neighborhoods,line_script=line_script,line_div=line_div,\
+        pie_script=pie_script,pie_div=pie_div,table_data_10=table_data_10,table_data_00=table_data_00,\
+        table_data_90=table_data_90,nb_sel=nbhood,coords=coords,scroll=scroll)
 
 @app.route('/all_airlines',methods=['GET','POST'])
 def all_airlines():

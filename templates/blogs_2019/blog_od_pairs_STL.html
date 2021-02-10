@@ -18,7 +18,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css">
+	<link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stlannex_style.css') %>>">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
     <title>STL Annex</title>
     <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.7.min.css" type="text/css" />
@@ -127,7 +127,7 @@
               </table>
               <i>Top 10 airports from STL</i>
                 <br><br>
-              Note that the <i>PCT of Total Arriving PAX</i> column represents the amount of travelers to the specific airport that begin their trips from STL. For Example, STL supplies roughly 14 of every 1,000 passengers that arrive in Omaha. There are a couple of interesting groupings in the top 10. Five of the airports are in major markets where there are multiple airports, but one of the airports is taking up a large portion of overall traffic to that city (DAL, HOU, MDW, LGA, DCA). Three airports fall into the "popular destinations that are getting a little far to drive to" category (RSW, DEN, SAT) while OMA and DSM are much closer than those three, they have multiple direct flights a day to STL which could be encouraging air travel compared to driving. All of the top 10 destinations have direct service from Southwest (<a href="/blog_southwest_5yr_growth_STL">the largest airline at STL</a>). Only 3 of the bottom 10 destinations have direct service from STL and none are served by Southwest. Here are the lowest (11) pairs:
+              Note that the <i>PCT of Total Arriving PAX</i> column represents the amount of travelers to the specific airport that begin their trips from STL. For Example, STL supplies roughly 14 of every 1,000 passengers that arrive in Omaha. There are a couple of interesting groupings in the top 10. Five of the airports are in major markets where there are multiple airports, but one of the airports is taking up a large portion of overall traffic to that city (DAL, HOU, MDW, LGA, DCA). Three airports fall into the "popular destinations that are getting a little far to drive to" category (RSW, DEN, SAT) while OMA and DSM are much closer than those three, they have multiple direct flights a day to STL which could be encouraging air travel compared to driving. All of the top 10 destinations have direct service from Southwest (<a href="/blogs_2019/blog_southwest_5yr_growth_STL">the largest airline at STL</a>). Only 3 of the bottom 10 destinations have direct service from STL and none are served by Southwest. Here are the lowest (11) pairs:
               <br>
               <table class='table table-striped my-table-all-air table-board table-adj'>
                  <thead>
@@ -284,9 +284,9 @@
 
 
         
-    <script src="static/components/menu.vue">
+    <script src="<<% url_for('static', filename='components/menu.vue') %>>">
     </script>
-    <script src="static/components/header.vue">
+    <script src="<<% url_for('static', filename='components/header.vue') %>>">
     </script>
     </body>
 </html>

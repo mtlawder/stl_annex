@@ -161,7 +161,6 @@
           req.send(formData)
           req.onload=function(){
             data=JSON.parse(this.response)
-            console.log(data)
             vm.blogs=data
           }
         }

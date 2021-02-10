@@ -283,67 +283,19 @@ def api_states():
 
 @app.route('/blogs_2019/<blog_title>',methods=['GET','POST'])
 def blog2019(blog_title):
-    return render_template(f'/blogs_2019/{blog_title}.html')
-
-@app.route('/blog_uswnt_ranking',methods=['GET','POST'])
-def blog_uswnt_ranking():
-    return render_template('/blog_uswnt_ranking.html')
-
-@app.route('/blog_southwest_5yr_growth_STL',methods=['GET','POST'])
-def blog_southwest_5yr_growth_STL():
-    return render_template('/blog_southwest_5yr_growth_STL.html')
-
-@app.route('/blog_od_pairs_STL',methods=['GET','POST'])
-def blog_od_pairs_STL():
-    return render_template('/blog_od_pairs_STL.html')
-
-@app.route('/blog_Southwest_out_of_Newark',methods=['GET','POST'])
-def blog_Southwest_out_of_Newark():
-    return render_template('/blog_Southwest_out_of_Newark.html')
-
-@app.route('/blog_southwest_ewr_lga_comp',methods=['GET','POST'])
-def blog_southwest_ewr_lga_comp():
-    return render_template('/blog_southwest_ewr_lga_comp.html')    
-
-@app.route('/blog_first_stl_pop',methods=['GET','POST'])
-def blog_first_stl_pop():
-    return render_template('/blog_first_stl_pop.html')    
+    return render_template(f'/blogs_2019/{blog_title}.html')   
 
 @app.route('/about',methods=['GET','POST'])
 def about():
     return render_template('/about.html')
 
-@app.route('/delta_stl_by_the_numbers',methods=['GET','POST'])
-def delta_stl_by_the_numbers():
-    return render_template('/by_the_numbers/delta_STL_btn.html')
-
-@app.route('/frontier_stl_by_the_numbers',methods=['GET','POST'])
-def frontier_stl_by_the_numbers():
-    return render_template('/by_the_numbers/frontier_STL_btn.html')
-
-@app.route('/united_stl_by_the_numbers',methods=['GET','POST'])
-def united_stl_by_the_numbers():
-    return render_template('/by_the_numbers/united_STL_btn.html')
+@app.route('/<airline>_stl_by_the_numbers',methods=['GET','POST'])
+def stl_by_the_numbers(airline):
+    return render_template(f'/by_the_numbers/{airline}_STL_btn.html')
 
 @app.route('/allegiant_blv_by_the_numbers',methods=['GET','POST'])
 def allegiant_blv_by_the_numbers():
     return render_template('/by_the_numbers/allegiant_BLV_btn.html')
-
-@app.route('/american_stl_by_the_numbers',methods=['GET','POST'])
-def american_stl_by_the_numbers():
-    return render_template('/by_the_numbers/american_STL_btn.html')
-
-@app.route('/airchoiceone_stl_by_the_numbers',methods=['GET','POST'])
-def airchoiceone_stl_by_the_numbers():
-    return render_template('/by_the_numbers/airchoiceone_STL_btn.html')
-
-@app.route('/alaska_stl_by_the_numbers',methods=['GET','POST'])
-def alaska_stl_by_the_numbers():
-    return render_template('/by_the_numbers/alaska_STL_btn.html')
-
-@app.route('/southwest_stl_by_the_numbers',methods=['GET','POST'])
-def southwest_stl_by_the_numbers():
-    return render_template('/by_the_numbers/southwest_STL_btn.html')
 
 @app.route('/southwest_stl_BIG',methods=['GET','POST'])
 def southwest_stl_BIG():

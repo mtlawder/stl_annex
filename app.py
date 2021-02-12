@@ -267,6 +267,10 @@ def api_states():
     cases_log_script,cases_log_div,cases_script,cases_div=coronavirus_dashboard_charts(state_data)
     return jsonify({'cases_script':cases_script,'cases_div':cases_div,'cases_log_script':cases_log_script,'cases_log_div':cases_log_div})
 
+@app.route('/blogs_2020/<blog_title>',methods=['GET','POST'])
+def blog2020(blog_title):
+    return render_template(f'/blogs_2020/{blog_title}.html')
+
 @app.route('/blogs_2019/<blog_title>',methods=['GET','POST'])
 def blog2019(blog_title):
     return render_template(f'/blogs_2019/{blog_title}.html')   
@@ -295,57 +299,17 @@ def btn_methodology():
 def all_stl_nbh_census():
     return render_template('/all_stl_census_neighborhoods.html')
 
-@app.route('/connecting_airport_traffic',methods=['GET','POST'])
-def connecting_airport_traffic():
-    return render_template('/blog_airport_connections.html')
-
-@app.route('/blog_od_ranks',methods=['GET','POST'])
-def blog_od_ranks():
-    return render_template('/blog_od_ranks.html')
-
-@app.route('/blog_nyc_airports_od_comp',methods=['GET','POST'])
-def blog_nyc_airports_od_comp():
-    return render_template('/blog_nyc_airports_od_comp.html')
-
-@app.route('/blog_stl_od',methods=['GET','POST'])
-def blog_stl_od():
-    return render_template('/blog_stl_od.html')
-
 @app.route('/blog_marathon_times_yoy',methods=['GET','POST'])
 def blog_marathon_times_yoy():
     return render_template('/blog_marathon_times_yoy.html')
-
-@app.route('/blog_coronavirus_march',methods=['GET','POST'])
-def blog_coronavirus_march():
-    return render_template('/blog_coronavirus_march.html')
-
-@app.route('/blog_coronavirus_april',methods=['GET','POST'])
-def blog_coronavirus_april():
-    return render_template('/blog_coronavirus_april.html')
-
-@app.route('/blog_coronavirus_nj',methods=['GET','POST'])
-def blog_coronavirus_nj():
-    return render_template('/blog_coronavirus_nj.html')
 
 @app.route('/blog_cptc_results',methods=['GET','POST'])
 def blog_cptc_results():
     return render_template('/running/blog_cptc_results.html')
 
-@app.route('/blog_amtrak_routes',methods=['GET','POST'])
-def blog_amtrak_routes():
-    return render_template('/blog_amtrak_routes.html')
-
 @app.route('/amtrak_timeline_scroll',methods=['GET','POST'])
 def amtrak_timeline_scroll():
     return render_template('/amtrak_timeline_scroll.html')
-
-@app.route('/blog_southwest_2020',methods=['GET','POST'])
-def blog_southwest_2020():
-    return render_template('/blog_southwest_2020.html')
-
-@app.route('/blog_cardinals_2000_2020',methods=['GET','POST'])
-def blog_cardinals_2000_2020():
-    return render_template('blogs_2020/blog_baseball_playoffs.html')
 
 @app.route('/api/airline_2020_comp',methods=['GET','POST'])
 def api_airlines_2020_comp():

@@ -39,24 +39,6 @@ def main():
 def index_Main():
     return render_template('/index.html')
 
-@app.route('/api/nieghbhoor_pop_data',methods=['POST'])
-def api_nieghbhoor_pop_data():
-    conn=sqlite3.connect('stl_census.db')
-    nbhood=request.form['nbhoods_send']
-    full_table=pd.read_sql('SELECT * FROM neighborhood_pop',conn)
-    dd=full_table
-    nb=dd.loc[dd['Neighborhood']==nbhood]
-    line_script,line_div=pop_line_chart(nb,nbhood)
-    pie_script,pie_div=pop_pie_chart(nb)
-    table_data_10=pop_create_table(dd,nbhood,2010)
-    table_data_00=pop_create_table(dd,nbhood,2000)
-    table_data_90=pop_create_table(dd,nbhood,1990)
-    coords_df=pd.read_csv('static/data/STL_neighborhood_lat_lon.csv')
-    nb_coords=coords_df.loc[coords_df['Neighborhood']==nbhood]
-    coords={'lat':nb_coords.reset_index()['Lat'][0],'lon':nb_coords.reset_index()['Lon'][0]}
-    return jsonify({'table_data_10':table_data_10,'table_data_00':table_data_00,'table_data_90':table_data_90,'coords':coords,\
-        'line_script':line_script,'line_div':line_div,'pie_script':pie_script,'pie_div':pie_div})
-
 @app.route('/stl_pop',methods=['GET','POST'])
 def stl_pop():
     conn=sqlite3.connect('stl_census.db')
@@ -163,18 +145,6 @@ def coronavirus_dashboard():
     return render_template('/coronavirus_dashboard.html',today_vals=today_vals,national_div=national_div,national_script=national_script,
         national_log_div=national_log_div,national_log_script=national_log_script)
 
-@app.route('/api/state_comp',methods=['GET','POST'])
-def api_state_comp():
-    state_data=pd.read_csv('static/data/us-states.csv')
-    comp_st_script,comp_st_div,st_script,st_div=coronavirus_dashboard_state_charts(state_data)
-    return jsonify({'comp_st_script':comp_st_script,'comp_st_div':comp_st_div,'st_script':st_script,'st_div':st_div})
-
-@app.route('/api/states',methods=['GET','POST'])
-def api_states():
-    state_data=pd.read_csv('static/data/us-states.csv')
-    cases_log_script,cases_log_div,cases_script,cases_div=coronavirus_dashboard_charts(state_data)
-    return jsonify({'cases_script':cases_script,'cases_div':cases_div,'cases_log_script':cases_log_script,'cases_log_div':cases_log_div})
-
 @app.route('/blogs_2020/<blog_title>',methods=['GET','POST'])
 def blog2020(blog_title):
     return render_template(f'/blogs_2020/{blog_title}.html')
@@ -219,6 +189,23 @@ def blog_cptc_results():
 def amtrak_timeline_scroll():
     return render_template('/amtrak_timeline_scroll.html')
 
+@app.route('/airlines_in_2020',methods=['GET','POST'])
+def airlines_in_2020():
+    if request.method =='GET':
+        air_sel='STL'
+    else:
+        air_sel=request.form['airport']
+    totals_display,pass_script,pass_div,dept_script,dept_div,seats_script,seats_div,airport_list,routes_display, latest_month_label=airlines_in_2020_content(air_sel)
+    return render_template('/airlines_in_2020.html',air_sel=air_sel,totals_display=totals_display,pass_script=pass_script,pass_div=pass_div,
+        dept_script=dept_script,dept_div=dept_div,seats_script=seats_script,seats_div=seats_div,
+        airport_list=airport_list,routes_display=routes_display, latest_month_label= latest_month_label)
+
+@app.route('/all_blogs',methods=['GET','POST'])
+def all_blogs():
+    return render_template('/all_blogs.html')
+
+### API CALLS ###
+
 @app.route('/api/airline_2020_comp',methods=['GET','POST'])
 def api_airlines_2020_comp():
     airport = request.form["airport"]
@@ -231,17 +218,6 @@ def api_airlines_2020_comp_chart():
     airport_comp_script,airport_comp_div=airline_2020_comp_chart(airports)
     return jsonify({'airport_comp_script':airport_comp_script,'airport_comp_div':airport_comp_div})
 
-@app.route('/airlines_in_2020',methods=['GET','POST'])
-def airlines_in_2020():
-    if request.method =='GET':
-        air_sel='STL'
-    else:
-        air_sel=request.form['airport']
-    totals_display,pass_script,pass_div,dept_script,dept_div,seats_script,seats_div,airport_list,routes_display, latest_month_label=airlines_in_2020_content(air_sel)
-    return render_template('/airlines_in_2020.html',air_sel=air_sel,totals_display=totals_display,pass_script=pass_script,pass_div=pass_div,
-        dept_script=dept_script,dept_div=dept_div,seats_script=seats_script,seats_div=seats_div,
-        airport_list=airport_list,routes_display=routes_display, latest_month_label= latest_month_label)
-
 @app.route('/api/blog_return',methods=['POST'])
 def api_blog_return():
     total_post = request.form["totalPosts"]
@@ -252,9 +228,35 @@ def api_blog_return():
     blogs=pd.read_sql(sql_command,conn).to_json(orient='records')
     return blogs
 
-@app.route('/all_blogs',methods=['GET','POST'])
-def all_blogs():
-    return render_template('/all_blogs.html')
+@app.route('/api/nieghbhoor_pop_data',methods=['POST'])
+def api_nieghbhoor_pop_data():
+    conn=sqlite3.connect('stl_census.db')
+    nbhood=request.form['nbhoods_send']
+    full_table=pd.read_sql('SELECT * FROM neighborhood_pop',conn)
+    dd=full_table
+    nb=dd.loc[dd['Neighborhood']==nbhood]
+    line_script,line_div=pop_line_chart(nb,nbhood)
+    pie_script,pie_div=pop_pie_chart(nb)
+    table_data_10=pop_create_table(dd,nbhood,2010)
+    table_data_00=pop_create_table(dd,nbhood,2000)
+    table_data_90=pop_create_table(dd,nbhood,1990)
+    coords_df=pd.read_csv('static/data/STL_neighborhood_lat_lon.csv')
+    nb_coords=coords_df.loc[coords_df['Neighborhood']==nbhood]
+    coords={'lat':nb_coords.reset_index()['Lat'][0],'lon':nb_coords.reset_index()['Lon'][0]}
+    return jsonify({'table_data_10':table_data_10,'table_data_00':table_data_00,'table_data_90':table_data_90,'coords':coords,\
+        'line_script':line_script,'line_div':line_div,'pie_script':pie_script,'pie_div':pie_div})
+
+@app.route('/api/state_comp',methods=['GET','POST'])
+def api_state_comp():
+    state_data=pd.read_csv('static/data/us-states.csv')
+    comp_st_script,comp_st_div,st_script,st_div=coronavirus_dashboard_state_charts(state_data)
+    return jsonify({'comp_st_script':comp_st_script,'comp_st_div':comp_st_div,'st_script':st_script,'st_div':st_div})
+
+@app.route('/api/states',methods=['GET','POST'])
+def api_states():
+    state_data=pd.read_csv('static/data/us-states.csv')
+    cases_log_script,cases_log_div,cases_script,cases_div=coronavirus_dashboard_charts(state_data)
+    return jsonify({'cases_script':cases_script,'cases_div':cases_div,'cases_log_script':cases_log_script,'cases_log_div':cases_log_div})
 
 if __name__ == '__main__':
     app.run()

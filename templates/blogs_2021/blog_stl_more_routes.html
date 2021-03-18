@@ -38,6 +38,25 @@
       .left-group{
         padding-left:5px;
       }
+      .route-titles{
+        text-decoration: underline;
+        font-weight: bold;
+      }
+      .route-poss-title{
+        font-weight: bold;
+      }
+      .route-sub-titles{
+        font-style: italic;
+      }
+      .air-table{
+        display: flex;
+      }
+      @media (min-width:500px){
+        .air-table{
+          justify-content: center;
+        }
+      }
+      
     </style>
   </head>
   <body>
@@ -54,37 +73,383 @@
             <div class="col-lg-2 col-md-1">
             </div>
             <div class="col-lg-8 col-md-10 col-sm-12">
-              <br><br><br>
-              <h3>Title</h3>
+              <br><br>
+              <h3>Where will St. Louis-Lambert fly to next?</h3>
               <br>
               <div class="blog-container left-group">
                 <p>
-                  In 2019, St. Louis-Lambert International Airport saw 15M passengers travel through its gates. Those passengers flew on 53 thousand different flights served by 9 airlines regularly serving the airport with direct flights to 56 domestic destination. Last year in 2020 passengers, flights, and routes all dropped due to the pandemic. And while passengers in 2021 will remain well below overall 2019 statistics at some point travelers will return in larger numbers. There is no guarantee that as airlines rebuild their route map from STL that it will look the same as it did in 2019, but once flights from STL are back to near 2019 levels, I want to look at where STL can expand going forward. 
+                  In 2019, St. Louis-Lambert International Airport saw 15M passengers travel through its gates. Those passengers flew on 53 thousand different domestic flights served by 9 airlines regularly serving the airport with direct flights to 56 domestic destination. Last year, in 2020, passengers, flights, and routes all dropped due to the pandemic. And while passengers in 2021 will remain well below overall 2019 statistics at some point travelers will return in larger numbers. There is no guarantee that as airlines rebuild their route map from STL it will look the same as it did in 2019, but flights continue to return, I want to look at where STL can expand going forward. 
+                </p>
+                <div style="width: 100%;display: flex;justify-content: center;">
+                  <img src="/static/images/stl non-stop route map.PNG" class="image" style="max-height: 410px;max-width: 100%;display: block;width: auto;height: auto;"/>
+                </div>
+                <div class="air-table" style="font-style: italic;">
+                  STL's route map, from <a href="https://www.flystl.com/flights-and-airlines/non-stop-service">flystl.com</a>.
+                </div>
+                <br>
+                <p>
+                  This post looks at which destinations are expansion possibilities for STL. I won't dive into what routes should get additional service here, but instead looking at routes serving airports that STL does not currently fly (see route map below). In order to see where the best expansion possibilities are, I first took a look at service that has been added to STL in recent years. Since 2015, several new non-stop destinations have added (I'm not including the smaller airports severed by regional airlines like Air Choice One). In 2016, 4 new routes were started, three serving small-medium Midwest-ish metros that didn't previously have direct service (LIT-Little Rock, DSM-Des Moines, ICT-Wichita) and one adding additional service to the Bay Area (OAK-Oakland) that was already served at SFO. In 2018, another Bay Area airport (SJO San Jose) was added along with 2 medium coastal metros (BDL-Hartford, SMF-Sacramento). These 7 new routes (all started by Southwest) give us a good range for different types of destinations that STL might expand into and hopefully will provide some insight into possibly future lading spots for STL direct flights.
+                </p>
+                <p style="font-style: italic;">
+                  Note: All data and stats were compiled using the Bureau of Transportation Statistics T-100 and DB1B datasets. More information about the how the data was analyzed can be found at the end of the post.
+                </p>
+                <hr/>
+                <h4 class="route-titles">Regional Small-Medium Metros</h4>
+                <h5><a class="route-sub-titles">Recent New Additions:</a> LIT (Little Rock), DSM (Des Moines), ICT (Wichita)</h5>
+                <h5><a class="route-sub-titles">Possible Future Routes:</a> BHM (Birmingham), GRR (Grand Rapids), TYS (Knoxville)</h5>
+                <div style="width: 100%;display: flex;justify-content: center;">
+                  <img src="/static/images/STL_SW_routes_under 500 miles.PNG" class="image" style="max-height: 410px;max-width: 100%;display: block;width: auto;height: auto;"/>
+                </div>
+                <br/>
+                <p>
+                  Looking at LIT, DSM, and ICT (all added in 2016 as STL destinations), each of these airports has a smaller O&D base of travelers to St. Louis but still support 2 roundtrip flights per day by Southwest filling most of their seats with passengers connecting on other Southwest flights. These routes really require the 50+ other nonstop Southwest destinations to be available to connect to in order to have such high service levels. In 2019, on each of these three routes roughly 3 out of 4 passengers connected to another destination. For Des Moines (based on DB1B data), 69.5k passengers flew from DSM to STL on Southwest, and 54.2k of those passengers connected in St. Louis and continued other destinations through the airport. The most common destinations that the Des Moinesers (Des Moinesians?) continued on to were Orlando (MCO-5.0k), Nashville (BNA-4.9k passengers), and Baltimore (BWI-3.6k). This trend of the majority of Southwest passengers using STL as a connecting airport holds true for most cities within 500 miles of Lambert. The top 10 Southwest routes for most connecting passengers through St. Louis are all within 500 miles (see chart below).
                 </p>
                 <p>
-                  There are three different types of expansion we will look at:
-                  1. New non-stop destinations
-                  2. More frequency on existing routes
-                  3. Larger planes on existing flights
+                  
+                    <h5>Nearby Airport utilize STL's connections (2019)</h5>
+                    <div class="air-table">
+                      <table class="table"  style="text-align: center;">
+                        <thead>
+                          <tr >
+                          <th></th>
+                          <th></th>
+                          <th>Total Route</th>
+                          <th>% Arriving Pass</th>
+                          <th>Miles b/t</th>
+                        </tr>
+                        <tr>
+                          <th>Airport</th>
+                          <th>City</th>
+                          <th>Passengers</th>
+                          <th>Connecting</th>
+                          <th>Airport & STL</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>CMH</td>
+                          <td>Columbus</td>
+                          <td>174,225</td>
+                          <td>55.7%</td>
+                          <td>409</td>
+                        </tr>
+                        <tr>
+                          <td>DTW</td>
+                          <td>Detroit</td>
+                          <td>432,789</td>
+                          <td>58.7%</td>
+                          <td>440</td>
+                        </tr>
+                        <tr>
+                          <td>MKE</td>
+                          <td>Milwaukee</td>
+                          <td>153,312</td>
+                          <td>59.6%</td>
+                          <td>317</td>
+                        </tr>
+                        <tr>
+                          <td>OMA</td>
+                          <td>Omaha</td>
+                          <td>236,328</td>
+                          <td>65.1%</td>
+                          <td>342</td>
+                        </tr>
+                        <tr>
+                          <td>MCI</td>
+                          <td>Kansas City</td>
+                          <td>273,119</td>
+                          <td>66.7%</td>
+                          <td>237</td>
+                        </tr>
+                        <tr>
+                          <td>OKC</td>
+                          <td>Oklahoma City</td>
+                          <td>159,500</td>
+                          <td>72.1%</td>
+                          <td>462</td>
+                        </tr>
+                        <tr>
+                          <td>LIT</td>
+                          <td>Little Rock</td>
+                          <td>133,805</td>
+                          <td>74.1%</td>
+                          <td>296</td>
+                        </tr>
+                        <tr>
+                          <td>ICT</td>
+                          <td>Witchita</td>
+                          <td>152,900</td>
+                          <td>74.8%</td>
+                          <td>392</td>
+                        </tr>
+                        <tr>
+                          <td>DSM</td>
+                          <td>Des Moines</td>
+                          <td>157,489</td>
+                          <td>78.1%</td>
+                          <td>259</td>
+                        </tr>
+                        <tr>
+                          <td>TUL</td>
+                          <td>Tulsa</td>
+                          <td>155,467</td>
+                          <td>79.4%</td>
+                          <td>351</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </p>
                 <p>
-                  I'll start with new non-stop destination options, but before we look at the future possibilities let's look at several recent route expansions for STL. Since 2015, several new non-stop destinations have added (I'm not including the smaller severed by regional airlines like Air Choice One). In 2016, 4 new routes were started, three serving small-medium Midwest-ish metros that didn't previously have direct service (LIT-Little Rock, DSM-Des Moines, ICT-Wichita) and one adding additional service to the Bay Area (OAK-Oakland) that was already served at SFO. In 2018, another Bay Area airport (SJO San Jose) was added along with 2 small-medium coastal metros (BDL-Hartford, SMF-Sacramento). These 7 new routes give us a good range for different types of destinations that STL might expand into and hopefully will provide some insight into possibly future lading spots for STL direct flights.
-                </p>
-                <h4>Regional Small-Medium Metros</h4>
-                <h5>Recent New Additions: LIT, DSM, ICT</h5>
-                <h5>Possible Future Routes:</h5>
-                <p></p>
-
-
-                
-                <p>
-                  Skip
+                  In general, these nearby airports do not require large O&D numbers to STL because STL is essentially utilized like a traditional hub to the rest of Southwest's network. These airports are often smaller, do not have as many direct routes, and therefore require a connection. There are some notable exceptions, like DTW, that aren't small or lacking direct routes, but flyers still seem fine utilizing STL as a connection point, possibly because it does not add much additional time since their starting airport is "nearby". As a destination gets further away from STL, less of the passengers on the route end up as connectors and therefore these airport will require higher levels of O&D to justify service (see Medium Coastal Metros sections).
                 </p>
                 <p>
-                  Looking at next possible routes
+                  For the nearby cities, the O&D prior to having direct service will also be significantly lower than if nonstop service exists. In 2015, prior to nonstop service being added by Southwest, LIT, DSM, ICT had yearly O&D numbers of 4,500 (12 people per day), 8,530 (23 ppd), 10,580 (29 ppd) respectively. These number would barely fill a round trip private jet much less point to viable commercial service. But after a full year of service, in 2017 O&D numbers for these routes jumped to 28,260, 29,330, and 36,810 more than tripling for each destination. Multiplying these numbers by 4-5 to account for all the connection driven traffic shows how these routes can sustain 2 round trip 737 flights (~500-550 seats round trip) per day.
+                </p>
+                <div class="air-table">
+                  <div class="bk-root" id="9e70ce85-f7dc-4a31-881d-f61025d80677" data-root-id="19605"></div>
+                </div>
+                <div class="air-table" style="font-style: italic;">
+                  O&D Passengers flying from the Destination to STL. Nonstop service from STL to each of these airports began in 2016 and induced a significant increase in O&D.
+                </div>
+                <br>
+                <p>
+                  So which other cities fit the profile of possible routes? We are looking for airports within 500 miles of STL which have at least some existing O&D to Lambert (which should grow significantly with a route addition) and have a large enough general base of O&D to support sending connecting traffic to STL. I looked for total airport O&D of at least 1.5M passengers, since in 2019 ICT has 1.46M while LIT had 1.87M and DSM 2.48M total. Since these routes would require significant connecting support, the assumption is that they could only reasonably be added by Southwest at this time since other carriers STL's route network would not induce enough connecting demand.
+                  <p style="font-style: italic;">
+                    A side note, Southwest just added Indianapolis so we don't include it as an option here. But we also don't have good stats on the route for Southwest yet since it is new so can't use it as a comparison either. It most likely would not fit the "smaller" regional airport theme I am looking through here because its total O&D in 2019 was 8.02M passengers more than LIT, DSM, and ICT combined.
+                  </p>
+                </p>
+                <h5 class="route-poss-title">Birmingham, AL (BHM)</h5>
+                <h6 class="route-sub-titles">411 miles to STL, 2019 O&D Total 2.65M, to STL 17.4k</h6>
+                <p>
+                  Birmingham-Shuttlesworth International airport in Birmingham hits all the qualifications listed above and has the highest already existing O&D for any airport within 500 miles. Assuming a similar O&D bump to DSM/LIT/ICT, BHM-STL could see up to 45k or more O&D passengers with 2 daily nonstop flights. Birmingham has a larger O&D passenger base then any of the 3 airports discussed earlier at 2.65M. If connecting traffic accounted for only 70% of total traffic (with 45k O&D), the route could serve 150k passengers per year, similar to other routes looked at.
                 </p>
                 <p>
-                  Norfolk - Norfolk had 3.6M O&D passengers in 2019. Of those passengers, 35% flew direct to their destination and 65% had to connect. Looking at the 2.2M who had a single connection,
+                  Southwest already serves Birmingham, flying to 8 destinations. Expanding to STL is a possibility or the company could also look to shift some of the shorter flights from DAL, HOU, and MDW to STL (or both). Passengers flying on Southwest flights from BHM to those 3 airports connect to other Southwest destinations about 50% of the time. STL should be able to take on some of that connecting demand without adversely discouraging total passengers. Specifically replacing some of the connections currently occurring via MDW with STL would make sense. In 2019, the top 5 final destinations for Southwest passengers from Birmingham connecting via MDW were Las Vegas (4.8k passengers), Minneapolis (4.6k), Denver (4.3k), St. Louis (3.7k), and Kansas City (3.4k). All of these destinations would be reached in shorter total distance traveled by connecting via St. Louis rather than Chicago (or just staying in STL for one). The BHM route is already on the lower end of utilized routes at MDW, ranking as the 45th busiest routes for Southwest at the airport, so is not necessarily vital to MDW's operations.
+                </p>
+                <h5 class="route-poss-title">Grand Rapids, MI (GRR)</h5>
+                <h6 class="route-sub-titles">382 miles to STL, 2019 O&D Total 3.19M, to STL 16.6k</h6>
+                <p>
+                  Gerald R. Ford International airport in Grand Rapids has a slightly larger passenger base and almost as much pre-existing O&D traffic to STL as BHM. One major mark against it though is that Southwest already served the route for several years, ending in 2016. Southwest only flew a single round trip daily between the airport which kept total passenger numbers low (68k passengers in 2014 and 73k passengers in 2015, the 2 years that Southwest flew the route for the full year). The load factor at GRR was slightly lower 72.8% in 2015 then what LIT/DSM/ICT see today ~75-80%. But the lack of a second daily flight most likely depressed these numbers some. No other Southwest destination from STL within 500 miles was served by only a single daily flight in 2019. Accounting for the fact that these flights usually utilize a connection, having multiple flight times helps to allow for more convenient connection options. The O&D bump experienced by the airport was also smaller than seen at LIT/DSM/ICT. GRR went from 12.1k (2012) to 26.9k (2014). Currently, the O&D without a non-stop is actually 37% higher than it was in 2012 at 16.5k which may indicate that a reintroduction of the route could fare better this time. Based on the previous experience and the comparable airports, any reintroduction of STL-GRR by Southwest should add 2 nonstops for day if they want to approach 40k O&D, 150k passengers and nearing 80% load factors seen on the LIT/DSM/ICT routes. GRR in general has also seen significant overall passenger growth in the last 5 years. When Southwest stopped the GRR-STL route in 2016, the airport served 2.67M passengers, but that ballooned to 3.59M in 2019.
+                </p>
+                <p>
+                  Southwest still served GRR in 2019, but with only 3 year round destinations BWI, DEN, and MDW. Similar to BHM, expanded service to STL could increase their market share at the airport, but if the company is looking to shift some of the connecting passengers, taking them from MDW again seems to make the most sense. With the airports just under a 3 hour drive apart, O&D between the airports is very low at only 1.5k total (ORD, also in Chicago, has significantly more O&D at over 11k). While not quite as overwhelming as BHM, based on the top final destinations for GRR travelers connecting via MDW, shifting their connections to STL would lessen or add small distance to total flight distance. The top 5 destinations for GRR travelers using MDW are PHX (10.3k), MCO (9.5k), LAS (9.0k), DEN (7.4k), BNA (7.1k). These connection are supplying significant passenger numbers to other individual flights. Removing all GRR passengers from MDW's PHX flights would take out an average of 28 passengers per day. These types of number could have larger repercussions than BHM's connecting traffic, but that is beyond our analysis here. With almost no O&D GRR to MDW, passengers from Grand Rapids are currently just acting like an O&D boost to MDW. One additional tidbit, the GRR-MDW-STL served 6.6k passengers in 2019 (7th highest destination from GRR).
+                </p>
+                <h5 class="route-poss-title">Knoxville, TN (TYS)</h5>
+                <h6 class="route-sub-titles">405 miles to STL, 2019 O&D Total 2.04M, to STL 10.0k</h6>
+                <p>
+                  McGhee Tyson airport in Knoxville, has a lower total O&D and O&D between TYS to STL than Birmingham or Grand Rapids, but still meets our criteria of over 1.5M total O&D and has a pre-existing O&D between TYS to STL higher than LIT and DSM had and basically on par with ICT. TYS was also growing at an above average rate with the airport seeing total passengers jump 39.8% between 2015 and 2019 and O&D between STL and TYS grew 22.3% over than same time period. The biggest hang up on this route is that Southwest does not have any presence at the airport, so adding the route would require some significant investment and most likely include additional routes for the company beyond just St. Louis (maybe something like 2 daily nonstops to BWI, STL, HOU each). 
+                </p>
+                <p>
+                  While the numbers (and the growth prospects) meet the criteria for a smaller Southwest destination, the fact that they currently don't have a presence is the biggest barrier to adding this route. And if Southwest came to Knoxville, "Would they choose STL as one of their routes?" is another question. TYS would be one of the smaller airports served by Southwest, but is on par size wise with LIT/ICT/DSM. If Knoxville continues to grow it'll be hard to see Southwest not enter the market in some capacity soon unless there are reasons I'm not aware of for staying away. As with all of these options we will have to see if and when growth returns to TYS in a post-COVID future as well.
+                </p>
+                <h5>Other Fun Long Shots, that missed the cut for top 3</h5>
+                <h6>Souix Falls, SD (FSD) - 471 miles to STL, 2019 O&D total 0.99M, to STL 9.3k</h6>
+                <ul>
+                  <li>
+                    Small overall airport with decent pre-existing O&D to STL. No SW presence.
+                  </li>
+                </ul>
+                <h6>Madison, WI (MSN) - 308 miles to STL, 2019 O&D total 2.05M, to STL 8.9k</h6>
+                <ul>
+                  <li>
+                    No SW presence, but hits the low end of SW possible presence size-wise and has decent O&D to St. Louis even though it's less than 90 minutes to MKE and less than 2 hour to ORD by car.
+                  </li>
+                </ul>
+                <h6>Jackson, MS (JAN) - 444 miles to STL, 2019 O&D total 0.98M, to STL 7.5k</h6>
+                <ul>
+                  <li>
+                    Small overall airport, but Southwest is adding/resuming service there in 2021 and has some pre-existing O&D to STL.
+                  </li>
+                </ul>
+                <h6>Memphis, TN (MEM) - 256 miles to STL, 2019 O&D total 3.89M, to STL 0.2k</h6>
+                <ul>
+                  <li>
+                    Always amazes me just how microscopic the O&D to STL is from MEM, but the airport overall O&D is solid and Southwest already serves 9 destinations.
+                  </li>
+                </ul>
+                <h6>Louisville, KY (SDF) - 254 miles to STL, 2019 O&D total 3.47M, to STL 2.5k</h6>
+                <ul>
+                  <li>
+                    Very similar numbers to Memphis and has Southwest service, but also only 90 minutes from CVG and 2 hours from IND with lots of flight options.
+                  </li>
+                </ul>
+                <h6>Northwest Arkansas (XNA) - 275 miles to STL, 2019 O&D total 1.44M, to STL 2.8k</h6>
+                <ul>
+                  <li>
+                    Smaller airport, but growing fast and has significant business travel for airport of its size. No current Southwest presence, but may be a market they get into in future especially with growth.
+                  </li>
+                </ul>
+                <hr/>
+                <h4 class="route-titles">New Medium Coastal Metros</h4>
+                <h5><a class="route-sub-titles">Recent New Additions:</a> BDL, SMF</h5>
+                <h5><a class="route-sub-titles">Possible Future Routes:</a> ORF (Norfolk), RIC (Richmond), ABQ (Albuquerque)</h5>
+                <p>
+                  St. Louis-Lambert serves all major US markets with some nonstop flights. In 2017, the domestic market with the largest annual O&D not served by STL (outside of Hawaii) was Sacramento (9.6M passengers), followed by Indianapolis (7.6M), and then Hartford (5.8M). With Sacramento and Hartford routes added in 2018 and Indianapolis being added just recently, the current market with largest O&D without service is Albebqurque (4.4M). There are several larger airports like JFK that don't have service, but are in markets with other airports that have service (LGA and EWR in the case of JFK).
+                </p>
+                <p>
+                  While the airports nearby to STL discussed in the section above drive lots of connecting passengers through STL, as destinations get further away from St. Louis, they tend to rely less on connecting traffic with O&D passengers to/from STL making up a larger share of the overall passengers as shown by the chart below. Below are all of the Southwest destinations from STL plotted based on their distance from STL (x-axis) vs the % of non-connecting passengers (i.e. passengers that do not connect). The y-axis is based on DB1B individual coupon data and uses only flights by Southwest. The size of each bubble is based on T-100 data for all Southwest flight from STL. The red line shows the trend based on a quadratic fit to the data (Ax^2+Bx+C).  
+                </p>
+                <div class="air-table">
+                  <div class="bk-root" id="454a6e91-24aa-4633-bce7-67c2c7895613" data-root-id="7976"></div>
+                </div>
+                <div class="air-table" style="font-style: italic;">
+                  Each bubble is a destination served from STL by Southwest with non-stop service and at least 15,000 passengers in 2019. Bubble size represents of total number of passengers flown on the route. Hover over each bubble for more info. Red line represents the quadratic fit to the data.
+                </div>
+                <br>
+                <p>
+                  Since the above chart only includes SOuthwest flights, one factor that could impact the amount of connecting passengers is non-Southwest carriers flying to the same destinations (such as Delta flying to ATL). The second chart below again plots the distance, but now shows the ratio of an entire airport's O&D to/from St. Louis against the total number of passengers flown on a route. While this does not show the exact number of connecting passengers, it is a proxy for those values. Note that the ratio can go a above 1 when many people fly to the destination via a (non-STL) connecting airport. The trend of routes farther away from STL requiring higher O&D levels to support it holds under both comparisons. I'm not concerned at the exact fit of the trend, but just that generally as you move away from STL, you need more O&D to justify a route. This trend is not unique to St. Louis. I've added charts for Baltimore (BWI) another prominent Southwest airport to show trend similarities. One additional note before moving on, I'm not quiet certain about why St. Louis' trend dips so aggressively for all the farthest out destinations.
+                </p>
+                <div class="air-table">
+                  <div class="bk-root" id="f86383dd-795f-4f16-a63d-35183c365406" data-root-id="7829"></div>
+                </div>
+                <div class="air-table" style="font-style: italic;">
+                  Each bubble is a destination served from STL with non-stop service and at least 15,000 passengers in 2019. Bubble size represents of total number of passengers flown on the route. Hover over each bubble for more info. Red line represents the quadratic fit to the data.
+                </div>
+                <br>
+                <div class="air-table">
+                  <div class="bk-root" id="12c927be-904f-4001-9c56-07723edfa114" data-root-id="9299"></div>
+                </div>
+                <div class="air-table">
+                  <div class="bk-root" id="33f71244-e021-4739-9d17-48a10ee731e7" data-root-id="9152"></div>
+                </div>
+                <div class="air-table" style="font-style: italic;">
+                  Same charts as STL above, but for BWI.
+                </div>
+                <br>
+                <p>
+                  All this is to say that when looking for new possible destinations for STL that are similar to BDL or SMF, those routes will need much more pre-existing O&D than the regional metros shown in the previous section. In 2017 before non-stop service, Hartford-St. Louis O&D was 48.8k passengers (134 per day) and Sacramento-St. Louis was 64.8k (177 per day). Also, while cities will see a bump in O&D traffic when non-stop service is added, it will be much more modest than the 3x bump seen by our regional routes discussed in the first section. BDL O&D increased 36.5% from 2017 to 2019 up to over 66k, while SMF increased 24.7% to over 80k. 
+                </p>
+                <p>
+                  While the Southwest route's seat capacity could accommodate all of these O&D passengers, there are still lots of passengers that fly from BDL and SMF to STL via a connection using other carriers (or Southwest with a connection). Both routes only have a single roundtrip flight per day and had 116k (BDL) and 114k (SMF) available seats in 2019. Taking BDL as an example, for passengers flying from BDL to STL 54.5% of them connected through STL to a different destination. The departing flight (STL to BDL) had a slightly lower connection rate of 51.2%. Overall, Southwest's nonstop flight accounted for about 49k of BDL 66k total O&D passengers. Meaning that roughly 17k (about 1 out of every 4) travelers from Hartford traveled to St. Louis, but did not use the nonstop flight. Sacramento had a similar rate (of 1 out of 4 passengers) with 60k O&D travelers from SMF using the nonstop route and 20k using connecting to STL some other way.
+                </p>
+                <p>
+                  So when looking for new routes that might mirror BDL or SMF it's really about trying to find the highest O&D to STL among the remain unserved markets. Assuming rates similar to the two new Southwest routes, expect nonstop service to boost the O&D by about 25-30% and for the route to capture about 75% of those passengers. Beyond O&D travelers, based on the airport's overall size there should connecting passengers utilizing STL as a hub at somewhere between a 40-50% rate. I'm not going to worry a ton about distance to try to fine tune exactly how it would impact the rates above, but SMF's slightly lower connection rate might be related to the fact that it is much farther away from STL than BDL and starting to get to the extreme distances where connections via STL begin to drop based on our trends above.
+                </p>
+                <h5 class="route-poss-title">Albuquerque, NM (ABQ)</h5>
+                <h6 class="route-sub-titles">934 miles to STL, 2019 O&D Total 4.43M, to STL 33.6k</h6>
+                <p>
+                  I am kind of at a loss for why this route does not exist. Albuquerque is already served by Southwest with a strong presence 12 destinations. Taking the assumptions from BDL and SMF, the 33.6k would probably be in the 45k range and with another 45k connectors would put a daily flight right around an 80% load factor for the year. Those numbers seem pretty good.
+                </p>
+                <p>
+                  St. Louis had service to ABQ until 2012 and the route has one daily roundtrip and about 100k annual seats available each year from 2004 to 2012. With that level of service, the O&D was actually above 50k. In 2010, O&D for STL-ABQ was 54.8k. So the above estimate of 45k might even be a little low. And it's not like that was being pushed up by lots of excess capacity. Load Factor's were over 80% for many of the years ABQ had nonstop service.
+                </p>
+                <p>
+                  As a comparison, Southwest flies  a daily flight between Kansas City and Albuquerque. The O&D for that route in 2019 was 54.4k right around where STL's would be expected. STL was also the second highest destination (after LGA) for travelers from ABQ to MCI that were connecting to another Southwest destination with a little over 1 out of 10 connecting passengers ending up at STL. I am not sure what they are waiting for to add this route, but not sure if it will be coming since the fundamentals on this route haven't seemed to change much in the last 5 years. ABQ's overall O&D has been stagnant in recent years which may be a reason why the route hasn't happened. But overall this seems like a good option for a single roundtrip daily.
+                </p>
+                <p style="font-style: italic;">
+                  Note: ABQ is not "coastal", but we group it here since at 934 it's well beyond the 500 mile "nearby" range. 
+                </p>
+                <h5 class="route-poss-title">Norfolk, VA (ORF)</h5>
+                <h6 class="route-sub-titles">785 miles to STL, 2019 O&D Total 3.39M, to STL 35.0k</h6>
+                <h5 class="route-poss-title">Richmond, VA (RIC)</h5>
+                <h6 class="route-sub-titles">708 miles to STL, 2019 O&D Total 3.68M, to STL 34.6k</h6>
+                <p>
+                  I put these two destinations together because they have very similar profiles and happen to be only about an 80 minute drive apart. They aren't necessarily the same market, but they are close enough that I would think service at one could impact the other. Individually, either of these destinations would be on the lower end of feasibility for a daily roundtrip based on our assumptions from BDL and SMF. But if nonstop service to one of the location could get a small boost from the other market, that could help to push up overall numbers. I should not oversell the relationship between these two airports though. Both cities have had service to St. Louis in the past and that lets us look to see how different levels of previous service have impacted the O&D for the two markets.
+                </p>
+                <div class="air-table">
+                  <div class="bk-root" id="f0f59411-5f6d-49a3-ae95-7ed65f14403b" data-root-id="7211"></div>
+                </div>
+                <div class="air-table" style="font-style: italic;">
+                  Stacked area chart show O&D for each airport (left y-axis) based on DB1B data, while the dashed lines show the total passengers flown on nonstop service to STL (right y-axis) based on T-100 data.
+                </div>
+                <br>
+                <p>
+                  In 1997 and 1998, Norfolk had nonstop service with 250k plus available seats while, Richmond had none until 1999. Once Richmond's service started its O&D jumped dramatically from 24k passengers in 1998 up to 41k by 2002. None of this boost came at the expense of Norfolk though, ORF's O&D actual increased from 42k to 57k passengers at the same time. In 2004, service was dropped for 1 year at Richmond and cut from ~250k seats in previous years to only 68k at Norfolk. Richmond's O&D dropped by 35% while Norfolk was flat. Richmond did get a small amount of service back the next year, but both stopped flying to STL again in 2009. At that point, both cities saw O&D level out to ~35k, where it sits today. If Southwest was to add service, it would probably be more seats then either city had during there 2005-2009 service, but all of those seats would be on a single daily roundtrip.
+                </p>
+                <p>
+                  Southwest in 2019 had service from Norfolk to Chicago Midway with twice daily flights. Many of the passengers that used Midway to connect to other Southwest destinations could be transferred via STL instead. Eight out of the top 10 destinations for Norfolk passengers connecting via Midway are in the Rockies or West Coast and the other two are Kansas City and St. Louis. Richmond did not have service to Midway in 2019, but the airline just announced that it would begin service to the airport beginning in April 2021. Both cities also have service to Chicago via American and United so while Chicago's O&D is larger there will be a decent amount of competition and all three airlines will be utilizing the routes for connecting traffic. In 2019, passengers flying from Norfolk to MDW connected 57% of the time. Shifting one of Southwest's routes from ORF or RIC to STL could still serve all the connecting traffic and capitalize on the O&D. Based on history of service, I would say that Norfolk is more likely to be added before Richmond. Southwest serves that airport more already and even added <a href="https://www.ksdk.com/article/travel/southwest-airlines-new-flights-lambert-airport/63-8e3281e9-c2f2-4d43-b097-adf981434c19">a temporary STL-ORF during a two week stretch last year when they ran four temporary routes from STL</a> (Richmond was not added).
+                </p>
+                <p>
+                  Those two week numbers from July/August 2020 don't give much more additional info about the route. Only 30 flights total occurred and the Load Factor was a meager 33%. Although it was interesting to see that the ORF outperformed two other temp routes Grand Rapids (22% Load Factor) and Providence (15%) both of which we discuss as possible options in this piece. Take those comparisons with a grain of salt though since they were such short runs.
+                </p>
+                <h5>Other Fun Long Shots, that missed the cut for top 3</h5>
+                <h6>Tuscon, AZ (TUS) - 1244 miles to STL, 2019 O&D total 3.43M, to STL 28.0k</h6>
+                <ul>
+                  <li>
+                    Medium sized market that could supply some connections and not that far below O&D from above destinations.
+                  </li>
+                </ul>
+                <h6>Reno, NV (RNO) - 1580 miles to STL, 2019 O&D total 3.92M, to STL 26.3k</h6>
+                <ul>
+                  <li>
+                    Pretty much the same as Tuscon, both may have allure as vacation destinations and might make sense for a seasonal route.
+                  </li>
+                </ul>
+                <h6>Buffalo, NY (BUF) - 674 miles to STL, 2019 O&D total 4.37M, to STL 22.7k</h6>
+                <ul>
+                  <li>
+                    O&D starting to get on the smaller side, but one of the larger airport markets not served by STL. Connections would need to make up a large part. None of these three options has been growing much in recent years, so that could factor into the lack of movement on adding a route. All three are served by Southwest already though.
+                  </li>
+                </ul>
+                <hr/>
+                <h4 class="route-titles">Coastal Duplicate Service</h4>
+                <h5 class="route-sub-titles">Recent New Additions: OAK, SJC</h5>
+                <h5 class="route-sub-titles">Possible Future Routes: SNA (Santa Ana - LA), ONT (Ontario, CA - LA), PVD (Providence - Boston)</h5>
+                <p>
+                  The last group of airports that I looked at were locations that did not have nonstop service to STL, but other airports within the market had service to STL. Both recent additions of OAK and SJC fall into this category since both airports are in the Bay area, which was already served by SFO's nonstop United and Southwest flights. In these large metros people in Oakland might still use the SFO service, but having a route to OAK or SJC might make it a much easier trip depending on what part of the metro they live in. It is a little concerning extrapolating how the service in the Bay Area might relate to other metros within multiple airports, but it is the example we have on hand for STL so it's what I'll use.
+                </p>
+                <div class="air-table">
+                  <div class="bk-root" id="d01d3aed-f515-4384-8768-c449b5ed143b" data-root-id="9914"></div>
+                </div>
+                <div class="air-table" style="font-style: italic;">
+                  Stacked area chart show O&D for each airport (left y-axis) based on DB1B data, while the dashed lines show the total passengers flown on nonstop service to STL (right y-axis) based on T-100 data.
+                </div>
+                <br>
+                <p>
+                  San Francisco International has had service to St. Louis for many years, but that service was at a low point in the early 2010's with only 88k seats of capacity available nonstop between the airports in 2013. Service ramped up to SFO to over 200k seats in 2015. That increase along with the addition of nonstop service to Oakland in 2016 and San Jose in 2018 offer a useful case study in how O&D can shift between airports within a single market.
+                </p>
+                <p>
+                  With the increase in service to SFO between 2013 and 2015, combined O&D to the 3 Bay Area airports jumped from 252k to 304k (20.2%). That growth was driven entirely by SFO's O&D increasing 34.2% up to 236k passengers. OAK and SJC's O&D decreased slightly over the period (possibly as more people from those areas deciding to use SFO based on the additional capacity). From 2015 to 2019, the combined O&D has stayed mostly flat with a slight dip in 2019. But after service started to OAK, SFO's O&D began to drop as OAK's rose, even as the combined totals stayed about the same. From 2015 to 2017, O&D from SFO had dropped by 43k passengers while OAK's increased by 46k (with SJC being mostly flat). Then SJC service started and SFO's O&D dropped another 26k while SJC's increased by 29k. Overall these airports don't have completely interchangable O&D, but service changes at one of the airport will inevitably impact the others. Increases in services anywhere could increase total market O&D, but will likely take some O&D off other area airports.
+                </p>
+                <p>
+                  Overall, SFO still dominants the market with about the same capacity as OAK and SJC combined and 57% of the market's O&D in 2019. But in 2015 SFO had 70% of the O&D market while the total O&D at all three airports has remained roughly flat since then. The additional service to OAK and SJC has shifted the O&D to be more distributed between the airports and now is close to aligned with how much nonstop capacity each airport has. But if overall O&D has not grown with additional service, was there much value in distributing the capacity to other airports in the Bay Area? I would say generally in larger metros it is nice to have several geographic options so that transit time to the airport does not become too long for people within a metro. As a current New Jersey resident in the New York metro, you would need to give me a really good reason to fly out of JFK over EWR because of how much longer (and the cost) it takes to get there. That is probably true in the Bay Areaas well, but another major reason for airlines to add service is to capture O&D fliers that would otherwise be connectors from the secondary airports. In our Bay Area case, there has been a big change has been the airline that flies O&D passengers between 2014 and 2019.
+                </p>
+                <div class="air-table">
+                  <div class="bk-root" id="92d5126a-0867-439b-8c7d-c89abc845a81" data-root-id="13648"></div>
+                </div>
+                <div class="air-table" style="font-style: italic;">
+                  Change in carrier for O&D passengers between Bay Area airports (SFO, OAK, SJC) and STL from 2014 to 2019.
+                </div>
+                <br>
+                <p>
+                  Prior to OAK and SJC service by Southwest, the airline already was flying 41.5% of all O&D passengers in the Bay Area with United (who has nonstop service to SFO) flying the second largest share of passengers at 23.5%. The rest of passengers were spread around among other carriers that did not flying any nonstop service from the Bay Area to STL. After adding OAK and SJC service, Southwest increased its shared of O&D passengers to 61.0%. It did not steal share from United the only other carrier with nonstop service to the market though. United's share stayed almost exactly the same at 23.4%. Essentially, Southwest's growth came at the expense of all the remaining carriers that did not have nonstop service. Adding secondary airport service seems to take share from carriers without nonstop service rather than grabbing passengers from already established routes.
+                </p>
+                <p>
+                  So what type of airport's are we looking for that might be good future routes? Basically, large metros underserved to STL with large secondary airports. Already having some significant O&D from the airport even though there are market alternatives with nonstop service is valuable since as we just saw, new service is likely to grab O&D passengers more from carriers that do not have nonstop service rather than take from existing nonstop service. One important note here is that compared to the other destinations that we studied these routes would be less dependent on a high percentage of connecting traffic and therefore might be sustainable by non-Southwest carriers.
+                </p>
+                <h5 class="route-poss-title">Providence, RI (PVD)</h5>
+                <h6 class="route-sub-titles">1020 miles to STL, 2019 O&D Total 3.57M, to STL 28.5k</h6>
+                <p>
+                  For the analysis here we are including Providence as a secondary airport to the Boston market. Providence's numbers on their own are just below the Medium Coastal Metros O&D numbers, so even without its proximity to Boston (it's about 50 miles as the crow flies between BOS and PVD) service might be able to stand on its own.
+                </p>
+                <p>
+                  Boston Logan has nonstop service already, but a significant number of O&D passengers are not utilizing the nonstop service, so additional options might be able to gain share from those carriers. Southwest has a nonstop route with 3 daily roundtrips in 2019 and flew 66% of total O&D passengers from the Boston-Providence airports. The Boston+PVD market dynamics are quiet different than the Bay Area though, since PVD is much smaller than OAK and SJC are in general. Our next options are a little more like the Bay Area examples that we looked at.
+                </p>
+                <h5 class="route-poss-title">Any non-LAX airport, CA </h5>
+                <h5 class="route-poss-title">Santa Ana (Orange County), CA (SNA)</h5>
+                <h6 class="route-sub-titles">1569 miles to STL, 2019 O&D Total 9.69M, to STL 56.7k</h6>
+                <h5 class="route-poss-title">Ontario, CA (ONT)</h5>
+                <h6 class="route-sub-titles">1546 miles to STL, 2019 O&D Total 4.72M, to STL 31.9k</h6>
+                <div style="width: 100%;display: flex;justify-content: center;">
+                  <img src="/static/images/LA Airports.PNG" class="image" style="max-height: 380px;max-width: 100%;display: block;width: auto;height: auto;"/>
+                </div>
+                <p>
+                  The greater Los Angeles region has many airports but is dominated by LAX. St. Louis has maintained a significant service to LAX, but could benefit by branching out to additional airports in the region. Southwest in fact just announced service between Long Beach (LGB) and St. Louis. Southwest has been expanding at Long Beach so the move is not too wild, but LGB's O&D to St. Louis in 2019 was minimal at 3.4k and well below other secondary LA airports such as SNA, ONT, and even BUR. LGB has significant slot restrictions and the airport has previously had limited service by carriers that fly any routes to STL. It will be interesting to see how that nonstop changes the LA dynamics. 
+                </p>
+                <p>
+                  Outside of LGB, by SNA and ONT  on paper already showed solid O&D demand with 56.7k and 31.8k, respectively. SNA would not need to grab many additional passengers from LAX (or induce new passengers) to get to a viable route. Additionally, Southwest is already the largest carrier at the airport, so would be able to add STL without too much trouble. The one issue however, is that Southwest has already captured a large part of the LA O&D market. Looking at LAX-SNA-ONT-LGB-BUR, Southwest flies 56.3% of O&D passengers to STL and American captures another 33.4%. Both carriers have nonstop service from LAX to STL. That only leaves 10.3% of O&D by carriers that don't have a nonstop route to STL, so a carrier like Southwest might not see much need to change anything in the market. A new carrier to the market might make more sense.
+                </p>
+                <p>
+                  Since I started writing this post, <a href="https://www.ksdk.com/article/news/local/spirit-airlines-flights-st-louis-ambert-airport/63-fff0f79a-f1a7-4406-a582-cc96d752a71c">Spirit airlines announced they are also adding a LAX-STL route in 2021</a>, so they are poised to become that new entrant to the market. While not technically a new destination to STL, this additional service to LAX along with Southwest's addition to LGB make an additional route to STL unlikely in the short term. But if Southwest (or someone like Spirit) wanted to shift some of their flights to a secondary airport, they would have options. Additionally, with a large market like LA another carrier might want to try to start a route and take off some share from the established carriers.
+                </p>
+                <hr/>
+                <h5>Notes on the data</h5>
+                <p>
+                  Both T-100 and DB1B Market and Coupon data from the <a href="https://www.transtats.bts.gov/databases.asp?Z1qr_VQ=E&Z1qr_Qr5p=N8vn6v10&f7owrp6_VQF=D">Bureau of Transportation Statistics</a> for domestic flights were used in the analysis above. T-100 data was used to calculate total passengers flown on nonstop routes from STL to other airports. Data from T-100 was aggregated based on DEST (Destination Airports) and ORIGIN (Origin Airports) and combined in order to determine total passenger numbers. T-100 shows exact totals for flights as reported to the US DOT. DB1B Market and Coupon data was used to show O&D Passengers between airports and also determine the flow of connecting passengers through specific airport. DB1B is only a 10% sample of larger airlines, so stats determined from these data sets are only approximate values. In most cases, I report these numbers only down to the thousand or hundreds level.
+                </p>
+                <p>
+                  Passenger flow specifically utilized the coupon data where I captured every individual route that contained a coupon with STL (or the airport being studied) present and determined if STL was the Origin airport, Destination airport, or a connecting airport and aggregated these to create the passenger flow statistics in the analysis. In addition to only being a 10% sample of the data, one area that added some additional variability to the stats presented here is that the aggregation did not break out routes that used multiple connecting airports and had STL as a second connection point. These routes are fairly rare for most of the routes studied in this piece. For example, not many passengers take a DSM-MDW-STL-BOS route. And checking several of these routes more closely, this does not seem to impact any of the connecting traffic or passenger flow stats significantly.
                 </p>
               </div>
             </div>
@@ -94,6 +459,319 @@
           <hr/>        
         </div>           
       </div>
+    
+      <script type="application/json" id="7975">
+        {"0675c118-fa79-4503-b64c-36be70859841":{"roots":{"references":[{"attributes":{"ticker":{"id":"7841","type":"BasicTicker"}},"id":"7844","type":"Grid"},{"attributes":{},"id":"7838","type":"LinearScale"},{"attributes":{"axis_label":"Ratio O&amp;D Travelers to total Nonstop Passengers","formatter":{"id":"7871","type":"BasicTickFormatter"},"ticker":{"id":"7846","type":"BasicTicker"}},"id":"7845","type":"LinearAxis"},{"attributes":{"line_color":"red","line_dash":[6],"line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"7863","type":"Line"},{"attributes":{},"id":"7869","type":"BasicTickFormatter"},{"attributes":{"callback":null,"data":{"x":[200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900],"y":[0.18549876543703697,0.2977173016562043,0.3994567185342079,0.490717016071048,0.5714981942667242,0.6418002531212368,0.7016231926345857,0.7509670128067711,0.7898317136377929,0.8182172951276506,0.836123757276345,0.8435511000838756,0.8404993235502425,0.8269684276754461,0.8029584124594853,0.7684692779023614,0.7235010240040738,0.6680536507646222]},"selected":{"id":"7874","type":"Selection"},"selection_policy":{"id":"7875","type":"UnionRenderers"}},"id":"7861","type":"ColumnDataSource"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"7850","type":"ResetTool"},{"id":"7859","type":"HoverTool"}]},"id":"7851","type":"Toolbar"},{"attributes":{},"id":"7874","type":"Selection"},{"attributes":{"callback":null,"renderers":[{"id":"7857","type":"GlyphRenderer"}],"tooltips":[["Airport","@airport"],["Pass Flown","@pass{,f}"],["O&amp;D Passengers","@pass_od{,f}"],["SW Passengers","@pass_sw{,f}"],["Top Dest via STL","@top_conn"]]},"id":"7859","type":"HoverTool"},{"attributes":{"callback":null,"data":{"airport":["ATL","AUS","BDL","BNA","BOS","BWI","CLE","CMH","DAL","DCA","DEN","DSM","DTW","ECP","EWR","FLL","HOU","IAD","ICT","LAS","LAX","LGA","LIT","MCI","MCO","MDW","MKE","MSP","MSY","OAK","OKC","OMA","PDX","PHL","PHX","PIT","RDU","RSW","SAN","SAT","SEA","SFO","SJC","SLC","SMF","TPA","TUL"],"distance":{"__ndarray__":"AAAAAABAfkAAAAAAAIiGQAAAAAAA6I1AAAAAAAAAcUAAAAAAAFyQQAAAAAAAEIdAAAAAAABwfkAAAAAAAJB5QAAAAAAAEIFAAAAAAAB4hkAAAAAAABCIQAAAAAAAMHBAAAAAAACAe0AAAAAAANCDQAAAAAAAQItAAAAAAACEkEAAAAAAAHiFQAAAAAAAwIVAAAAAAACAeEAAAAAAAGyVQAAAAAAA4JhAAAAAAADAi0AAAAAAAIByQAAAAAAAoG1AAAAAAACQi0AAAAAAAGBvQAAAAAAA0HNAAAAAAAAAfEAAAAAAAOCCQAAAAAAA9JpAAAAAAADgfEAAAAAAAGB1QAAAAAAAsJpAAAAAAABwiUAAAAAAALiTQAAAAAAAUIFAAAAAAADYhEAAAAAAAJiOQAAAAAAAVJhAAAAAAACQiEAAAAAAALSaQAAAAAAAHJtAAAAAAADMmkAAAAAAABCSQAAAAAAAPJpAAAAAAAAoi0AAAAAAAPB1QA==","dtype":"float64","shape":[47]},"pass":{"__ndarray__":"AAAAAJFcMEEAAAAA4EQFQQAAAAAAJPlAAAAAAChUD0EAAAAAbK8QQQAAAAA0QBNBAAAAAPAwCEEAAAAAiEQFQQAAAADA6BtBAAAAAOyAHUEAAAAAgD0qQQAAAACIOQNBAAAAAFRqGkEAAAAA4DvoQAAAAADsChJBAAAAABhLCUEAAAAAQNASQQAAAACw3vZAAAAAACCqAkEAAAAAoLEdQQAAAAAU9hlBAAAAAGRJIEEAAAAAaFUAQQAAAAB8qxBBAAAAAE5yIUEAAAAAqMceQQAAAAAAtwJBAAAAAFIVIEEAAAAAOFcDQQAAAACQ7PRAAAAAAGB4A0EAAAAAQNkMQQAAAACgaftAAAAAAJSmGUEAAAAAKOceQQAAAAAwsvhAAAAAAAhEA0EAAAAAmKMGQQAAAACgWAxBAAAAAMCdBEEAAAAAAHURQQAAAADAjwhBAAAAAPBU+EAAAAAAcPMFQQAAAAAgv/lAAAAAAFjPC0EAAAAAWPoCQQ==","dtype":"float64","shape":[47]},"pass_conn":{"__ndarray__":"AAAAAMJkJkEAAAAAAIXjQAAAAABAyeFAAAAAALhGBUEAAAAAMLvwQAAAAAD4qQJBAAAAAMCL90AAAAAAkHX4QAAAAADQowpBAAAAAOhYBUEAAAAA4PgSQQAAAAAQRP5AAAAAAExtEEEAAAAAgBzBQAAAAADQTPtAAAAAAAC5skAAAAAAYH8BQQAAAACgMeVAAAAAAID+/EAAAAAAwBznQAAAAAAQvfhAAAAAAACUAkEAAAAA8Ln5QAAAAABoVAhBAAAAAFCN9UAAAAAAIKwSQQAAAABA/PVAAAAAAMTxEEEAAAAAoLLkQAAAAABAJN5AAAAAAGA++0AAAAAAsJ8DQQAAAAAAwL5AAAAAAIhoDEEAAAAAgAwGQQAAAACAj81AAAAAAOAU6kAAAAAAQJ3SwAAAAAAAAtpAAAAAAEC66kAAAAAAYJjyQAAAAAAAueBAAAAAAEAU3EAAAAAAgLzwQAAAAAAAHNhAAAAAAID+wMAAAAAAcK/+QA==","dtype":"float64","shape":[47]},"pass_od":{"__ndarray__":"AAAAAMCoFEEAAAAAoGMAQQAAAABgP/BAAAAAAOAa9EAAAAAAQAEJQQAAAABw1gNBAAAAACDW+EAAAAAAgBPyQAAAAACwLQ1BAAAAAHjUEkEAAAAAEMEgQQAAAAAAXuBAAAAAABD6A0EAAAAAwPTjQAAAAABwbwZBAAAAAFC1CEEAAAAAICEEQQAAAADAi+hAAAAAAICr4EAAAAAACM4aQQAAAADQxhNBAAAAAMhIF0EAAAAAgMPbQAAAAAAgBfJAAAAAAEiBHUEAAAAAEDcIQQAAAACA4+5AAAAAAMBxDkEAAAAAIFX8QAAAAAAAx+pAAAAAAMBk50AAAAAAIHPyQAAAAACgfflAAAAAAKDkBkEAAAAA6OATQQAAAABAAPVAAAAAAKB9+UAAAAAAQPcIQQAAAABgGAlBAAAAAGDe+0AAAAAA0J0JQQAAAACAYQRBAAAAAOBP8UAAAAAAYCr7QAAAAAAguPNAAAAAAEDfDEEAAAAAABXdQA==","dtype":"float64","shape":[47]},"pass_sw":{"__ndarray__":"AAAAAAQGE0EAAAAAuDYFQQAAAAAAJPlAAAAAAOhID0EAAAAALKUQQQAAAAB0OBNBAAAAABgjCEEAAAAAyDYFQQAAAADw5xtBAAAAABxIFEEAAAAAKNEeQQAAAAAALANBAAAAANC+BkEAAAAA4DvoQAAAAABAyABBAAAAABhLCUEAAAAAfM8SQQAAAAAA4GlAAAAAAJCiAkEAAAAAgAwUQQAAAACwmQ9BAAAAAGj6DEEAAAAAmFAAQQAAAACMihBBAAAAALRJGkEAAAAANMUeQQAAAAAgqgJBAAAAAHD3BEEAAAAAEFEDQQAAAACQ7PRAAAAAACBmA0EAAAAAQNEMQQAAAACAkvlAAAAAACjMC0EAAAAAfO0TQQAAAAAAbvhAAAAAAKA9A0EAAAAAiPYEQQAAAAAwzwdBAAAAAFibBEEAAAAAIKf5QAAAAABgk/hAAAAAAPAw+EAAAAAAQAbSQAAAAAAgv/lAAAAAAGiOCkEAAAAAWPoCQQ==","dtype":"float64","shape":[47]},"pct_connect":{"__ndarray__":"ss2eqd4z1D8XEAL3dajoP+kPvFI4ruQ/yUYPiSeJ1D9TZHnZW/rnP9+WiG/dfOA/asIBOUFt4D8g04vIqzLbPzTLQWVIuuA/cTR2Rlhs5D/A3iJuhG7kP5K8+oVZPss/9XQUSEMz2D+EEcT87FnqP0CuzLM05eM/ZRZb4YBC7z+H7mIrfx7hPzwmjjMtLOE/pz7lKouUzD9oW2ZZ9+LsPxN4Cc90YOg/fG6Wrtvf5j84eGHbUzLLP43LCl3AS9E/dIRMcwgP6z9aWOfrySzZPxS4zbpoaNo/+OYEdGRJ3j9xIg3pTHDnP5Rs8jjPeeQ/x6Oe/lw50z8ecUfcEXfUP30/kV+qwe0/L/4Aek2P3D/sQw2aj5XkP9K7kzNMNus/+jCNe3Yr5T/zwivz+aTxPwIvrDJ5VOw/qCuQqeeg5T89kELeeHrnP5VNRrufjeo/4ouJ7JbE5j9zlii3CM3jP73f3Bo7gug/f3cR2G+c8D/4UYfXxYTIPw==","dtype":"float64","shape":[47]},"size":{"__ndarray__":"UUkdocq1NEBIUqihVrIgQNY/OJMBrBlAcunMOplDJEDZJAwX+ekkQOfx2hHhdiZAsvx3loPOIUA/FgwXNLIgQJKy6sNrDCtA2ajKYHfPK0DlBrelposyQBEqldV2vx9A1wmX445QKkDTKB+midIRQPqECBaAvyVAQkni2jM1IkCavSneLjUmQANQrlkvfBhAQYvpdS1IH0BVav8rYuYrQOjCjlVnFipAZYiJxa44LUCXGIJAdEMdQJmb2zWB5yRAvHKCa3Y+LkD3dovj02csQHogDqr1Uh9AlKIf69IJLUDVWoPB8NcfQHhST/KaaxdABGLQojDzH0DlD87JB3IjQDs7iceKzhpAKZiCE1fuKUDBmDUnWXYsQNMinl6jcRlApIF1JSHIH0ARI5/Z2TkhQN6zRnp9RiNA95U1mDpwIEDppKlEZmQlQBvsZMFG8SFAxyp7PGxBGUD/wWzAUPYgQAv/RXO8+hlA8ZsCgJcXI0BDh5QVH4sfQA==","dtype":"float64","shape":[47]},"top_conn":["OMA","PHL","SAN","OMA","MCI","ICT","MCI","MCI","BOS","OMA","DCA","BNA","HOU","MCI","HOU","OMA","DTW","DEN","MCO","DCA","MDW","TUL","MDW","CLE","OMA","TUL","SAT","HOU","MCI","DCA","MCO","BNA","MCO","MCI","DCA","MCI","MCI","MCI","DCA","PHL","MCO","CMH","DCA","ATL","DCA","OMA","MDW"]},"selected":{"id":"7872","type":"Selection"},"selection_policy":{"id":"7873","type":"UnionRenderers"}},"id":"7853","type":"ColumnDataSource"},{"attributes":{"fill_alpha":{"value":0.6},"fill_color":{"value":"#0087c4"},"line_alpha":{"value":0.6},"line_color":{"value":"#0087c4"},"line_width":{"value":2},"size":{"field":"size","units":"screen"},"x":{"field":"distance"},"y":{"field":"pct_connect"}},"id":"7855","type":"Scatter"},{"attributes":{},"id":"7841","type":"BasicTicker"},{"attributes":{"source":{"id":"7853","type":"ColumnDataSource"}},"id":"7858","type":"CDSView"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"line_width":{"value":2},"size":{"field":"size","units":"screen"},"x":{"field":"distance"},"y":{"field":"pct_connect"}},"id":"7856","type":"Scatter"},{"attributes":{"axis_label":"Distance from STL (miles)","formatter":{"id":"7869","type":"BasicTickFormatter"},"ticker":{"id":"7841","type":"BasicTicker"}},"id":"7840","type":"LinearAxis"},{"attributes":{"dimension":1,"ticker":{"id":"7846","type":"BasicTicker"}},"id":"7849","type":"Grid"},{"attributes":{},"id":"7875","type":"UnionRenderers"},{"attributes":{},"id":"7836","type":"LinearScale"},{"attributes":{},"id":"7871","type":"BasicTickFormatter"},{"attributes":{"callback":null,"start":0},"id":"7832","type":"DataRange1d"},{"attributes":{"callback":null,"start":0},"id":"7834","type":"DataRange1d"},{"attributes":{"data_source":{"id":"7861","type":"ColumnDataSource"},"glyph":{"id":"7863","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"7864","type":"Line"},"selection_glyph":null,"view":{"id":"7866","type":"CDSView"}},"id":"7865","type":"GlyphRenderer"},{"attributes":{},"id":"7850","type":"ResetTool"},{"attributes":{"background_fill_color":{"value":"#bababa"},"below":[{"id":"7840","type":"LinearAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"7844","type":"Grid"},{"id":"7849","type":"Grid"}],"left":[{"id":"7845","type":"LinearAxis"}],"plot_height":425,"plot_width":500,"renderers":[{"id":"7857","type":"GlyphRenderer"},{"id":"7865","type":"GlyphRenderer"}],"title":{"id":"7830","type":"Title"},"toolbar":{"id":"7851","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"7832","type":"DataRange1d"},"x_scale":{"id":"7836","type":"LinearScale"},"y_range":{"id":"7834","type":"DataRange1d"},"y_scale":{"id":"7838","type":"LinearScale"}},"id":"7829","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"7846","type":"BasicTicker"},{"attributes":{"source":{"id":"7861","type":"ColumnDataSource"}},"id":"7866","type":"CDSView"},{"attributes":{},"id":"7872","type":"Selection"},{"attributes":{"text":"2019 STL Destinations with at least 15k passengers"},"id":"7830","type":"Title"},{"attributes":{"data_source":{"id":"7853","type":"ColumnDataSource"},"glyph":{"id":"7855","type":"Scatter"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"7856","type":"Scatter"},"selection_glyph":null,"view":{"id":"7858","type":"CDSView"}},"id":"7857","type":"GlyphRenderer"},{"attributes":{},"id":"7873","type":"UnionRenderers"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_dash":[6],"line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"7864","type":"Line"}],"root_ids":["7829"]},"title":"Bokeh Application","version":"1.4.0"}}
+      </script>
+      <script type="text/javascript">
+        (function() {
+          var fn = function() {
+            Bokeh.safely(function() {
+              (function(root) {
+                function embed_document(root) {
+                  
+                var docs_json = document.getElementById('7975').textContent;
+                var render_items = [{"docid":"0675c118-fa79-4503-b64c-36be70859841","roots":{"7829":"f86383dd-795f-4f16-a63d-35183c365406"}}];
+                root.Bokeh.embed.embed_items(docs_json, render_items);
+              
+                }
+                if (root.Bokeh !== undefined) {
+                  embed_document(root);
+                } else {
+                  var attempts = 0;
+                  var timer = setInterval(function(root) {
+                    if (root.Bokeh !== undefined) {
+                      clearInterval(timer);
+                      embed_document(root);
+                    } else {
+                      attempts++;
+                      if (attempts > 100) {
+                        clearInterval(timer);
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                      }
+                    }
+                  }, 10, root)
+                }
+              })(window);
+            });
+          };
+          if (document.readyState != "loading") fn();
+          else document.addEventListener("DOMContentLoaded", fn);
+        })();
+      </script>
+      <script type="application/json" id="8122">
+        {"6b29bdba-ce8c-4531-8aa0-cbaa0ba58d6c":{"roots":{"references":[{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"line_width":{"value":2},"size":{"field":"size","units":"screen"},"x":{"field":"distance"},"y":{"field":"pct_connect"}},"id":"8003","type":"Scatter"},{"attributes":{},"id":"8019","type":"Selection"},{"attributes":{"data_source":{"id":"8000","type":"ColumnDataSource"},"glyph":{"id":"8002","type":"Scatter"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"8003","type":"Scatter"},"selection_glyph":null,"view":{"id":"8005","type":"CDSView"}},"id":"8004","type":"GlyphRenderer"},{"attributes":{"line_color":"red","line_dash":[6],"line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"8010","type":"Line"},{"attributes":{},"id":"8018","type":"BasicTickFormatter"},{"attributes":{},"id":"7985","type":"LinearScale"},{"attributes":{"data_source":{"id":"8008","type":"ColumnDataSource"},"glyph":{"id":"8010","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"8011","type":"Line"},"selection_glyph":null,"view":{"id":"8013","type":"CDSView"}},"id":"8012","type":"GlyphRenderer"},{"attributes":{"callback":null,"data":{"x":[200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900],"y":[0.28276743910031726,0.37130015466722044,0.4504849080076345,0.5203216991215592,0.5808105280089947,0.631951394669941,0.6737442991043979,0.7061892413123656,0.7292862212938441,0.7430352390488334,0.7474362945773332,0.7424893878793438,0.7281945189548654,0.7045516878038977,0.6715608944264407,0.629222138822494,0.5775354209920586,0.5165007409351338]},"selected":{"id":"8021","type":"Selection"},"selection_policy":{"id":"8022","type":"UnionRenderers"}},"id":"8008","type":"ColumnDataSource"},{"attributes":{},"id":"7983","type":"LinearScale"},{"attributes":{},"id":"7988","type":"BasicTicker"},{"attributes":{},"id":"7993","type":"BasicTicker"},{"attributes":{"dimension":1,"ticker":{"id":"7993","type":"BasicTicker"}},"id":"7996","type":"Grid"},{"attributes":{},"id":"8022","type":"UnionRenderers"},{"attributes":{"callback":null,"start":0},"id":"7979","type":"DataRange1d"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"7997","type":"ResetTool"},{"id":"8006","type":"HoverTool"}]},"id":"7998","type":"Toolbar"},{"attributes":{"ticker":{"id":"7988","type":"BasicTicker"}},"id":"7991","type":"Grid"},{"attributes":{"callback":null,"data":{"airport":["ATL","AUS","BDL","BNA","BOS","BWI","CLE","CMH","DAL","DCA","DEN","DSM","DTW","ECP","EWR","FLL","HOU","IAD","ICT","LAS","LAX","LGA","LIT","MCI","MCO","MDW","MKE","MSP","MSY","OAK","OKC","OMA","PDX","PHL","PHX","PIT","RDU","RSW","SAN","SAT","SEA","SFO","SJC","SLC","SMF","TPA","TUL"],"conn_pass":{"__ndarray__":"ycwdwIkB+EB6yxjvbFTxQDwPeT1Nb+tAFEfs+hWoAEHVeppwPX77QHmuXz8Qc/lAlhH0/hQr+UDNfw+SKKT3QAT5Dp/gKvpAMHdRQooe/kAwNQqqv33tQMJ5+nlw7v1AeuXKiPG1+kCVIE8JskTUQPgqJfIGCe1ATwcgHpt/40A96sa5Bq/4QBQ7sRM7sSFAw+E0l7/e+0Cc49cFpr7nQH33Xl9j+e5ABDTMuU6I80BXZofaMiz4QLto1FKcDwZBjMjyKUgk/EBSYoLYCPYDQe3AXDsgQ/ZA+QJ9sfjy80DKayivMXPrQK/uH81NZt5A5r6R7rD8+0A3AWrcKsYCQUBiZ7Q3z+ZA9qgPkSCz/kB69XwVGhnoQOTaxtQcxeJAKKfK9dQT8kDW8UsK2WXiQJPhAG0bPuZAwvipTz479EClsWTZCNTlQATt3Lrfu+BAJjqbis+S5UCPXdAZGXKuQC3jH0vbgOZA8Arosk/Z5EAY+hzc0SP+QA==","dtype":"float64","shape":[47]},"distance":{"__ndarray__":"AAAAAABAfkAAAAAAAIiGQAAAAAAA6I1AAAAAAAAAcUAAAAAAAFyQQAAAAAAAEIdAAAAAAABwfkAAAAAAAJB5QAAAAAAAEIFAAAAAAAB4hkAAAAAAABCIQAAAAAAAMHBAAAAAAACAe0AAAAAAANCDQAAAAAAAQItAAAAAAACEkEAAAAAAAHiFQAAAAAAAwIVAAAAAAACAeEAAAAAAAGyVQAAAAAAA4JhAAAAAAADAi0AAAAAAAIByQAAAAAAAoG1AAAAAAACQi0AAAAAAAGBvQAAAAAAA0HNAAAAAAAAAfEAAAAAAAOCCQAAAAAAA9JpAAAAAAADgfEAAAAAAAGB1QAAAAAAAsJpAAAAAAABwiUAAAAAAALiTQAAAAAAAUIFAAAAAAADYhEAAAAAAAJiOQAAAAAAAVJhAAAAAAACQiEAAAAAAALSaQAAAAAAAHJtAAAAAAADMmkAAAAAAABCSQAAAAAAAPJpAAAAAAAAoi0AAAAAAAPB1QA==","dtype":"float64","shape":[47]},"pass":{"__ndarray__":"AAAAAJFcMEEAAAAA4EQFQQAAAAAAJPlAAAAAAChUD0EAAAAAbK8QQQAAAAA0QBNBAAAAAPAwCEEAAAAAiEQFQQAAAADA6BtBAAAAAOyAHUEAAAAAgD0qQQAAAACIOQNBAAAAAFRqGkEAAAAA4DvoQAAAAADsChJBAAAAABhLCUEAAAAAQNASQQAAAACw3vZAAAAAACCqAkEAAAAAoLEdQQAAAAAU9hlBAAAAAGRJIEEAAAAAaFUAQQAAAAB8qxBBAAAAAE5yIUEAAAAAqMceQQAAAAAAtwJBAAAAAFIVIEEAAAAAOFcDQQAAAACQ7PRAAAAAAGB4A0EAAAAAQNkMQQAAAACgaftAAAAAAJSmGUEAAAAAKOceQQAAAAAwsvhAAAAAAAhEA0EAAAAAmKMGQQAAAACgWAxBAAAAAMCdBEEAAAAAAHURQQAAAADAjwhBAAAAAPBU+EAAAAAAcPMFQQAAAAAgv/lAAAAAAFjPC0EAAAAAWPoCQQ==","dtype":"float64","shape":[47]},"pass_od":{"__ndarray__":"AAAAAMCoFEEAAAAAoGMAQQAAAABgP/BAAAAAAOAa9EAAAAAAQAEJQQAAAABw1gNBAAAAACDW+EAAAAAAgBPyQAAAAACwLQ1BAAAAAHjUEkEAAAAAEMEgQQAAAAAAXuBAAAAAABD6A0EAAAAAwPTjQAAAAABwbwZBAAAAAFC1CEEAAAAAICEEQQAAAADAi+hAAAAAAICr4EAAAAAACM4aQQAAAADQxhNBAAAAAMhIF0EAAAAAgMPbQAAAAAAgBfJAAAAAAEiBHUEAAAAAEDcIQQAAAACA4+5AAAAAAMBxDkEAAAAAIFX8QAAAAAAAx+pAAAAAAMBk50AAAAAAIHPyQAAAAACgfflAAAAAAKDkBkEAAAAA6OATQQAAAABAAPVAAAAAAKB9+UAAAAAAQPcIQQAAAABgGAlBAAAAAGDe+0AAAAAA0J0JQQAAAACAYQRBAAAAAOBP8UAAAAAAYCr7QAAAAAAguPNAAAAAAEDfDEEAAAAAABXdQA==","dtype":"float64","shape":[47]},"pass_sw":{"__ndarray__":"AAAAAAQGE0EAAAAAuDYFQQAAAAAAJPlAAAAAAOhID0EAAAAALKUQQQAAAAB0OBNBAAAAABgjCEEAAAAAyDYFQQAAAADw5xtBAAAAABxIFEEAAAAAKNEeQQAAAAAALANBAAAAANC+BkEAAAAA4DvoQAAAAABAyABBAAAAABhLCUEAAAAAfM8SQQAAAAAA4GlAAAAAAJCiAkEAAAAAgAwUQQAAAACwmQ9BAAAAAGj6DEEAAAAAmFAAQQAAAACMihBBAAAAALRJGkEAAAAANMUeQQAAAAAgqgJBAAAAAHD3BEEAAAAAEFEDQQAAAACQ7PRAAAAAACBmA0EAAAAAQNEMQQAAAACAkvlAAAAAACjMC0EAAAAAfO0TQQAAAAAAbvhAAAAAAKA9A0EAAAAAiPYEQQAAAAAwzwdBAAAAAFibBEEAAAAAIKf5QAAAAABgk/hAAAAAAPAw+EAAAAAAQAbSQAAAAAAgv/lAAAAAAGiOCkEAAAAAWPoCQQ==","dtype":"float64","shape":[47]},"pct_connect":{"__ndarray__":"iH1s75nn5T/QvOt77O3iP0TNnG51FN0/PlnpC93s3T+QhMXUScniP8aGZdJJaOU/UICNxAOi3j9gstrLsFbcP+PVjpyWf+g/OFSETZ4e5D/89PD3DSzsP0RUcPoQFcw/UMaFDdVr2j+eEuQpQZ7iP0zTGfW2KOI/lQpJ7jXV6T8QR0s1jYDlPx/qoR7qoe4/uuJakjkk0D9D3gstO0PrP2vVQOiUKOg/nrdCISE35T9Gx/aWbJbQPyjGx55WUtU/Hh3QM5Nv5z9aWFpi4J7lP54Mh1r21Nk/3rJ8U8TG4D8bymsor6HkP1TaiwSOYOQ/uNV7X0zV0T9QmxIGEk7WP5aL8eqHuuE/TP9RSrSo3D8skfaWsynrP9oe0H3vtOM/GGXPvaL34D8AO19Em/roPx++hJ3Dhug/Ttaryp1K4D90z9fWq2LiP3ejHNH7GuU/gMXzjDi74T94kv8AUz7pP3Bux6H2A+I/IIj6iya46T/A9TuWnFvKPw==","dtype":"float64","shape":[47]},"size":{"__ndarray__":"W41589NUJkBNTqM/x6wgQNY/OJMBrBlAjIdZe/U/JEAkaaCWi+MkQIsyegRbciZATv7+hGrJIUDIBHOJzawgQKkUNvgGDCtA8V7o/dkOJ0AFa/S/NWwsQNIZxZ9ItB9AIArstTFEIUDTKB+midIRQPyNhYqiqR1AQkni2jM1IkCdlq8uuzQmQCoOP4V+atI/DSkocdZBH0CYnPl83uwmQGvTc4EJWiRADAckQTF9I0AVMkFNJD8dQBzc5wbQ0iRAFWDyxUlAKkDDToIWsmYsQEGL6XUtSB9Ah0vcpNWTIEAK2eHy3tIfQHhST/KaaxdA6r730jPkH0DkcKtfVW8jQPhxUgAv5BlAjYoMXn8WI0Ctga8GHNsmQByT669qThlA5is7/tfCH0BS1VbseZMgQCUb2RZlqiFAq7Jd+0RvIEDZK/jWne4ZQDEbEvm+YRlA1jkrXLYuGUBNaPsXr7wFQAv/RXO8+hlAmJXV7ieoIkBDh5QVH4sfQA==","dtype":"float64","shape":[47]},"top_conn":["OMA","PHL","SAN","OMA","MCI","ICT","MCI","MCI","BOS","OMA","DCA","BNA","HOU","MCI","HOU","OMA","DTW","DEN","MCO","DCA","MDW","TUL","MDW","CLE","OMA","TUL","SAT","HOU","MCI","DCA","MCO","BNA","MCO","MCI","DCA","MCI","MCI","MCI","DCA","PHL","MCO","CMH","DCA","ATL","DCA","OMA","MDW"]},"selected":{"id":"8019","type":"Selection"},"selection_policy":{"id":"8020","type":"UnionRenderers"}},"id":"8000","type":"ColumnDataSource"},{"attributes":{"axis_label":"Distance from STL (miles)","formatter":{"id":"8016","type":"BasicTickFormatter"},"ticker":{"id":"7988","type":"BasicTicker"}},"id":"7987","type":"LinearAxis"},{"attributes":{},"id":"8020","type":"UnionRenderers"},{"attributes":{"text":"2019 STL Southwest Destinations with at least 15k passengers"},"id":"7977","type":"Title"},{"attributes":{},"id":"7997","type":"ResetTool"},{"attributes":{},"id":"8021","type":"Selection"},{"attributes":{"background_fill_color":{"value":"#bababa"},"below":[{"id":"7987","type":"LinearAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"7991","type":"Grid"},{"id":"7996","type":"Grid"}],"left":[{"id":"7992","type":"LinearAxis"}],"plot_height":425,"plot_width":500,"renderers":[{"id":"8004","type":"GlyphRenderer"},{"id":"8012","type":"GlyphRenderer"}],"title":{"id":"7977","type":"Title"},"toolbar":{"id":"7998","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"7979","type":"DataRange1d"},"x_scale":{"id":"7983","type":"LinearScale"},"y_range":{"id":"7981","type":"DataRange1d"},"y_scale":{"id":"7985","type":"LinearScale"}},"id":"7976","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"8016","type":"BasicTickFormatter"},{"attributes":{"callback":null,"renderers":[{"id":"8004","type":"GlyphRenderer"}],"tooltips":[["Airport","@airport"],["SW Passengers","@pass_sw{,f}"],["Connecting Pass","@conn_pass{,f}"],["Top Dest via STL","@top_conn"]]},"id":"8006","type":"HoverTool"},{"attributes":{"fill_alpha":{"value":0.6},"fill_color":{"value":"#0087c4"},"line_alpha":{"value":0.6},"line_color":{"value":"#0087c4"},"line_width":{"value":2},"size":{"field":"size","units":"screen"},"x":{"field":"distance"},"y":{"field":"pct_connect"}},"id":"8002","type":"Scatter"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_dash":[6],"line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"8011","type":"Line"},{"attributes":{"axis_label":"% of non-connecting passengers","formatter":{"id":"8018","type":"BasicTickFormatter"},"ticker":{"id":"7993","type":"BasicTicker"}},"id":"7992","type":"LinearAxis"},{"attributes":{"source":{"id":"8000","type":"ColumnDataSource"}},"id":"8005","type":"CDSView"},{"attributes":{"callback":null,"start":0},"id":"7981","type":"DataRange1d"},{"attributes":{"source":{"id":"8008","type":"ColumnDataSource"}},"id":"8013","type":"CDSView"}],"root_ids":["7976"]},"title":"Bokeh Application","version":"1.4.0"}}
+      </script>
+      <script type="text/javascript">
+        (function() {
+          var fn = function() {
+            Bokeh.safely(function() {
+              (function(root) {
+                function embed_document(root) {
+                  
+                var docs_json = document.getElementById('8122').textContent;
+                var render_items = [{"docid":"6b29bdba-ce8c-4531-8aa0-cbaa0ba58d6c","roots":{"7976":"454a6e91-24aa-4633-bce7-67c2c7895613"}}];
+                root.Bokeh.embed.embed_items(docs_json, render_items);
+              
+                }
+                if (root.Bokeh !== undefined) {
+                  embed_document(root);
+                } else {
+                  var attempts = 0;
+                  var timer = setInterval(function(root) {
+                    if (root.Bokeh !== undefined) {
+                      clearInterval(timer);
+                      embed_document(root);
+                    } else {
+                      attempts++;
+                      if (attempts > 100) {
+                        clearInterval(timer);
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                      }
+                    }
+                  }, 10, root)
+                }
+              })(window);
+            });
+          };
+          if (document.readyState != "loading") fn();
+          else document.addEventListener("DOMContentLoaded", fn);
+        })();
+      </script>
+      <script type="application/json" id="9445">
+        {"c17ef66c-2794-4788-acb5-e7d6df87636a":{"roots":{"references":[{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_dash":[6],"line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"9334","type":"Line"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"line_width":{"value":2},"size":{"field":"size","units":"screen"},"x":{"field":"distance"},"y":{"field":"pct_connect"}},"id":"9326","type":"Scatter"},{"attributes":{"background_fill_color":{"value":"#bababa"},"below":[{"id":"9310","type":"LinearAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"9314","type":"Grid"},{"id":"9319","type":"Grid"}],"left":[{"id":"9315","type":"LinearAxis"}],"plot_height":425,"plot_width":500,"renderers":[{"id":"9327","type":"GlyphRenderer"},{"id":"9335","type":"GlyphRenderer"}],"title":{"id":"9300","type":"Title"},"toolbar":{"id":"9321","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"9302","type":"DataRange1d"},"x_scale":{"id":"9306","type":"LinearScale"},"y_range":{"id":"9304","type":"DataRange1d"},"y_scale":{"id":"9308","type":"LinearScale"}},"id":"9299","subtype":"Figure","type":"Plot"},{"attributes":{"callback":null,"start":0},"id":"9304","type":"DataRange1d"},{"attributes":{"source":{"id":"9323","type":"ColumnDataSource"}},"id":"9328","type":"CDSView"},{"attributes":{"axis_label":"% of non-connecting passengers","formatter":{"id":"9341","type":"BasicTickFormatter"},"ticker":{"id":"9316","type":"BasicTicker"}},"id":"9315","type":"LinearAxis"},{"attributes":{"callback":null,"renderers":[{"id":"9327","type":"GlyphRenderer"}],"tooltips":[["Airport","@airport"],["SW Passengers","@pass_sw{,f}"],["Connecting Pass","@conn_pass{,f}"],["Top Dest via STL","@top_conn"]]},"id":"9329","type":"HoverTool"},{"attributes":{"line_color":"red","line_dash":[6],"line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"9333","type":"Line"},{"attributes":{},"id":"9308","type":"LinearScale"},{"attributes":{"dimension":1,"ticker":{"id":"9316","type":"BasicTicker"}},"id":"9319","type":"Grid"},{"attributes":{"axis_label":"Distance from BWI (miles)","formatter":{"id":"9339","type":"BasicTickFormatter"},"ticker":{"id":"9311","type":"BasicTicker"}},"id":"9310","type":"LinearAxis"},{"attributes":{},"id":"9311","type":"BasicTicker"},{"attributes":{"callback":null,"data":{"airport":["ABQ","ALB","ATL","AUS","BDL","BHM","BNA","BOS","BUF","CHS","CLE","CLT","CMH","CVG","DAL","DEN","DTW","ECP","EWR","FLL","GRR","HOU","IND","ISP","JAX","LAS","LAX","MCI","MCO","MDW","MEM","MHT","MKE","MSP","MSY","OAK","OKC","ORF","PBI","PDX","PHL","PHX","PIT","PVD","PWM","RDU","ROC","RSW","SAN","SAT","SDF","SEA","SJC","SJU","SLC","SMF","STL","TPA"],"conn_pass":{"__ndarray__":"j14ZW0hR6UDJSF4rYSkVQaK4xv7Z3PVAf1qXG08y9EB3uP7mlCETQVsKsLAb6uBARnSIk28LA0EAAAAA/swQQTapwLyQCxFBxs4vatSbAEE6dixPN0z/QKeQcYKDj/RA2I3aNi0EAEH33GI8tV7zQNwOti296/NA7ToXBR+4/EAtTIKMOAb0QMWqo4a8GcZAmd1JwytpxEBXhZQQpjEEQXzEkUILcuFACXevOJeY9kCylnPviXL3QC5snChaOA5BanFOGWK4AUGNt/v8fiLtQF9InxegueZA+vaJYQZa9UDeJs1eJw4DQZUA1rCiyPNAPxaESdBf30DqpOl5PW8RQSPWUU34YPVAAq+G0lKu5EDqOxv1XZ/yQA+YPWAm4tVADBmoSlb14EDiuKiNTOESQQrN+3hZ2/tAMki4NMM/fEDMzMzMzEKTQHcJua736+hAW9a4zuG2AkG7UblxmL0TQS95MODc4AhBPLLp4CsXEUFxjI7VXY8JQd0vH7uS9wNBjZSmU2x76UBde4mr2OnyQJhs51IgXfhAxZR6mchsxUCHbuiGVlfRQJLjewPjKfZATpIDvHI12kBEo7rYODHgQF+eedf7AvhAWdtc+UWDB0E=","dtype":"float64","shape":[58]},"distance":{"__ndarray__":"AAAAAAAYmkAAAAAAABByQAAAAAAACIJAAAAAAAD4lEAAAAAAALBxQAAAAAAAUIVAAAAAAABYgkAAAAAAABB3QAAAAAAAkHFAAAAAAACAfUAAAAAAAKBzQAAAAAAAkHZAAAAAAAAQdUAAAAAAAOB6QAAAAAAA5JJAAAAAAABMl0AAAAAAAJB5QAAAAAAA8IhAAAAAAAAgZUAAAAAAAOiMQAAAAAAAgIBAAAAAAAB4k0AAAAAAACCAQAAAAAAAgGtAAAAAAAC4hEAAAAAAAHSgQAAAAAAAMqJAAAAAAAA4jkAAAAAAAJiIQAAAAAAAGINAAAAAAACYiEAAAAAAAJB3QAAAAAAACIRAAAAAAABAjUAAAAAAADCPQAAAAAAAHqNAAAAAAABwkkAAAAAAAOBjQAAAAAAAmItAAAAAAABsokAAAAAAAIBWQAAAAAAAPJ9AAAAAAABAakAAAAAAAHB0QAAAAAAAQHxAAAAAAADgb0AAAAAAAFBxQAAAAAAAuIxAAAAAAADuoUAAAAAAAPyVQAAAAAAA8H5AAAAAAAA+okAAAAAAAA6jQAAAAAAAdJhAAAAAAAAknUAAAAAAALaiQAAAAAAAEIdAAAAAAABQikA=","dtype":"float64","shape":[58]},"pass":{"__ndarray__":"AAAAAIjVAEEAAAAAFPgaQQAAAAAjJDtBAAAAADQMFEEAAAAAVF8bQQAAAABQN/dAAAAAAJiJHUEAAAAAePMxQQAAAADgjhhBAAAAAPDoEEEAAAAA0N4NQQAAAACA4C9BAAAAALhKEEEAAAAAQJMPQQAAAAAUUhdBAAAAACQJKkEAAAAA4lgmQQAAAABAo95AAAAAAAB+0UAAAAAAgAYyQQAAAACQTvRAAAAAAAhsGEEAAAAAzI0QQQAAAAB8ChRBAAAAAOgIGEEAAAAA/ucgQQAAAABkTyNBAAAAAPB+DEEAAAAAXf8xQQAAAABgDiFBAAAAABAf+0AAAAAA2GgbQQAAAADQfQtBAAAAAPb+IEEAAAAA9F4YQQAAAABQvfpAAAAAANDd80AAAAAA5HYVQQAAAACgKBFBAAAAAADc3UAAAAAAoMz5QAAAAACYvRdBAAAAAGClCUEAAAAADD8eQQAAAAAcihJBAAAAAAjpIUEAAAAAQJIPQQAAAABkNRlBAAAAADj8FEEAAAAAqLEJQQAAAADAiwxBAAAAAFC+DkEAAAAAkE/1QAAAAACcWRFBAAAAAORnEEEAAAAAYPv2QAAAAAA0QBNBAAAAAMruJUE=","dtype":"float64","shape":[58]},"pass_od":{"__ndarray__":"AAAAAMCw9kAAAAAAgCr0QAAAAAD8iSpBAAAAAMA1DkEAAAAAYB/8QAAAAADA7+1AAAAAAAD6DkEAAAAAuBcnQQAAAABgWvhAAAAAAGC9/kAAAAAAYFL2QAAAAACo9xRBAAAAAEB1+EAAAAAAoAICQQAAAACg4A9BAAAAANR1IEEAAAAAYBwVQQAAAAAANNxAAAAAAAAAJEAAAAAAaKAqQQAAAADA4edAAAAAAPDNDkEAAAAAwCYEQQAAAAAg9/BAAAAAAMBpDEEAAAAAtCIgQQAAAAC4iSNBAAAAAADaAUEAAAAA2CcuQQAAAAAIVRZBAAAAAMD+80AAAAAA4NsBQQAAAADA6/xAAAAAAHiHFEEAAAAASO4UQQAAAABgnftAAAAAAABO60AAAAAAAMbhQAAAAABgvwdBAAAAAKCI+EAAAAAAADCRQAAAAAAQBhJBAAAAAEBk5UAAAAAAUIoBQQAAAABghfVAAAAAANC0C0EAAAAAwMHkQAAAAADA3RFBAAAAAMCeFEEAAAAAsOsDQQAAAACAn/xAAAAAADA4D0EAAAAAYIL4QAAAAABABAtBAAAAAMDdBkEAAAAAwFr3QAAAAABw1gNBAAAAAHAlIEE=","dtype":"float64","shape":[58]},"pass_sw":{"__ndarray__":"AAAAAIjVAEEAAAAApPcaQQAAAADEhhxBAAAAAMCmDUEAAAAAhFobQQAAAABQN/dAAAAAALBoHEEAAAAAqGYmQQAAAAAwjhhBAAAAACznEEEAAAAAONENQQAAAAA4TAtBAAAAAJhBEEEAAAAASOAHQQAAAAAUUhdBAAAAAKh0H0EAAAAAUOUKQQAAAABAo95AAAAAAIAAx0AAAAAA3G0nQQAAAACQTvRAAAAAAFBpGEEAAAAAdIgQQQAAAAB8ChRBAAAAAJBoE0EAAAAA0OAZQQAAAACU6xNBAAAAADhsDEEAAAAA0ogpQQAAAABqDCFBAAAAAOAU+0AAAAAALGgbQQAAAAAg2wpBAAAAABiQA0EAAAAAeBkSQQAAAABQvfpAAAAAALDJ80AAAAAAbGcVQQAAAAAgGxFBAAAAAABNskAAAAAAAISbQAAAAADoxQ9BAAAAABhSCUEAAAAADD8eQQAAAAA4iBJBAAAAANjvHUEAAAAAyI8PQQAAAADgZhZBAAAAAMT9EEEAAAAAqLEJQQAAAADAiwxBAAAAAABa6kAAAAAA4Cb1QAAAAAAgPAhBAAAAACBO+UAAAAAAYPv2QAAAAAB0OBNBAAAAAPJ2IUE=","dtype":"float64","shape":[58]},"pct_connect":{"__ndarray__":"f0evjO334z/Q4gOUgo7LPwYQSdFo3uk/SImydhQa5T/A0+l4+jzTPyihs+3IV+Q/+kJNtyNG5T8AAAAAAADkP/JAiVIGk9M//nqtLVFH4D8S2jA1QmneP/iLlnTm8uM/znjS93I84D8rRYQrCgXjP/zJCZCQKuk/ZqdgDyqy6D8wBKUQdxbkPw46lKBYdeQ/oN+fioPWvD9uJJD7yxrpP3aM56MoQeI/sdhg+kuY6D/+qDaefafkPzyaqIBDfs8/sMMGCkhk4T/UVuYeI3/rPyJCb8HQb+s/YIiTDwP74z8xGFfwqQfqP6xC9Oy1W+s/aNlVdV675j8AYLHai0nXP1oIzAFdQ+M/Or1sI/OK5z9hM6gX0cTnPz8XI9Puc+k/nqd4fbFJ4j8Qdnjj4C++P5Ax16Tb+OI/I4KqW63p7D80MzMzMzPTP7qmjM2duek/6DF7i6uy0D9E0BOGxzrWP5zNkVasCtU/ul9r4J922z9EUWLPA1fIPyqkg8AtveE/KMXn10kA6j+alorZ6TjkP650YeMVWOI/XlYHqeN+6T8Q93AP93DpP9QGawARXuE/MsfXid625z8uOfezGbrkP+kxxr19AeY/KQMkasI65T8=","dtype":"float64","shape":[58]},"size":{"__ndarray__":"mnhH+ly1HUAukjPLlJYqQN/ictaSWCtAyF1KW9C2I0Cpgvp/JscqQF29PuxyqxhAzZsxWCRKK0BhGS0rmyIxQCoqBA0RXylAFPrypMwMJUDCwrCD6cQjQOAc1Vlf6iJAKzrHebGkJEDkeVNdu7AhQO/Jk1mnuShAP0kHxTi3LECG3jgtlsYiQAi3pGACVwxAYki/dg5dAUBIIe+IJIYxQJCZPMWEEhdAbzBbCv1LKUD6DJCaftEkQKA9iHG36yZAKm1WJmGOJkD8pz7ntQsqQHpeXyUE2iZAsIBJwyVNI0DUUGAHXksyQA0sC1Gj5S1AJOxsSfqkGkA232Th1M0qQJUX2YYHwyJAwQgYWVADIEC9OoG3QsglQNvTMCXEeRpAzande4vGFkCSkThI+a8nQFU513ENLSVAxQNf4i7n9T/CqawTbdvqP69Z0sVBaCRA45Rcrrg3IkCMOoMvhCgsQOUWcmyCCiZAdRvkyY0DLEDhorCe2FYkQMOfoli3OyhA6AFjetkaJUB9yuAh+VkiQBnq8pLXVyNAKzyCLLaVEkDvp1vLJowXQDOFuy6h0iFAQwoPinrBGUBRCDzjhYsYQIsyegRbciZAvXU33ntCLkA=","dtype":"float64","shape":[58]},"top_conn":["BOS","RDU","BOS","BDL","RDU","BOS","BDL","TPA","RDU","BDL","MCO","ISP","BDL","BOS","ALB","ALB","FLL","BOS","SFO","ALB","MCO","BUF","BOS","RSW","PVD","ALB","ALB","BOS","MHT","ISP","BOS","RDU","RDU","RDU","BOS","ALB","BOS","PVD","ALB","MHT","CLT","ALB","RDU","RDU","TPA","BUF","TPA","ISP","ALB","BOS","BOS","RDU","ALB","CLE","BOS","BOS","ORF","BOS"]},"selected":{"id":"9342","type":"Selection"},"selection_policy":{"id":"9343","type":"UnionRenderers"}},"id":"9323","type":"ColumnDataSource"},{"attributes":{},"id":"9341","type":"BasicTickFormatter"},{"attributes":{"text":"2019 BWI Southwest Destinations with at least 15k passengers"},"id":"9300","type":"Title"},{"attributes":{},"id":"9342","type":"Selection"},{"attributes":{},"id":"9343","type":"UnionRenderers"},{"attributes":{"fill_alpha":{"value":0.6},"fill_color":{"value":"#0087c4"},"line_alpha":{"value":0.6},"line_color":{"value":"#0087c4"},"line_width":{"value":2},"size":{"field":"size","units":"screen"},"x":{"field":"distance"},"y":{"field":"pct_connect"}},"id":"9325","type":"Scatter"},{"attributes":{},"id":"9320","type":"ResetTool"},{"attributes":{},"id":"9344","type":"Selection"},{"attributes":{},"id":"9345","type":"UnionRenderers"},{"attributes":{"source":{"id":"9331","type":"ColumnDataSource"}},"id":"9336","type":"CDSView"},{"attributes":{},"id":"9316","type":"BasicTicker"},{"attributes":{},"id":"9339","type":"BasicTickFormatter"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"9320","type":"ResetTool"},{"id":"9329","type":"HoverTool"}]},"id":"9321","type":"Toolbar"},{"attributes":{},"id":"9306","type":"LinearScale"},{"attributes":{"data_source":{"id":"9323","type":"ColumnDataSource"},"glyph":{"id":"9325","type":"Scatter"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"9326","type":"Scatter"},"selection_glyph":null,"view":{"id":"9328","type":"CDSView"}},"id":"9327","type":"GlyphRenderer"},{"attributes":{"data_source":{"id":"9331","type":"ColumnDataSource"},"glyph":{"id":"9333","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"9334","type":"Line"},"selection_glyph":null,"view":{"id":"9336","type":"CDSView"}},"id":"9335","type":"GlyphRenderer"},{"attributes":{"callback":null,"start":0},"id":"9302","type":"DataRange1d"},{"attributes":{"ticker":{"id":"9311","type":"BasicTicker"}},"id":"9314","type":"Grid"},{"attributes":{"callback":null,"data":{"x":[200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200,2300],"y":[0.3484433091961971,0.40503316322276484,0.45800169828098836,0.5073489143708677,0.5530748114924029,0.5951793896455939,0.6336626488304407,0.6685245890469433,0.6997652102951016,0.7273845125749159,0.751382495886386,0.7717591602295117,0.7885145056042934,0.8016485320107309,0.8111612394488241,0.8170526279185734,0.8193226974199783,0.8179714479530389,0.8129988795177554,0.8044049921141279,0.7921897857421559,0.7763532604018398]},"selected":{"id":"9344","type":"Selection"},"selection_policy":{"id":"9345","type":"UnionRenderers"}},"id":"9331","type":"ColumnDataSource"}],"root_ids":["9299"]},"title":"Bokeh Application","version":"1.4.0"}}
+      </script>
+      <script type="text/javascript">
+        (function() {
+          var fn = function() {
+            Bokeh.safely(function() {
+              (function(root) {
+                function embed_document(root) {
+                  
+                var docs_json = document.getElementById('9445').textContent;
+                var render_items = [{"docid":"c17ef66c-2794-4788-acb5-e7d6df87636a","roots":{"9299":"12c927be-904f-4001-9c56-07723edfa114"}}];
+                root.Bokeh.embed.embed_items(docs_json, render_items);
+              
+                }
+                if (root.Bokeh !== undefined) {
+                  embed_document(root);
+                } else {
+                  var attempts = 0;
+                  var timer = setInterval(function(root) {
+                    if (root.Bokeh !== undefined) {
+                      clearInterval(timer);
+                      embed_document(root);
+                    } else {
+                      attempts++;
+                      if (attempts > 100) {
+                        clearInterval(timer);
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                      }
+                    }
+                  }, 10, root)
+                }
+              })(window);
+            });
+          };
+          if (document.readyState != "loading") fn();
+          else document.addEventListener("DOMContentLoaded", fn);
+        })();
+      </script>
+      <script type="application/json" id="9298">
+        {"199917d8-11b7-4a24-97fa-5d79ecf61e4e":{"roots":{"references":[{"attributes":{"source":{"id":"9184","type":"ColumnDataSource"}},"id":"9189","type":"CDSView"},{"attributes":{"dimension":1,"ticker":{"id":"9169","type":"BasicTicker"}},"id":"9172","type":"Grid"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"line_width":{"value":2},"size":{"field":"size","units":"screen"},"x":{"field":"distance"},"y":{"field":"pct_connect"}},"id":"9179","type":"Scatter"},{"attributes":{"fill_alpha":{"value":0.6},"fill_color":{"value":"#0087c4"},"line_alpha":{"value":0.6},"line_color":{"value":"#0087c4"},"line_width":{"value":2},"size":{"field":"size","units":"screen"},"x":{"field":"distance"},"y":{"field":"pct_connect"}},"id":"9178","type":"Scatter"},{"attributes":{},"id":"9159","type":"LinearScale"},{"attributes":{"text":"2019 BWI Destinations with at least 15k passengers"},"id":"9153","type":"Title"},{"attributes":{"callback":null,"start":0},"id":"9155","type":"DataRange1d"},{"attributes":{"callback":null,"data":{"x":[200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200,2300],"y":[0.26083419567293137,0.32664814229107697,0.3891969414048777,0.44848059301433346,0.5044990971194443,0.5572524537202104,0.6067406628166314,0.6529637244087076,0.6959216384964388,0.7356144050798252,0.7720420241588666,0.8052044957335632,0.8351018198039148,0.8617339963699215,0.8851010254315834,0.9052029069889004,0.9220396410418725,0.9356112275904994,0.9459176666347817,0.9529589581747191,0.9567351022103114,0.9572460987415591]},"selected":{"id":"9197","type":"Selection"},"selection_policy":{"id":"9198","type":"UnionRenderers"}},"id":"9184","type":"ColumnDataSource"},{"attributes":{},"id":"9173","type":"ResetTool"},{"attributes":{"axis_label":"Distance from BWI (miles)","formatter":{"id":"9192","type":"BasicTickFormatter"},"ticker":{"id":"9164","type":"BasicTicker"}},"id":"9163","type":"LinearAxis"},{"attributes":{},"id":"9198","type":"UnionRenderers"},{"attributes":{"ticker":{"id":"9164","type":"BasicTicker"}},"id":"9167","type":"Grid"},{"attributes":{},"id":"9164","type":"BasicTicker"},{"attributes":{},"id":"9195","type":"Selection"},{"attributes":{"callback":null,"data":{"airport":["ABQ","ALB","ATL","AUS","BDL","BHM","BNA","BOS","BUF","CHS","CLE","CLT","CMH","CVG","DAL","DEN","DTW","ECP","EWR","FLL","GRR","HOU","IND","ISP","JAX","LAS","LAX","MCI","MCO","MDW","MEM","MHT","MKE","MSP","MSY","OAK","OKC","ORF","PBI","PHL","PHX","PIT","PVD","PWM","RDU","ROC","RSW","SAN","SAT","SDF","SEA","SJC","SJU","SLC","SMF","STL","TPA"],"distance":{"__ndarray__":"AAAAAAAYmkAAAAAAABByQAAAAAAACIJAAAAAAAD4lEAAAAAAALBxQAAAAAAAUIVAAAAAAABYgkAAAAAAABB3QAAAAAAAkHFAAAAAAACAfUAAAAAAAKBzQAAAAAAAkHZAAAAAAAAQdUAAAAAAAOB6QAAAAAAA5JJAAAAAAABMl0AAAAAAAJB5QAAAAAAA8IhAAAAAAAAgZUAAAAAAAOiMQAAAAAAAgIBAAAAAAAB4k0AAAAAAACCAQAAAAAAAgGtAAAAAAAC4hEAAAAAAAHSgQAAAAAAAMqJAAAAAAAA4jkAAAAAAAJiIQAAAAAAAGINAAAAAAACYiEAAAAAAAJB3QAAAAAAACIRAAAAAAABAjUAAAAAAADCPQAAAAAAAHqNAAAAAAABwkkAAAAAAAOBjQAAAAAAAmItAAAAAAACAVkAAAAAAADyfQAAAAAAAQGpAAAAAAABwdEAAAAAAAEB8QAAAAAAA4G9AAAAAAABQcUAAAAAAALiMQAAAAAAA7qFAAAAAAAD8lUAAAAAAAPB+QAAAAAAAPqJAAAAAAAAOo0AAAAAAAHSYQAAAAAAAJJ1AAAAAAAC2okAAAAAAABCHQAAAAAAAUIpA","dtype":"float64","shape":[57]},"pass":{"__ndarray__":"AAAAAIjVAEEAAAAAFPgaQQAAAAAjJDtBAAAAADQMFEEAAAAAVF8bQQAAAABQN/dAAAAAAJiJHUEAAAAAePMxQQAAAADgjhhBAAAAAPDoEEEAAAAA0N4NQQAAAACA4C9BAAAAALhKEEEAAAAAQJMPQQAAAAAUUhdBAAAAACQJKkEAAAAA4lgmQQAAAABAo95AAAAAAAB+0UAAAAAAgAYyQQAAAACQTvRAAAAAAAhsGEEAAAAAzI0QQQAAAAB8ChRBAAAAAOgIGEEAAAAA/ucgQQAAAABkTyNBAAAAAPB+DEEAAAAAXf8xQQAAAABgDiFBAAAAABAf+0AAAAAA2GgbQQAAAADQfQtBAAAAAPb+IEEAAAAA9F4YQQAAAABQvfpAAAAAANDd80AAAAAA5HYVQQAAAACgKBFBAAAAAKDM+UAAAAAAmL0XQQAAAABgpQlBAAAAAAw/HkEAAAAAHIoSQQAAAAAI6SFBAAAAAECSD0EAAAAAZDUZQQAAAAA4/BRBAAAAAKixCUEAAAAAwIsMQQAAAABQvg5BAAAAAJBP9UAAAAAAnFkRQQAAAADkZxBBAAAAAGD79kAAAAAANEATQQAAAADK7iVB","dtype":"float64","shape":[57]},"pass_conn":{"__ndarray__":"AAAAAKD05UAAAAAAdO0VQQAAAABKvitBAAAAAFDF80AAAAAAfFcUQQAAAADgfuBAAAAAADAZDEEAAAAAcJ4ZQQAAAABIeBJBAAAAADBzAkEAAAAAoLUCQQAAAACsZCVBAAAAANBaBEEAAAAAQCH7QAAAAAAQh/1AAAAAAKAmE0EAAAAAZJUXQQAAAAAAeqNAAAAAAIB70UAAAAAAMNkSQQAAAABgu+BAAAAAACAKAkEAAAAAsOn5QAAAAABomQ9BAAAAABCoA0EAAAAAQKnYQAAAAAAAKr3AAAAAAOBJ9UAAAAAAiFsHQQAAAABwjwdBAAAAAECB3EAAAAAA6HoSQQAAAADgD/pAAAAAAOjsCkEAAAAAYIXrQAAAAAAAAqzAAAAAAEDb2EAAAAAAJD4TQQAAAADAI/VAAAAAAOCH+UAAAAAAIN72QAAAAABQTARBAAAAAOR5FUEAAAAAiFEKQQAAAACo9xVBAAAAANBhCkEAAAAAkF79QAAAAAAAXrdAAAAAAOAX50AAAAAAAHj8QAAAAAAAeK7AAAAAAICWycAAAAAA4LvuQAAAAAAQ5PNAAAAAAADYl8AAAAAA+KkCQQAAAABoJQdB","dtype":"float64","shape":[57]},"pass_od":{"__ndarray__":"AAAAAMCw9kAAAAAAgCr0QAAAAAD8iSpBAAAAAMA1DkEAAAAAYB/8QAAAAADA7+1AAAAAAAD6DkEAAAAAuBcnQQAAAABgWvhAAAAAAGC9/kAAAAAAYFL2QAAAAACo9xRBAAAAAEB1+EAAAAAAoAICQQAAAACg4A9BAAAAANR1IEEAAAAAYBwVQQAAAAAANNxAAAAAAAAAJEAAAAAAaKAqQQAAAADA4edAAAAAAPDNDkEAAAAAwCYEQQAAAAAg9/BAAAAAAMBpDEEAAAAAtCIgQQAAAAC4iSNBAAAAAADaAUEAAAAA2CcuQQAAAAAIVRZBAAAAAMD+80AAAAAA4NsBQQAAAADA6/xAAAAAAHiHFEEAAAAASO4UQQAAAABgnftAAAAAAABO60AAAAAAAMbhQAAAAABgvwdBAAAAAAAwkUAAAAAAEAYSQQAAAABAZOVAAAAAAFCKAUEAAAAAYIX1QAAAAADQtAtBAAAAAMDB5EAAAAAAwN0RQQAAAADAnhRBAAAAALDrA0EAAAAAgJ/8QAAAAAAwOA9BAAAAAGCC+EAAAAAAQAQLQQAAAADA3QZBAAAAAMBa90AAAAAAcNYDQQAAAABwJSBB","dtype":"float64","shape":[57]},"pass_sw":{"__ndarray__":"AAAAAIjVAEEAAAAApPcaQQAAAADEhhxBAAAAAMCmDUEAAAAAhFobQQAAAABQN/dAAAAAALBoHEEAAAAAqGYmQQAAAAAwjhhBAAAAACznEEEAAAAAONENQQAAAAA4TAtBAAAAAJhBEEEAAAAASOAHQQAAAAAUUhdBAAAAAKh0H0EAAAAAUOUKQQAAAABAo95AAAAAAIAAx0AAAAAA3G0nQQAAAACQTvRAAAAAAFBpGEEAAAAAdIgQQQAAAAB8ChRBAAAAAJBoE0EAAAAA0OAZQQAAAACU6xNBAAAAADhsDEEAAAAA0ogpQQAAAABqDCFBAAAAAOAU+0AAAAAALGgbQQAAAAAg2wpBAAAAABiQA0EAAAAAeBkSQQAAAABQvfpAAAAAALDJ80AAAAAAbGcVQQAAAAAgGxFBAAAAAACEm0AAAAAA6MUPQQAAAAAYUglBAAAAAAw/HkEAAAAAOIgSQQAAAADY7x1BAAAAAMiPD0EAAAAA4GYWQQAAAADE/RBBAAAAAKixCUEAAAAAwIsMQQAAAAAAWupAAAAAAOAm9UAAAAAAIDwIQQAAAAAgTvlAAAAAAGD79kAAAAAAdDgTQQAAAADydiFB","dtype":"float64","shape":[57]},"pct_connect":{"__ndarray__":"nosWP++Q5T/HDqz9ie3HP+yVB0pASt8/LkR88Ekc6D+r4+LgQXDQP4eJRwewoeQ/7Uo0X4/H4D80bJvAMJXkP99imT+Xu88/6fW1v+0V3T+wfYKPyenXPzvzrS5gDNU/vLzKRxQF2D9EIwK6p0DiPwunuYbo3uU/DSafNSM75D/GTIYTxzreP8MByIUJde0/eN1RzDtLQj/Luvo1fqLnPxkw1OIV0eI/BSdh63Iu5D+5W25TI3rjP/1r66XMFss/FfOlxiXq4j8ruMyEkoruP1qvc19UMPA/ngSptfkL5D8TzuUZCM/qPxke91MF8+Q/WxuxaoaX5z+c5RZ3jtnUP/r5Iav51OA/0sK4OIFT4z82gl1TpHvrP8diPEEShvA//U2nFJf95T8UgO/ZUX+6Pyl/HePYJOY/2OEPSoJRhT+slU2xTUvoP1XvExIJsco/QYGh16qO0j++qKEtt5LSP+hicUdOwNg/XQ6a+ecJxT/+QjkJ963mP3AyPp94ce8/AkVstEvP6D9/sGnkEQvgP2Z+jaBtP/A/FBMPTMJm8j9qrh+jFeroP6iIEtzyTOY/pDxJZWZC8D/flohv3XzgP0nNmrqzjuc/","dtype":"float64","shape":[57]},"size":{"__ndarray__":"mnhH+ly1HUDU5WwBzJYqQJePVzN7rDpAE9AeCbPsJkD57c9ugckqQF29PuxyqxhAQGJCYI3TK0DU4Wn3WLE1QLs88vhrXylAaxj7D+YNJUB6Dy+kaskjQIE/iVDKcDRAEWnj33uqJEBiLji39lckQO/Jk1mnuShAOT5Zrxx5MkBASqjJVR0xQAi3pGACVwxAS5HLPelpBUBdUDiv1bw1QJCZPMWEEhdA39+6n2VNKUB/Nomf29QkQKA9iHG36yZAK3iTvdcZKUCVYauwosUtQDDi71t+0S9APvYyzH9TI0A1YYugh7g1QC5OrW5b5y1AqcTnxPypGkCAO5P8KM4qQLf6S1GG+yJAleALNdXZLUD7zahfnkYpQNvTMCXEeRpAQIVZfR3SFkBkMn/3hrgnQAT0SfFmNSVAbkzJL4sBGkDYiHcfZfIoQM7jvNWVVSJAjDqDL4QoLEC0FF03ogsmQOZmQA2ypC5A5OxxPqRXJEDBUeoU4bQpQFwcj2NcdCdAfcrgIflZIkAZ6vKS11cjQKZmpLnoEiRAaUZHysGiF0DgKCZYl1MlQNT7hSL0vCRAUQg844WLGEDn8doR4XYmQBQLo+GE9DBA","dtype":"float64","shape":[57]},"top_conn":["BOS","RDU","BOS","BDL","RDU","BOS","BDL","TPA","RDU","BDL","MCO","ISP","BDL","BOS","ALB","ALB","FLL","BOS","SFO","ALB","MCO","BUF","BOS","RSW","PVD","ALB","ALB","BOS","MHT","ISP","BOS","RDU","RDU","RDU","BOS","ALB","BOS","PVD","ALB","CLT","ALB","RDU","RDU","TPA","BUF","TPA","ISP","ALB","BOS","BOS","RDU","ALB","CLE","BOS","BOS","ORF","BOS"]},"selected":{"id":"9195","type":"Selection"},"selection_policy":{"id":"9196","type":"UnionRenderers"}},"id":"9176","type":"ColumnDataSource"},{"attributes":{"callback":null,"end":1.4,"start":0},"id":"9157","type":"DataRange1d"},{"attributes":{},"id":"9169","type":"BasicTicker"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"9173","type":"ResetTool"},{"id":"9182","type":"HoverTool"}]},"id":"9174","type":"Toolbar"},{"attributes":{},"id":"9196","type":"UnionRenderers"},{"attributes":{"data_source":{"id":"9176","type":"ColumnDataSource"},"glyph":{"id":"9178","type":"Scatter"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"9179","type":"Scatter"},"selection_glyph":null,"view":{"id":"9181","type":"CDSView"}},"id":"9180","type":"GlyphRenderer"},{"attributes":{"line_color":"red","line_dash":[6],"line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"9186","type":"Line"},{"attributes":{"callback":null,"renderers":[{"id":"9180","type":"GlyphRenderer"}],"tooltips":[["Airport","@airport"],["Pass Flown","@pass{,f}"],["O&amp;D Passengers","@pass_od{,f}"],["SW Passengers","@pass_sw{,f}"],["Top Dest via STL","@top_conn"]]},"id":"9182","type":"HoverTool"},{"attributes":{"background_fill_color":{"value":"#bababa"},"below":[{"id":"9163","type":"LinearAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"9167","type":"Grid"},{"id":"9172","type":"Grid"}],"left":[{"id":"9168","type":"LinearAxis"}],"plot_height":425,"plot_width":500,"renderers":[{"id":"9180","type":"GlyphRenderer"},{"id":"9188","type":"GlyphRenderer"}],"title":{"id":"9153","type":"Title"},"toolbar":{"id":"9174","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"9155","type":"DataRange1d"},"x_scale":{"id":"9159","type":"LinearScale"},"y_range":{"id":"9157","type":"DataRange1d"},"y_scale":{"id":"9161","type":"LinearScale"}},"id":"9152","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"9192","type":"BasicTickFormatter"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_dash":[6],"line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"9187","type":"Line"},{"attributes":{},"id":"9194","type":"BasicTickFormatter"},{"attributes":{"data_source":{"id":"9184","type":"ColumnDataSource"},"glyph":{"id":"9186","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"9187","type":"Line"},"selection_glyph":null,"view":{"id":"9189","type":"CDSView"}},"id":"9188","type":"GlyphRenderer"},{"attributes":{},"id":"9161","type":"LinearScale"},{"attributes":{"axis_label":"Ratio O&amp;D Travelers to total Nonstop Passengers","formatter":{"id":"9194","type":"BasicTickFormatter"},"ticker":{"id":"9169","type":"BasicTicker"}},"id":"9168","type":"LinearAxis"},{"attributes":{"source":{"id":"9176","type":"ColumnDataSource"}},"id":"9181","type":"CDSView"},{"attributes":{},"id":"9197","type":"Selection"}],"root_ids":["9152"]},"title":"Bokeh Application","version":"1.4.0"}}
+      </script>
+      <script type="text/javascript">
+        (function() {
+          var fn = function() {
+            Bokeh.safely(function() {
+              (function(root) {
+                function embed_document(root) {
+                  
+                var docs_json = document.getElementById('9298').textContent;
+                var render_items = [{"docid":"199917d8-11b7-4a24-97fa-5d79ecf61e4e","roots":{"9152":"33f71244-e021-4739-9d17-48a10ee731e7"}}];
+                root.Bokeh.embed.embed_items(docs_json, render_items);
+              
+                }
+                if (root.Bokeh !== undefined) {
+                  embed_document(root);
+                } else {
+                  var attempts = 0;
+                  var timer = setInterval(function(root) {
+                    if (root.Bokeh !== undefined) {
+                      clearInterval(timer);
+                      embed_document(root);
+                    } else {
+                      attempts++;
+                      if (attempts > 100) {
+                        clearInterval(timer);
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                      }
+                    }
+                  }, 10, root)
+                }
+              })(window);
+            });
+          };
+          if (document.readyState != "loading") fn();
+          else document.addEventListener("DOMContentLoaded", fn);
+        })();
+      </script>
+      <script type="application/json" id="7388">
+        {"d5ef77e3-5139-4077-af45-e15472930679":{"roots":{"references":[{"attributes":{},"id":"7216","type":"LinearScale"},{"attributes":{},"id":"7230","type":"ResetTool"},{"attributes":{},"id":"7221","type":"BasicTicker"},{"attributes":{"text":""},"id":"7243","type":"Title"},{"attributes":{"label":{"value":"ORF"},"renderers":[{"id":"7253","type":"GlyphRenderer"}]},"id":"7263","type":"LegendItem"},{"attributes":{"data_source":{"id":"7210","type":"ColumnDataSource"},"glyph":{"id":"7251","type":"VArea"},"hover_glyph":null,"muted_glyph":null,"name":"orf_od","nonselection_glyph":{"id":"7252","type":"VArea"},"selection_glyph":null,"view":{"id":"7254","type":"CDSView"}},"id":"7253","type":"GlyphRenderer"},{"attributes":{"source":{"id":"7210","type":"ColumnDataSource"}},"id":"7254","type":"CDSView"},{"attributes":{"data_source":{"id":"7210","type":"ColumnDataSource"},"glyph":{"id":"7283","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"7284","type":"Line"},"selection_glyph":null,"view":{"id":"7286","type":"CDSView"},"y_range_name":"pass"},"id":"7285","type":"GlyphRenderer"},{"attributes":{},"id":"7226","type":"BasicTicker"},{"attributes":{"callback":null,"end":2019,"start":1995},"id":"7212","type":"Range1d"},{"attributes":{"format":"0a"},"id":"7279","type":"NumeralTickFormatter"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":0,"x":{"field":"year"},"y":{"field":"orf_odp"}},"id":"7271","type":"Line"},{"attributes":{"callback":null,"end":230000},"id":"7278","type":"Range1d"},{"attributes":{"data_source":{"id":"7210","type":"ColumnDataSource"},"glyph":{"id":"7238","type":"VArea"},"hover_glyph":null,"muted_glyph":null,"name":"ric_od","nonselection_glyph":{"id":"7239","type":"VArea"},"selection_glyph":null,"view":{"id":"7241","type":"CDSView"}},"id":"7240","type":"GlyphRenderer"},{"attributes":{"source":{"id":"7210","type":"ColumnDataSource"}},"id":"7268","type":"CDSView"},{"attributes":{"source":{"id":"7210","type":"ColumnDataSource"}},"id":"7273","type":"CDSView"},{"attributes":{"ticker":{"id":"7221","type":"BasicTicker"}},"id":"7224","type":"Grid"},{"attributes":{"fields":["ric_od"]},"id":"7235","type":"Stack"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_dash":[6],"line_width":2,"x":{"field":"year"},"y":{"field":"orf_pax"}},"id":"7289","type":"Line"},{"attributes":{"format":"0a"},"id":"7276","type":"NumeralTickFormatter"},{"attributes":{"source":{"id":"7210","type":"ColumnDataSource"}},"id":"7241","type":"CDSView"},{"attributes":{},"id":"7218","type":"LinearScale"},{"attributes":{"data_source":{"id":"7210","type":"ColumnDataSource"},"glyph":{"id":"7288","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"7289","type":"Line"},"selection_glyph":null,"view":{"id":"7291","type":"CDSView"},"y_range_name":"pass"},"id":"7290","type":"GlyphRenderer"},{"attributes":{"fill_alpha":0.1,"fill_color":"#1f77b4","x":{"field":"year"},"y1":{"expr":{"id":"7233","type":"Stack"}},"y2":{"expr":{"id":"7234","type":"Stack"}}},"id":"7239","type":"VArea"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":0,"x":{"field":"year"},"y":{"field":"ric_od"}},"id":"7266","type":"Line"},{"attributes":{},"id":"7262","type":"Selection"},{"attributes":{"axis_label":"Yearly O&amp;D Passengers","formatter":{"id":"7276","type":"NumeralTickFormatter"},"ticker":{"id":"7226","type":"BasicTicker"}},"id":"7225","type":"LinearAxis"},{"attributes":{"line_color":"blue","line_width":0,"x":{"field":"year"},"y":{"field":"orf_odp"}},"id":"7270","type":"Line"},{"attributes":{},"id":"7261","type":"UnionRenderers"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"7230","type":"ResetTool"},{"id":"7274","type":"HoverTool"}]},"id":"7231","type":"Toolbar"},{"attributes":{"formatter":{"id":"7247","type":"BasicTickFormatter"},"ticker":{"id":"7221","type":"BasicTicker"}},"id":"7220","type":"LinearAxis"},{"attributes":{"data_source":{"id":"7210","type":"ColumnDataSource"},"glyph":{"id":"7265","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"7266","type":"Line"},"selection_glyph":null,"view":{"id":"7268","type":"CDSView"}},"id":"7267","type":"GlyphRenderer"},{"attributes":{"fill_alpha":0.5,"fill_color":"red","x":{"field":"year"},"y1":{"expr":{"id":"7233","type":"Stack"}},"y2":{"expr":{"id":"7234","type":"Stack"}}},"id":"7238","type":"VArea"},{"attributes":{"callback":null,"mode":"vline","renderers":[{"id":"7267","type":"GlyphRenderer"}],"tooltips":[["ORF OD","@orf_od{,f}"],["RIC OD","@ric_od{,f}"],["ORF Passengers","@orf_pax{,f}"],["RIC Passengers","@ric_pax{,f}"]]},"id":"7274","type":"HoverTool"},{"attributes":{"label":{"value":"RIC"},"renderers":[{"id":"7240","type":"GlyphRenderer"}]},"id":"7249","type":"LegendItem"},{"attributes":{"callback":null,"data":{"orf_od":{"__ndarray__":"AAAAAIAg5EAAAAAAwHvkQAAAAADAj+RAAAAAAECl5UAAAAAAwCXlQAAAAAAAIeZAAAAAAIC+60AAAAAAwITqQAAAAACAoepAAAAAAEAF6kAAAAAAwAHrQAAAAACAVetAAAAAAIA430AAAAAAgM3mQAAAAABAdeNAAAAAAEDT5EAAAAAAACDiQAAAAACAb99AAAAAAAAY30AAAAAAQIbhQAAAAAAA7uFAAAAAAMBz4kAAAAAAgF3jQAAAAADAFeFA","dtype":"float64","shape":[24]},"orf_odp":{"__ndarray__":"AAAAAEAZ70AAAAAAwCDwQAAAAADgLfBAAAAAACDi8UAAAAAAgCLyQAAAAACgC/NAAAAAACDw90AAAAAAgPT3QAAAAACASPRAAAAAAMAM9UAAAAAAIM7xQAAAAACgifJAAAAAAAC06UAAAAAAwD71QAAAAABgkfNAAAAAAAC180AAAAAA4JnyQAAAAAAAWfBAAAAAAGAb8UAAAAAAIBrxQAAAAAAgTPFAAAAAAGDo8UAAAAAAIEHyQAAAAACA+/BA","dtype":"float64","shape":[24]},"orf_pax":{"__ndarray__":"AAAAAPDX+kAAAAAAGOIBQQAAAACwCAVBAAAAAOi4BEEAAAAAeCQGQQAAAAAQ3AJBAAAAACgABEEAAAAA0DIAQQAAAAAglOdAAAAAAKBJ7EAAAAAAwG7oQAAAAADA7ehAAAAAAGD96EAAAAAAYFzoQAAAAAAAM7dAAAAAAACQgUAAAAAAAIBPQAAAAAAAAHlAAAAAAADAW0AAAAAAAJB6QAAAAAAAAEtAAAAAAAAAUEAAAAAAACBkQAAAAAAAEHlA","dtype":"float64","shape":[24]},"ric_od":{"__ndarray__":"AAAAAIDx1UAAAAAAgIvXQAAAAAAAmNdAAAAAAAA+3EAAAAAAgD7eQAAAAACA7N9AAAAAAMAh5EAAAAAAQGTlQAAAAAAA39tAAAAAAEAU4EAAAAAAADXRQAAAAACAe9NAAAAAAIAv1EAAAAAAALDjQAAAAACAreNAAAAAAMCW4kAAAAAAwBPjQAAAAABA+uBAAAAAAMCq4kAAAAAAAK7gQAAAAABAquBAAAAAAABd4UAAAAAAwCThQAAAAABA4eBA","dtype":"float64","shape":[24]},"ric_pax":{"__ndarray__":"AAAAAAAAV0AAAAAAAMBSQAAAAAAAwFFAAAAAAGA36EAAAAAAoN31QAAAAADgQPFAAAAAAPCQ+UAAAAAAEDH4QAAAAAAAfLZAAAAAAMAz4UAAAAAAwKvfQAAAAABgc+RAAAAAACBx7UAAAAAAgM3lQAAAAACACsNAAAAAAABQdEAAAAAAAIBdQAAAAAAAgG9AAAAAAAAAAAAAAAAAAFByQAAAAAAAkHFAAAAAAADQgEAAAAAAAMBvQAAAAAAAcHVA","dtype":"float64","shape":[24]},"year":{"__ndarray__":"ywcAAM0HAADOBwAAzwcAANAHAADRBwAA0gcAANMHAADUBwAA1QcAANYHAADXBwAA2AcAANkHAADaBwAA2wcAANwHAADdBwAA3gcAAN8HAADgBwAA4QcAAOIHAADjBwAA","dtype":"int32","shape":[24]}},"selected":{"id":"7262","type":"Selection"},"selection_policy":{"id":"7261","type":"UnionRenderers"}},"id":"7210","type":"ColumnDataSource"},{"attributes":{"fields":[]},"id":"7233","type":"Stack"},{"attributes":{"line_color":"red","line_width":0,"x":{"field":"year"},"y":{"field":"ric_od"}},"id":"7265","type":"Line"},{"attributes":{"data_source":{"id":"7210","type":"ColumnDataSource"},"glyph":{"id":"7270","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"7271","type":"Line"},"selection_glyph":null,"view":{"id":"7273","type":"CDSView"}},"id":"7272","type":"GlyphRenderer"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_dash":[6],"line_width":2,"x":{"field":"year"},"y":{"field":"ric_pax"}},"id":"7284","type":"Line"},{"attributes":{"source":{"id":"7210","type":"ColumnDataSource"}},"id":"7286","type":"CDSView"},{"attributes":{"callback":null,"end":110000},"id":"7214","type":"Range1d"},{"attributes":{"fill_alpha":0.5,"fill_color":"blue","x":{"field":"year"},"y1":{"expr":{"id":"7235","type":"Stack"}},"y2":{"expr":{"id":"7236","type":"Stack"}}},"id":"7251","type":"VArea"},{"attributes":{"background_fill_alpha":{"value":0},"below":[{"id":"7220","type":"LinearAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"7224","type":"Grid"},{"id":"7229","type":"Grid"},{"id":"7248","type":"Legend"}],"extra_y_ranges":{"pass":{"id":"7278","type":"Range1d"}},"left":[{"id":"7225","type":"LinearAxis"}],"plot_height":350,"plot_width":550,"renderers":[{"id":"7240","type":"GlyphRenderer"},{"id":"7253","type":"GlyphRenderer"},{"id":"7267","type":"GlyphRenderer"},{"id":"7272","type":"GlyphRenderer"},{"id":"7285","type":"GlyphRenderer"},{"id":"7290","type":"GlyphRenderer"}],"right":[{"id":"7280","type":"LinearAxis"}],"title":{"id":"7243","type":"Title"},"toolbar":{"id":"7231","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"7212","type":"Range1d"},"x_scale":{"id":"7216","type":"LinearScale"},"y_range":{"id":"7214","type":"Range1d"},"y_scale":{"id":"7218","type":"LinearScale"}},"id":"7211","subtype":"Figure","type":"Plot"},{"attributes":{"dimension":1,"ticker":{"id":"7226","type":"BasicTicker"}},"id":"7229","type":"Grid"},{"attributes":{"items":[{"id":"7249","type":"LegendItem"},{"id":"7263","type":"LegendItem"}],"location":"top_left"},"id":"7248","type":"Legend"},{"attributes":{},"id":"7297","type":"BasicTicker"},{"attributes":{"fill_alpha":0.1,"fill_color":"#1f77b4","x":{"field":"year"},"y1":{"expr":{"id":"7235","type":"Stack"}},"y2":{"expr":{"id":"7236","type":"Stack"}}},"id":"7252","type":"VArea"},{"attributes":{"source":{"id":"7210","type":"ColumnDataSource"}},"id":"7291","type":"CDSView"},{"attributes":{"line_color":"blue","line_dash":[6],"line_width":2,"x":{"field":"year"},"y":{"field":"orf_pax"}},"id":"7288","type":"Line"},{"attributes":{},"id":"7247","type":"BasicTickFormatter"},{"attributes":{"line_color":"red","line_dash":[6],"line_width":2,"x":{"field":"year"},"y":{"field":"ric_pax"}},"id":"7283","type":"Line"},{"attributes":{"fields":["ric_od"]},"id":"7234","type":"Stack"},{"attributes":{"axis_label":"Yearly Actual Passengers","formatter":{"id":"7279","type":"NumeralTickFormatter"},"ticker":{"id":"7297","type":"BasicTicker"},"y_range_name":"pass"},"id":"7280","type":"LinearAxis"},{"attributes":{"fields":["ric_od","orf_od"]},"id":"7236","type":"Stack"}],"root_ids":["7211"]},"title":"Bokeh Application","version":"1.4.0"}}
+      </script>
+      <script type="text/javascript">
+        (function() {
+          var fn = function() {
+            Bokeh.safely(function() {
+              (function(root) {
+                function embed_document(root) {
+                  
+                var docs_json = document.getElementById('7388').textContent;
+                var render_items = [{"docid":"d5ef77e3-5139-4077-af45-e15472930679","roots":{"7211":"f0f59411-5f6d-49a3-ae95-7ed65f14403b"}}];
+                root.Bokeh.embed.embed_items(docs_json, render_items);
+              
+                }
+                if (root.Bokeh !== undefined) {
+                  embed_document(root);
+                } else {
+                  var attempts = 0;
+                  var timer = setInterval(function(root) {
+                    if (root.Bokeh !== undefined) {
+                      clearInterval(timer);
+                      embed_document(root);
+                    } else {
+                      attempts++;
+                      if (attempts > 100) {
+                        clearInterval(timer);
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                      }
+                    }
+                  }, 10, root)
+                }
+              })(window);
+            });
+          };
+          if (document.readyState != "loading") fn();
+          else document.addEventListener("DOMContentLoaded", fn);
+        })();
+      </script>
+      <script type="application/json" id="10102">
+        {"45ce7c9a-be7b-49b2-b068-e8a7f0ea9b7c":{"roots":{"references":[{"attributes":{"callback":null,"end":2019,"start":1996},"id":"9915","type":"Range1d"},{"attributes":{},"id":"10011","type":"BasicTicker"},{"attributes":{"fill_alpha":0.1,"fill_color":"#1f77b4","x":{"field":"year"},"y1":{"expr":{"id":"9938","type":"Stack"}},"y2":{"expr":{"id":"9939","type":"Stack"}}},"id":"9957","type":"VArea"},{"attributes":{"source":{"id":"9913","type":"ColumnDataSource"}},"id":"9998","type":"CDSView"},{"attributes":{},"id":"9966","type":"UnionRenderers"},{"attributes":{"source":{"id":"9913","type":"ColumnDataSource"}},"id":"9946","type":"CDSView"},{"attributes":{"callback":null,"data":{"oak_od":{"__ndarray__":"AAAAAEBs4kAAAAAAQBPmQAAAAABAeeRAAAAAAICG50AAAAAAYAPwQAAAAADA6+dAAAAAAEAw4kAAAAAAgMHtQAAAAAAA2utAAAAAAIDO70AAAAAAIO3wQAAAAADAj+lAAAAAAEAP5UAAAAAAAFHoQAAAAAAAMeVAAAAAAIAD40AAAAAAAOXgQAAAAACAfeFAAAAAAAAb3EAAAAAAQJ/rQAAAAAAgLfJAAAAAAAD+8EAAAAAAAMfqQA==","dtype":"float64","shape":[23]},"oak_pass":{"__ndarray__":"AAAAAAAANUAAAAAAAIBgQAAAAAAAwF1AAAAAAABge0AAAAAAAEBeQAAAAAAAQIBAAAAAAADIhkAAAAAAAOB0QAAAAAAAMIRAAAAAAAAghkAAAAAAAOiCQAAAAAAAaIRAAAAAAACwckAAAAAAAFBzQAAAAAAAgE9AAAAAAAAAR0AAAAAAAFCFQAAAAAAAGIdAAAAAAABgdEAAAAAA4NjoQAAAAAAgpPhAAAAAAAAR9kAAAAAAkOz0QA==","dtype":"float64","shape":[23]},"sfo_od":{"__ndarray__":"AAAAAKAyBEEAAAAAgDIGQQAAAADwEQdBAAAAAFCFBkEAAAAAcNgBQQAAAABA0gBBAAAAAMAgAEEAAAAAAK/+QAAAAAAgRgJBAAAAAMAPAkEAAAAAEG8CQQAAAAAA9wJBAAAAAODQAkEAAAAAcPwAQQAAAADg8wJBAAAAANA0BEEAAAAAsHYFQQAAAAAwUglBAAAAAKDPDEEAAAAAEDQLQQAAAAAgkQdBAAAAAGCTBkEAAAAAgGEEQQ==","dtype":"float64","shape":[23]},"sfo_pass":{"__ndarray__":"AAAAAAQFHEEAAAAAnAwdQQAAAAD0QyBBAAAAAFz9IEEAAAAAhKoYQQAAAAAk6RNBAAAAAKirDkEAAAAAwKD9QAAAAABguQFBAAAAAIAOCEEAAAAAwNwGQQAAAABQ3ANBAAAAALCR+kAAAAAAwJ30QAAAAAAgVvJAAAAAAABx8kAAAAAAYN/xQAAAAABw9P1AAAAAAHDvCEEAAAAAGCILQQAAAAAAVwlBAAAAAIgNCUEAAAAAwI8IQQ==","dtype":"float64","shape":[23]},"sjc_od":{"__ndarray__":"AAAAAAD67kAAAAAAICXwQAAAAADgI/BAAAAAAMBb8UAAAAAAoGvyQAAAAAAgNPBAAAAAAIDk7UAAAAAAQPLtQAAAAABAnehAAAAAAACX6EAAAAAAAH/nQAAAAADAm+dAAAAAAIBO6EAAAAAAgEHrQAAAAADAn+hAAAAAAEAV6UAAAAAAQIjkQAAAAACAGuVAAAAAAID54kAAAAAAgFvlQAAAAABApuRAAAAAAIDA7kAAAAAA4E/xQA==","dtype":"float64","shape":[23]},"sjc_pass":{"__ndarray__":"AAAAAIgSAkEAAAAAwJIGQQAAAABICAdBAAAAAJBuCUEAAAAA4CEFQQAAAAAw3AFBAAAAAFDq+kAAAAAAALCCQAAAAAAAYHVAAAAAAABQeEAAAAAAAAB+QAAAAAAAMHpAAAAAAADwc0AAAAAAAKiDQAAAAAAAIGRAAAAAAABAfkAAAAAAAMB2QAAAAAAA8I5AAAAAAAAwhkAAAAAAAKCCQAAAAAAA8HBAAAAAAOA78kAAAAAA8FT4QA==","dtype":"float64","shape":[23]},"year":{"__ndarray__":"zAcAAM4HAADPBwAA0AcAANEHAADSBwAA0wcAANQHAADVBwAA1gcAANcHAADYBwAA2QcAANoHAADbBwAA3AcAAN0HAADeBwAA3wcAAOAHAADhBwAA4gcAAOMHAAA=","dtype":"int32","shape":[23]}},"selected":{"id":"9967","type":"Selection"},"selection_policy":{"id":"9966","type":"UnionRenderers"}},"id":"9913","type":"ColumnDataSource"},{"attributes":{},"id":"9967","type":"Selection"},{"attributes":{"source":{"id":"9913","type":"ColumnDataSource"}},"id":"9959","type":"CDSView"},{"attributes":{"data_source":{"id":"9913","type":"ColumnDataSource"},"glyph":{"id":"9970","type":"VArea"},"hover_glyph":null,"muted_glyph":null,"name":"sjc_od","nonselection_glyph":{"id":"9971","type":"VArea"},"selection_glyph":null,"view":{"id":"9973","type":"CDSView"}},"id":"9972","type":"GlyphRenderer"},{"attributes":{"source":{"id":"9913","type":"ColumnDataSource"}},"id":"9993","type":"CDSView"},{"attributes":{"data_source":{"id":"9913","type":"ColumnDataSource"},"glyph":{"id":"9956","type":"VArea"},"hover_glyph":null,"muted_glyph":null,"name":"oak_od","nonselection_glyph":{"id":"9957","type":"VArea"},"selection_glyph":null,"view":{"id":"9959","type":"CDSView"}},"id":"9958","type":"GlyphRenderer"},{"attributes":{"callback":null,"mode":"vline","renderers":[{"id":"9992","type":"GlyphRenderer"}],"tooltips":[["SFO OD","@sfo_od{,f}"],["OAK OD","@oak_od{,f}"],["SJC OD","@sjc_od{,f}"],["SFO Passengers","@sfo_pass{,f}"],["OAK Passengers","@oak_pass{,f}"],["SJC Passengers","@sjc_pass{,f}"]]},"id":"10004","type":"HoverTool"},{"attributes":{"fields":[]},"id":"9936","type":"Stack"},{"attributes":{"background_fill_alpha":{"value":0},"below":[{"id":"9923","type":"LinearAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"9927","type":"Grid"},{"id":"9932","type":"Grid"},{"id":"9953","type":"Legend"}],"extra_y_ranges":{"pass":{"id":"9985","type":"Range1d"}},"left":[{"id":"9928","type":"LinearAxis"}],"plot_height":350,"plot_width":550,"renderers":[{"id":"9945","type":"GlyphRenderer"},{"id":"9958","type":"GlyphRenderer"},{"id":"9972","type":"GlyphRenderer"},{"id":"9992","type":"GlyphRenderer"},{"id":"9997","type":"GlyphRenderer"},{"id":"10002","type":"GlyphRenderer"}],"right":[{"id":"9987","type":"LinearAxis"}],"title":{"id":"9948","type":"Title"},"toolbar":{"id":"9934","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"9915","type":"Range1d"},"x_scale":{"id":"9919","type":"LinearScale"},"y_range":{"id":"9917","type":"DataRange1d"},"y_scale":{"id":"9921","type":"LinearScale"}},"id":"9914","subtype":"Figure","type":"Plot"},{"attributes":{"callback":null,"end":400000,"start":0},"id":"9917","type":"DataRange1d"},{"attributes":{"callback":null,"end":650000},"id":"9985","type":"Range1d"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"9933","type":"ResetTool"},{"id":"10004","type":"HoverTool"}]},"id":"9934","type":"Toolbar"},{"attributes":{"axis_label":"Yearly Actual Passengers","formatter":{"id":"9986","type":"NumeralTickFormatter"},"ticker":{"id":"10011","type":"BasicTicker"},"y_range_name":"pass"},"id":"9987","type":"LinearAxis"},{"attributes":{"data_source":{"id":"9913","type":"ColumnDataSource"},"glyph":{"id":"9990","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"9991","type":"Line"},"selection_glyph":null,"view":{"id":"9993","type":"CDSView"},"y_range_name":"pass"},"id":"9992","type":"GlyphRenderer"},{"attributes":{"fill_alpha":0.5,"fill_color":"red","x":{"field":"year"},"y1":{"expr":{"id":"9936","type":"Stack"}},"y2":{"expr":{"id":"9937","type":"Stack"}}},"id":"9943","type":"VArea"},{"attributes":{"fields":["sfo_od","oak_od"]},"id":"9939","type":"Stack"},{"attributes":{"source":{"id":"9913","type":"ColumnDataSource"}},"id":"10003","type":"CDSView"},{"attributes":{"formatter":{"id":"9952","type":"BasicTickFormatter"},"ticker":{"id":"9924","type":"BasicTicker"}},"id":"9923","type":"LinearAxis"},{"attributes":{"line_color":"blue","line_dash":[6],"line_width":2,"x":{"field":"year"},"y":{"field":"oak_pass"}},"id":"9995","type":"Line"},{"attributes":{"source":{"id":"9913","type":"ColumnDataSource"}},"id":"9973","type":"CDSView"},{"attributes":{"dimension":1,"ticker":{"id":"9929","type":"BasicTicker"}},"id":"9932","type":"Grid"},{"attributes":{},"id":"9919","type":"LinearScale"},{"attributes":{},"id":"9933","type":"ResetTool"},{"attributes":{"format":"0a"},"id":"9986","type":"NumeralTickFormatter"},{"attributes":{"fill_alpha":0.1,"fill_color":"#1f77b4","x":{"field":"year"},"y1":{"expr":{"id":"9940","type":"Stack"}},"y2":{"expr":{"id":"9941","type":"Stack"}}},"id":"9971","type":"VArea"},{"attributes":{"fields":["sfo_od"]},"id":"9937","type":"Stack"},{"attributes":{"fields":["sfo_od"]},"id":"9938","type":"Stack"},{"attributes":{"label":{"value":"SFO"},"renderers":[{"id":"9945","type":"GlyphRenderer"}]},"id":"9954","type":"LegendItem"},{"attributes":{},"id":"9921","type":"LinearScale"},{"attributes":{"fill_alpha":0.1,"fill_color":"#1f77b4","x":{"field":"year"},"y1":{"expr":{"id":"9936","type":"Stack"}},"y2":{"expr":{"id":"9937","type":"Stack"}}},"id":"9944","type":"VArea"},{"attributes":{"axis_label":"Yearly O&amp;D Passengers","formatter":{"id":"9983","type":"NumeralTickFormatter"},"ticker":{"id":"9929","type":"BasicTicker"}},"id":"9928","type":"LinearAxis"},{"attributes":{"items":[{"id":"9954","type":"LegendItem"},{"id":"9968","type":"LegendItem"},{"id":"9982","type":"LegendItem"}],"location":"top_center"},"id":"9953","type":"Legend"},{"attributes":{"data_source":{"id":"9913","type":"ColumnDataSource"},"glyph":{"id":"10000","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"10001","type":"Line"},"selection_glyph":null,"view":{"id":"10003","type":"CDSView"},"y_range_name":"pass"},"id":"10002","type":"GlyphRenderer"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_dash":[6],"line_width":2,"x":{"field":"year"},"y":{"field":"sjc_pass"}},"id":"10001","type":"Line"},{"attributes":{"data_source":{"id":"9913","type":"ColumnDataSource"},"glyph":{"id":"9943","type":"VArea"},"hover_glyph":null,"muted_glyph":null,"name":"sfo_od","nonselection_glyph":{"id":"9944","type":"VArea"},"selection_glyph":null,"view":{"id":"9946","type":"CDSView"}},"id":"9945","type":"GlyphRenderer"},{"attributes":{},"id":"9929","type":"BasicTicker"},{"attributes":{"label":{"value":"OAK"},"renderers":[{"id":"9958","type":"GlyphRenderer"}]},"id":"9968","type":"LegendItem"},{"attributes":{},"id":"9952","type":"BasicTickFormatter"},{"attributes":{"text":""},"id":"9948","type":"Title"},{"attributes":{"format":"0a"},"id":"9983","type":"NumeralTickFormatter"},{"attributes":{"fill_alpha":0.5,"fill_color":"green","x":{"field":"year"},"y1":{"expr":{"id":"9940","type":"Stack"}},"y2":{"expr":{"id":"9941","type":"Stack"}}},"id":"9970","type":"VArea"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_dash":[6],"line_width":2,"x":{"field":"year"},"y":{"field":"sfo_pass"}},"id":"9991","type":"Line"},{"attributes":{"fields":["sfo_od","oak_od","sjc_od"]},"id":"9941","type":"Stack"},{"attributes":{"line_color":"red","line_dash":[6],"line_width":2,"x":{"field":"year"},"y":{"field":"sfo_pass"}},"id":"9990","type":"Line"},{"attributes":{"line_color":"green","line_dash":[6],"line_width":2,"x":{"field":"year"},"y":{"field":"sjc_pass"}},"id":"10000","type":"Line"},{"attributes":{},"id":"9924","type":"BasicTicker"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_dash":[6],"line_width":2,"x":{"field":"year"},"y":{"field":"oak_pass"}},"id":"9996","type":"Line"},{"attributes":{"fields":["sfo_od","oak_od"]},"id":"9940","type":"Stack"},{"attributes":{"fill_alpha":0.5,"fill_color":"blue","x":{"field":"year"},"y1":{"expr":{"id":"9938","type":"Stack"}},"y2":{"expr":{"id":"9939","type":"Stack"}}},"id":"9956","type":"VArea"},{"attributes":{"data_source":{"id":"9913","type":"ColumnDataSource"},"glyph":{"id":"9995","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"9996","type":"Line"},"selection_glyph":null,"view":{"id":"9998","type":"CDSView"},"y_range_name":"pass"},"id":"9997","type":"GlyphRenderer"},{"attributes":{"ticker":{"id":"9924","type":"BasicTicker"}},"id":"9927","type":"Grid"},{"attributes":{"label":{"value":"SJC"},"renderers":[{"id":"9972","type":"GlyphRenderer"}]},"id":"9982","type":"LegendItem"}],"root_ids":["9914"]},"title":"Bokeh Application","version":"1.4.0"}}
+      </script>
+      <script type="text/javascript">
+        (function() {
+          var fn = function() {
+            Bokeh.safely(function() {
+              (function(root) {
+                function embed_document(root) {
+                  
+                var docs_json = document.getElementById('10102').textContent;
+                var render_items = [{"docid":"45ce7c9a-be7b-49b2-b068-e8a7f0ea9b7c","roots":{"9914":"d01d3aed-f515-4384-8768-c449b5ed143b"}}];
+                root.Bokeh.embed.embed_items(docs_json, render_items);
+              
+                }
+                if (root.Bokeh !== undefined) {
+                  embed_document(root);
+                } else {
+                  var attempts = 0;
+                  var timer = setInterval(function(root) {
+                    if (root.Bokeh !== undefined) {
+                      clearInterval(timer);
+                      embed_document(root);
+                    } else {
+                      attempts++;
+                      if (attempts > 100) {
+                        clearInterval(timer);
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                      }
+                    }
+                  }, 10, root)
+                }
+              })(window);
+            });
+          };
+          if (document.readyState != "loading") fn();
+          else document.addEventListener("DOMContentLoaded", fn);
+        })();
+      </script>
+      <script type="application/json" id="13834">
+        {"79a54860-37f0-4cbc-ae11-1b9fce8f2753":{"roots":{"references":[{"attributes":{},"id":"13722","type":"UnionRenderers"},{"attributes":{"formatter":{"id":"13702","type":"BasicTickFormatter"},"ticker":{"id":"13665","type":"BasicTicker"},"visible":false},"id":"13664","type":"LinearAxis"},{"attributes":{},"id":"13704","type":"BasicTickFormatter"},{"attributes":{"source":{"id":"13694","type":"ColumnDataSource"}},"id":"13699","type":"CDSView"},{"attributes":{"data_source":{"id":"13684","type":"ColumnDataSource"},"glyph":{"id":"13686","type":"Wedge"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"13687","type":"Wedge"},"selection_glyph":null,"view":{"id":"13689","type":"CDSView"}},"id":"13688","type":"GlyphRenderer"},{"attributes":{},"id":"13707","type":"Selection"},{"attributes":{"text":""},"id":"13649","type":"Title"},{"attributes":{"label":{"field":"TICKET_CARRIER"},"renderers":[{"id":"13698","type":"GlyphRenderer"}]},"id":"13709","type":"LegendItem"},{"attributes":{},"id":"13672","type":"SaveTool"},{"attributes":{},"id":"13660","type":"BasicTicker"},{"attributes":{"items":[{"id":"13709","type":"LegendItem"}],"location":"center_right"},"id":"13708","type":"Legend"},{"attributes":{},"id":"13670","type":"WheelZoomTool"},{"attributes":{},"id":"13665","type":"BasicTicker"},{"attributes":{"callback":null,"end":2.2,"start":-0.6},"id":"13651","type":"Range1d"},{"attributes":{"dimension":1,"ticker":{"id":"13665","type":"BasicTicker"},"visible":false},"id":"13668","type":"Grid"},{"attributes":{"ticker":{"id":"13660","type":"BasicTicker"},"visible":false},"id":"13663","type":"Grid"},{"attributes":{"field":"angle"},"id":"13683","type":"CumSum"},{"attributes":{"formatter":{"id":"13704","type":"BasicTickFormatter"},"ticker":{"id":"13660","type":"BasicTicker"},"visible":false},"id":"13659","type":"LinearAxis"},{"attributes":{"text":"2019","text_font_size":{"value":"14pt"},"x":0.9,"y":1.76},"id":"13713","type":"Label"},{"attributes":{"source":{"id":"13684","type":"ColumnDataSource"}},"id":"13689","type":"CDSView"},{"attributes":{"callback":null,"data":{"PASSENGERS":{"__ndarray__":"AAAAAABAakAAAAAAQCbiQAAAAAAAPNRAAAAAAACy0UAAAAAAACK6QAAAAADgAv1AAAAAAAAD0UAAAAAA4G7wQA==","dtype":"float64","shape":[8]},"TICKET_CARRIER":["Alaska","American","Delta","Frontier","Other/Multi","Southwest","US Airways","United"],"angle":{"__ndarray__":"jarpjbLdcj/WHT3okBbqP0Q8yJrIFd0/gpovlndv2T83DWzmIsjCP7R1aWi72QRA9m7Lnutz2D9M/dIIAZ/3Pw==","dtype":"float64","shape":[8]},"color":["grey","blue","red","green","black","brown","purple","gold"],"index":[0,1,2,3,4,5,6,7]},"selected":{"id":"13707","type":"Selection"},"selection_policy":{"id":"13706","type":"UnionRenderers"}},"id":"13684","type":"ColumnDataSource"},{"attributes":{},"id":"13655","type":"LinearScale"},{"attributes":{"end_angle":{"expr":{"id":"13683","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"radius":{"units":"data","value":0.5},"start_angle":{"expr":{"id":"13682","type":"CumSum"},"units":"rad"},"x":{"value":0},"y":{"value":1}},"id":"13687","type":"Wedge"},{"attributes":{"field":"angle","include_zero":true},"id":"13682","type":"CumSum"},{"attributes":{"callback":null,"renderers":[{"id":"13698","type":"GlyphRenderer"}],"tooltips":[["Airline","@TICKET_CARRIER"],["Passengers","@PASSENGERS{0,f}"]]},"id":"13710","type":"HoverTool"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"13705","type":"BoxAnnotation"},{"attributes":{},"id":"13723","type":"Selection"},{"attributes":{},"id":"13657","type":"LinearScale"},{"attributes":{"data_source":{"id":"13694","type":"ColumnDataSource"},"glyph":{"id":"13696","type":"Wedge"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"13697","type":"Wedge"},"selection_glyph":null,"view":{"id":"13699","type":"CDSView"}},"id":"13698","type":"GlyphRenderer"},{"attributes":{"end_angle":{"expr":{"id":"13693","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.8},"fill_color":{"field":"color"},"line_color":{"value":"white"},"radius":{"units":"data","value":0.5},"start_angle":{"expr":{"id":"13692","type":"CumSum"},"units":"rad"},"x":{"value":1},"y":{"value":1}},"id":"13696","type":"Wedge"},{"attributes":{"text":"2014","text_font_size":{"value":"14pt"},"x":-0.1,"y":1.76},"id":"13712","type":"Label"},{"attributes":{},"id":"13706","type":"UnionRenderers"},{"attributes":{"background_fill_alpha":{"value":0},"below":[{"id":"13659","type":"LinearAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"13663","type":"Grid"},{"id":"13668","type":"Grid"},{"id":"13708","type":"Legend"},{"id":"13712","type":"Label"},{"id":"13713","type":"Label"}],"left":[{"id":"13664","type":"LinearAxis"}],"outline_line_color":{"value":null},"plot_height":300,"renderers":[{"id":"13688","type":"GlyphRenderer"},{"id":"13698","type":"GlyphRenderer"}],"title":{"id":"13649","type":"Title"},"toolbar":{"id":"13675","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"13651","type":"Range1d"},"x_scale":{"id":"13655","type":"LinearScale"},"y_range":{"id":"13653","type":"Range1d"},"y_scale":{"id":"13657","type":"LinearScale"}},"id":"13648","subtype":"Figure","type":"Plot"},{"attributes":{"callback":null,"end":2},"id":"13653","type":"Range1d"},{"attributes":{},"id":"13669","type":"PanTool"},{"attributes":{"overlay":{"id":"13705","type":"BoxAnnotation"}},"id":"13671","type":"BoxZoomTool"},{"attributes":{"field":"angle","include_zero":true},"id":"13692","type":"CumSum"},{"attributes":{"field":"angle"},"id":"13693","type":"CumSum"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"13669","type":"PanTool"},{"id":"13670","type":"WheelZoomTool"},{"id":"13671","type":"BoxZoomTool"},{"id":"13672","type":"SaveTool"},{"id":"13673","type":"ResetTool"},{"id":"13674","type":"HelpTool"},{"id":"13690","type":"HoverTool"},{"id":"13710","type":"HoverTool"}]},"id":"13675","type":"Toolbar"},{"attributes":{},"id":"13673","type":"ResetTool"},{"attributes":{},"id":"13702","type":"BasicTickFormatter"},{"attributes":{"end_angle":{"expr":{"id":"13693","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"radius":{"units":"data","value":0.5},"start_angle":{"expr":{"id":"13692","type":"CumSum"},"units":"rad"},"x":{"value":1},"y":{"value":1}},"id":"13697","type":"Wedge"},{"attributes":{"end_angle":{"expr":{"id":"13683","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.8},"fill_color":{"field":"color"},"line_color":{"value":"white"},"radius":{"units":"data","value":0.5},"start_angle":{"expr":{"id":"13682","type":"CumSum"},"units":"rad"},"x":{"value":0},"y":{"value":1}},"id":"13686","type":"Wedge"},{"attributes":{"callback":null,"renderers":[{"id":"13688","type":"GlyphRenderer"}],"tooltips":[["Airline","@TICKET_CARRIER"],["Passengers","@PASSENGERS{0,f}"]]},"id":"13690","type":"HoverTool"},{"attributes":{"callback":null,"data":{"PASSENGERS":{"__ndarray__":"AAAAAABMo0AAAAAAgMnVQAAAAAAA88ZAAAAAAADCtUAAAAAAAGyrQAAAAABQzAVBAAAAACC78EA=","dtype":"float64","shape":[7]},"TICKET_CARRIER":["Alaska","American","Delta","Frontier","Other/Multi","Southwest","United"],"angle":{"__ndarray__":"ZIIcGG4lqz9XiA2BPqbePyjfnPJgJNA/OXzUgrGbvj/AJkrAwEmzP+LsYmAzqg5Ae3JtHlyJ9z8=","dtype":"float64","shape":[7]},"color":["grey","blue","red","green","black","brown","gold"],"index":[0,1,2,3,4,5,6]},"selected":{"id":"13723","type":"Selection"},"selection_policy":{"id":"13722","type":"UnionRenderers"}},"id":"13694","type":"ColumnDataSource"},{"attributes":{},"id":"13674","type":"HelpTool"}],"root_ids":["13648"]},"title":"Bokeh Application","version":"1.4.0"}}
+      </script>
+      <script type="text/javascript">
+        (function() {
+          var fn = function() {
+            Bokeh.safely(function() {
+              (function(root) {
+                function embed_document(root) {
+                  
+                var docs_json = document.getElementById('13834').textContent;
+                var render_items = [{"docid":"79a54860-37f0-4cbc-ae11-1b9fce8f2753","roots":{"13648":"92d5126a-0867-439b-8c7d-c89abc845a81"}}];
+                root.Bokeh.embed.embed_items(docs_json, render_items);
+              
+                }
+                if (root.Bokeh !== undefined) {
+                  embed_document(root);
+                } else {
+                  var attempts = 0;
+                  var timer = setInterval(function(root) {
+                    if (root.Bokeh !== undefined) {
+                      clearInterval(timer);
+                      embed_document(root);
+                    } else {
+                      attempts++;
+                      if (attempts > 100) {
+                        clearInterval(timer);
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                      }
+                    }
+                  }, 10, root)
+                }
+              })(window);
+            });
+          };
+          if (document.readyState != "loading") fn();
+          else document.addEventListener("DOMContentLoaded", fn);
+        })();
+      </script>
+      <script type="application/json" id="19790">
+        {"dce6a203-69f9-4aa9-b01a-2d77484dd7d0":{"roots":{"references":[{"attributes":{"data_source":{"id":"19628","type":"ColumnDataSource"},"glyph":{"id":"19629","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"19630","type":"VBar"},"selection_glyph":null,"view":{"id":"19632","type":"CDSView"}},"id":"19631","type":"GlyphRenderer"},{"attributes":{"background_fill_alpha":{"value":0},"below":[{"id":"19616","type":"CategoricalAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"19619","type":"Grid"},{"id":"19624","type":"Grid"},{"id":"19638","type":"Legend"}],"left":[{"id":"19620","type":"LinearAxis"}],"plot_height":325,"renderers":[{"id":"19631","type":"GlyphRenderer"},{"id":"19643","type":"GlyphRenderer"},{"id":"19656","type":"GlyphRenderer"}],"title":{"id":"19606","type":"Title"},"toolbar":{"id":"19626","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"19608","type":"FactorRange"},"x_scale":{"id":"19612","type":"CategoricalScale"},"y_range":{"id":"19610","type":"DataRange1d"},"y_scale":{"id":"19614","type":"LinearScale"}},"id":"19605","subtype":"Figure","type":"Plot"},{"attributes":{"axis_label":"O&amp;D Passengers to STL","formatter":{"id":"19668","type":"NumeralTickFormatter"},"ticker":{"id":"19621","type":"BasicTicker"}},"id":"19620","type":"LinearAxis"},{"attributes":{},"id":"19637","type":"CategoricalTickFormatter"},{"attributes":{"callback":null,"data":{"top":{"__ndarray__":"AAAAAACpwEAAAAAAAKrEQAAAAAAAlLFA","dtype":"float64","shape":[3]},"x":[["LIT",-0.3],["DSM",-0.3],["ICT",-0.3]]},"selected":{"id":"19651","type":"Selection"},"selection_policy":{"id":"19650","type":"UnionRenderers"}},"id":"19628","type":"ColumnDataSource"},{"attributes":{"label":{"value":"2015"},"renderers":[{"id":"19631","type":"GlyphRenderer"}]},"id":"19639","type":"LegendItem"},{"attributes":{},"id":"19679","type":"Selection"},{"attributes":{"formatter":{"id":"19637","type":"CategoricalTickFormatter"},"ticker":{"id":"19617","type":"CategoricalTicker"}},"id":"19616","type":"CategoricalAxis"},{"attributes":{},"id":"19650","type":"UnionRenderers"},{"attributes":{},"id":"19621","type":"BasicTicker"},{"attributes":{"callback":null,"factors":["LIT","DSM","ICT"]},"id":"19608","type":"FactorRange"},{"attributes":{"label":{"value":"2017"},"renderers":[{"id":"19643","type":"GlyphRenderer"}]},"id":"19652","type":"LegendItem"},{"attributes":{"callback":null,"start":0},"id":"19610","type":"DataRange1d"},{"attributes":{"source":{"id":"19653","type":"ColumnDataSource"}},"id":"19657","type":"CDSView"},{"attributes":{"fill_alpha":{"value":0.8},"fill_color":{"value":"#17a32c"},"line_alpha":{"value":0.8},"line_color":{"value":"#17a32c"},"top":{"field":"top"},"width":{"value":0.3},"x":{"field":"x"}},"id":"19654","type":"VBar"},{"attributes":{},"id":"19617","type":"CategoricalTicker"},{"attributes":{"fill_alpha":{"value":0.8},"fill_color":{"value":"#0087c4"},"line_alpha":{"value":0.8},"line_color":{"value":"#004d70"},"top":{"field":"top"},"width":{"value":0.3},"x":{"field":"x"}},"id":"19629","type":"VBar"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"top":{"field":"top"},"width":{"value":0.3},"x":{"field":"x"}},"id":"19655","type":"VBar"},{"attributes":{"dimension":1,"ticker":{"id":"19621","type":"BasicTicker"}},"id":"19624","type":"Grid"},{"attributes":{"items":[{"id":"19639","type":"LegendItem"},{"id":"19652","type":"LegendItem"},{"id":"19667","type":"LegendItem"}],"location":"top_left"},"id":"19638","type":"Legend"},{"attributes":{},"id":"19614","type":"LinearScale"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"top":{"field":"top"},"width":{"value":0.3},"x":{"field":"x"}},"id":"19630","type":"VBar"},{"attributes":{},"id":"19665","type":"UnionRenderers"},{"attributes":{"source":{"id":"19640","type":"ColumnDataSource"}},"id":"19644","type":"CDSView"},{"attributes":{"data_source":{"id":"19640","type":"ColumnDataSource"},"glyph":{"id":"19641","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"19642","type":"VBar"},"selection_glyph":null,"view":{"id":"19644","type":"CDSView"}},"id":"19643","type":"GlyphRenderer"},{"attributes":{"grid_line_color":null,"ticker":{"id":"19617","type":"CategoricalTicker"}},"id":"19619","type":"Grid"},{"attributes":{"callback":null,"data":{"top":{"__ndarray__":"AAAAAABe4EAAAAAAgKvgQAAAAACAw9tA","dtype":"float64","shape":[3]},"x":[["LIT",0.3],["DSM",0.3],["ICT",0.3]]},"selected":{"id":"19679","type":"Selection"},"selection_policy":{"id":"19678","type":"UnionRenderers"}},"id":"19653","type":"ColumnDataSource"},{"attributes":{},"id":"19666","type":"Selection"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"19625","type":"ResetTool"}]},"id":"19626","type":"Toolbar"},{"attributes":{"label":{"value":"2019"},"renderers":[{"id":"19656","type":"GlyphRenderer"}]},"id":"19667","type":"LegendItem"},{"attributes":{"text":"O&D increases after nonstop service added"},"id":"19606","type":"Title"},{"attributes":{},"id":"19625","type":"ResetTool"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"top":{"field":"top"},"width":{"value":0.3},"x":{"field":"x"}},"id":"19642","type":"VBar"},{"attributes":{"data_source":{"id":"19653","type":"ColumnDataSource"},"glyph":{"id":"19654","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"19655","type":"VBar"},"selection_glyph":null,"view":{"id":"19657","type":"CDSView"}},"id":"19656","type":"GlyphRenderer"},{"attributes":{"fill_alpha":{"value":0.8},"fill_color":{"value":"#f03d30"},"line_alpha":{"value":0.8},"line_color":{"value":"#f03d30"},"top":{"field":"top"},"width":{"value":0.3},"x":{"field":"x"}},"id":"19641","type":"VBar"},{"attributes":{"source":{"id":"19628","type":"ColumnDataSource"}},"id":"19632","type":"CDSView"},{"attributes":{"callback":null,"data":{"top":{"__ndarray__":"AAAAAICk3EAAAAAAQPnhQAAAAAAAmdtA","dtype":"float64","shape":[3]},"x":[["LIT",0],["DSM",0],["ICT",0]]},"selected":{"id":"19666","type":"Selection"},"selection_policy":{"id":"19665","type":"UnionRenderers"}},"id":"19640","type":"ColumnDataSource"},{"attributes":{},"id":"19651","type":"Selection"},{"attributes":{},"id":"19678","type":"UnionRenderers"},{"attributes":{},"id":"19612","type":"CategoricalScale"},{"attributes":{"format":"0a"},"id":"19668","type":"NumeralTickFormatter"}],"root_ids":["19605"]},"title":"Bokeh Application","version":"1.4.0"}}
+      </script>
+      <script type="text/javascript">
+        (function() {
+          var fn = function() {
+            Bokeh.safely(function() {
+              (function(root) {
+                function embed_document(root) {
+                  
+                var docs_json = document.getElementById('19790').textContent;
+                var render_items = [{"docid":"dce6a203-69f9-4aa9-b01a-2d77484dd7d0","roots":{"19605":"9e70ce85-f7dc-4a31-881d-f61025d80677"}}];
+                root.Bokeh.embed.embed_items(docs_json, render_items);
+              
+                }
+                if (root.Bokeh !== undefined) {
+                  embed_document(root);
+                } else {
+                  var attempts = 0;
+                  var timer = setInterval(function(root) {
+                    if (root.Bokeh !== undefined) {
+                      clearInterval(timer);
+                      embed_document(root);
+                    } else {
+                      attempts++;
+                      if (attempts > 100) {
+                        clearInterval(timer);
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                      }
+                    }
+                  }, 10, root)
+                }
+              })(window);
+            });
+          };
+          if (document.readyState != "loading") fn();
+          else document.addEventListener("DOMContentLoaded", fn);
+        })();
+      </script>
 
     <script>   
       new Vue ({

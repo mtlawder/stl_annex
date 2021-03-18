@@ -458,6 +458,10 @@ def blog_southwest_2020():
 def blog_cardinals_2000_2020():
     return render_template('blogs_2020/blog_baseball_playoffs.html')
 
+@app.route('/blog_stl_more_routes',methods=['GET','POST'])
+def blog_stl_more_routes():
+    return render_template('blogs_2021/blog_stl_more_routes.html')
+
 def airline_chart(df19,df20,col_type,hover,label,t_form,airport):
     month_labels=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
     source=ColumnDataSource({'month_19':list(zip(df19['MONTH_labels'],[-0.2]*12)),

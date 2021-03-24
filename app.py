@@ -145,6 +145,10 @@ def coronavirus_dashboard():
     return render_template('/coronavirus_dashboard.html',today_vals=today_vals,national_div=national_div,national_script=national_script,
         national_log_div=national_log_div,national_log_script=national_log_script)
 
+@app.route('/blogs_2021/<blog_title>',methods=['GET','POST'])
+def blog2021(blog_title):
+    return render_template(f'/blogs_2021/{blog_title}.html')
+
 @app.route('/blogs_2020/<blog_title>',methods=['GET','POST'])
 def blog2020(blog_title):
     return render_template(f'/blogs_2020/{blog_title}.html')
@@ -189,9 +193,6 @@ def blog_cptc_results():
 def amtrak_timeline_scroll():
     return render_template('/amtrak_timeline_scroll.html')
 
-@app.route('/blog_stl_more_routes',methods=['GET','POST'])
-def blog_stl_more_routes():
-    return render_template('blogs_2021/blog_stl_more_routes.html')
 
 @app.route('/airlines_in_2020',methods=['GET','POST'])
 def airlines_in_2020():

@@ -17,9 +17,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/styles/stl_pop_style.css">
+	<link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stlannex_style.css') %>>">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stl_pop_style.css') %>>">
     <title>STL Annex</title>
     
     <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.css" type="text/css" />
@@ -70,7 +70,7 @@
             <br>
             <div class="blog-container left-group">
               <p>
-                St. Louis has had slow annual growth in the total Origin & Destination (O&D) passengers that it has generated in the last 25 year. <a href="/blog_od_ranks">Last month I looked at its growth compared to other airports</a> and saw that STL has steadily declined in airport rankings for total O&D passengers. However when looking at individual routes flying to/from Lambert, you'll see a lot of change in the airport's O&D even though the combined numbers have stayed relatively consistent. The charts and tables below will offer several different angles to view these changes in O&D for STL in the past 20-25 years with each one offering a variation on the overall view. I'll point out some interesting takeaways from each view along the way.
+                St. Louis has had slow annual growth in the total Origin & Destination (O&D) passengers that it has generated in the last 25 year. <a href="/blogs_2020/blog_od_ranks">Last month I looked at its growth compared to other airports</a> and saw that STL has steadily declined in airport rankings for total O&D passengers. However when looking at individual routes flying to/from Lambert, you'll see a lot of change in the airport's O&D even though the combined numbers have stayed relatively consistent. The charts and tables below will offer several different angles to view these changes in O&D for STL in the past 20-25 years with each one offering a variation on the overall view. I'll point out some interesting takeaways from each view along the way.
               </p>
               <p>
                 Let's first look at the biggest winners of the past 20 years (1998-2018). The biggest gainers, in terms of total increase in O&D passengers, are Denver (+287k/year), Las Vegas (+241k/year), and Orlando (+239k/year). In general, most of the biggest gainers are warm weather cities (RSW +103k, SAN +80k) and coastal destinations (BOS +79k, SEA +65k) on routes of 2 hours+. When I look at the biggest drops in the last two decades, they mostly come from closer destinations where it appears flying has fallen out of favor compared to driving (I don't suspect that the actual demand for travel between many of these locations has dropped). Chicago saw the largest drop with ORD demand falling by 372k and MDW falling by 178k. Kansas City and Detroit both saw drops of over 200k along with Baltimore which doesn't necessarily fit our "close by cities" narrative since it's over 800 miles away. I was surprised that BWI had the 3rd highest O&D of any destination from STL in 1998 and (not so surprised) that  it fell to 22nd by 2018. I suspect that Regan National's (DCA) gain of 169k siphoned off some of BWI's travelers but that does not appear to tell the whole picture. I'm not sure if possibly the <a href="https://www.flickr.com/photos/erussell1984/16535892080">TWA schedules prioritized BWI over other DC/Baltimore airports (DCA, IAD)</a>. Other airports that lost at least 75k O&D travelers were Little Rock, Cleveland, Columbus, Tulsa, Dallas-Fort Worth (although Dallas-Love showed big gains), Omaha, and Oklahoma City.
@@ -277,7 +277,7 @@
                     </div>
                     
                     <br>
-                    <a href="/blog_od_ranks">Blog on O&D at all US airports</a>
+                    <a href="/blogs_2020/blog_od_ranks">Blog on O&D at all US airports</a>
               <hr>
               
           </div>
@@ -421,9 +421,9 @@
         
     
     </center>
-	<script src="static/components/menu.vue">
+    <script src="<<% url_for('static', filename='components/menu.vue') %>>">
     </script>
-    <script src="static/components/header.vue">
+    <script src="<<% url_for('static', filename='components/header.vue') %>>">
     </script>
 
 

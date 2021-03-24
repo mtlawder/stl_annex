@@ -17,9 +17,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/styles/stl_pop_style.css">
+	<link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stlannex_style.css') %>>">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stl_pop_style.css') %>>">
     <title>STL Annex</title>
     
     <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.css" type="text/css" />
@@ -97,7 +97,7 @@
               <i>Half Marathon qualifying times have been converted to Full times based on IAAF scoring tables. On mobile devices, best viewed horizontally.</i>
             </center>
               <hr>
-              In <a href="/blog_us_marathon_trials_2020">Part 1 of my US Marathon Trials Analysis</a>, I looked at the current field that is qualified for the 2020 Trials and how they compared to qualifying fields of the past. Today, we will look at the results from the 04-16 Trials and how individual's results relate to their qualifying times. The above plots contain information on every finisher from the 04-16 Trials (almost, we don't have 10k Qualifiers included, sorry Dan Browne, Blake Russell, and 5 others). Each circle is plotted based on a runner's qualifying time (x-axis) and actual result in the Trials (y-axis). Runners that ran in multiple years will have multiple dots and each Trials cycle is shown with a different color cirlce. Runners with a Full Marathon Qualifying Standard (QS) have a blue border on their circle, while runners with a Half Marathon QS have a red border. Any runners that placed in the top 3 in a race (and qualified for the Olympics) have a gold border instead. If you hover over any circle you can see the runner's name and their times.
+              In <a href="/blogs_2019/blog_us_marathon_trials_2020">Part 1 of my US Marathon Trials Analysis</a>, I looked at the current field that is qualified for the 2020 Trials and how they compared to qualifying fields of the past. Today, we will look at the results from the 04-16 Trials and how individual's results relate to their qualifying times. The above plots contain information on every finisher from the 04-16 Trials (almost, we don't have 10k Qualifiers included, sorry Dan Browne, Blake Russell, and 5 others). Each circle is plotted based on a runner's qualifying time (x-axis) and actual result in the Trials (y-axis). Runners that ran in multiple years will have multiple dots and each Trials cycle is shown with a different color cirlce. Runners with a Full Marathon Qualifying Standard (QS) have a blue border on their circle, while runners with a Half Marathon QS have a red border. Any runners that placed in the top 3 in a race (and qualified for the Olympics) have a gold border instead. If you hover over any circle you can see the runner's name and their times.
               <br><br>
               For the "All Qualifiers" plot, I converted all Half Qualifier's times into a marathon equivalent based on an equation I empirically derived from the IAAF scoring tables. The exact conversions are for Men: <i>Full time</i> = 2.3117*<i>Half time</i>-625.7s and for Women: <i>Full time</i> = 2.4338*<i>Half time</i>-1306.1s. Looking between the "All Qualifiers" and "Full Marathon QS" options in the plot above gives a good qualitative look at the classic question, "Do Half only qualifiers do as well as Full qualifiers?" A quick look shows not very many Half Qualifiers with the fast finishes in 2016. Although roughly 20% of women used the Half Standard to Qualify for the Trials only 1 women (Janet Bawcom) finished in the top 15 in 2016. On the men's side, Rupp did win as a Half qualifier, but only the only other Half qualifier in the top 15 was Patrick Symth even though a whopping 60% of runners qualified via the Half.
               <br><br>
@@ -694,9 +694,9 @@
         
     
     </center>
-	<script src="static/components/menu.vue">
+    <script src="<<% url_for('static', filename='components/menu.vue') %>>">
     </script>
-    <script src="static/components/header.vue">
+    <script src="<<% url_for('static', filename='components/header.vue') %>>">
     </script>
 
 

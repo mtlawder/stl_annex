@@ -17,9 +17,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/styles/stl_pop_style.css">
+	<link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stlannex_style.css') %>>">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stl_pop_style.css') %>>">
     <title>STL Annex</title>
     
     <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.2.0.min.css" type="text/css" />
@@ -67,7 +67,7 @@
             <br>
             <div class="blog-container left-group">
               <p>
-                Two weeks ago, I put out a blog looking through which <a href="/connecting_airport_traffic">airports had the most domestic connecting traffic in 2018</a>. That blog provided some interesting information about how Origin & Destination (O&D) passengers different from airport to airport. As a reminder, O&D passengers for an airport are passengers that begin or end their trip at the airport and does not include the passengers just using the airport to connect and the O&D totals can be a good proxy for how much air traffic the surrounding area is generating. While the previous blog offers a great 2018 snapshot of O&D, in this post I decided to look more deeply at historical O&D going back to 1993 when the data is first available from <a href="https://www.transtats.bts.gov/DatabaseInfo.asp?DB_ID=125">Bureau of Transportation Statistics DB1B database</a>.
+                Two weeks ago, I put out a blog looking through which <a href="/blogs_2020/blog_airport_connections#page-start">airports had the most domestic connecting traffic in 2018</a>. That blog provided some interesting information about how Origin & Destination (O&D) passengers different from airport to airport. As a reminder, O&D passengers for an airport are passengers that begin or end their trip at the airport and does not include the passengers just using the airport to connect and the O&D totals can be a good proxy for how much air traffic the surrounding area is generating. While the previous blog offers a great 2018 snapshot of O&D, in this post I decided to look more deeply at historical O&D going back to 1993 when the data is first available from <a href="https://www.transtats.bts.gov/DatabaseInfo.asp?DB_ID=125">Bureau of Transportation Statistics DB1B database</a>.
               </p>
               <p>
                 The first two questions I tackled were:
@@ -401,9 +401,9 @@
         
     
     </center>
-	<script src="static/components/menu.vue">
+    <script src="<<% url_for('static', filename='components/menu.vue') %>>">
     </script>
-    <script src="static/components/header.vue">
+    <script src="<<% url_for('static', filename='components/header.vue') %>>">
     </script>
 
 

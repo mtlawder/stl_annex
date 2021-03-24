@@ -33,6 +33,7 @@
     <br>
 
       <div id="blog_head" class="container">
+
         <div class="col-sm-1">
         </div>
         <div class="col-sm-10">
@@ -42,404 +43,51 @@
             <br>
           </div>
           <div class="left-group">
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/blog_stl_more_routes">Where will St. Louis-Lambert fly to next?</a></h3>
-              </div>
-              <div class="blog-title blog-date">3/18/2021 - M. Lawder</div>
-            </div>
-            <div>
-              In 2019, St. Louis-Lambert International Airport saw 15M passengers travel through its gates. Those passengers flew on 53 thousand different domestic flights served by 9 airlines regularly serving the airport with direct flights to 56 domestic destination. Last year, in 2020, passengers, flights, and routes all 
-              <a href="/blog_stl_more_routes">See more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/blog_cardinals_2000_2020">Cardinal's High Flying Decades</a></h3>
-              </div>
-              <div class="blog-title blog-date">12/2/2020 - M. Lawder</div>
-            </div>
-            <div>
-              As a continual playoff entrant and with above average playoff success in the last 20 years, the St. Louis Cardinals have created a fanbase that is only satisfied with top tier success
-              <a href="/blog_cardinals_2000_2020">See more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/blog_cptc_results">Update: Bronx 10 Mile Redux - CPTC Results</a></h3>
-              </div>
-              <div class="blog-title blog-date">10/13/2020 - M. Lawder</div>
-            </div>
-            <div>
-              Just like the last race redux I wrote (Queens 10k), the Bronx 10 Miler started out as half marathon. At some point I am going to have to dedicate a full post to all the different half marathons that NYRR used to put on. It seems like every race I look into was originally a half marathon! The first Bronx half was held in 1995
-              <a href="/blog_cptc_results">See more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/blog_southwest_2020">Southwest Staying Big?</a></h3>
-              </div>
-              <div class="blog-title blog-date">8/31/2020 - M. Lawder</div>
-            </div>
-            <div>
-              <i>The airline has stayed larger than other mainline competitors during early months of pandemic, and maintained significant presence at STL</i>. COVID-19 has shrunk every carrier this year, but each carrier has taken their own approach at how much and where to trim flights. In April as passenger counts reached their nadir in the US, every major airline cut at least half of its departures. Southwest had by far the least
-              <a href="/blog_southwest_2020">See more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/amtrak_timeline_scroll">Amtrak Passenger History in Numbers</a></h3>
-              </div>
-              <div class="blog-title blog-date">8/10/2020 - M. Lawder</div>
-            </div>
-            <div>
-              Passenger rail service has moved people around the United States for <a href="http://www.americaslibrary.gov/jb/nation/jb_nation_train_1.html">nearly 2 centuries</a>. While many different competing railroad companies criss-crossed the country for many years, the last 50 years, Amtrak has been the main
-              <a href="/amtrak_timeline_scroll">See more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/blog_amtrak_routes">Declining Growth - An Analysis of Amtrak Routes</a></h3>
-              </div>
-              <div class="blog-title blog-date">6/21/2020 - M. Lawder</div>
-            </div>
-            <div>
-              Travel patterns can change quickly. Airlines may spin up service to a new city. A bus route might begin between poplar spots. Rentable scooter could invade a metro seemingly overnight. But Amtrak routes stay mostly the same. In 2020, Amtrak routes look almost exactly like they did in 2005 (at least they did pre-COVID-19). Frequencies
-              <a href="/blog_amtrak_routes">See more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
+            <template v-for="blog in blogs">
+              <div class="blog-container">
                 <div class="blog-title">
-                  <h3  class="blog-title-link"><a href="/airlines_in_2020">An Unprecedented Drop: Comparing Route Statistics from 2020 to 2019</a></h3>
+                  <h3  class="blog-title-link"><a :href="blog['URL']">{{blog["Title"]}}</a></h3>
                 </div>
-                <div class="blog-title blog-date">5/25/2020 - M. Lawder</div>
-              </div>
-              <div>
-                  People stopped flying. That's not completely true. There are still a few people flying and that number continues to grow each week. Based on <a href="https://www.tsa.gov/coronavirus/passenger-throughput">numbers reported by the TSA</a> towards the end of May, they are screening close to 15% the number of passengers at US airports compared with the same time from 2019. That sounds like a terribly low number (and it is), but it's
-                <a href="/airlines_in_2020">See more ...</a>
+                <div class="blog-title blog-date">{{blog["StartDate"]}} - {{blog["Author"]}}</div>
+                </div>
+                <div>
+                  {{blog["RawSummary"]}}
+                  <a :href="blog['URL']">See more ...</a>
+                </div>
               </div>
               <hr class="hr-tiny"/>
-            <div class="blog-container">
-                <div class="blog-title">
-                  <h3  class="blog-title-link"><a href="/blog_cptc_results">Reviewing Central Park Track Club Results</a></h3>
-                </div>
-                <div class="blog-title blog-date">5/11/2020 - M. Lawder</div>
-              </div>
-              <div>
-                  Central Park Track Club (CPTC) has been a fixture on the New York road running scene since its founding in 1972. The club consistently ranks as one of the top clubs across the city and on any given day you can spot many runners cruising through Central Park sporting the team's maple leaf logo and orange colors.
-                <a href="/blog_cptc_results">See more ...</a>
-              </div>
-              <hr class="hr-tiny"/>
-            <div class="blog-container">
-                <div class="blog-title">
-                  <h3  class="blog-title-link"><a href="/blog_coronavirus_nj">Coronavirus in New Jersey - Numbers by County</a></h3>
-                </div>
-                <div class="blog-title blog-date">4/26/2020 - M. Lawder</div>
-              </div>
-              <div>
-                  New Jersey is currently firmed entrenched as the state with the second most COVID-19 cases after New York, pushing past 100k confirmed cases this past week. While New Jersey seems to have halted the growth of new daily cases, they have yet to see large drops in new cases like New York has been experience over the last week. New Jersey's new reported cases
-                <a href="/blog_coronavirus_nj">See more ...</a>
-              </div>
-              <hr class="hr-tiny"/>
-            <div class="blog-container">
-                <div class="blog-title">
-                  <h3  class="blog-title-link"><a href="/blog_coronavirus_april">Coronavirus in the US - Metros, County, and States (Metros only for now)</a></h3>
-                </div>
-                <div class="blog-title blog-date">First posted 4/15/2020 - M. Lawder</div>
-              </div>
-              <div>
-                  At the end of March, I put up a <a href="/blog_coronavirus_march">post looking at the very early trend of State's trend away from exponential growth</a> as stay-at-home orders and social distancing across the nation were starting to show some impact. That trend of slowing the growth rate has continued and I put up a <a href="/coronavirus_dashboard">dashboard showcasing the statistics</a> which I've been regularly updating. Now, the country has been
-                <a href="/blog_coronavirus_april">See more ...</a>
-              </div>
-              <hr class="hr-tiny"/>
-            <div class="blog-container">
-                <div class="blog-title">
-                  <h3  class="blog-title-link"><a href="/coronavirus_dashboard">Coronavirus Dashboard</a></h3>
-                </div>
-                <div class="blog-title blog-date">Started on 4/3/2020 - M. Lawder</div>
-              </div>
-              <div>
-                  I put together a series of charts looking at Nation, State, and County level COVID-19 data from The New York Times. The charts show several different ways to look at the numbers of cases and deaths from the virus and they will be updated as new data becomes available. 
-                <a href="/blog_coronavirus_march">See more ...</a>
-              </div>
-              <hr class="hr-tiny"/>
-            <div class="blog-container">
-                <div class="blog-title">
-                  <h3  class="blog-title-link"><a href="/blog_coronavirus_march">A Look at State Coronavirus Case Numbers (March 29)</a></h3>
-                </div>
-                <div class="blog-title blog-date">3/29/2020 - M. Lawder</div>
-              </div>
-              <div>
-                  There are many different news outlets and academic institutions putting out very informative data, charts, and visuals around the COVID-19 outbreak. I'm not an epidemiologist or infectious disease expert, but with so much different statistics being reported in the news, I wanted to take a look at more of the raw numbers for cases within the United States. In this blog, I'll walk through how I've looked at some of the state level data surrounding COVID-19
-                <a href="/blog_coronavirus_march">See more ...</a>
-              </div>
-              <hr class="hr-tiny"/>
-            <div class="blog-container">
-                <div class="blog-title">
-                  <h3  class="blog-title-link"><a href="/blog_stl_od">Where do Lambert's Fliers Land?: A granular look at STL's historical O&D numbers</a></h3>
-                </div>
-                <div class="blog-title blog-date">2/16/2020 - M. Lawder</div>
-              </div>
-              <div>
-                  St. Louis has had slow annual growth in the total Origin & Destination (O&D) passengers that it has generated in the last 25 year. <a href="/blog_od_ranks">Last month I looked at its growth compared to other airports</a> and saw that STL has steadily declined in airport rankings for total O&D passengers. However when looking at individual routes flying to/from Lambert, you'll see a lot of change
-                <a href="/blog_stl_od">See more ...</a>
-              </div>
-              <hr class="hr-tiny"/>
-            <div class="blog-container">
-                <div class="blog-title">
-                  <h3  class="blog-title-link"><a href="/blog_nyc_airports_od_comp">New York Airport O&D Travel: How Newark, LaGuardia, and Kennedy Differ</a></h3>
-                </div>
-                <div class="blog-title blog-date">2/1/2020 - M. Lawder</div>
-              </div>
-              <div>
-                  There are three major airports in the New York vicinity: Newark (EWR), LaGuardia (LGA) and Kennedy (JFK). There are other smaller airport's like Stewart (SWF) or further away one's like Philadelphia (PHL) that draw the occasional TriState resident, but these are the big three, combining for a total of 87.7M domestic
-                <a href="/blog_nyc_airports_od_comp">See more ...</a>
-              </div>
-              <hr class="hr-tiny"/>
-            <div class="blog-container">
-                <div class="blog-title">
-                  <h3  class="blog-title-link"><a href="/blog_od_ranks">Generating Passengers: Which airports are driving growth?</a></h3>
-                </div>
-                <div class="blog-title blog-date">1/22/2020 - M. Lawder</div>
-              </div>
-              <div>
-                  Two weeks ago, I put out a blog looking through which <a href="/connecting_airport_traffic">airports had the most domestic connecting traffic in 2018</a>. That blog provided some interesting information about how Origin & Destination (O&D) passengers different from airport to airport. As a reminder
-                <a href="/blog_od_ranks">See more ...</a>
-              </div>
-              <hr class="hr-tiny"/>
-            <div class="blog-container">
-                <div class="blog-title">
-                  <h3  class="blog-title-link"><a href="/connecting_airport_traffic">Which Airports Benefit the Most from Connecting Passengers</a></h3>
-                </div>
-                <div class="blog-title blog-date">1/5/2020 - M. Lawder</div>
-              </div>
-              <div>
-                 In 2018, the 25 busiest US airports served just under 1 Billion domestic passengers. At least that's the number reported by airports based on the most common calculations. When
-                <a href="/connecting_airport_traffic">See more ...</a>
-              </div>
-              <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/all_stl_nbh_census">All St. Louis Neighborhood Census Data Pie Charts 1990-2010</a></h3>
-              </div>
-              <div class="blog-title blog-date">12/8/2019 - M. Lawder</div>
-            </div>
-            <div>
-               Check out all St. Louis Neighborhood Pie Charts showing changing populations in a unified plot.
-              <a href="/all_stl_nbh_census">See more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/blog_us_marathon_trials_2020_p2">US 2020 Marathon Trials Analysis: Part 2</a></h3>
-              </div>
-              <div class="blog-title blog-date">12/4/2019 - M. Lawder</div>
-            </div>
-            <div>
-               In <a href="/blog_us_marathon_trials_2020">Part 1 of my US Marathon Trials Analysis</a>, I looked at the current field that is qualified for the 2020 Trials and how they compared to qualifying fields of the past. Today, we will look at the results from the 04-16 Trials and how individual's results relate to their qualifying
-              <a href="/blog_us_marathon_trials_2020_p2">Read more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/blog_us_marathon_trials_2020">US 2020 Marathon Trials Analysis: Part 1</a></h3>
-              </div>
-              <div class="blog-title blog-date">11/26/2019 - M. Lawder</div>
-            </div>
-            <div>
-               The <a href="https://www.usatf.org/events/2020/2020-u-s-olympic-team-trials-marathon">2020 US Marathon Oylmpic Trials in Atlanta</a> are fast approaching. This 4 year-cycle has already seen record numbers of men and women hit the qualifying standard at the Marathon distance (386 women and 182 men as of Oct. 22) with about 2 months still to go. There has also been a large drop
-              <a href="/blog_us_marathon_trials_2020">Read more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/southwest_stl_by_the_numbers">By the Numbers: Southwest at St. Louis-Lambert Airport</a></h3>
-              </div>
-              <div class="blog-title blog-date">11/12/2019 - M. Lawder</div>
-            </div>
-            <div>
-               Southwest Airlines has been Lambert's largest carrier for over a decade and is almost solely responsible for the passenger gains that have brought the airport's overall passenger counts back to levels not reached since the early 2000's. While other airlines
-              <a href="/southwest_stl_by_the_numbers">Read more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/alaska_stl_by_the_numbers">By the Numbers: Alaska at St. Louis-Lambert Airport</a></h3>
-              </div>
-              <div class="blog-title blog-date">10/21/2019 - M. Lawder</div>
-            </div>
-            <div>
-               Alsaka airlines began <a href="http://investor.alaskaair.com/news-releases/news-release-details/alaska-airlines-announces-new-seattle-st-louis-service">service to St. Louis at the tail end of 2010</a> and has seen slow, but continued growth over the intervening decade. The airline has grown it daily service between Seattle and St. Louis with almost 1200 flights (twice daily service)
-              <a href="/alaska_stl_by_the_numbers">Read more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/airchoiceone_stl_by_the_numbers">By the Numbers: Air Choice One at St. Louis-Lambert Airport</a></h3>
-              </div>
-              <div class="blog-title blog-date">10/16/2019 - M. Lawder</div>
-            </div>
-            <div>
-               Most people who fly through St. Louis-Lambert have never flown on Air Choice One and many of them may not know anything about them. They are one of the smallest carriers at Lambert by passengers (they actually have quite a lot of departures) flying 35k passengers last year. For comparison
-              <a href="/airchoiceone_stl_by_the_numbers">Read more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/american_stl_by_the_numbers">By the Numbers: American at St. Louis-Lambert Airport</a></h3>
-              </div>
-              <div class="blog-title blog-date">10/10/2019 - M. Lawder</div>
-            </div>
-            <div>
-               American has a long history at Lambert, being the successor to the <a href="https://www.stltoday.com/news/local/metro/holding-on-to-lambert-s-glory-days-volunteers-work-to/article_2b06ecd3-4859-55c8-bde8-38c7712ee842.html">Lambert Legend TWA</a>. Today's analysis won't look all the way back to the glory days of TWA's and subsequently American's (albeit short-lived) hub status, but the vestiges from American's legacy as a hub 
-              <a href="/american_stl_by_the_numbers">Read more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-             <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/allegiant_blv_by_the_numbers">By the Numbers: Allegiant at MidAmerica Airport</a></h3>
-              </div>
-              <div class="blog-title blog-date">10/8/2019 - M. Lawder</div>
-            </div>
-            <div>
-               MidAmerica airport, located in Belleville, IL, has struggled to maintain decent air service since it was completed in 1997. There have been many different pieces <a href="https://www.usatoday.com/story/todayinthesky/2015/09/28/struggling-southern-illinois-airport-gambles-on-vegas-route/72959492/">written</a> or <a href="https://www.nbcnews.com/nightly-news/video/midamerica-airport--the-ghost-airport-costing-taxpayers-millions-583907907594">recorded</a> questioning the value of the airport when commercial traffic didn't materialize 
-              <a href="/allegiant_blv_by_the_numbers">Read more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/united_stl_by_the_numbers">By the Numbers: United at St. Louis-Lambert Airport</a></h3>
-              </div>
-              <div class="blog-title blog-date">10/2/2019 - M. Lawder</div>
-            </div>
-            <div>
-               While St. Louis has experienced passenger growth for the last several years, United has not been helping, with a steady (if small) reduction in overall domestic travelers for the past three years. They are consistent though, with pretty much 1M passengers 
-              <a href="/united_stl_by_the_numbers">Read more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/frontier_stl_by_the_numbers">By the Numbers: Frontier at St. Louis-Lambert Airport</a></h3>
-              </div>
-              <div class="blog-title blog-date">9/30/2019 - M. Lawder</div>
-            </div>
-            <div>
-               Frontier airlines has been a small player at Lambert for over a decade. For a long time they mostly focused on multiple daily flights to their Denver hub and very few other routes. In 2014 that began to change as they dropped their frequencies to Denver and began adding more vacation oriented destinations 
-              <a href="/frontier_stl_by_the_numbers">Read more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/delta_stl_by_the_numbers">By the Numbers: Delta at St. Louis-Lambert Airport</a></h3>
-              </div>
-              <div class="blog-title blog-date">9/27/2019 - M. Lawder</div>
-            </div>
-            <div>
-               This post is the first in a series of posts outlining key info for each carrier at St. Louis-Lambert. I won't try to add too much word clutter to these posts. Mostly I'll try to provide some context for the data and highlight interesting points that pop out. A
-              <a href="/delta_stl_by_the_numbers">Read more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-          	<div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/blog_first_stl_pop">St. Louis Neighborhood Census Data Explorer</a></h3>
-              </div>
-              <div class="blog-title blog-date">9/1/2019 - M. Lawder</div>
-            </div>
-            <div>
-               I've always found the neighborhood level census data available on the St. Louis government website interesting to look at because it provides a pretty granular look at the changes in population and demographics within the city. When you go to different parts of the city you see a snapshot of the area right now, but looking at the buildings, the
-              <a href="/blog_first_stl_pop">Read more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3  class="blog-title-link"><a href="/blog_southwest_ewr_lga_comp">Southwest Leaving Newark, Part 2: Comparing EWR and LGA</a></h3>
-              </div>
-              <div class="blog-title blog-date">8/4/2019 - M. Lawder</div>
-            </div>
-            <div>
-               With Southwest <a href="https://www.nj.com/news/2019/07/southwest-airlines-to-cease-flights-from-newark-airport.html">combining New York operations to LaGaudia</a>, I wanted to do a little more comparison of their operations at both LGA and EWR. Last week I posted some <a href="/blog_Southwest_out_of_Newark">initial numbers and thoughts about recent operations of outbound flights for Southwest at EWR</a>. The basic outcome from that post was that looking at last year, Southwest had good numbers on their outbound routes
-              <a href="/blog_southwest_ewr_lga_comp">Read more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3 class="blog-title-link"><a href="/blog_Southwest_out_of_Newark">Southwest leaving Newark</a></h3>
-              </div>
-              <div class="blog-title blog-date">7/25/2019 - M. Lawder</div>
-            </div>
-            <div>
-               Hearing the news today that <a href="https://thepointsguy.com/news/southwest-airlines-is-ending-all-flights-from-newark-liberty/">Southwest will be packing up from Newark this November</a> has had me pretty bummed out. I've been a frequent user of Southwest out of Newark since first moving to the New York area and
-              <a href="/blog_Southwest_out_of_Newark">Read more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3 class="blog-title-link"><a href="/blog_od_pairs_STL">Distance v Demand using O&D Survey</a></h3>
-              </div>
-              <div class="blog-title blog-date">7/24/2019 - M. Lawder</div>
-            </div>
-            <div>
-               As I started looking through some of the Origin & Destination (O&D) Survey Data Available in the DB1B  Database from the Bureau of Transportation Statistics, I continued to get excited about the breath of different
-              <a href="/blog_od_pairs_STL">Read more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3 class="blog-title-link"><a href="/blog_southwest_5yr_growth_STL">Breaking down Five Years of Southwest Growth at STL</a></h3>
-              </div>
-              <div class="blog-title blog-date">7/6/2019 - M. Lawder</div>
-            </div>
-            <div>
-               Southwest has been the dominate carrier at STL since AA wound down the former TWA hub and they continue to grow their departures at the airport pretty much each year. In 2018, they served 46 domestic destinations with
-              <a href="/blog_southwest_5yr_growth_STL">Read more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3 class="blog-title-link"><a href="/blog_uswnt_ranking">Women's National Team Rankings since 2003</a></h3>
-              </div>
-              <div class="blog-title blog-date">6/21/2019 - M. Lawder</div>
-            </div>
-            <div>
-               The US Women's National Soccer team has always been great. With the end of the 2019 World Cup Group, finishing up for the US today with a 2-0 win over Sweden, I wanted to look at how their FIFA ranking has flucated
-              <a href="/blog_uswnt_ranking">Read more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3 class="blog-title-link"><a href="/blog_load_factors_from_STL">Who's planes are most crowded at STL</a></h3>
-              </div>
-              <div class="blog-title blog-date">5/25/2019 - M. Lawder</div>
-            </div>
-            <div>
-              With the T-100 database, we get a look at the total number of seats available on an individual route as well as the actual number of passengers that flew those routes. The percentage of occupied seats
-              <a href="/blog_load_factors_from_STL">Read more ...</a>
-            </div>
-            <hr class="hr-tiny"/>
-            <div class="blog-container">
-              <div class="blog-title">
-                <h3 class="blog-title-link"><a href="/blog_starting_airline_route_post">Why Study Airline Data</a></h3>
-              </div>
-              <div class="blog-title blog-date">5/24/2019 - M. Lawder</div>
-            </div>
-            <div>
-              I'm not an aviation expert, but I've always been interested in transportation and it's infrastructure. I often find myself asking questions about how many people are using different modes of transportation.
-              <a href="/blog_starting_airline_route_post">Read more ...</a>
-            </div>
+            </template>
           </div>
-          <br>
-          <hr>
         </div>
         <div class="col-sm-1">
         </div>
       </div>
       
     </center>
-    
+
     <script src="static/components/menu.vue">
     </script>
     <script src="static/components/header.vue">
     </script>
+    </script>
+    <script>   
+      vm = new Vue ({
+        el: '#blog_head',
+        data: {
+          blogs: []
+        },
+        created: function getBlogs() {
+          var req = new XMLHttpRequest()
+          req.open("POST",'/api/blog_return' ,true);
+          var formData = new FormData();
+          formData.append('totalPosts', 'all');
+          req.send(formData)
+          req.onload=function(){
+            data=JSON.parse(this.response)
+            vm.blogs=data
+          }
+        }
+      })
     </script>
 	</body>
 </html>

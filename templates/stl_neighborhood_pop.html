@@ -78,15 +78,6 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="col-sm-6">
-              <div class="pop-pick-right">
-                <div class="form-group">
-                  <div>
-                    <button type="submit" class="btn btn-primary btn-lg" v-on:click="updateNBHood()">  Submit Neighborhood  </button>
-                  </div>
-                </div>
-              </div>
-            </div> -->
           </div>
         </div>
         <hr>
@@ -249,14 +240,6 @@
             else {
               return "NA"
             }
-          },
-          updateNBHood: function(){
-            let form = document.createElement('form');
-            form.action = 'stl_pop';
-            form.method = 'POST';
-            form.innerHTML = '<input class="hidden_submit" name="nbhoods_send" value="'+this.nbhoods_sel+'">';
-            document.body.append(form);
-            form.submit();
           }
         },
         mounted(){

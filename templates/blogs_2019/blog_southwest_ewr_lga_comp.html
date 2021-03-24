@@ -18,7 +18,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css">
+	<link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stlannex_style.css') %>>">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
 
     <title>STL Annex</title>
@@ -48,7 +48,7 @@
           </div>
           
             <div>
-              With Southwest <a href="https://www.nj.com/news/2019/07/southwest-airlines-to-cease-flights-from-newark-airport.html">combining New York operations to LaGuardia</a>, I wanted to do a little more comparison of their operations at both LGA and EWR. Last week I posted some <a href="/blog_Southwest_out_of_Newark">initial numbers and thoughts about recent operations of outbound flights for Southwest at EWR</a>. The basic outcome from that post was that looking at last year, Southwest had good numbers on their outbound routes, hitting over 80% load factors on 9 of 10 routes.
+              With Southwest <a href="https://www.nj.com/news/2019/07/southwest-airlines-to-cease-flights-from-newark-airport.html">combining New York operations to LaGuardia</a>, I wanted to do a little more comparison of their operations at both LGA and EWR. Last week I posted some <a href="/blogs_2019/blog_Southwest_out_of_Newark">initial numbers and thoughts about recent operations of outbound flights for Southwest at EWR</a>. The basic outcome from that post was that looking at last year, Southwest had good numbers on their outbound routes, hitting over 80% load factors on 9 of 10 routes.
               <br><br>
               Looking at the most recent year (2018), Newark served 10 destinations while LaGuardia served 12. But only four destinations were served from both airports (STL, MDW, FLL, DEN). Looking at those 4 destinations STL, MDW, and DEN all had better load factors at LGA and for FLL the service from LGA was only seasonal so it's not a great comparison. See below for more info about individual route comparison.
               <br><br>
@@ -380,9 +380,9 @@
         })();
         
         </script>
-    <script src="static/components/menu.vue">
+    <script src="<<% url_for('static', filename='components/menu.vue') %>>">
     </script>
-    <script src="static/components/header.vue">
+    <script src="<<% url_for('static', filename='components/header.vue') %>>">
     </script>
     </body>
 </html>

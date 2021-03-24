@@ -17,9 +17,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/styles/stl_pop_style.css">
+	<link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stlannex_style.css') %>>">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stl_pop_style.css') %>>">
     <title>STL Annex</title>
     
     <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.css" type="text/css" />
@@ -70,7 +70,7 @@
             <br>
             <div class="blog-container left-group">
               <p>
-                At the end of March, I put up a <a href="/blog_coronavirus_march">post looking at the very early trend of State's trend away from exponential growth</a> as stay-at-home orders and social distancing across the nation were starting to show some impact. That trend of slowing the growth rate has continued and I put up a <a href="/coronavirus_dashboard">dashboard showcasing the statistics</a> which I've been regularly updating. Now, the country has been continuing to contemplate if we are reaching the peak of cases and death. Some <a href="https://covid19.healthdata.org/united-states-of-america">models</a> show some states are <a href="https://covid19.healthdata.org/united-states-of-america/washington">well past their peaks</a>, with others peak <a href="https://covid19.healthdata.org/united-states-of-america/missouri">still more than a week away</a>. A major takeaway here is that while the US as a whole appears around its peak right now, different states and individual counties will vary by days and weeks in when they peak and when they "complete" their curve. We will take a more granular look comparing cases and deaths across several states, counties, and metro areas, to see how there curves compare. Additionally, we should not forget that it's also very important to look at how high the peak for cases and deaths reaches.
+                At the end of March, I put up a <a href="/blogs_2020/blog_coronavirus_march#page-start">post looking at the very early trend of State's trend away from exponential growth</a> as stay-at-home orders and social distancing across the nation were starting to show some impact. That trend of slowing the growth rate has continued and I put up a <a href="/coronavirus_dashboard">dashboard showcasing the statistics</a> which I've been regularly updating. Now, the country has been continuing to contemplate if we are reaching the peak of cases and death. Some <a href="https://covid19.healthdata.org/united-states-of-america">models</a> show some states are <a href="https://covid19.healthdata.org/united-states-of-america/washington">well past their peaks</a>, with others peak <a href="https://covid19.healthdata.org/united-states-of-america/missouri">still more than a week away</a>. A major takeaway here is that while the US as a whole appears around its peak right now, different states and individual counties will vary by days and weeks in when they peak and when they "complete" their curve. We will take a more granular look comparing cases and deaths across several states, counties, and metro areas, to see how there curves compare. Additionally, we should not forget that it's also very important to look at how high the peak for cases and deaths reaches.
               </p>
               <h5>Metropolitan Areas</h5>
               <p>
@@ -282,9 +282,9 @@
         </script>
     </center>
 
-	<script src="static/components/menu.vue">
+    <script src="<<% url_for('static', filename='components/menu.vue') %>>">
     </script>
-    <script src="static/components/header.vue">
+    <script src="<<% url_for('static', filename='components/header.vue') %>>">
     </script>
 
 

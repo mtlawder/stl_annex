@@ -1,0 +1,915 @@
+<html lang="en">
+  <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-142498774-1');
+	</script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@mtl_stl">
+  <meta name="twitter:creator" content="@mtl_stl">
+  <meta name="twitter:title" content="Amtrak Passenger History in numbers">
+  <meta name="twitter:image" content="http://www.stlannex.com/static/images/pct_diff_map.png">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/scroll_template_style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/airline_2020_style.css">
+    <title>STL Annex</title>
+    
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.css" type="text/css" />
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.js"></script>
+    <script src="static/components/menu.vue" defer>
+    </script>
+    <script src="static/components/header.vue" defer>
+    </script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+    <style>
+    .col-xl-4{
+      padding:0px !important;
+    }
+    .col-lg-6{
+      padding:0px !important;
+    }
+    .col-lg-12{
+      padding:0px !important;
+    }
+    .btn-group{
+      padding:5px !important;
+    }
+    .container{
+      padding:0px !important;
+      max-width:1240px;
+    }
+    
+
+  </style>
+  </head>
+  <body>
+    <center>
+      <div id="header-vue">
+        <header-bar></header-bar>
+      </div>
+      <div id="menu-vue">
+        <menu-bar></menu-bar>
+      </div>
+        <br>
+        <div id="amtrakMove">
+            <div class="container">
+                <div class="col-lg-2 col-md-1">
+                </div>
+                <div class="col-lg-8 col-md-10 col-sm-12">
+                    <h3>Amtrak Passenger History in Numbers</h3>
+                    <div style="height:200px;">
+                        <br/>
+                        
+                        <p style="text-align: left;">
+                            Passenger rail service has moved people around the United States for <a href="http://www.americaslibrary.gov/jb/nation/jb_nation_train_1.html">nearly 2 centuries</a>. While many different competing railroad companies criss-crossed the country for many years, the last 50 years, Amtrak has been the main intercity railroad. Below takes a brief look at the older history of Amtrak and a more in-depth look at more recent route statistics. Scroll through the page to walk through the history of Amtrak.
+                        </p>
+                        <h4>Scroll down</h4>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-1">
+                </div>
+            </div>
+            
+            <br/>
+            <div id="nineteen_seventy_track">
+
+            </div>
+            <div  id="nineteen_seventy_outer" style="height: 1050px;">
+                <div id="nineteen_seventy" style="width:100%;">
+                    <div  class="leftYear">
+                        <div class="yrBar">
+                            <h3>1970: Declining ridership prompts Amtrak formation</h3>
+                            
+                        </div>
+                        
+                        
+                        
+                    </div>
+                    <div class="container">
+                        <div class="col-lg-2 col-md-1">
+                        </div>
+                        <div class="col-lg-8 col-md-10 col-sm-12">
+                            <div>
+                              US Yearly Passenger-Miles traveled (in Billions)
+                            </div>
+                            <div style="text-align: center;width:100%;">
+                                <center>
+                                    <div class="bk-root" id="3b1e153a-53ab-41a0-b239-723b59b755ae" data-root-id="19513"></div>
+                                </center>
+                            </div>
+                            <i>Hover for more info. Data from <a href="https://play.google.com/books/reader?id=IA6ZtVUvCw8C&hl=en&pg=GBS.PP1">The Past and Future of U.S. Passenger Rail Service</a></i>
+                            <div id="holdn70" style="height:320px;">
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+          <div class="container">
+            <div class="col-lg-2 col-md-1">
+            </div>
+            <div class="col-lg-8 col-md-10 col-sm-12">
+                
+            </div>
+            <div class="col-lg-2 col-md-1">
+            </div>
+          </div>
+          <div id="nineteen_eighty_track">
+
+          </div>
+          <div  id="nineteen_eighty_outer" style="height: 1050px;">
+            <div id="nineteen_eighty" style="width:100%;">
+                <div class="rightYear">
+                    <div class="yrBar">
+                        <h3>Ridership and finances stabilize :1980</h3>
+                    </div>
+                </div>
+                <div class="container">
+                  <div class="col-lg-2 col-md-1">
+                  </div>
+                  <div class="col-lg-8 col-md-10 col-sm-12">
+                      <div style="max-height: 400px;">
+                        <img src="/static/images/train1.jpg" class="image"/>
+                        <i>Image from <a href="https://media.amtrak.com/media-images/">Amtrak Media Center</a></i>
+                      </div>
+                      
+                      <div id="holdn80" style="height:320px;">
+                      </div>
+                  </div>
+                  <div class="col-lg-2 col-md-1">
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="nineteen_ninety_track">
+
+          </div>
+          <div  id="nineteen_ninety_outer" style="height: 1050px;">
+            <div id="nineteen_ninety" style="width:100%;">
+                <div class="leftYear">
+                    <div class="yrBar">
+                        <h3>1990: Loosening restriction</h3>
+                    </div>
+                </div>
+                <div class="container">
+                  <div class="col-lg-2 col-md-1">
+                  </div>
+                  <div class="col-lg-8 col-md-10 col-sm-12">
+                    <div>
+                      Amtrak Revenue and Expenses (in Millions)
+                    </div>
+                    <div style="text-align: center;width:100%;">
+                        <center>
+                          <div class="bk-root" id="93ed9343-10c9-4d6c-9b59-46d42a19290c" data-root-id="3411"></div>
+                        </center>
+                    </div>
+                    <i>Hover for more info. Data from <a href="https://play.google.com/books/reader?id=IA6ZtVUvCw8C&hl=en&pg=GBS.PP1">The Past and Future of U.S. Passenger Rail Service</a></i>
+                      
+                      <div id="holdn90" style="height:320px;">
+                      </div>
+                  </div>
+                  <div class="col-lg-2 col-md-1">
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="year_2000_track">
+
+          </div>
+          <div  id="year_2000_outer" style="height: 1050px;">
+            <div id="year_2000" style="width:100%;">
+                <div class="rightYear">
+                    <div class="yrBar">
+                        <h3>Acela launches and overall ridership trends up :2000</h3>
+                    </div>
+                </div>
+                <div class="container">
+                  <div class="col-lg-2 col-md-1">
+                  </div>
+                  <div class="col-lg-8 col-md-10 col-sm-12">
+                    <div style="max-height: 400px;">
+                      <img src="/static/images/train2.jpg" class="image"/>
+                      <i>New Acela train image from <a href="https://media.amtrak.com/media-images/">Amtrak Media Center</a></i>
+                    </div>
+                      <div id="holdn00" style="height:320px;">
+                      </div>
+                  </div>
+                  <div class="col-lg-2 col-md-1">
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="year_2008_track">
+
+          </div>
+          <div  id="year_2008_outer" style="height: 1050px;">
+            <div id="year_2008" style="width:100%;">
+                <div class="leftYear">
+                    <div class="yrBar">
+                        <h3>2008: Sustained Growth</h3>
+                    </div>
+                </div>
+                <div class="container">
+                  <div class="col-lg-1">
+                  </div>
+                  <div class="col-lg-10 col-md-12">
+                    <div style="max-height: 500px;">
+                      <img src="/static/images/pct_diff_map.png" class="image"/>
+                      <!-- <i>New Acela train image from <a href="https://media.amtrak.com/media-images/">Amtrak Media Center</a></i> -->
+                    </div>
+                      <div id="holdn08" style="height:320px;">
+                      </div>
+                  </div>
+                  <div class="col-lg-1">
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="year_2010_track">
+
+          </div>
+          <div  id="year_2010_outer" style="height: 1050px;">
+            <div id="year_2010" style="width:100%;">
+                <div class="rightYear">
+                    <div class="yrBar">
+                        <h3>Big routes get bigger :2010</h3>
+                    </div>
+                </div>
+                <div class="container">
+                  <div class="col-lg-1">
+                  </div>
+                  <div class="col-lg-10 col-md-12">
+                    <div style="max-height: 500px;">
+                      <div class='tableauPlaceholder' id='viz1594260197148' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Am&#47;AmtrakRoutes2010&#47;BigRoutes&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='AmtrakRoutes2010&#47;BigRoutes' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Am&#47;AmtrakRoutes2010&#47;BigRoutes&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1594260197148');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='720px';vizElement.style.maxWidth='1020px';vizElement.style.width='100%';vizElement.style.minHeight='487px';vizElement.style.maxHeight='587px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='720px';vizElement.style.maxWidth='1020px';vizElement.style.width='100%';vizElement.style.minHeight='487px';vizElement.style.maxHeight='587px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='877px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                    </div>  
+                    <div id="holdn10" style="height:320px;">
+                      </div>
+                  </div>
+                  <div class="col-lg-1">
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="year_2013_track">
+
+          </div>
+          <div  id="year_2013_outer" style="height: 1050px;">
+            <div id="year_2013" style="width:100%;">
+                <div class="leftYear">
+                    <div class="yrBar">
+                        <h3>2013: Growth slows and passenger numbers plateau</h3>
+                    </div>
+                </div>
+                <div class="container">
+                  <div class="col-lg-1">
+                  </div>
+                  <div class="col-lg-10 col-md-12">
+                    <div style="max-height: 500px;">
+                      <img style="max-height: 500px;width: auto;" src="/static/images/Route_gif.gif" class="image"/>
+                    </div>
+                      <div id="holdn13" style="height:320px;">
+                      </div>
+                  </div>
+                  <div class="col-lg-1">
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="year_2019_track">
+
+          </div>
+          <div  id="year_2019_outer" style="height: 1050px;">
+            <div id="year_2019" style="width:100%;">
+                <div class="rightYear">
+                    <div class="yrBar">
+                        <h3>Positive trends leading into the next decade :2019</h3>
+                    </div>
+                </div>
+                <div class="container">
+
+                  <div class="col-12">
+                    <div>
+                      <div class='tableauPlaceholder' id='viz1592663374630' style='position: relative'>
+                        <noscript><a href='http:&#47;&#47;www.stlannex.com&#47;'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Am&#47;AmtrakRoutes&#47;AmtrakRoutes&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='AmtrakRoutes&#47;AmtrakRoutes' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Am&#47;AmtrakRoutes&#47;AmtrakRoutes&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /><param name='filter' value='publish=yes' /></object>
+                    </div>                
+                    <script type='text/javascript'>
+                                        var divElement = document.getElementById('viz1592663374630'); divElement.style.maxHeight='750px';                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='1120px';vizElement.style.maxWidth='1220px';vizElement.style.width='100%';vizElement.style.minHeight='607px';vizElement.style.maxHeight='707px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='1120px';vizElement.style.maxWidth='1220px';vizElement.style.width='100%';vizElement.style.minHeight='607px';vizElement.style.height=(divElement.offsetWidth*0.95)+'px';} else { vizElement.style.width='100%';vizElement.style.height='830px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+                    </script>
+                    </div>  
+                    <div id="holdn19" style="height:320px;">
+                      </div>
+                  </div>
+
+              </div>
+            </div>
+          </div>
+
+
+          <div id="end_track">
+
+          </div>
+          <div  id="end_outer" style="height: 300px;">
+            <div id="end" style="width:100%;">
+                <div class="leftYear">
+                    <div class="yrBar">
+                        <h3>An Uncertain Future Ahead</h3>
+                    </div>
+                </div>
+                <div class="container">
+                  <div class="col-lg-1">
+                  </div>
+                  <div class="col-lg-10 col-md-12">
+                    <div style="max-height: 500px;text-align: left;">
+                      Amtrak has many plans for the <a href="https://www.amtrak.com/content/dam/projects/dotcom/english/public/documents/corporate/businessplanning/Amtrak-Service-Line-Plans-FY20-24.pdf">next several years to improve service</a>. But those plans were made prior to the COVID-19 pandemic that has drastically reduced travel. The future remains in doubt until the pandemic subsides, but hopefully when passengers return Amtrak can seize the opportunity to grow once more.
+                    </div>  
+                    <hr/>
+                    <div id="holdnend" style="height:420px;">
+                      </div>
+                  </div>
+                  <div class="col-lg-1">
+                  </div>
+              </div>
+            </div>
+          </div>
+
+                <!-- <div style="height:1000px;">
+                    <transition name="fade">
+                        <div v-show="showDivAnchored">
+                            <div style="border: 1px black solid;height: 100px;">
+                                Hello Another
+                            </div>
+                        </div>
+                    </transition>
+                </div> -->
+                <p>
+                    
+                    
+                </p>
+
+                <transition name="fade">
+                    <div v-show="showDivn70" class="showScrollDiv">
+                        <div class="showScrollInterior">
+                            While Railroads dominated intercity travel through the early 1900's, by 1960 both air travel and bus travel were serving more passenger-miles than trains. Amtrak was formed in 1970 (and began service in 1971) through an act of Congress merging the remaining Railroad corporations.
+                        </div>
+                    </div>    
+                </transition>
+                <transition name="fade">
+                    <div v-show="showDivn70Right" class="showScrollDivRight">
+                        <div class="showScrollInterior">
+                             While total travel grew by a factor of 10 from 1960-2000, rail travel stayed mostly flat during that time. Amtrak survived through the years, but airlines became the dominant form of long distance travel and bus service took a larger share of the short-distance intercity travelers.
+                        </div>
+                    </div>    
+                </transition>
+
+                <transition name="fade">
+                  <div v-show="showDivn80" class="showScrollDiv">
+                      <div class="showScrollInterior">
+                          Ten years into operation for Amtrak, the organization still required substantial subsidies from the government, but had generally stabilized its ridership and finances. In 1981, the government officially took part ownership through preferred stock for additional assistance.
+                      </div>
+                  </div>    
+              </transition>
+              <transition name="fade">
+                  <div v-show="showDivn80Right" class="showScrollDivRight">
+                      <div class="showScrollInterior">
+                           Ridership stayed around 20 million passengers throughout the decade, which after several decades of decline, flat ridership and a stable route network was a (small) move in the right direction.
+                      </div>
+                  </div>    
+              </transition>
+
+              <transition name="fade">
+                <div v-show="showDivn90" class="showScrollDiv">
+                    <div class="showScrollInterior">
+                        Although the government once again set goals to have Amtrak operating without a subsidy, specifically granting greater operational freedom (like allowing route changes) with the Amtrak Reform and Accountability Act of 1997.
+                    </div>
+                </div>    
+            </transition>
+            <transition name="fade">
+                <div v-show="showDivn90Right" class="showScrollDivRight">
+                    <div class="showScrollInterior">
+                        Expenses still exceeded revenues into the 2000's, but some of the changes set the stage for ridership growth that Amtrak would experience over the next decade.
+                    </div>
+                </div>    
+            </transition>
+
+            <transition name="fade">
+              <div v-show="showDivn00" class="showScrollDiv">
+                  <div class="showScrollInterior">
+                      After much anticipation, Acela Express service launches in December 2000. While a commercial success for Amtrak, its average speeds remained dwarfed by high speed service in other countries around the globe.
+                  </div>
+              </div>    
+          </transition>
+
+          <transition name="fade">
+            <div v-show="showDivn08" class="showScrollDiv">
+                <div class="showScrollInterior">
+                    After several decades of minimal passenger growth, Amtrak started steady growth in the 2000's. From 2003 to 2008, ridership grew 23.4M to 28.7M a 22.6% increase.
+                </div>
+            </div>    
+        </transition>
+        <transition name="fade">
+            <div v-show="showDivn08Right" class="showScrollDivRight">
+                <div class="showScrollInterior">
+                    The biggest gainers in percent growth during these years came on shorter Midwest routes linked to Chicago, but most routes saw at least moderate gains in percentage growth.
+                </div>
+            </div>    
+        </transition>
+        <!-- <transition name="fade">
+          <div v-show="showDivn08_2" class="showScrollDiv2">
+              <div class="showScrollInterior">
+                  X
+              </div>
+          </div>    
+      </transition> -->
+
+      <transition name="fade">
+        <div v-show="showDivn10" class="showScrollDiv">
+            <div class="showScrollInterior">
+                During the first decade of the 2000's, Amtrak's largest routes solidified their popularity with large gains in raw passenger numbers even if other smaller routes had high percentage growth.
+            </div>
+        </div>    
+    </transition>
+    <transition name="fade">
+        <div v-show="showDivn10Right" class="showScrollDivRight">
+            <div class="showScrollInterior">
+                While the Midwest has a very diverse network of routes and stations, the largest passengers totals for Amtrak are still driven by the routes of the Northeast and West Coast. 
+            </div>
+        </div>    
+    </transition>
+
+    <transition name="fade">
+      <div v-show="showDivn13" class="showScrollDiv">
+          <div class="showScrollInterior">
+              After continuing to grow even through the Great Recession, passenger numbers hit a local peak in 2013 and have remained mostly flat in the years since between 30-32M.
+          </div>
+      </div>    
+  </transition>
+  <transition name="fade">
+      <div v-show="showDivn13Right" class="showScrollDivRight">
+          <div class="showScrollInterior">
+              The last 6 years have been stable with the route map looking almost entirely the same (minus the Hoosier State line that ended its run in 2019).
+          </div>
+      </div>    
+  </transition>
+
+  <transition name="fade">
+    <div v-show="showDivn19" class="showScrollDiv">
+        <div class="showScrollInterior">
+            The last two decades have shown that there remains an appetite in America for rail service and that when invested in properly Amtrak can continue to grow and provide viable travel options for large portions of the country.
+        </div>
+    </div>    
+</transition>
+<transition name="fade">
+    <div v-show="showDivn19Right" class="showScrollDivRight">
+        <div class="showScrollInterior">
+            Hover over individual routes on the map or in the chart below to see specific yearly information between 2003 and 2019.
+        </div>
+    </div>    
+</transition>
+
+  </div>
+</div>
+
+<script type="application/json" id="19830">
+    {"27c4c97f-7f33-4e2c-b5bb-b70710c8082c":{"roots":{"references":[{"attributes":{"callback":null,"renderers":[{"id":"19628","type":"GlyphRenderer"}],"tooltips":[["Method","@t"],["Passenger-Miles","@2000{0.f}B"]]},"id":"19643","type":"HoverTool"},{"attributes":{},"id":"19579","type":"UnionRenderers"},{"attributes":{"field":"angle","include_zero":true},"id":"19601","type":"CumSum"},{"attributes":{"end_angle":{"expr":{"id":"19623","type":"CumSum"},"units":"rad"},"fill_color":{"field":"color"},"line_color":{"value":"white"},"radius":{"units":"data","value":1.3656500283747663},"start_angle":{"expr":{"id":"19622","type":"CumSum"},"units":"rad"},"x":{"value":7.9},"y":{"value":3}},"id":"19626","type":"Wedge"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"19563","type":"HoverTool"},{"id":"19580","type":"HoverTool"},{"id":"19599","type":"HoverTool"},{"id":"19620","type":"HoverTool"},{"id":"19643","type":"HoverTool"}]},"id":"19540","type":"Toolbar"},{"attributes":{},"id":"19618","type":"Selection"},{"attributes":{"end_angle":{"expr":{"id":"19602","type":"CumSum"},"units":"rad"},"fill_color":{"field":"color"},"line_color":{"value":"white"},"radius":{"units":"data","value":1.118033988749895},"start_angle":{"expr":{"id":"19601","type":"CumSum"},"units":"rad"},"x":{"value":5.4},"y":{"value":3}},"id":"19605","type":"Wedge"},{"attributes":{"text":"1990","text_font_size":{"value":"14pt"},"x":4.9,"y":2.5},"id":"19648","type":"Label"},{"attributes":{"end_angle":{"expr":{"id":"19623","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"radius":{"units":"data","value":1.3656500283747663},"start_angle":{"expr":{"id":"19622","type":"CumSum"},"units":"rad"},"x":{"value":7.9},"y":{"value":3}},"id":"19627","type":"Wedge"},{"attributes":{"callback":null,"renderers":[{"id":"19607","type":"GlyphRenderer"}],"tooltips":[["Method","@t"],["Passenger-Miles","@1990{0.f}B"]]},"id":"19620","type":"HoverTool"},{"attributes":{"text":""},"id":"19514","type":"Title"},{"attributes":{},"id":"19530","type":"BasicTicker"},{"attributes":{"end_angle":{"expr":{"id":"19566","type":"CumSum"},"units":"rad"},"fill_color":{"field":"color"},"line_color":{"value":"white"},"radius":{"units":"data","value":0.682886032463202},"start_angle":{"expr":{"id":"19565","type":"CumSum"},"units":"rad"},"x":{"value":1.5},"y":{"value":3}},"id":"19569","type":"Wedge"},{"attributes":{"end_angle":{"expr":{"id":"19583","type":"CumSum"},"units":"rad"},"fill_color":{"field":"color"},"line_color":{"value":"white"},"radius":{"units":"data","value":0.8875058685251984},"start_angle":{"expr":{"id":"19582","type":"CumSum"},"units":"rad"},"x":{"value":3.3},"y":{"value":3}},"id":"19586","type":"Wedge"},{"attributes":{"formatter":{"id":"19557","type":"BasicTickFormatter"},"ticker":{"id":"19530","type":"BasicTicker"},"visible":false},"id":"19529","type":"LinearAxis"},{"attributes":{"source":{"id":"19550","type":"ColumnDataSource"}},"id":"19555","type":"CDSView"},{"attributes":{"field":"angle"},"id":"19602","type":"CumSum"},{"attributes":{"field":"angle"},"id":"19583","type":"CumSum"},{"attributes":{"source":{"id":"19584","type":"ColumnDataSource"}},"id":"19589","type":"CDSView"},{"attributes":{"end_angle":{"expr":{"id":"19549","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"radius":{"units":"data","value":0.4743416490252569},"start_angle":{"expr":{"id":"19548","type":"CumSum"},"units":"rad"},"x":{"value":0},"y":{"value":3}},"id":"19553","type":"Wedge"},{"attributes":{"field":"angle"},"id":"19623","type":"CumSum"},{"attributes":{"data_source":{"id":"19603","type":"ColumnDataSource"},"glyph":{"id":"19605","type":"Wedge"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"19606","type":"Wedge"},"selection_glyph":null,"view":{"id":"19608","type":"CDSView"}},"id":"19607","type":"GlyphRenderer"},{"attributes":{},"id":"19664","type":"UnionRenderers"},{"attributes":{"callback":null,"end":10,"start":-1.1},"id":"19516","type":"Range1d"},{"attributes":{"end_angle":{"expr":{"id":"19566","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"radius":{"units":"data","value":0.682886032463202},"start_angle":{"expr":{"id":"19565","type":"CumSum"},"units":"rad"},"x":{"value":1.5},"y":{"value":3}},"id":"19570","type":"Wedge"},{"attributes":{},"id":"19597","type":"Selection"},{"attributes":{"callback":null,"data":{"1960":{"__ndarray__":"mpmZmZkZP0CamZmZmRkxQM3MzMzMTDNA","dtype":"float64","shape":[3]},"angle":{"__ndarray__":"ATCth8soB0A+U0+nxHf5PyIBZ5qRvvw/","dtype":"float64","shape":[3]},"color":["#1f77b4","#ff7f0e","#2ca02c"],"index":[0,1,2],"t":["Airplanes","Railroads","Buses"]},"selected":{"id":"19578","type":"Selection"},"selection_policy":{"id":"19579","type":"UnionRenderers"}},"id":"19550","type":"ColumnDataSource"},{"attributes":{"field":"angle","include_zero":true},"id":"19622","type":"CumSum"},{"attributes":{},"id":"19663","type":"Selection"},{"attributes":{"data_source":{"id":"19567","type":"ColumnDataSource"},"glyph":{"id":"19569","type":"Wedge"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"19570","type":"Wedge"},"selection_glyph":null,"view":{"id":"19572","type":"CDSView"}},"id":"19571","type":"GlyphRenderer"},{"attributes":{"callback":null,"end":3.6,"start":2.5},"id":"19518","type":"Range1d"},{"attributes":{"field":"angle"},"id":"19549","type":"CumSum"},{"attributes":{"end_angle":{"expr":{"id":"19602","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"radius":{"units":"data","value":1.118033988749895},"start_angle":{"expr":{"id":"19601","type":"CumSum"},"units":"rad"},"x":{"value":5.4},"y":{"value":3}},"id":"19606","type":"Wedge"},{"attributes":{"end_angle":{"expr":{"id":"19549","type":"CumSum"},"units":"rad"},"fill_color":{"field":"color"},"line_color":{"value":"white"},"radius":{"units":"data","value":0.4743416490252569},"start_angle":{"expr":{"id":"19548","type":"CumSum"},"units":"rad"},"x":{"value":0},"y":{"value":3}},"id":"19552","type":"Wedge"},{"attributes":{},"id":"19598","type":"UnionRenderers"},{"attributes":{"dimension":1,"ticker":{"id":"19530","type":"BasicTicker"},"visible":false},"id":"19533","type":"Grid"},{"attributes":{"source":{"id":"19624","type":"ColumnDataSource"}},"id":"19629","type":"CDSView"},{"attributes":{"ticker":{"id":"19525","type":"BasicTicker"},"visible":false},"id":"19528","type":"Grid"},{"attributes":{"text":"1970","text_font_size":{"value":"14pt"},"x":1.1,"y":2.5},"id":"19646","type":"Label"},{"attributes":{"callback":null,"data":{"1990":{"__ndarray__":"ZmZmZmaedUBmZmZmZmYYQAAAAAAAADdA","dtype":"float64","shape":[3]},"angle":{"__ndarray__":"eDXVa7QuF0D9CFI1NCq6P6/3mnnhqdg/","dtype":"float64","shape":[3]},"color":["#1f77b4","#ff7f0e","#2ca02c"],"index":[0,1,2],"t":["Airplanes","Railroads","Buses"]},"selected":{"id":"19641","type":"Selection"},"selection_policy":{"id":"19642","type":"UnionRenderers"}},"id":"19603","type":"ColumnDataSource"},{"attributes":{"callback":null,"renderers":[{"id":"19554","type":"GlyphRenderer"}],"tooltips":[["Method","@t"],["Passenger-Miles","@1960{0.f}B"]]},"id":"19563","type":"HoverTool"},{"attributes":{"text":"2000","text_font_size":{"value":"14pt"},"x":7.4,"y":2.5},"id":"19649","type":"Label"},{"attributes":{"text":"1960","text_font_size":{"value":"14pt"},"x":-0.5,"y":2.5},"id":"19645","type":"Label"},{"attributes":{"end_angle":{"expr":{"id":"19583","type":"CumSum"},"units":"rad"},"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"radius":{"units":"data","value":0.8875058685251984},"start_angle":{"expr":{"id":"19582","type":"CumSum"},"units":"rad"},"x":{"value":3.3},"y":{"value":3}},"id":"19587","type":"Wedge"},{"attributes":{},"id":"19559","type":"BasicTickFormatter"},{"attributes":{"items":[{"id":"19562","type":"LegendItem"}],"location":"top_left","orientation":"horizontal"},"id":"19561","type":"Legend"},{"attributes":{"callback":null,"renderers":[{"id":"19571","type":"GlyphRenderer"}],"tooltips":[["Method","@t"],["Passenger-Miles","@1970{0.f}B"]]},"id":"19580","type":"HoverTool"},{"attributes":{"callback":null,"data":{"1980":{"__ndarray__":"zczMzMyMaUAAAAAAAAASQGZmZmZmZjtA","dtype":"float64","shape":[3]},"angle":{"__ndarray__":"RoCoZ2i9FUDDwJinq6G+P3JO6u9hUOc/","dtype":"float64","shape":[3]},"color":["#1f77b4","#ff7f0e","#2ca02c"],"index":[0,1,2],"t":["Airplanes","Railroads","Buses"]},"selected":{"id":"19618","type":"Selection"},"selection_policy":{"id":"19619","type":"UnionRenderers"}},"id":"19584","type":"ColumnDataSource"},{"attributes":{},"id":"19641","type":"Selection"},{"attributes":{"data_source":{"id":"19624","type":"ColumnDataSource"},"glyph":{"id":"19626","type":"Wedge"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"19627","type":"Wedge"},"selection_glyph":null,"view":{"id":"19629","type":"CDSView"}},"id":"19628","type":"GlyphRenderer"},{"attributes":{"text":"1980","text_font_size":{"value":"14pt"},"x":2.8,"y":2.5},"id":"19647","type":"Label"},{"attributes":{},"id":"19520","type":"LinearScale"},{"attributes":{"formatter":{"id":"19559","type":"BasicTickFormatter"},"ticker":{"id":"19525","type":"BasicTicker"},"visible":false},"id":"19524","type":"LinearAxis"},{"attributes":{"field":"angle","include_zero":true},"id":"19565","type":"CumSum"},{"attributes":{"field":"angle"},"id":"19566","type":"CumSum"},{"attributes":{"source":{"id":"19567","type":"ColumnDataSource"}},"id":"19572","type":"CDSView"},{"attributes":{},"id":"19642","type":"UnionRenderers"},{"attributes":{},"id":"19525","type":"BasicTicker"},{"attributes":{"field":"angle","include_zero":true},"id":"19582","type":"CumSum"},{"attributes":{},"id":"19522","type":"LinearScale"},{"attributes":{"data_source":{"id":"19550","type":"ColumnDataSource"},"glyph":{"id":"19552","type":"Wedge"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"19553","type":"Wedge"},"selection_glyph":null,"view":{"id":"19555","type":"CDSView"}},"id":"19554","type":"GlyphRenderer"},{"attributes":{},"id":"19619","type":"UnionRenderers"},{"attributes":{},"id":"19578","type":"Selection"},{"attributes":{"callback":null,"renderers":[{"id":"19588","type":"GlyphRenderer"}],"tooltips":[["Method","@t"],["Passenger-Miles","@1980{0.f}B"]]},"id":"19599","type":"HoverTool"},{"attributes":{},"id":"19557","type":"BasicTickFormatter"},{"attributes":{"field":"angle","include_zero":true},"id":"19548","type":"CumSum"},{"attributes":{"callback":null,"data":{"1970":{"__ndarray__":"mpmZmZkZW0DNzMzMzMwYQM3MzMzMTDlA","dtype":"float64","shape":[3]},"angle":{"__ndarray__":"ikcYFE15E0AiRybBMdLRP3AEZpAsLvI/","dtype":"float64","shape":[3]},"color":["#1f77b4","#ff7f0e","#2ca02c"],"index":[0,1,2],"t":["Airplanes","Railroads","Buses"]},"selected":{"id":"19597","type":"Selection"},"selection_policy":{"id":"19598","type":"UnionRenderers"}},"id":"19567","type":"ColumnDataSource"},{"attributes":{"callback":null,"data":{"2000":{"__ndarray__":"zczMzMwggEAAAAAAAAAWQDMzMzMz80JA","dtype":"float64","shape":[3]},"angle":{"__ndarray__":"6C5QDucuF0CtbAOYqZ+vP3Z1PyxPPds/","dtype":"float64","shape":[3]},"color":["#1f77b4","#ff7f0e","#2ca02c"],"index":[0,1,2],"t":["Airplanes","Railroads","Buses"]},"selected":{"id":"19663","type":"Selection"},"selection_policy":{"id":"19664","type":"UnionRenderers"}},"id":"19624","type":"ColumnDataSource"},{"attributes":{"label":{"field":"t"},"renderers":[{"id":"19554","type":"GlyphRenderer"},{"id":"19571","type":"GlyphRenderer"},{"id":"19588","type":"GlyphRenderer"},{"id":"19607","type":"GlyphRenderer"},{"id":"19628","type":"GlyphRenderer"}]},"id":"19562","type":"LegendItem"},{"attributes":{"source":{"id":"19603","type":"ColumnDataSource"}},"id":"19608","type":"CDSView"},{"attributes":{"data_source":{"id":"19584","type":"ColumnDataSource"},"glyph":{"id":"19586","type":"Wedge"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"19587","type":"Wedge"},"selection_glyph":null,"view":{"id":"19589","type":"CDSView"}},"id":"19588","type":"GlyphRenderer"},{"attributes":{"background_fill_alpha":{"value":0},"below":[{"id":"19524","type":"LinearAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"19528","type":"Grid"},{"id":"19533","type":"Grid"},{"id":"19561","type":"Legend"},{"id":"19645","type":"Label"},{"id":"19646","type":"Label"},{"id":"19647","type":"Label"},{"id":"19648","type":"Label"},{"id":"19649","type":"Label"}],"left":[{"id":"19529","type":"LinearAxis"}],"outline_line_color":{"value":null},"plot_height":200,"plot_width":550,"renderers":[{"id":"19554","type":"GlyphRenderer"},{"id":"19571","type":"GlyphRenderer"},{"id":"19588","type":"GlyphRenderer"},{"id":"19607","type":"GlyphRenderer"},{"id":"19628","type":"GlyphRenderer"}],"title":{"id":"19514","type":"Title"},"toolbar":{"id":"19540","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"19516","type":"Range1d"},"x_scale":{"id":"19520","type":"LinearScale"},"y_range":{"id":"19518","type":"Range1d"},"y_scale":{"id":"19522","type":"LinearScale"}},"id":"19513","subtype":"Figure","type":"Plot"}],"root_ids":["19513"]},"title":"Bokeh Application","version":"1.4.0"}}
+  </script>
+  <script type="text/javascript">
+    (function() {
+      var fn = function() {
+        Bokeh.safely(function() {
+          (function(root) {
+            function embed_document(root) {
+              
+            var docs_json = document.getElementById('19830').textContent;
+            var render_items = [{"docid":"27c4c97f-7f33-4e2c-b5bb-b70710c8082c","roots":{"19513":"3b1e153a-53ab-41a0-b239-723b59b755ae"}}];
+            root.Bokeh.embed.embed_items(docs_json, render_items);
+          
+            }
+            if (root.Bokeh !== undefined) {
+              embed_document(root);
+            } else {
+              var attempts = 0;
+              var timer = setInterval(function(root) {
+                if (root.Bokeh !== undefined) {
+                  clearInterval(timer);
+                  embed_document(root);
+                } else {
+                  attempts++;
+                  if (attempts > 100) {
+                    clearInterval(timer);
+                    console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                  }
+                }
+              }, 10, root)
+            }
+          })(window);
+        });
+      };
+      if (document.readyState != "loading") fn();
+      else document.addEventListener("DOMContentLoaded", fn);
+    })();
+  </script>
+
+<script type="application/json" id="3563">
+  {"aebf505d-e252-476f-bb10-ae9d17151748":{"roots":{"references":[{"attributes":{},"id":"3416","type":"LinearScale"},{"attributes":{},"id":"3444","type":"BasicTickFormatter"},{"attributes":{},"id":"3426","type":"BasicTicker"},{"attributes":{},"id":"3442","type":"BasicTickFormatter"},{"attributes":{"label":{"value":"Revenue"},"renderers":[{"id":"3452","type":"GlyphRenderer"}]},"id":"3462","type":"LegendItem"},{"attributes":{"source":{"id":"3433","type":"ColumnDataSource"}},"id":"3438","type":"CDSView"},{"attributes":{"callback":null,"end":3400},"id":"3414","type":"Range1d"},{"attributes":{"items":[{"id":"3446","type":"LegendItem"},{"id":"3462","type":"LegendItem"}],"location":"top_left"},"id":"3445","type":"Legend"},{"attributes":{"line_color":"blue","line_width":2,"x":{"field":"year"},"y":{"field":"revenue"}},"id":"3450","type":"Line"},{"attributes":{"callback":null,"end":2001.2,"start":1997},"id":"3412","type":"Range1d"},{"attributes":{"ticker":{"id":"3421","type":"BasicTicker"}},"id":"3424","type":"Grid"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"year"},"y":{"field":"revenue"}},"id":"3451","type":"Line"},{"attributes":{"label":{"value":"Expenses"},"renderers":[{"id":"3437","type":"GlyphRenderer"}]},"id":"3446","type":"LegendItem"},{"attributes":{"background_fill_alpha":{"value":0},"below":[{"id":"3420","type":"LinearAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"3424","type":"Grid"},{"id":"3429","type":"Grid"},{"id":"3445","type":"Legend"},{"id":"3465","type":"Band"}],"left":[{"id":"3425","type":"LinearAxis"}],"plot_height":330,"plot_width":550,"renderers":[{"id":"3437","type":"GlyphRenderer"},{"id":"3452","type":"GlyphRenderer"}],"title":{"id":"3439","type":"Title"},"toolbar":{"id":"3431","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"3412","type":"Range1d"},"x_scale":{"id":"3416","type":"LinearScale"},"y_range":{"id":"3414","type":"Range1d"},"y_scale":{"id":"3418","type":"LinearScale"}},"id":"3411","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"3460","type":"Selection"},{"attributes":{"callback":null,"data":{"expenses":[2359,2548,2660,2876,3288],"revenue":[1669,2244,2011,2111,2109],"year":[1997,1998,1999,2000,2001]},"selected":{"id":"3460","type":"Selection"},"selection_policy":{"id":"3461","type":"UnionRenderers"}},"id":"3433","type":"ColumnDataSource"},{"attributes":{},"id":"3430","type":"ResetTool"},{"attributes":{"axis_label":"Millions of Dollars","formatter":{"id":"3442","type":"BasicTickFormatter"},"ticker":{"id":"3426","type":"BasicTicker"}},"id":"3425","type":"LinearAxis"},{"attributes":{},"id":"3421","type":"BasicTicker"},{"attributes":{},"id":"3418","type":"LinearScale"},{"attributes":{"line_color":"red","line_width":2,"x":{"field":"year"},"y":{"field":"expenses"}},"id":"3435","type":"Line"},{"attributes":{"dimension":1,"ticker":{"id":"3426","type":"BasicTicker"}},"id":"3429","type":"Grid"},{"attributes":{"base":{"field":"year","units":"data"},"fill_alpha":{"value":0.2},"fill_color":{"value":"red"},"level":"underlay","lower":{"field":"revenue","units":"data"},"source":{"id":"3433","type":"ColumnDataSource"},"upper":{"field":"expenses","units":"data"}},"id":"3465","type":"Band"},{"attributes":{"formatter":{"id":"3444","type":"BasicTickFormatter"},"ticker":{"id":"3421","type":"BasicTicker"}},"id":"3420","type":"LinearAxis"},{"attributes":{"source":{"id":"3433","type":"ColumnDataSource"}},"id":"3453","type":"CDSView"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"year"},"y":{"field":"expenses"}},"id":"3436","type":"Line"},{"attributes":{},"id":"3461","type":"UnionRenderers"},{"attributes":{"text":""},"id":"3439","type":"Title"},{"attributes":{"data_source":{"id":"3433","type":"ColumnDataSource"},"glyph":{"id":"3450","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"3451","type":"Line"},"selection_glyph":null,"view":{"id":"3453","type":"CDSView"}},"id":"3452","type":"GlyphRenderer"},{"attributes":{"data_source":{"id":"3433","type":"ColumnDataSource"},"glyph":{"id":"3435","type":"Line"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"3436","type":"Line"},"selection_glyph":null,"view":{"id":"3438","type":"CDSView"}},"id":"3437","type":"GlyphRenderer"},{"attributes":{"callback":null,"mode":"vline","renderers":[{"id":"3437","type":"GlyphRenderer"}],"tooltips":[["Expenses","$@expenses{,f}M"]]},"id":"3447","type":"HoverTool"},{"attributes":{"callback":null,"mode":"vline","renderers":[{"id":"3452","type":"GlyphRenderer"}],"tooltips":[["Revenue","$@revenue{,f}M"]]},"id":"3463","type":"HoverTool"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"3430","type":"ResetTool"},{"id":"3447","type":"HoverTool"},{"id":"3463","type":"HoverTool"}]},"id":"3431","type":"Toolbar"}],"root_ids":["3411"]},"title":"Bokeh Application","version":"1.4.0"}}
+</script>
+<script type="text/javascript">
+  (function() {
+    var fn = function() {
+      Bokeh.safely(function() {
+        (function(root) {
+          function embed_document(root) {
+            
+          var docs_json = document.getElementById('3563').textContent;
+          var render_items = [{"docid":"aebf505d-e252-476f-bb10-ae9d17151748","roots":{"3411":"93ed9343-10c9-4d6c-9b59-46d42a19290c"}}];
+          root.Bokeh.embed.embed_items(docs_json, render_items);
+        
+          }
+          if (root.Bokeh !== undefined) {
+            embed_document(root);
+          } else {
+            var attempts = 0;
+            var timer = setInterval(function(root) {
+              if (root.Bokeh !== undefined) {
+                clearInterval(timer);
+                embed_document(root);
+              } else {
+                attempts++;
+                if (attempts > 100) {
+                  clearInterval(timer);
+                  console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                }
+              }
+            }, 10, root)
+          }
+        })(window);
+      });
+    };
+    if (document.readyState != "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  })();
+</script> 
+
+    <script>   
+      var vm =new Vue ({
+        el: '#amtrakMove',
+        data: {
+            showDivn70: false,
+            showDivn70Right: false,
+            showDivn80: false,
+            showDivn80Right: false,
+            showDivn90: false,
+            showDivn90Right: false,
+            showDivn00: false,
+            showDivn08: false,
+            showDivn08Right: false,
+            showDivn10: false,
+            showDivn10Right: false,
+            showDivn13: false,
+            showDivn13Right: false,
+            showDivn19: false,
+            showDivn19Right: false,
+            showDivAnchored: false,
+            inN70: false
+        },
+        mounted: function scrollSetUp(){
+            var myScrollFunc = function() {
+                var wh = window.innerHeight;
+                var whAdjust = 85
+                if (wh>480){
+                    whAdjust=Math.floor(0.25*wh)
+                }
+
+                // 1970's
+                var n70t = document.getElementById("nineteen_seventy_track")
+                var n70o = document.getElementById("nineteen_seventy_outer")
+                var n70=document.getElementById("nineteen_seventy")
+                var y = window.scrollY;
+                if (y > n70t.offsetTop-whAdjust && y <= n70t.offsetTop+300){
+                    n70.style.position="fixed"
+                    n70.style.top=(n70.offsetHeight/2+whAdjust)+"px"
+                    n70.style.left="50%"
+                    n70.style.transform="translate(-50%, -50%)"
+                    if (y > n70t.offsetTop-whAdjust+75){
+                        vm.showDivn70 = true
+                    }
+                    if (y > n70t.offsetTop-whAdjust+175){
+                        vm.showDivn70Right = true
+                    }
+                    if (y > n70t.offsetTop+150){
+                        vm.showDivn70 = false
+                    }
+                }
+                else{
+                    if(y > n70t.offsetTop+300){
+                        n70t.style.height=(whAdjust+300)+"px"
+                        n70o.style.height=(1050-(whAdjust+300))+"px"
+                    }
+                    else{
+                        n70t.style.height="0px"
+                        n70o.style.height="1050px"
+                    }
+                    n70.style.position=""
+                    n70.style.transform="translate(0%, 0%)"
+                    vm.showDivn70 = false
+                    vm.showDivn70Right = false
+                }
+
+                // 1980's
+                var n80t = document.getElementById("nineteen_eighty_track")
+                var n80o = document.getElementById("nineteen_eighty_outer")
+                var n80=document.getElementById("nineteen_eighty")
+                var y = window.scrollY;
+                if (y > n80t.offsetTop-whAdjust && y <= n80t.offsetTop+300){
+                    n80.style.position="fixed"
+                    n80.style.top=(n80.offsetHeight/2+whAdjust)+"px"
+                    n80.style.left="50%"
+                    n80.style.transform="translate(-50%, -50%)"
+                    if (y > n80t.offsetTop-whAdjust+75){
+                        vm.showDivn80 = true
+                    }
+                    if (y > n80t.offsetTop-whAdjust+175){
+                        vm.showDivn80Right = true
+                    }
+                    if (y > n80t.offsetTop+150){
+                        vm.showDivn80 = false
+                    }
+                }
+                else{
+                    if(y > n80t.offsetTop+300){
+                        n80t.style.height=(whAdjust+300)+"px"
+                        n80o.style.height=(1050-(whAdjust+300))+"px"
+                    }
+                    else{
+                        n80t.style.height="0px"
+                        n80o.style.height="1050px"
+                    }
+                    n80.style.position=""
+                    n80.style.transform="translate(0%, 0%)"
+                    vm.showDivn80 = false
+                    vm.showDivn80Right = false
+                }
+
+                // 1990's
+                var n90t = document.getElementById("nineteen_ninety_track")
+                var n90o = document.getElementById("nineteen_ninety_outer")
+                var n90=document.getElementById("nineteen_ninety")
+                var y = window.scrollY;
+                if (y > n90t.offsetTop-whAdjust && y <= n90t.offsetTop+300){
+                    n90.style.position="fixed"
+                    n90.style.top=(n90.offsetHeight/2+whAdjust)+"px"
+                    n90.style.left="50%"
+                    n90.style.transform="translate(-50%, -50%)"
+                    if (y > n90t.offsetTop-whAdjust+75){
+                        vm.showDivn90 = true
+                    }
+                    if (y > n90t.offsetTop-whAdjust+175){
+                        vm.showDivn90Right = true
+                    }
+                    if (y > n90t.offsetTop+150){
+                        vm.showDivn90 = false
+                    }
+                    
+                }
+                else{
+                    if(y > n90t.offsetTop+300){
+                        n90t.style.height=(whAdjust+300)+"px"
+                        n90o.style.height=(1050-(whAdjust+300))+"px"
+                    }
+                    else{
+                        n90t.style.height="0px"
+                        n90o.style.height="1050px"
+                    }
+                    n90.style.position=""
+                    n90.style.transform="translate(0%, 0%)"
+                    vm.showDivn90 = false
+                    vm.showDivn90Right = false
+                }
+
+                // 2000
+                var n00t = document.getElementById("year_2000_track")
+                var n00o = document.getElementById("year_2000_outer")
+                var n00=document.getElementById("year_2000")
+                var y = window.scrollY;
+                if (y > n00t.offsetTop-whAdjust && y <= n00t.offsetTop+300){
+                    n00.style.position="fixed"
+                    n00.style.top=(n00.offsetHeight/2+whAdjust)+"px"
+                    n00.style.left="50%"
+                    n00.style.transform="translate(-50%, -50%)"
+                    if (y > n00t.offsetTop-whAdjust+75){
+                        vm.showDivn00 = true
+                    }
+                    
+                }
+                else{
+                    if(y > n00t.offsetTop+300){
+                        n00t.style.height=(whAdjust+300)+"px"
+                        n00o.style.height=(1050-(whAdjust+300))+"px"
+                    }
+                    else{
+                        n00t.style.height="0px"
+                        n00o.style.height="1050px"
+                    }
+                    n00.style.position=""
+                    n00.style.transform="translate(0%, 0%)"
+                    vm.showDivn00 = false
+                }
+
+                // 2008
+                var n08t = document.getElementById("year_2008_track")
+                var n08o = document.getElementById("year_2008_outer")
+                var n08=document.getElementById("year_2008")
+                var whAdjustLarge = 45
+                if (wh>480){
+                    whAdjustLarge=Math.floor(0.15*wh)
+                }
+                var y = window.scrollY;
+                if (y > n08t.offsetTop-whAdjustLarge && y <= n08t.offsetTop+300){
+                    n08.style.position="fixed"
+                    n08.style.top=(n08.offsetHeight/2+whAdjustLarge)+"px"
+                    n08.style.left="50%"
+                    n08.style.transform="translate(-50%, -50%)"
+                    if (y > n08t.offsetTop-whAdjustLarge+75){
+                        vm.showDivn08 = true
+                    }
+                    if (y > n08t.offsetTop-whAdjustLarge+175){
+                        vm.showDivn08Right = true
+                    }
+                    if (y > n08t.offsetTop+150){
+                        vm.showDivn08 = false
+                    }
+                    
+                }
+                else{
+                    if(y > n08t.offsetTop+300){
+                        n08t.style.height=(whAdjustLarge+300)+"px"
+                        n08o.style.height=(970-(whAdjustLarge+300))+"px"
+                    }
+                    else{
+                        n08t.style.height="0px"
+                        n08o.style.height="970px"
+                    }
+                    n08.style.position=""
+                    n08.style.transform="translate(0%, 0%)"
+                    vm.showDivn08 = false
+                    vm.showDivn08Right = false
+                }
+
+                // 2010
+                var n10t = document.getElementById("year_2010_track")
+                var n10o = document.getElementById("year_2010_outer")
+                var n10=document.getElementById("year_2010")
+                var whAdjustLarge = 45
+                if (wh>480){
+                    whAdjustLarge=Math.floor(0.15*wh)
+                }
+                var y = window.scrollY;
+                if (y > n10t.offsetTop-whAdjustLarge && y <= n10t.offsetTop+300){
+                    n10.style.position="fixed"
+                    n10.style.top=(n10.offsetHeight/2+whAdjustLarge)+"px"
+                    n10.style.left="50%"
+                    n10.style.transform="translate(-50%, -50%)"
+                    if (y > n10t.offsetTop-whAdjustLarge+75){
+                        vm.showDivn10 = true
+                    }
+                    if (y > n10t.offsetTop-whAdjustLarge+175){
+                        vm.showDivn10Right = true
+                    }
+                    if (y > n10t.offsetTop+150){
+                        vm.showDivn10 = false
+                    }
+                    
+                }
+                else{
+                    if(y > n10t.offsetTop+300){
+                        n10t.style.height=(whAdjustLarge+300)+"px"
+                        n10o.style.height=(1050-(whAdjustLarge+300))+"px"
+                    }
+                    else{
+                        n10t.style.height="0px"
+                        n10o.style.height="1050px"
+                    }
+                    n10.style.position=""
+                    n10.style.transform="translate(0%, 0%)"
+                    vm.showDivn10 = false
+                    vm.showDivn10Right = false
+                }
+
+                // 2013
+                var n13t = document.getElementById("year_2013_track")
+                var n13o = document.getElementById("year_2013_outer")
+                var n13=document.getElementById("year_2013")
+                var whAdjustLarge = 45
+                if (wh>480){
+                    whAdjustLarge=Math.floor(0.15*wh)
+                }
+                var y = window.scrollY;
+                if (y > n13t.offsetTop-whAdjustLarge && y <= n13t.offsetTop+300){
+                    n13.style.position="fixed"
+                    n13.style.top=(n13.offsetHeight/2+whAdjustLarge)+"px"
+                    n13.style.left="50%"
+                    n13.style.transform="translate(-50%, -50%)"
+                    if (y > n13t.offsetTop-whAdjustLarge+75){
+                        vm.showDivn13 = true
+                    }
+                    if (y > n13t.offsetTop-whAdjustLarge+175){
+                        vm.showDivn13Right = true
+                    }
+                    if (y > n13t.offsetTop+150){
+                        vm.showDivn13 = false
+                    }
+                    
+                }
+                else{
+                    if(y > n13t.offsetTop+300){
+                        n13t.style.height=(whAdjustLarge+300)+"px"
+                        n13o.style.height=(1050-(whAdjustLarge+300))+"px"
+                    }
+                    else{
+                        n13t.style.height="0px"
+                        n13o.style.height="1050px"
+                    }
+                    n13.style.position=""
+                    n13.style.transform="translate(0%, 0%)"
+                    vm.showDivn13 = false
+                    vm.showDivn13Right = false
+                }
+                // 2019
+                var n19t = document.getElementById("year_2019_track")
+                var n19o = document.getElementById("year_2019_outer")
+                var n19=document.getElementById("year_2019")
+                var whAdjustLarge = 5
+                if (wh>480){
+                    whAdjustLarge=Math.floor(0.01*wh)
+                }
+                var y = window.scrollY;
+                if (y > n19t.offsetTop-whAdjustLarge && y <= n19t.offsetTop+300){
+                    n19.style.position="fixed"
+                    n19.style.top=(n19.offsetHeight/2+whAdjustLarge)+"px"
+                    n19.style.left="50%"
+                    n19.style.transform="translate(-50%, -50%)"
+                    if (y > n19t.offsetTop-whAdjustLarge+75){
+                        vm.showDivn19 = true
+                    }
+                    if (y > n19t.offsetTop-whAdjustLarge+175){
+                        vm.showDivn19Right = true
+                    }
+                    if (y > n19t.offsetTop+150){
+                        vm.showDivn19 = false
+                    }
+                    
+                }
+                else{
+                    if(y > n19t.offsetTop+300){
+                        n19t.style.height=(whAdjustLarge+300)+"px"
+                        n19o.style.height=(1150-(whAdjustLarge+300))+"px"
+                    }
+                    else{
+                        n19t.style.height="0px"
+                        n19o.style.height="1150px"
+                    }
+                    n19.style.position=""
+                    n19.style.transform="translate(0%, 0%)"
+                    vm.showDivn19 = false
+                    vm.showDivn19Right = false
+                }
+
+            };
+            window.addEventListener("scroll", myScrollFunc);
+        }
+        })
+    </script>
+        
+       
+</center>
+
+	
+
+
+  </body>
+</html>

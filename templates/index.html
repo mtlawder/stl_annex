@@ -34,92 +34,27 @@
     <br>
       <div class="container">
         <div class="row">
-          <div class="col-12 col-lg-6 left-group">
+          <div id="blog_head" class="col-12 col-lg-6 left-group">
             <div class="subsection">
               <h2 class="h_subsection"> Recent Blog Posts </h2>
               <hr class="hr-small">
             </div>
             
             <div class="left-group">
-              <div class="blog-container">
-
-                <div class="blog-title">
-                  <h3  class="blog-title-link"><a href="/blog_cptc_results">Reviewing Central Park Track Club Results</a></h3>
+              <template v-for="blog in blogs">
+                <div class="blog-container">
+                  <div class="blog-title">
+                    <h3  class="blog-title-link"><a :href="blog['URL']">{{blog["Title"]}}</a></h3>
+                  </div>
+                  <div class="blog-title blog-date">{{blog["StartDate"]}} - {{blog["Author"]}}</div>
+                  </div>
+                  <div>
+                    {{blog["RawSummary"]}}
+                    <a :href="blog['URL']">See more ...</a>
+                  </div>
                 </div>
-                <div class="blog-title blog-date">5/11/2020 - M. Lawder</div>
-              </div>
-              <div>
-                  Central Park Track Club (CPTC) has been a fixture on the New York road running scene since its founding in 1972. The club consistently ranks as one of the top clubs across the city and on any given day you can spot many runners cruising through Central Park sporting the team's maple leaf logo and orange colors.
-                <a href="/blog_cptc_results">See more ...</a>
-              </div>
-              <hr class="hr-tiny"/>
-            <div class="blog-container">
-                <div class="blog-title">
-                  <h3  class="blog-title-link"><a href="/blog_coronavirus_nj">Coronavirus in New Jersey - Numbers by County</a></h3>
-                </div>
-                <div class="blog-title blog-date">4/26/2020 - M. Lawder</div>
-              </div>
-              <div>
-                  New Jersey is currently firmed entrenched as the state with the second most COVID-19 cases after New York, pushing past 100k confirmed cases this past week. While New Jersey seems to have halted the growth of new daily cases, they have yet to see large drops in new cases like New York has been experience over the last week. New Jersey's new reported cases
-                <a href="/blog_coronavirus_nj">See more ...</a>
-              </div>
-              <hr class="hr-tiny"/>
-            <div class="blog-container">
-                <div class="blog-title">
-                  <h3  class="blog-title-link"><a href="/blog_coronavirus_april">Coronavirus in the US - Metros, County, and States (Metros only for now)</a></h3>
-                </div>
-                <div class="blog-title blog-date">First posted 4/15/2020 - M. Lawder</div>
-              </div>
-              <div>
-                  At the end of March, I put up a <a href="/blog_coronavirus_march">post looking at the very early trend of State's trend away from exponential growth</a> as stay-at-home orders and social distancing across the nation were starting to show some impact. That trend of slowing the growth rate has continued and I put up a <a href="/coronavirus_dashboard">dashboard showcasing the statistics</a> which I've been regularly updating. Now, the country has been
-                <a href="/blog_coronavirus_april">See more ...</a>
-              </div>
-              <hr class="hr-tiny"/>
-            <div class="blog-container">
-                <div class="blog-title">
-                  <h3  class="blog-title-link"><a href="/coronavirus_dashboard">Coronavirus Dashboard</a></h3>
-                </div>
-                <div class="blog-title blog-date">Started on 4/3/2020 - M. Lawder</div>
-              </div>
-              <div>
-                  I put together a series of charts looking at Nation, State, and County level COVID-19 data from The New York Times. The charts show several different ways to look at the numbers of cases and deaths from the virus and they will be updated as new data becomes available. 
-                <a href="/blog_coronavirus_march">See more ...</a>
-              </div>
-              <hr class="hr-tiny"/>
-            <div class="blog-container">
-                <div class="blog-title">
-                  <h3  class="blog-title-link"><a href="/blog_coronavirus_march">A Look at State Coronavirus Case Numbers (March 29)</a></h3>
-                </div>
-                <div class="blog-title blog-date">3/29/2020 - M. Lawder</div>
-              </div>
-              <div>
-                  There are many different news outlets and academic institutions putting out very informative data, charts, and visuals around the COVID-19 outbreak. I'm not an epidemiologist or infectious disease expert, but with so much different statistics being reported in the news, I wanted to take a look at more of the raw numbers for cases within the United States. In this blog, I'll walk through how I've looked at some of the state level data surrounding COVID-19
-                <a href="/blog_coronavirus_march">See more ...</a>
-              </div>
-              <hr class="hr-tiny"/>
-            <div class="blog-container">
-                <div class="blog-title">
-                  <h3  class="blog-title-link"><a href="/blog_stl_od">Where do Lambert's Fliers Land?: A granular look at STL's historical O&D numbers</a></h3>
-                </div>
-                <div class="blog-title blog-date">2/16/2020 - M. Lawder</div>
-              </div>
-              <div>
-                  St. Louis has had slow annual growth in the total Origin & Destination (O&D) passengers that it has generated in the last 25 year. <a href="/blog_od_ranks">Last month I looked at its growth compared to other airports</a> and saw that STL has steadily declined in airport rankings for total O&D passengers. However when looking at individual routes flying to/from Lambert, you'll see a lot of change
-                <a href="/blog_stl_od">See more ...</a>
-              </div>
-              <hr class="hr-tiny"/>
-            <div class="blog-container">
-                <div class="blog-title">
-                  <h3  class="blog-title-link"><a href="/blog_nyc_airports_od_comp">New York Airport O&D Travel: How Newark, LaGuardia, and Kennedy Differ</a></h3>
-                </div>
-                <div class="blog-title blog-date">2/1/2020 - M. Lawder</div>
-              </div>
-              <div>
-                  There are three major airports in the New York vicinity: Newark (EWR), LaGuardia (LGA) and Kennedy (JFK). There are other smaller airport's like Stewart (SWF) or further away one's like Philadelphia (PHL) that draw the occasional TriState resident, but these are the big three, combining for a total of 87.7M domestic
-                <a href="/blog_nyc_airports_od_comp">See more ...</a>
-              </div>
-              <hr class="hr-tiny"/>
-                          <hr class="hr-tiny"/>
+                <hr class="hr-tiny"/>
+              </template>
             </div>
             <div style="text-align:center">
               <a href="/all_blogs">See all blog posts</a>
@@ -212,6 +147,24 @@
     </script>
     <script src="static/components/header.vue">
     </script>
+    <script>   
+      vm = new Vue ({
+        el: '#blog_head',
+        data: {
+          blogs: []
+        },
+        created: function getBlogs() {
+          var req = new XMLHttpRequest()
+          req.open("POST",'/api/blog_return' ,true);
+          var formData = new FormData();
+          formData.append('totalPosts', 6);
+          req.send(formData)
+          req.onload=function(){
+            data=JSON.parse(this.response)
+            vm.blogs=data
+          }
+        }
+      })
     </script>
   </body>
 </html>

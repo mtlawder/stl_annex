@@ -1,0 +1,608 @@
+<html lang="en">
+  <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-142498774-1');
+	</script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@mtl_stl">
+  <meta name="twitter:creator" content="@mtl_stl">
+  <meta name="twitter:title" content="Amtrak Route Analysis">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stlannex_style.css') %>>">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stl_pop_style.css') %>>">
+    <title>STL Annex</title>
+    
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.css" type="text/css" />
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.js"></script>
+    <script src="<<% url_for('static', filename='components/menu.vue') %>>" defer>
+    </script>
+    <script src="<<% url_for('static', filename='components/header.vue') %>>" defer>
+    </script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+    <style>
+    .col-xl-4{
+      padding:0px !important;
+    }
+    .col-lg-6{
+      padding:0px !important;
+    }
+    .col-lg-12{
+      padding:0px !important;
+    }
+    .btn-group{
+      padding:5px !important;
+    }
+    .container{
+      padding:0px !important;
+      max-width:1240px;
+    }
+    .showScrollDiv{
+        position: fixed;
+        top: 30%;
+        left: 30%;
+        /* animation: fadeIn ease 5s; */
+    }
+    @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    .showScrollDivAnchored{
+
+        animation: fadeIn ease 5s;
+    }
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity 2s ease;
+    }
+    .fade-enter, .fade-leave-to {
+        opacity: 0;
+        }
+    
+
+  </style>
+  </head>
+  <body>
+    <center>
+    <div id="header-vue">
+        <header-bar></header-bar>
+    </div>
+    <div id="menu-vue">
+        <menu-bar></menu-bar>
+    </div>
+    <br>
+    <div id="amtrakMove">
+        <div class="container">
+            <div class="col-lg-2 col-md-1">
+            </div>
+            <div class="col-lg-8 col-md-10 col-sm-12 left-group">
+              
+              <br>
+              <div class="blog-container">
+                <div class="blog-title">
+                  <h3>Declining Growth - An Analysis of Amtrak Routes</h3>
+                </div>
+                <div class="blog-title blog-date">6/21/2020 - M. Lawder</div>
+              </div>
+              <br>
+            </div>
+            <div class="col-lg-2 col-md-1">
+            </div>
+        </div>
+        <div class="container">
+            <div class="col-12">
+            
+                <div class='tableauPlaceholder' id='viz1592663374630' style='position: relative'>
+                    <noscript><a href='http:&#47;&#47;www.stlannex.com&#47;'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Am&#47;AmtrakRoutes&#47;AmtrakRoutes&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='AmtrakRoutes&#47;AmtrakRoutes' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Am&#47;AmtrakRoutes&#47;AmtrakRoutes&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /><param name='filter' value='publish=yes' /></object>
+                </div>                
+                <script type='text/javascript'>
+                                    var divElement = document.getElementById('viz1592663374630'); divElement.style.maxHeight='750px';                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='1120px';vizElement.style.maxWidth='1220px';vizElement.style.width='100%';vizElement.style.minHeight='607px';vizElement.style.maxHeight='707px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='1120px';vizElement.style.maxWidth='1220px';vizElement.style.width='100%';vizElement.style.minHeight='607px';vizElement.style.height=(divElement.offsetWidth*0.95)+'px';} else { vizElement.style.width='100%';vizElement.style.height='830px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+                </script>
+            </div>
+        </div>
+        <div class="container">
+            <div class="col-lg-2 col-md-1">
+            </div>
+            <div class="col-lg-8 col-md-10 col-sm-12 left-group">
+                <p>
+                    Travel patterns can change quickly. Airlines may spin up service to a new city. A bus route might begin between poplar spots. Rentable scooter could invade a metro seemingly overnight. But Amtrak routes stay mostly the same. In 2020, Amtrak routes look almost exactly like they did in 2005 (at least they did pre-COVID-19). Frequencies may change some, but the routes themselves and locations they serve have held steady. Rail infrastructure does not allow for quick adjustments, but it still is a bit surprising the almost stopping or starting routes just has not happened much recently. The most recent change is <a href="https://www.chicagotribune.com/news/breaking/ct-biz-amtrak-hoosier-train-cut-20190430-story.html">Indiana's Hoosier State route between Indianapolis and Chicago ceasing operation last year</a>, but the Cardinal serves the same stations at three times a week now.
+                </p>
+                <p>
+                    Overall Amtrak's passenger numbers have risen slowly, but steadily over the last 16 years. But that growth has been slowing and in the case several routes ceasing altogether in the last 5 years. Let's first look at the growth. In 2003, Amtrak served 23.5M passengers and by 2019 that number had grown to 32.5M an almost 40% increase. Some routes have made huge jumps, while others have stayed more consistent. Six routes led by the Piedmont and Lincoln Service Lines more than doubled ridership over the 16 years. Only seven routes lost ridership (and remained in service). However, several of those routes have overlap with other routes that may split the ridership. For example, the Silver Star ridership dropped 46% between '03 and '19, but the Silver Meteor and Palmetto routes (which began service in 2005) cover similar stations and when combined, the overall ridership has increased. The chart below shows the passenger totals for the three routes. Similarly, the decrease in passengers on the Carolinian has been countered by an increase in Piedmont passengers covering a subset of stations in North Carolina and the loss of Ethan Allen and Adirondack riders has been at least partially made up for by Empire South increases. 
+                </p>
+                <div class="air-table" style="text-align:center;width:100%;">
+                    <div class="bk-root" id="781277bc-5c3f-4957-ab87-d4bc8a656191" data-root-id="4041" style="display:inline-block;"></div>
+                </div>
+                <br/>
+                <p>
+                    The Northeast Regional (up 52.8% since 2003) and Acela (up 51.4%) service have grown steadily and continue to be the busiest routes in Amtrak's network serving almost 4 out of every 10 passengers that Amtrak carrier (the number is even higher when you include additional routes that feed into the Northeast Corridor too). But in terms of percentage growth, the shorter state supported routes radiating from Chicago appear to be the biggest winners. Five of the top seven routes in terms of percentage of riders gained start from Chicago. 
+                </p>
+                <div>
+                    <table id="routeTable" class="table">
+                      <thead style="text-align: center;">
+                        <th>Route Name</th>
+                        <th>2019 Passengers</th>
+                        <th>% Chg ('03-'19)</th>
+                      </tr>
+                    </thead>
+                    <tbody style="text-align: center;">
+                      <tr>
+                        <td>Piedmont</td>
+                        <td>214,218</td>
+                        <td>447.0%</td>
+                      </tr>
+                      <tr>
+                        <td>Lincoln Service</td>
+                        <td>627,599</td>
+                        <td>220.9%</td>
+                      </tr>
+                      <tr>
+                        <td>Illini/Saluki</td>
+                        <td>266,972</td>
+                        <td>160.0%</td>
+                      </tr>
+                      <tr>
+                        <td>Blue Water</td>
+                        <td>181,832</td>
+                        <td>124.8%</td>
+                      </tr>
+                      <tr>
+                        <td>Downeaster</td>
+                        <td>557,248</td>
+                        <td>119.4%</td>
+                      </tr>
+                      <tr>
+                        <td>Hiawatha</td>
+                        <td>882,189</td>
+                        <td>111.4%</td>
+                      </tr>
+                      <tr>
+                        <td>Illinois Zephyr/Carl Sandburg</td>
+                        <td>192,616</td>
+                        <td>85.3%</td>
+                      </tr>
+                      <tr>
+                        <td>Keystone</td>
+                        <td>1,575,959</td>
+                        <td>77.9%</td>
+                      </tr>
+                      <tr>
+                        <td>Pennsylvanian</td>
+                        <td>215,081</td>
+                        <td>72.9%</td>
+                      </tr>
+                      <tr>
+                        <td>Capitol Corridor</td>
+                        <td>1,777,136</td>
+                        <td>56.0%</td>
+                      </tr>
+                        <tr v-show="showAllChart">
+                            <td>Wolverine</td>
+                            <td>501,124</td>
+                            <td>53.5%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Northeast Regional</td>
+                            <td>8,940,745</td>
+                            <td>52.8%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Acela</td>
+                            <td>3,577,455</td>
+                            <td>51.4%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Cardinal</td>
+                            <td>108,935</td>
+                            <td>50.8%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Texas Eagle</td>
+                            <td>321,694</td>
+                            <td>50.1%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Heartland Flyer</td>
+                            <td>68,744</td>
+                            <td>47.5%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Cascades</td>
+                            <td>828,247</td>
+                            <td>40.4%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>San Joaquins</td>
+                            <td>1,071,190</td>
+                            <td>36.8%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Capitol Limited</td>
+                            <td>209,578</td>
+                            <td>36.1%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Lake Shore Limited</td>
+                            <td>357,682</td>
+                            <td>34.6%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Pere Marquette</td>
+                            <td>97,593</td>
+                            <td>33.0%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>City of New Orleans</td>
+                            <td>235,670</td>
+                            <td>29.6%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Pacific Surfliner</td>
+                            <td>2,776,654</td>
+                            <td>27.4%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>California Zephyr</td>
+                            <td>410,844</td>
+                            <td>27.0%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Southwest Chief</td>
+                            <td>338,180</td>
+                            <td>23.8%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Auto Train</td>
+                            <td>236,041</td>
+                            <td>18.1%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Crescent</td>
+                            <td>295,180</td>
+                            <td>15.5%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Empire South</td>
+                            <td>1,214,206</td>
+                            <td>12.2%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Three Rivers</td>
+                            <td>nan</td>
+                            <td>11.4%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Missouri River Runner</td>
+                            <td>154,417</td>
+                            <td>10.4%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Hoosier State</td>
+                            <td>20,853</td>
+                            <td>8.7%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Empire Builder</td>
+                            <td>433,372</td>
+                            <td>4.2%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Clocker</td>
+                            <td>nan</td>
+                            <td>-0.6%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Coast Starlight</td>
+                            <td>426,029</td>
+                            <td>-4.1%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Adirondack</td>
+                            <td>117,490</td>
+                            <td>-10.6%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Sunset Limited</td>
+                            <td>92,827</td>
+                            <td>-11.6%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Carolinian</td>
+                            <td>244,779</td>
+                            <td>-23.9%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Silver Star</td>
+                            <td>389,995</td>
+                            <td>-46.3%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Ethan Allen</td>
+                            <td>50,515</td>
+                            <td>-53.9%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Vermonter</td>
+                            <td>99,280</td>
+                            <td>-61.8%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Special Trains</td>
+                            <td>7,402</td>
+                            <td>-93.2%</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Washington-Richmond VA</td>
+                            <td>128,651</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Washington-Norfolk VA</td>
+                            <td>239,929</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>New Haven-Springfield</td>
+                            <td>362,442</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Empire West (Maple Leaf)</td>
+                            <td>390,355</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Washington-Newport News VA</td>
+                            <td>335,227</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Washington-Lynchburg/Roanoke VA</td>
+                            <td>220,850</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Palmetto</td>
+                            <td>345,342</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Silver Meteor</td>
+                            <td>353,466</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr v-show="showAllChart">
+                            <td>Special Trains non NEC</td>
+                            <td>25,408</td>
+                            <td>N/A</td>
+                        </tr>
+                    </tbody>
+                  </table>
+                  <div style="text-align: center;width:100%">
+                    <button v-on:click="showAllChart=true" v-show="!showAllChart">Show All Routes</button>
+                    <button v-on:click="showAllChart=false" v-show="showAllChart">Show Less</button>
+                  </div>
+            </div>
+            <br/>
+                <p>
+                    The Lincoln service between Chicago and St. Louis stands out for both its successful growth in ridership pushed by increased frequency of service in the early 2000's and also its stagnant ridership levels as it has tried to become a high speed corridor. In 2006, the Chicago-St. Louis route was <a href="https://web.archive.org/web/20070311053729/http://www.amtrak.com/servlet/ContentServer?pagename=Amtrak/am2Copy/News_Release_Popup&;c=am2Copy&cid=1093554067341">officially branded the <i>Lincoln Service</i> and frequency went from 2 trains per day to 4 trains per day </a>. The increased frequencies helped to boost traffic and grew from 242k to 572k (138% increases) between 2005 and 2010. The Lincoln Service even grew a solid 6% in 2009, one of only 9 routes that had growth during one of the worst years of the recession. Building on that growth, a <a href="https://www.stltoday.com/news/local/govt-and-politics/6f7667a4-c2ab-11df-b34d-0017a4a78c22.html">massive $1.2B infrastructure project was announced in 2010</a> to <a href="https://www.idothsr.org/about/overview.aspx">upgrade track, stations, and service to allow 110 mph trains between St. Louis and Chicago</a> reducing travel times and increasing on-time performance.
+                </p>
+                <p>
+                    However ten years later, trains have still not consistently reached the 110mph speed envisioned at the start of the project. Costs for the project are at <a href="https://www.stltoday.com/news/local/govt-and-politics/faster-speeds-on-amtrak-route-to-chicago-delayed-again/article_bb97c7e0-2c9e-583a-8efb-aed367a558f1.html">almost $2B now, and short term target are only for 90mph speeds on most of the tracks</a>. Passenger numbers over the since 2010 have been mostly flat with a few up years and a few down years. Ridership stood at 627k passengers in 2019, up slightly from 2010, but down from it's peak of 655k in 2013. The other state supported routes from Chicago show a similar trend with growth between 2003 and 2013, but have stagnated since then. Below are the route numbers for the seven Chicago state supported routes.
+                </p>
+                <div class="air-table" style="text-align:center;width:100%;">
+                    <div class="bk-root" id="9e5a7ad4-9f83-4a27-ae1a-3bf9ea6a4e4c" data-root-id="5526" style="display:inline-block;"></div>
+                </div>
+                <br/>
+                <p>
+                   When looking at only the last 5 years, the results for Amtrak are much more mixed (mirroring the Lincoln Service example above) with 21 routes seeing ridership decline and 26 showing an increase and most of the increases are in the single digits. Total ridership is up only 5% in in the last five years. Many routes that had gained many passengers from 2003 to 2014, have seen ridership growth slow or in many case decline over the past five years. There could be many different reasons for the leveling off of riders, but a common refrain is that America's rail infrastructure that Amtrak runs on has been deteriorating for many years and that <a href="https://www.nytimes.com/2015/05/14/upshot/amtrak-crash-and-americas-declining-construction-spending.html">recently there has been little appetite to fund improvements</a>. Other factors like cheaper airfare and improved intercity bus service would not seem to help Amtrak either, but hopefully the organization can find a way to continue delivering quality service and lure new passengers. The recent issues of COVID will cause drastic ridership drops and the landscape for Amtrak could be drastically altered over the next year or two. Hopefully when riders return Amtrak can start ramping up growth again.
+                </p>
+                <div class="air-table" style="text-align:center;width:100%;">
+                    <div class="bk-root" id="f66fb953-596c-4032-8c63-55d527afac05" data-root-id="9157" style="display:inline-block;"></div>
+                    <br/>
+                    <i>Comparing Amtrak route growth, the x-axis shows % growth over the entire timeperiod studied (2003-2019) and the y-axis looks only at the last 5 years. Cirle size is based on 2019 Passengers and Color is based on what region that route serves (several routes cover multiple regions, but I chose where I felt it fit best).</i>
+                </div>
+                <br/>
+                <p>
+                    To dig more into the individual routes, I suggest interacting with the Tableau Dashboard at the top of the article. Hover over routes or the stacked area chart to see which routes have had the most passengers and what areas each route serves.
+                </p>
+                <hr/>
+                <p>
+                    <i>Editor's Note: I have wanted to do a post on Amtrak for some time, but kept pushing it off because individual route data was not available in an aggregated and easy to use format. Finally I decided to just go through the full cleaning and transforming process to create the aggregated set I envisioned should be available. By pulling yearly and sometime monthly reports containing yearly statistics, I was able to piece together route data all the way back to 2003. The data was spread across nine different documents (all of which were pdfs and needed significant individual parsing) which I obtained from several different sources and even had to use the internet archive to find a few of the older ones. Of course the route names and document formats change slightly, so there was also a part automated, part manual transformation and linking process. It took a bit of time, but now I have a nice set of Yearly route data from 2003-2019. If anyone else has been looking for a similar data set, email me at matt@stlannex.com and I can share.</i>
+                </p>
+          </div>
+          <div class="col-lg-2 col-md-1">
+          </div>
+          <hr/>
+        </div>
+    </div>
+
+    <script type="application/json" id="4196">
+        {"d371df81-216d-47c6-bcf6-1be275181e3d":{"roots":{"references":[{"attributes":{},"id":"4046","type":"LinearScale"},{"attributes":{"dimension":1,"ticker":{"id":"4056","type":"BasicTicker"}},"id":"4059","type":"Grid"},{"attributes":{"formatter":{"id":"4078","type":"BasicTickFormatter"},"ticker":{"id":"4051","type":"BasicTicker"}},"id":"4050","type":"LinearAxis"},{"attributes":{"fill_alpha":0.1,"fill_color":"#1f77b4","x":{"field":"year"},"y1":{"expr":{"id":"4065","type":"Stack"}},"y2":{"expr":{"id":"4066","type":"Stack"}}},"id":"4084","type":"VArea"},{"attributes":{"axis_label":"Yearly Passengers","formatter":{"id":"4110","type":"NumeralTickFormatter"},"ticker":{"id":"4056","type":"BasicTicker"}},"id":"4055","type":"LinearAxis"},{"attributes":{"source":{"id":"4040","type":"ColumnDataSource"}},"id":"4100","type":"CDSView"},{"attributes":{"text":""},"id":"4074","type":"Title"},{"attributes":{"label":{"value":"Palmetto"},"renderers":[{"id":"4099","type":"GlyphRenderer"}]},"id":"4109","type":"LegendItem"},{"attributes":{"fields":["star"]},"id":"4064","type":"Stack"},{"attributes":{"fields":["star","meteor"]},"id":"4067","type":"Stack"},{"attributes":{"callback":null,"end":2019,"start":2003},"id":"4042","type":"Range1d"},{"attributes":{"data_source":{"id":"4040","type":"ColumnDataSource"},"glyph":{"id":"4097","type":"VArea"},"hover_glyph":null,"muted_glyph":null,"name":"palmetto","nonselection_glyph":{"id":"4098","type":"VArea"},"selection_glyph":null,"view":{"id":"4100","type":"CDSView"}},"id":"4099","type":"GlyphRenderer"},{"attributes":{"source":{"id":"4040","type":"ColumnDataSource"}},"id":"4086","type":"CDSView"},{"attributes":{"format":"0a"},"id":"4110","type":"NumeralTickFormatter"},{"attributes":{"data_source":{"id":"4040","type":"ColumnDataSource"},"glyph":{"id":"4083","type":"VArea"},"hover_glyph":null,"muted_glyph":null,"name":"meteor","nonselection_glyph":{"id":"4084","type":"VArea"},"selection_glyph":null,"view":{"id":"4086","type":"CDSView"}},"id":"4085","type":"GlyphRenderer"},{"attributes":{"fields":["star","meteor"]},"id":"4066","type":"Stack"},{"attributes":{"fill_alpha":0.5,"fill_color":"red","x":{"field":"year"},"y1":{"expr":{"id":"4065","type":"Stack"}},"y2":{"expr":{"id":"4066","type":"Stack"}}},"id":"4083","type":"VArea"},{"attributes":{"fields":[]},"id":"4063","type":"Stack"},{"attributes":{},"id":"4051","type":"BasicTicker"},{"attributes":{"label":{"value":"Silver Star"},"renderers":[{"id":"4072","type":"GlyphRenderer"}]},"id":"4081","type":"LegendItem"},{"attributes":{},"id":"4056","type":"BasicTicker"},{"attributes":{"callback":null,"data":{"meteor":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAkmxFBAAAAALynEEEAAAAAXM4RQQAAAAB0hBNBAAAAALgvFEEAAAAAeIAVQQAAAAAgzRZBAAAAAPDlFkEAAAAAqMYWQQAAAACURhVBAAAAAMQfFUEAAAAA4LAUQQAAAAAg0BRBAAAAAPyRFEEAAAAA6JIVQQ==","dtype":"float64","shape":[17]},"palmetto":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAABocABBAAAAABjVAUEAAAAAMCoDQQAAAADoOwVBAAAAAKDpBEEAAAAA4CAHQQAAAAA4BAhBAAAAAKAzCEEAAAAAWGEJQQAAAAAAzQhBAAAAACh4CUEAAAAAIEEXQQAAAAAA7RdBAAAAADytF0EAAAAA+BMVQQ==","dtype":"float64","shape":[17]},"star":{"__ndarray__":"AAAAAHgrJkEAAAAAgocmQQAAAAB0DBJBAAAAAFQDE0EAAAAAsBYUQQAAAACMaBZBAAAAAIyoFkEAAAAAyAUYQQAAAAAo5xlBAAAAAAj9GUEAAAAA9EUZQQAAAAD8whhBAAAAAMxlF0EAAAAAgDcWQQAAAAAgxBZBAAAAABh+FkEAAAAArM0XQQ==","dtype":"float64","shape":[17]},"year":[2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019]},"selected":{"id":"4093","type":"Selection"},"selection_policy":{"id":"4094","type":"UnionRenderers"}},"id":"4040","type":"ColumnDataSource"},{"attributes":{"fill_alpha":0.1,"fill_color":"#1f77b4","x":{"field":"year"},"y1":{"expr":{"id":"4067","type":"Stack"}},"y2":{"expr":{"id":"4068","type":"Stack"}}},"id":"4098","type":"VArea"},{"attributes":{"items":[{"id":"4081","type":"LegendItem"},{"id":"4095","type":"LegendItem"},{"id":"4109","type":"LegendItem"}],"location":"top_left"},"id":"4080","type":"Legend"},{"attributes":{"fields":["star","meteor","palmetto"]},"id":"4068","type":"Stack"},{"attributes":{"source":{"id":"4040","type":"ColumnDataSource"}},"id":"4073","type":"CDSView"},{"attributes":{"fill_alpha":0.5,"fill_color":"green","x":{"field":"year"},"y1":{"expr":{"id":"4067","type":"Stack"}},"y2":{"expr":{"id":"4068","type":"Stack"}}},"id":"4097","type":"VArea"},{"attributes":{},"id":"4093","type":"Selection"},{"attributes":{"ticker":{"id":"4051","type":"BasicTicker"}},"id":"4054","type":"Grid"},{"attributes":{"background_fill_alpha":{"value":0},"below":[{"id":"4050","type":"LinearAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"4054","type":"Grid"},{"id":"4059","type":"Grid"},{"id":"4080","type":"Legend"}],"left":[{"id":"4055","type":"LinearAxis"}],"plot_height":350,"plot_width":550,"renderers":[{"id":"4072","type":"GlyphRenderer"},{"id":"4085","type":"GlyphRenderer"},{"id":"4099","type":"GlyphRenderer"}],"title":{"id":"4074","type":"Title"},"toolbar":{"id":"4061","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"4042","type":"Range1d"},"x_scale":{"id":"4046","type":"LinearScale"},"y_range":{"id":"4044","type":"DataRange1d"},"y_scale":{"id":"4048","type":"LinearScale"}},"id":"4041","subtype":"Figure","type":"Plot"},{"attributes":{"label":{"value":"Silver Meteor"},"renderers":[{"id":"4085","type":"GlyphRenderer"}]},"id":"4095","type":"LegendItem"},{"attributes":{},"id":"4094","type":"UnionRenderers"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"4060","type":"ResetTool"}]},"id":"4061","type":"Toolbar"},{"attributes":{"fill_alpha":0.5,"fill_color":"blue","x":{"field":"year"},"y1":{"expr":{"id":"4063","type":"Stack"}},"y2":{"expr":{"id":"4064","type":"Stack"}}},"id":"4070","type":"VArea"},{"attributes":{"fields":["star"]},"id":"4065","type":"Stack"},{"attributes":{"callback":null},"id":"4044","type":"DataRange1d"},{"attributes":{},"id":"4060","type":"ResetTool"},{"attributes":{},"id":"4078","type":"BasicTickFormatter"},{"attributes":{},"id":"4048","type":"LinearScale"},{"attributes":{"data_source":{"id":"4040","type":"ColumnDataSource"},"glyph":{"id":"4070","type":"VArea"},"hover_glyph":null,"muted_glyph":null,"name":"star","nonselection_glyph":{"id":"4071","type":"VArea"},"selection_glyph":null,"view":{"id":"4073","type":"CDSView"}},"id":"4072","type":"GlyphRenderer"},{"attributes":{"fill_alpha":0.1,"fill_color":"#1f77b4","x":{"field":"year"},"y1":{"expr":{"id":"4063","type":"Stack"}},"y2":{"expr":{"id":"4064","type":"Stack"}}},"id":"4071","type":"VArea"}],"root_ids":["4041"]},"title":"Bokeh Application","version":"1.4.0"}}
+      </script>
+      <script type="text/javascript">
+        (function() {
+          var fn = function() {
+            Bokeh.safely(function() {
+              (function(root) {
+                function embed_document(root) {
+                  
+                var docs_json = document.getElementById('4196').textContent;
+                var render_items = [{"docid":"d371df81-216d-47c6-bcf6-1be275181e3d","roots":{"4041":"781277bc-5c3f-4957-ab87-d4bc8a656191"}}];
+                root.Bokeh.embed.embed_items(docs_json, render_items);
+              
+                }
+                if (root.Bokeh !== undefined) {
+                  embed_document(root);
+                } else {
+                  var attempts = 0;
+                  var timer = setInterval(function(root) {
+                    if (root.Bokeh !== undefined) {
+                      clearInterval(timer);
+                      embed_document(root);
+                    } else {
+                      attempts++;
+                      if (attempts > 100) {
+                        clearInterval(timer);
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                      }
+                    }
+                  }, 10, root)
+                }
+              })(window);
+            });
+          };
+          if (document.readyState != "loading") fn();
+          else document.addEventListener("DOMContentLoaded", fn);
+        })();
+      </script>
+        <script type="application/json" id="5745">
+            {"c9e1b69b-2bfa-43ee-a82a-aa813ef324f9":{"roots":{"references":[{"attributes":{"fill_alpha":0.1,"fill_color":"#1f77b4","x":{"field":"year"},"y1":{"expr":{"id":"5556","type":"Stack"}},"y2":{"expr":{"id":"5557","type":"Stack"}}},"id":"5619","type":"VArea"},{"attributes":{},"id":"5571","type":"BasicTickFormatter"},{"attributes":{"fields":["star","meteor","palmetto","star2","meteor2"]},"id":"5558","type":"Stack"},{"attributes":{"fill_alpha":0.5,"fill_color":"#d62728","x":{"field":"year"},"y1":{"expr":{"id":"5554","type":"Stack"}},"y2":{"expr":{"id":"5555","type":"Stack"}}},"id":"5604","type":"VArea"},{"attributes":{},"id":"5587","type":"UnionRenderers"},{"attributes":{"data_source":{"id":"5525","type":"ColumnDataSource"},"glyph":{"id":"5576","type":"VArea"},"hover_glyph":null,"muted_glyph":null,"name":"meteor","nonselection_glyph":{"id":"5577","type":"VArea"},"selection_glyph":null,"view":{"id":"5579","type":"CDSView"}},"id":"5578","type":"GlyphRenderer"},{"attributes":{"fields":["star","meteor","palmetto","star2"]},"id":"5555","type":"Stack"},{"attributes":{"fill_alpha":0.5,"fill_color":"#9467bd","x":{"field":"year"},"y1":{"expr":{"id":"5556","type":"Stack"}},"y2":{"expr":{"id":"5557","type":"Stack"}}},"id":"5618","type":"VArea"},{"attributes":{},"id":"5586","type":"Selection"},{"attributes":{"fields":["star","meteor","palmetto"]},"id":"5554","type":"Stack"},{"attributes":{"axis_label":"Yearly Passengers","formatter":{"id":"5659","type":"NumeralTickFormatter"},"ticker":{"id":"5541","type":"BasicTicker"}},"id":"5540","type":"LinearAxis"},{"attributes":{"source":{"id":"5525","type":"ColumnDataSource"}},"id":"5593","type":"CDSView"},{"attributes":{},"id":"5531","type":"LinearScale"},{"attributes":{"formatter":{"id":"5571","type":"BasicTickFormatter"},"ticker":{"id":"5536","type":"BasicTicker"}},"id":"5535","type":"LinearAxis"},{"attributes":{"fields":["star","meteor"]},"id":"5552","type":"Stack"},{"attributes":{"format":"0.0a"},"id":"5659","type":"NumeralTickFormatter"},{"attributes":{"fill_alpha":0.1,"fill_color":"#1f77b4","x":{"field":"year"},"y1":{"expr":{"id":"5550","type":"Stack"}},"y2":{"expr":{"id":"5551","type":"Stack"}}},"id":"5577","type":"VArea"},{"attributes":{"label":{"value":"Ill Zephyr (CS)"},"renderers":[{"id":"5606","type":"GlyphRenderer"}]},"id":"5616","type":"LegendItem"},{"attributes":{"callback":null,"end":2019,"start":2003},"id":"5527","type":"Range1d"},{"attributes":{"fill_alpha":0.1,"fill_color":"#1f77b4","x":{"field":"year"},"y1":{"expr":{"id":"5558","type":"Stack"}},"y2":{"expr":{"id":"5559","type":"Stack"}}},"id":"5633","type":"VArea"},{"attributes":{"fields":["star","meteor","palmetto","star2","meteor2","palmetto2"]},"id":"5560","type":"Stack"},{"attributes":{"label":{"value":"Wolverine"},"renderers":[{"id":"5648","type":"GlyphRenderer"}]},"id":"5658","type":"LegendItem"},{"attributes":{"fields":["star"]},"id":"5550","type":"Stack"},{"attributes":{"fill_alpha":0.5,"fill_color":"#ff7f0e","x":{"field":"year"},"y1":{"expr":{"id":"5550","type":"Stack"}},"y2":{"expr":{"id":"5551","type":"Stack"}}},"id":"5576","type":"VArea"},{"attributes":{"source":{"id":"5525","type":"ColumnDataSource"}},"id":"5635","type":"CDSView"},{"attributes":{"data_source":{"id":"5525","type":"ColumnDataSource"},"glyph":{"id":"5632","type":"VArea"},"hover_glyph":null,"muted_glyph":null,"name":"palmetto2","nonselection_glyph":{"id":"5633","type":"VArea"},"selection_glyph":null,"view":{"id":"5635","type":"CDSView"}},"id":"5634","type":"GlyphRenderer"},{"attributes":{"items":[{"id":"5574","type":"LegendItem"},{"id":"5588","type":"LegendItem"},{"id":"5602","type":"LegendItem"},{"id":"5616","type":"LegendItem"},{"id":"5630","type":"LegendItem"},{"id":"5644","type":"LegendItem"},{"id":"5658","type":"LegendItem"}],"location":"top_left"},"id":"5573","type":"Legend"},{"attributes":{"fields":["star","meteor"]},"id":"5551","type":"Stack"},{"attributes":{"fields":["star","meteor","palmetto","star2"]},"id":"5556","type":"Stack"},{"attributes":{"fill_alpha":0.5,"fill_color":"#8c564b","x":{"field":"year"},"y1":{"expr":{"id":"5558","type":"Stack"}},"y2":{"expr":{"id":"5559","type":"Stack"}}},"id":"5632","type":"VArea"},{"attributes":{"data_source":{"id":"5525","type":"ColumnDataSource"},"glyph":{"id":"5590","type":"VArea"},"hover_glyph":null,"muted_glyph":null,"name":"palmetto","nonselection_glyph":{"id":"5591","type":"VArea"},"selection_glyph":null,"view":{"id":"5593","type":"CDSView"}},"id":"5592","type":"GlyphRenderer"},{"attributes":{"source":{"id":"5525","type":"ColumnDataSource"}},"id":"5579","type":"CDSView"},{"attributes":{},"id":"5545","type":"ResetTool"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"5545","type":"ResetTool"}]},"id":"5546","type":"Toolbar"},{"attributes":{"background_fill_alpha":{"value":0},"below":[{"id":"5535","type":"LinearAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"5539","type":"Grid"},{"id":"5544","type":"Grid"},{"id":"5573","type":"Legend"}],"left":[{"id":"5540","type":"LinearAxis"}],"plot_height":350,"plot_width":550,"renderers":[{"id":"5565","type":"GlyphRenderer"},{"id":"5578","type":"GlyphRenderer"},{"id":"5592","type":"GlyphRenderer"},{"id":"5606","type":"GlyphRenderer"},{"id":"5620","type":"GlyphRenderer"},{"id":"5634","type":"GlyphRenderer"},{"id":"5648","type":"GlyphRenderer"}],"title":{"id":"5567","type":"Title"},"toolbar":{"id":"5546","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"5527","type":"Range1d"},"x_scale":{"id":"5531","type":"LinearScale"},"y_range":{"id":"5529","type":"Range1d"},"y_scale":{"id":"5533","type":"LinearScale"}},"id":"5526","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"5541","type":"BasicTicker"},{"attributes":{"data_source":{"id":"5525","type":"ColumnDataSource"},"glyph":{"id":"5604","type":"VArea"},"hover_glyph":null,"muted_glyph":null,"name":"star2","nonselection_glyph":{"id":"5605","type":"VArea"},"selection_glyph":null,"view":{"id":"5607","type":"CDSView"}},"id":"5606","type":"GlyphRenderer"},{"attributes":{"dimension":1,"ticker":{"id":"5541","type":"BasicTicker"}},"id":"5544","type":"Grid"},{"attributes":{"callback":null,"end":3500000},"id":"5529","type":"Range1d"},{"attributes":{"ticker":{"id":"5536","type":"BasicTicker"}},"id":"5539","type":"Grid"},{"attributes":{"source":{"id":"5525","type":"ColumnDataSource"}},"id":"5607","type":"CDSView"},{"attributes":{"label":{"value":"Illini/Saluki"},"renderers":[{"id":"5620","type":"GlyphRenderer"}]},"id":"5630","type":"LegendItem"},{"attributes":{"fields":[]},"id":"5548","type":"Stack"},{"attributes":{"fill_alpha":0.1,"fill_color":"#1f77b4","x":{"field":"year"},"y1":{"expr":{"id":"5560","type":"Stack"}},"y2":{"expr":{"id":"5561","type":"Stack"}}},"id":"5647","type":"VArea"},{"attributes":{},"id":"5536","type":"BasicTicker"},{"attributes":{"fill_alpha":0.1,"fill_color":"#1f77b4","x":{"field":"year"},"y1":{"expr":{"id":"5552","type":"Stack"}},"y2":{"expr":{"id":"5553","type":"Stack"}}},"id":"5591","type":"VArea"},{"attributes":{"text":""},"id":"5567","type":"Title"},{"attributes":{"fill_alpha":0.1,"fill_color":"#1f77b4","x":{"field":"year"},"y1":{"expr":{"id":"5554","type":"Stack"}},"y2":{"expr":{"id":"5555","type":"Stack"}}},"id":"5605","type":"VArea"},{"attributes":{"fields":["star"]},"id":"5549","type":"Stack"},{"attributes":{"data_source":{"id":"5525","type":"ColumnDataSource"},"glyph":{"id":"5618","type":"VArea"},"hover_glyph":null,"muted_glyph":null,"name":"meteor2","nonselection_glyph":{"id":"5619","type":"VArea"},"selection_glyph":null,"view":{"id":"5621","type":"CDSView"}},"id":"5620","type":"GlyphRenderer"},{"attributes":{"data_source":{"id":"5525","type":"ColumnDataSource"},"glyph":{"id":"5646","type":"VArea"},"hover_glyph":null,"muted_glyph":null,"name":"palmetto3","nonselection_glyph":{"id":"5647","type":"VArea"},"selection_glyph":null,"view":{"id":"5649","type":"CDSView"}},"id":"5648","type":"GlyphRenderer"},{"attributes":{"label":{"value":"Lincoln Service"},"renderers":[{"id":"5565","type":"GlyphRenderer"}]},"id":"5574","type":"LegendItem"},{"attributes":{"data_source":{"id":"5525","type":"ColumnDataSource"},"glyph":{"id":"5563","type":"VArea"},"hover_glyph":null,"muted_glyph":null,"name":"star","nonselection_glyph":{"id":"5564","type":"VArea"},"selection_glyph":null,"view":{"id":"5566","type":"CDSView"}},"id":"5565","type":"GlyphRenderer"},{"attributes":{"label":{"value":"Hiawatha"},"renderers":[{"id":"5592","type":"GlyphRenderer"}]},"id":"5602","type":"LegendItem"},{"attributes":{"source":{"id":"5525","type":"ColumnDataSource"}},"id":"5649","type":"CDSView"},{"attributes":{"fields":["star","meteor","palmetto","star2","meteor2","palmetto2","palmetto3"]},"id":"5561","type":"Stack"},{"attributes":{},"id":"5533","type":"LinearScale"},{"attributes":{"fill_alpha":0.1,"fill_color":"#1f77b4","x":{"field":"year"},"y1":{"expr":{"id":"5548","type":"Stack"}},"y2":{"expr":{"id":"5549","type":"Stack"}}},"id":"5564","type":"VArea"},{"attributes":{"callback":null,"data":{"meteor":{"__ndarray__":"AAAAAADr8UAAAAAAcG31QAAAAABwjfdAAAAAAMDi+EAAAAAAMJf5QAAAAABARvtAAAAAAOA0+UAAAAAAMOH4QAAAAABgCvpAAAAAAJCw+kAAAAAAsIL5QAAAAAAQpvhAAAAAAPBj90AAAAAAAPn1QAAAAACAtPZAAAAAAEBT90AAAAAAkNP3QA==","dtype":"float64","shape":[17]},"meteor2":{"__ndarray__":"AAAAAMAR+UAAAAAAEKj7QAAAAAAANP9AAAAAAACuAEEAAAAAuOoLQQAAAACoixBBAAAAAHCxD0EAAAAAmCsQQQAAAAAMGxNBAAAAABzaE0EAAAAAFMwUQQAAAADsSBNBAAAAAGzVEUEAAAAAgPsPQQAAAADAow5BAAAAAKADDkEAAAAAcEsQQQ==","dtype":"float64","shape":[17]},"palmetto":{"__ndarray__":"AAAAAFh5GUEAAAAAOBocQQAAAABuByBBAAAAANq1IUEAAAAAECsiQQAAAAC24CZBAAAAAG6HJkEAAAAAqOUnQQAAAABKAilBAAAAAKaVKUEAAAAAagwpQQAAAAAsZyhBAAAAAE5kKEEAAAAAgKgoQQAAAACQTClBAAAAANjEKUEAAAAAGuwqQQ==","dtype":"float64","shape":[17]},"palmetto2":{"__ndarray__":"AAAAAKC/80AAAAAAoAr3QAAAAADgQPtAAAAAAPA6/kAAAAAAoCn/QAAAAADQqgBBAAAAAJg3AEEAAAAAaEADQQAAAADI1QZBAAAAAEgYB0EAAAAAEFQHQQAAAAD4VwdBAAAAAEgMBkEAAAAAwFYGQQAAAACAtAZBAAAAAOCVBkEAAAAAQDIGQQ==","dtype":"float64","shape":[17]},"palmetto3":{"__ndarray__":"AAAAAHzrE0EAAAAATFsWQQAAAACMzxhBAAAAAATEGkEAAAAATGkbQQAAAAAk1RxBAAAAAHwbG0EAAAAAmEgdQQAAAADotx5BAAAAAKiMHUEAAAAAsBIfQQAAAACUHx1BAAAAAGxrHEEAAAAAgCUZQQAAAADgAxxBAAAAAFiFHUEAAAAAEJYeQQ==","dtype":"float64","shape":[17]},"star":{"__ndarray__":"AAAAAHjgB0EAAAAAOAAKQQAAAAAAjw1BAAAAAMACEEEAAAAAnPMYQQAAAAAsFB1BAAAAAOzlHkEAAAAAEHghQQAAAACyxCBBAAAAAB48IkEAAAAA0gAkQQAAAAB2VSNBAAAAAIKZIUEAAAAAEMEgQQAAAABgASJBAAAAAGzjIUEAAAAAHicjQQ==","dtype":"float64","shape":[17]},"star2":{"__ndarray__":"AAAAAEBf+UAAAAAAgJP6QAAAAADQ7fxAAAAAAHA6/UAAAAAAUKkEQQAAAADwwQhBAAAAAPC5CEEAAAAA0JEJQQAAAAAAVgtBAAAAAIBkDEEAAAAAkOsLQQAAAAA4PQpBAAAAAAiCCUEAAAAAgKgIQQAAAAAA5whBAAAAAOBjB0EAAAAAQIMHQQ==","dtype":"float64","shape":[17]},"year":[2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019]},"selected":{"id":"5586","type":"Selection"},"selection_policy":{"id":"5587","type":"UnionRenderers"}},"id":"5525","type":"ColumnDataSource"},{"attributes":{"fill_alpha":0.5,"fill_color":"#e377c2","x":{"field":"year"},"y1":{"expr":{"id":"5560","type":"Stack"}},"y2":{"expr":{"id":"5561","type":"Stack"}}},"id":"5646","type":"VArea"},{"attributes":{"label":{"value":"Blue Water"},"renderers":[{"id":"5634","type":"GlyphRenderer"}]},"id":"5644","type":"LegendItem"},{"attributes":{"fields":["star","meteor","palmetto","star2","meteor2"]},"id":"5557","type":"Stack"},{"attributes":{"fill_alpha":0.5,"fill_color":"#1f77b4","x":{"field":"year"},"y1":{"expr":{"id":"5548","type":"Stack"}},"y2":{"expr":{"id":"5549","type":"Stack"}}},"id":"5563","type":"VArea"},{"attributes":{"fields":["star","meteor","palmetto","star2","meteor2","palmetto2"]},"id":"5559","type":"Stack"},{"attributes":{"source":{"id":"5525","type":"ColumnDataSource"}},"id":"5566","type":"CDSView"},{"attributes":{"fill_alpha":0.5,"fill_color":"#2ca02c","x":{"field":"year"},"y1":{"expr":{"id":"5552","type":"Stack"}},"y2":{"expr":{"id":"5553","type":"Stack"}}},"id":"5590","type":"VArea"},{"attributes":{"source":{"id":"5525","type":"ColumnDataSource"}},"id":"5621","type":"CDSView"},{"attributes":{"label":{"value":"Pere Marquette"},"renderers":[{"id":"5578","type":"GlyphRenderer"}]},"id":"5588","type":"LegendItem"},{"attributes":{"fields":["star","meteor","palmetto"]},"id":"5553","type":"Stack"}],"root_ids":["5526"]},"title":"Bokeh Application","version":"1.4.0"}}
+          </script>
+          <script type="text/javascript">
+            (function() {
+              var fn = function() {
+                Bokeh.safely(function() {
+                  (function(root) {
+                    function embed_document(root) {
+                      
+                    var docs_json = document.getElementById('5745').textContent;
+                    var render_items = [{"docid":"c9e1b69b-2bfa-43ee-a82a-aa813ef324f9","roots":{"5526":"9e5a7ad4-9f83-4a27-ae1a-3bf9ea6a4e4c"}}];
+                    root.Bokeh.embed.embed_items(docs_json, render_items);
+                  
+                    }
+                    if (root.Bokeh !== undefined) {
+                      embed_document(root);
+                    } else {
+                      var attempts = 0;
+                      var timer = setInterval(function(root) {
+                        if (root.Bokeh !== undefined) {
+                          clearInterval(timer);
+                          embed_document(root);
+                        } else {
+                          attempts++;
+                          if (attempts > 100) {
+                            clearInterval(timer);
+                            console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                          }
+                        }
+                      }, 10, root)
+                    }
+                  })(window);
+                });
+              };
+              if (document.readyState != "loading") fn();
+              else document.addEventListener("DOMContentLoaded", fn);
+            })();
+          </script>
+          <script type="application/json" id="9271">
+            {"b0e3b1ab-d5d5-427c-a2fa-27eb38f0cbdf":{"roots":{"references":[{"attributes":{},"id":"9167","type":"BasicTicker"},{"attributes":{"background_fill_alpha":{"value":0},"below":[{"id":"9166","type":"LinearAxis"}],"border_fill_alpha":{"value":0},"center":[{"id":"9170","type":"Grid"},{"id":"9175","type":"Grid"},{"id":"9191","type":"Legend"}],"left":[{"id":"9171","type":"LinearAxis"}],"plot_height":350,"plot_width":550,"renderers":[{"id":"9183","type":"GlyphRenderer"}],"title":{"id":"9185","type":"Title"},"toolbar":{"id":"9177","type":"Toolbar"},"toolbar_location":null,"x_range":{"id":"9158","type":"DataRange1d"},"x_scale":{"id":"9162","type":"LinearScale"},"y_range":{"id":"9160","type":"DataRange1d"},"y_scale":{"id":"9164","type":"LinearScale"}},"id":"9157","subtype":"Figure","type":"Plot"},{"attributes":{"format":"0%"},"id":"9195","type":"NumeralTickFormatter"},{"attributes":{"callback":null,"renderers":[{"id":"9183","type":"GlyphRenderer"}],"tooltips":[["Route","@route"],["'19 Riders","@pass{,f}"]]},"id":"9193","type":"HoverTool"},{"attributes":{"format":"0%"},"id":"9197","type":"NumeralTickFormatter"},{"attributes":{"axis_label":"17yr % Chg","formatter":{"id":"9197","type":"NumeralTickFormatter"},"ticker":{"id":"9167","type":"BasicTicker"}},"id":"9166","type":"LinearAxis"},{"attributes":{"ticker":{"id":"9167","type":"BasicTicker"}},"id":"9170","type":"Grid"},{"attributes":{"callback":null},"id":"9158","type":"DataRange1d"},{"attributes":{},"id":"9176","type":"ResetTool"},{"attributes":{"text":""},"id":"9185","type":"Title"},{"attributes":{"callback":null},"id":"9160","type":"DataRange1d"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"9176","type":"ResetTool"},{"id":"9193","type":"HoverTool"}]},"id":"9177","type":"Toolbar"},{"attributes":{"items":[{"id":"9192","type":"LegendItem"}]},"id":"9191","type":"Legend"},{"attributes":{"fill_alpha":{"value":0.5},"fill_color":{"field":"color"},"line_color":{"field":"color"},"line_width":{"value":2},"size":{"field":"size","units":"screen"},"x":{"field":"pct_all"},"y":{"field":"pct_5"}},"id":"9181","type":"Scatter"},{"attributes":{"label":{"field":"region"},"renderers":[{"id":"9183","type":"GlyphRenderer"}]},"id":"9192","type":"LegendItem"},{"attributes":{"data_source":{"id":"9179","type":"ColumnDataSource"},"glyph":{"id":"9181","type":"Scatter"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"9182","type":"Scatter"},"selection_glyph":null,"view":{"id":"9184","type":"CDSView"}},"id":"9183","type":"GlyphRenderer"},{"attributes":{},"id":"9203","type":"Selection"},{"attributes":{},"id":"9162","type":"LinearScale"},{"attributes":{"source":{"id":"9179","type":"ColumnDataSource"}},"id":"9184","type":"CDSView"},{"attributes":{"dimension":1,"ticker":{"id":"9172","type":"BasicTicker"}},"id":"9175","type":"Grid"},{"attributes":{},"id":"9172","type":"BasicTicker"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"line_width":{"value":2},"size":{"field":"size","units":"screen"},"x":{"field":"pct_all"},"y":{"field":"pct_5"}},"id":"9182","type":"Scatter"},{"attributes":{},"id":"9164","type":"LinearScale"},{"attributes":{"callback":null,"data":{"color":["green","red","red","green","green","red","blue","green","purple","green","green","purple","purple","blue","green","green","blue","blue","blue","purple","purple","red","green","red","blue","green","green","red","blue","red","red","purple","green","purple","blue","blue","green","blue","blue","purple","red","blue","purple","red","red"],"pass":{"__ndarray__":"AAAAAEBd1EAAAAAAsGj/QAAAAABY4Q1BAAAAAIjZAkEAAAAAcEsQQQAAAABI0AxBAAAAACCv/EAAAAAAgMjwQAAAAACwqfZAAAAAAFCVCUEAAAAAQIMHQQAAAABWWDBBAAAAALQAGkEAAAAASEEKQQAAAACwxAxBAAAAAEAyBkEAAAAATNMXQQAAAABgquhAAAAAAMjUFUEAAAAAEKQUQQAAAABwcxpBAAAAAKzNF0EAAAAAkNP3QAAAAADsdRRBAAAAACgfFkEAAAAAHicjQQAAAABwmPpAAAAAADAEEkEAAACAN0tLQQAAAADokhVBAAAAAHiiE0EAAAAAJy9FQQAAAAAQlh5BAAAAAK5GKUEAAAAAgAEhQQAAAAD+hjJBAAAAABrsKkEAAAAgmQ1hQQAAAAAAPfhAAAAAAHATGUEAAAAAkPUKQQAAAAAXDDhBAAAAAPAdO0EAAAAAyEkNQQAAAAD4ExVB","dtype":"float64","shape":[45]},"pct_5":{"__ndarray__":"1oEUfZOq2L/gcHJzpdrUv4wlvfZqdci/PDdBb6ykx7+omwuLxtjDv5zTc8RV6cG/oJ8MLz4lv78xmyBH0/m9v8DtLO1rxL2/yAg5JQCXvL9IQA7urJm6v9j6+BEpN7m/MIxi2yyfsr/IDXkis2axv3FDpaRDea+/j+w9sS8qqb8PPN/o4fCovyCV8p5fvaW/QGbstyx2pb8QY8pL/lOkv1DXYkIm8KO/8Ax3uVvQo78QS5JBfBShv+CjFJL3FZu/oEuZoypXl7+AwFJkHS2DvwCJIGiZb2C/ALx1lehTaD+AiH+cRJKCPwDdS8xZs4w/AC4LPsZOmz+g3PHBsDuiP6DyMDOVt6k/wKJYpnHrrT/gWCbReCi1PwBZHm7/irU/oA7fraNtuj9x3yhmXii7P89VUTjTh7s/j4ylEpXsvj8x72Q3GQDFP+B1bOnAE8g/3FvjZSgl0D9S0bGRb3fiPzxog1mkZOY/","dtype":"float64","shape":[45]},"pct_all":{"__ndarray__":"IBBeKy1Ytj8AAAAAAAD4f6g4bDPckc6/4HZk2E64uj+aLsk+WJn5P3gvzeTkNsc/eP6G/HgKu7/ctm3btm3eP4BL3aYCwL2/4HsJOGkd1z/ELi5FT0/rP3Skk5+hlNc/z/A4Itoypb88wcrWuFbnPyTRhdSV9tI/lKmNz1338z8AAAAAAAD4fzf7f6C6P+G/INm4k7Am1j/PPAOAQWfOP0DoJpXTvKU/yExmD12k3b/Yt+YOnxrVPwAAAAAAAPh/AAAAAAAA+H8U2GibNqsBQITdGkbqQuA/cEVnAmPcwz+6V42H3W/gPwAAAAAAAPh/QgA1dXUG4D/UrL53sonRP8DhGWSAIuE/8Vs7eBDa2T8m4SV6HBnzPzEXsbbUR78/wNUgVr3R8T88Q45pA+bgP+4WgJskyeO/vJ/7d8VO0T8AAAAAAAD4f1og84hY6+g/YuA5eB/s4T8AAAAAAAD4fwAAAAAAAPh/","dtype":"float64","shape":[45]},"region":["Midwest","South","South","Midwest","Midwest","South","Northeast","Midwest","West","Midwest","Midwest","West","West","Northeast","Midwest","Midwest","Northeast","Northeast","Northeast","West","West","South","Midwest","South","Northeast","Midwest","Midwest","South","Northeast","South","South","West","Midwest","West","Northeast","Northeast","Midwest","Northeast","Northeast","West","South","Northeast","West","South","South"],"route":["Hoosier State","Washington-Richmond VA","Carolinian","Missouri River Runner","Illini/Saluki","Auto Train","Adirondack","Heartland Flyer","Sunset Limited","Capitol Limited","Illinois Zephyr/Carl Sandburg","San Joaquins","Coast Starlight","Pennsylvanian","City of New Orleans","Blue Water","Empire West (Maple Leaf)","Ethan Allen","Lake Shore Limited","Southwest Chief","Empire Builder","Silver Star","Pere Marquette","Washington-Newport News VA","New Haven-Springfield","Lincoln Service","Cardinal","Crescent","Acela","Silver Meteor","Texas Eagle","Pacific Surfliner","Wolverine","Cascades","Downeaster","Empire South","Hiawatha","Northeast Regional","Vermonter","California Zephyr","Washington-Lynchburg/Roanoke VA","Keystone","Capitol Corridor","Washington-Norfolk VA","Palmetto"],"size":{"__ndarray__":"W07dpG2NC0A2oBTZ4FgWQCmykD9ByhtAzARuMOe3F0AQ5eaR8KocQL5NUL4BbxtACv8PH/K1FUAqEWxf1XwSQK8UZdrfLxRAZ+HOGddPGkC264yeIo4ZQMfvsgkdsyhAoM2es94NIUD1M52r/IwaQBjMfXMYaxtApYQvP4QOGUAx/+XV5H4gQDUs59p+/RBAH+/7EjDsH0AwGoZy5EIfQDaAAAeMKiFAGLhrIWt9IEADVNSq9n4UQCMhJBHWKB9AFbOhzmYKIEButTNoH9gjQO77XzS+MxVAUy8OrnC7HUBI5516Buo0QOg4yOX8xx9AP6ZGTO6vHkDoeVuzzakyQEoX9Sh0KCJAn2unD50zJkBvMT74B+4iQHrhOq/HCSpAj+l1q/TIJkBvduYVreY/QN5Llmx+mhRAqJ20sMXRIECaWZNaQcwaQENZA0OBGy1Aj1QLMW+pLkDokZ8a0JcbQHl/2VqegR9A","dtype":"float64","shape":[45]}},"selected":{"id":"9203","type":"Selection"},"selection_policy":{"id":"9204","type":"UnionRenderers"}},"id":"9179","type":"ColumnDataSource"},{"attributes":{"axis_label":"5yr % Chg","formatter":{"id":"9195","type":"NumeralTickFormatter"},"ticker":{"id":"9172","type":"BasicTicker"}},"id":"9171","type":"LinearAxis"},{"attributes":{},"id":"9204","type":"UnionRenderers"}],"root_ids":["9157"]},"title":"Bokeh Application","version":"1.4.0"}}
+          </script>
+          <script type="text/javascript">
+            (function() {
+              var fn = function() {
+                Bokeh.safely(function() {
+                  (function(root) {
+                    function embed_document(root) {
+                      
+                    var docs_json = document.getElementById('9271').textContent;
+                    var render_items = [{"docid":"b0e3b1ab-d5d5-427c-a2fa-27eb38f0cbdf","roots":{"9157":"f66fb953-596c-4032-8c63-55d527afac05"}}];
+                    root.Bokeh.embed.embed_items(docs_json, render_items);
+                  
+                    }
+                    if (root.Bokeh !== undefined) {
+                      embed_document(root);
+                    } else {
+                      var attempts = 0;
+                      var timer = setInterval(function(root) {
+                        if (root.Bokeh !== undefined) {
+                          clearInterval(timer);
+                          embed_document(root);
+                        } else {
+                          attempts++;
+                          if (attempts > 100) {
+                            clearInterval(timer);
+                            console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                          }
+                        }
+                      }, 10, root)
+                    }
+                  })(window);
+                });
+              };
+              if (document.readyState != "loading") fn();
+              else document.addEventListener("DOMContentLoaded", fn);
+            })();
+          </script>
+      
+    <script>   
+      var vm =new Vue ({
+        el: '#amtrakMove',
+        data: {
+            showDiv: false,
+            showDivAnchored: false,
+            showAllChart: false
+        },
+        mounted: function scrollSetUp(){
+            var myScrollFunc = function() {
+            var y = window.scrollY;
+            if (y >= 50 && y <= 600) {
+                vm.showDivAnchored = true
+            } else {
+                vm.showDivAnchored = false
+            }
+            if (y >= 400 && y <= 900) {
+                vm.showDiv = true
+            } else {
+                vm.showDiv = false
+            }
+            };
+
+            window.addEventListener("scroll", myScrollFunc);
+            this.formatTotalTable();
+        },
+        methods: {
+            formatTotalTable(){
+                var totTab=document.getElementById('routeTable')
+                var tds=totTab.getElementsByTagName('td')
+                Array.from(tds).forEach(function(cell){
+                    if(cell.innerText.slice(-1)=='%'){
+                        var cellValue=parseFloat(cell.innerText.slice(0,cell.innerText.length-1))
+                        var cellValueAbs=Math.abs(cellValue)/200
+                        if(cellValue<0){
+                                    cell.style.backgroundColor='rgba(168, 50, 50, '+(cellValueAbs+0.2)+')'
+                                }
+                        else{
+                                    cell.style.backgroundColor='rgba(50, 168, 81, '+(cellValueAbs+0.2)+')'
+                                }
+                    }
+                })
+          }
+        }
+        })
+    </script>
+    
+</center>
+
+	
+
+
+  </body>
+</html>

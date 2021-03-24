@@ -35,6 +35,14 @@
     th {
       text-align:center;
     }
+    .activePop {
+      border: black solid 1pt;
+      background-color:#c2c2c2 !important;
+    }
+    .nonActivePop{
+      background-color:#9e9e9e;
+    }
+    
     /*.bk-root {
       background-color: #edeff2;
     }*/
@@ -60,8 +68,8 @@
       <div id="pop">
         <div class="container">
           <div class="row">
-            <div class="col-sm-6">
-              <div class="pop-pick-left">
+            <div class="col-12">
+              <div class="">
                 <div class="ui-widget">
                   <select v-model="nbhoods_sel" class="btn dropdown-toggle">
                     <option class="dropdown-item" >ALL</option>
@@ -70,20 +78,11 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-6">
-              <div class="pop-pick-right">
-                <div class="form-group">
-                  <div>
-                    <button type="submit" class="btn btn-primary btn-lg" v-on:click="updateNBHood()">  Submit Neighborhood  </button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <hr>
         <div class="container">
-          <h2 v-once>
+          <h2>
             {{nbhoods_sel}}
           </h2>
           <br>
@@ -92,22 +91,30 @@
             <div class="col-lg-6">
               <div class="leftHandPanel">
                 
-                  
-                  <<%line_div|safe%>>
-                
-                  
-                  <<%pie_div|safe%>>
+                  <div id="lineDiv">
+                    <<%line_div|safe%>>
+                  </div>
+                  <div id="pieDiv">
+                    <<%pie_div|safe%>>
+                  </div>
                   <img src="/static/images/legend_stl_pop.png" align="center" style="width:100%;"/>
                 
+              </div>
+              <div class="leftHandPanel loadFrost" v-show="loading">
+                <br/><br/><br/><br/>
+                <h4>Loading</h4>
+              </div>
+              <div class="panelBack">
+                Back
               </div>
               <br>
             </div>
             <div class="col-lg-6">
               <div style="margin-left: 10px;">
                 <div class="btn-group" role="group">
-                  <button class="btn" v-on:click="table_yr_sel=1990" v-bind:class="{active: table_yr_sel===1990}">1990</button>
-                  <button class="btn" v-on:click="table_yr_sel=2000" v-bind:class="{active: table_yr_sel===2000}">2000</button>
-                  <button class="btn" v-on:click="table_yr_sel=2010" v-bind:class="{active: table_yr_sel===2010}">2010</button>
+                  <button class="btn nonActivePop" v-on:click="table_yr_sel=1990" v-bind:class="{activePop: table_yr_sel===1990}">1990</button>
+                  <button class="btn nonActivePop" v-on:click="table_yr_sel=2000" v-bind:class="{activePop: table_yr_sel===2000}">2000</button>
+                  <button class="btn nonActivePop" v-on:click="table_yr_sel=2010" v-bind:class="{activePop: table_yr_sel===2010}">2010</button>
                 </div>
                 <div>
                   <table class="table">
@@ -145,6 +152,7 @@
                     </tbody>
                   </table>
                 </div>
+
                 <div>
                   <p class="left-group">
                     <i>Notes: Data and map obtained from <a href="https://www.stlouis-mo.gov/data/">St. Louis government website</a>. In 1990, only Black, White, and Other (Which includes Asian, Multi-racial, Pacific Islander and Native American) data is available. Hispanic data represents a subset of other demographics. Click on the map below for links to the St. Louis government webpages for each neighborhood.</i>
@@ -177,7 +185,7 @@
     </script>
           <script>
             
-      new Vue ({
+      let vm = new Vue ({
         el: '#pop',
         data: {
           dests: 'x',
@@ -188,7 +196,33 @@
           table_data_90: <<%table_data_90|safe%>>,
           table_yr_sel: 2010,
           coords: <<%coords|safe%>>,
-          scroll: <<%scroll|safe%>>
+          scroll: <<%scroll|safe%>>,
+          loading: false
+        },
+        watch: {
+          nbhoods_sel: function() {
+            vm.loading = true
+            var req = new XMLHttpRequest()
+            req.open("POST",'/api/nieghbhoor_pop_data' ,true);
+            var formData = new FormData();
+            formData.append('nbhoods_send', this.nbhoods_sel);
+            req.send(formData)
+            req.onload=function(){
+              var data=JSON.parse(this.response)
+              console.log(data)
+              vm.table_data_10=JSON.parse(data.table_data_10)
+              vm.table_data_00=JSON.parse(data.table_data_00)
+              vm.table_data_90=JSON.parse(data.table_data_90)
+              vm.coords=data.coords
+              var element = document.getElementById('lineDiv');
+              element.innerHTML=data.line_div
+              eval(data.line_script.slice(33,-9))
+              var element2 = document.getElementById('pieDiv');
+              element2.innerHTML=data.pie_div
+              eval(data.pie_script.slice(33,-9))
+              vm.loading = false
+            }
+          }
         },
         methods:{
           formatPct: function(val) {
@@ -206,14 +240,6 @@
             else {
               return "NA"
             }
-          },
-          updateNBHood: function(){
-            let form = document.createElement('form');
-            form.action = 'stl_pop';
-            form.method = 'POST';
-            form.innerHTML = '<input class="hidden_submit" name="nbhoods_send" value="'+this.nbhoods_sel+'">';
-            document.body.append(form);
-            form.submit();
           }
         },
         mounted(){

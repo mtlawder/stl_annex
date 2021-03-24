@@ -11,6 +11,16 @@
 	</script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@mtl_stl">
+  <meta name="twitter:creator" content="@mtl_stl">
+  <meta name="twitter:title" content="An Unprecedented Drop
+Comparing Route Statistics from 2020 to 2019">
+<meta name="twitter:image" content="http://www.stlannex.com/static/images/Airport_Comp_screen.PNG">
+
+  
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
@@ -19,12 +29,16 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="/static/styles/stlannex_style.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/styles/stl_pop_style.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/airline_2020_style.css">
     <title>STL Annex</title>
     
     <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.css" type="text/css" />
     <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.4.0.min.js"></script>
+    <script src="static/components/menu.vue" defer>
+    </script>
+    <script src="static/components/header.vue" defer>
+    </script>
     <script type="text/javascript">
         Bokeh.set_log_level("info");
     </script>
@@ -45,17 +59,17 @@
       padding:0px !important;
       max-width:1240px;
     }
+
   </style>
   </head>
   <body>
-        <center>
-        <div id="header-vue">
-      <header-bar></header-bar>
-    </div>
-          <div id="menu-vue">
-          <menu-bar></menu-bar>
-        </div>
-         
+    <center>
+      <div id="header-vue">
+        <header-bar></header-bar>
+      </div>
+      <div id="menu-vue">
+        <menu-bar></menu-bar>
+      </div>
         <br>
         <div id="aviationVue">
           <div class="container">
@@ -65,89 +79,340 @@
               
               <br>
 
-              <h3>An Unprecendented Drop</h3>
+              <h3>An Unprecedented Drop</h3>
               <h4>Comparing Route Statistics from 2020 to 2019</h4>
+              <h5>Showing data through {{ latest_month_label}}, 2020</h5>
               <br>
-              Go to: <a href="#aDashboard">Dashboard</a> <a href="#commentary">Commentary</a> <a href="#aboutAnalysis">Methodolgy</a>
+              <div class="row">
+                
+                <div class="col-sm-3 col-xs-6">
+                  Go to: 
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                  <a href="#aDashboard">Dashboard</a> 
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                  <a href="#commentary">Commentary</a> 
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                  <a href="#aboutAnalysis">Methodology</a> 
+                </div>
+
+              </div>
+              <hr/>
+              <div class="blog-container left-group">
+                <p>
+                  People stopped flying. That's not completely true. There are still a few people flying and that number continues to grow each week. Based on <a href="https://www.tsa.gov/coronavirus/passenger-throughput">numbers reported by the TSA</a> towards the beginning of June, they are screening close to 15% the number of passengers at US airports compared with the same time from 2019. That sounds like a terribly low number (and it is), but it's way up from around only 5% in Mid-April. Every Airport, every Airline, every Route is down in travelers which has helped to limit the COVID-19 pandemic that has caused this enormous drop. But not every Airport, every Airline, and every Route have dropped quiet the same amount. Below you can dig into the individual Airport and Route domestic statistics for the top 100 US airports based on passengers served in 2019 and see just how far each have fallen and hopefully as months continue see them rise from the lowest depths. The data below uses T-100 data from the Bureau of Transportation Statistics which is reported with a 3 month lag. I'll be updating each month as new data becomes available.
+                </p>
+              </div>
+            <hr id="aDashboard"/>
+
             </div>
             <div class="col-lg-2 col-md-1">
             </div>
           </div>
-          <div class="col-12">
-            <div id="aDashboard">
-              <table>
-                <thead style="text-align: center;">
-                  <tr>
-                    <th></th>
-                    <th>Departures Completed</th>
-                    <th>Canceled Flights</th>
-                    <th>Total Passengers</th>
-                    <th>Total O&D Passengers</th>
-                    <th>Load Factor</th>
-                  </tr>
-                </thead>
-                <tbody style="text-align: center;">
-                  <tr>
-                    <td>2019</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>2020</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>% Chg</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <br/>
-              Lots
-              <br/>
-              Lots
-              <br/>
-              Lots
-              <br/>
-              Lots
-              <br/>
-              Lots
-              <br/>
-              Lots
-              <br/>
-              Lots
-              <br/>
+          <div class="row dashboardHeader">
+            <div class="col-12">
+              <center>
+                <button class="dashboardButton" v-bind:class="{dashbaordButtonActive: dashboardShow==='detail'}" v-on:click="dashboardShow='detail'">Individual Airport Details</button>
+                <button class="dashboardButton" v-bind:class="{dashbaordButtonActive: dashboardShow==='comp'}" v-on:click="dashboardShow='comp'">Compare Multiple Airports</button>
+              </center>
+            </div>
+          </div>
+          <div id="detailDashboard" class="dashboardMain" v-show="dashboardShow=='detail'">
+            <br/>
+            <div  class="row" style="width:100%">
+              <div class="col-lg-2 col-md-1">
+              </div>
+              <div class="col-lg-8 col-md-10 col-sm-12">
+                <div>
+                  <h4>Showing {{ latest_month_label}} and YTD Statistics for {{airport_sel}}</h4>
+                  Choose a Different Airport:
+                  <select v-model="airport_sel" class="btn dropdown-toggle" style="width:300px; margin-left:8px; margin-right:8px;">
+                    <option class="dropdown-item" v-for="a in airport_list.data" :value=a[0]>{{a[0]}}-{{a[1]}}</option>
+                  </select>
+                  <button class="btn btn-primary updateStatsButton" v-on:click="chooseAirport()">Update Statistics</button>
+                  <hr/>
+                  <div class="air-table">
+                    <h5>Total Airport Statistics for {{ latest_month_label}} 2020 & 2019</h5>
+                    <table class="table">
+                      <thead style="text-align: center;">
+                        <tr>
+                          <th v-for="colhead in totals_display.columns" class="yearTotalChart">{{colhead}}</th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody id="totalTable" style="text-align: center;">
+                        <tr v-for="row in totals_display.data">
+                          <td class="yearTotalChart">{{displayNum(row[0])}}</td>
+                          <td v-for="d in row.slice(1)" class="displayTotalChart">{{displayNum(d)}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-1">
+              </div>
+            </div>
+            <br/>
+            <h5>Charting Total Monthly Statistics</h5>
+            <div class="row" style="width:100%">
+              <div class="col-xl-4 col-lg-6 col-md-12 air-table">
+                <<%pass_div|safe%>>
+              </div>
+              <div class="col-xl-4 col-lg-6 col-md-12 air-table">
+                <<%seats_div|safe%>>
+              </div>
+              <div class="col-xl-4 col-lg-12 air-table">
+                <<%dept_div|safe%>>
+              </div>
             </div>
 
-            <hr/>
+            <div class="row" style="width:100%">
+              <div class="col-2">
+              </div>
+              <div class="col-8">
+                <hr/>
+              </div>
+              <div class="col-2">
+              </div>
+            </div>
+            
+            <h5>Individual Routes Statistics from {{airport_sel}} to Destination</h5>
+            <div class="col-12 air-table">
+              <center>
+                <div class="btn-group" role="group">
+                    <button class="btn flip-btn" v-on:click="route_metric_sel='Passengers'" v-bind:class="{active: route_metric_sel==='Passengers'}">Passengers Flown</button>
+                    <button class="btn flip-btn" v-on:click="route_metric_sel='Available Seats'" v-bind:class="{active: route_metric_sel==='Available Seats'}">Seat Capacity</button>
+                    <button class="btn flip-btn" v-on:click="route_metric_sel='Flights'" v-bind:class="{active: route_metric_sel==='Flights'}">Flights Completed</button>
+                  </div>
+                </center>
+            </div>
+            <div class="row" style="width:100%">
+              <div class="col-xl-3 col-lg-2">
+              </div>
+              <div class="col-xl-7 col-lg-8 col-md-12">
+                <center>
+                  
+                <div class='tableauPlaceholder' id='viz1590371558671' style='position: relative'>
+                  <noscript>
+                    <a href='http:&#47;&#47;www.stlannex.com&#47;airlines_in_2020'>
+                      <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ST&#47;STLSeptember20192020PassengerComparison&#47;September2020Pass&#47;1_rss.png' style='border: none' />
+                    </a>
+                  </noscript>
+                  <object class='tableauViz'  style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                    <param name='embed_code_version' value='3' /> <param name='site_root' value='' />
+                    <param name='name' value='STLSeptember20192020PassengerComparison&#47;September2020Pass' />
+                    <param name='tabs' value='no' /><param name='toolbar' value='yes' />
+                    <param name='static_image'
+                        value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ST&#47;STLSeptember20192020PassengerComparison&#47;September2020Pass&#47;1.png' />
+                    <param name='animate_transition' value='yes' />
+                    <param name='display_static_image' value='yes' />
+                    <param name='display_spinner' value='yes' />
+                    <param name='display_overlay' value='yes' />
+                    <param name='display_count' value='yes' />
+                    <param name='filter' :value="'publish=yes&AIRPORT='+airport_sel" />
+                  </object>
+                </div>
+                <script type='text/javascript'>
+                  var divElement = document.getElementById('viz1590371558671');
+                  var vizElement = divElement.getElementsByTagName('object')[0];
+                  vizElement.style.width='100%';
+                  vizElement.style.maxHeight='600px';
+                  vizElement.style.height=(Math.min(divElement.offsetWidth*0.75,600))+'px';
+                  var scriptElement = document.createElement('script');
+                  scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                  vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                </script>
+              </center>
+              </div>
+              <div class="col-lg-2">
+              </div>
+            </div>
+            <br/>
+            <div class="row" style="width:100%">
+              <div class="col-lg-1">
+              </div>
+              <div class="col-lg-10 col-md-12 air-table">
+                <div class="btn-group" role="group">
+                  <button class="btn flip-btn" v-on:click="route_metric_sel='Passengers'" v-bind:class="{active: route_metric_sel==='Passengers'}">Passengers Flown</button>
+                  <button class="btn flip-btn" v-on:click="route_metric_sel='Available Seats'" v-bind:class="{active: route_metric_sel==='Available Seats'}">Seat Capacity</button>
+                  <button class="btn flip-btn" v-on:click="route_metric_sel='Flights'" v-bind:class="{active: route_metric_sel==='Flights'}">Flights Completed</button>
+                </div>
+                <table class="table" style="max-width:1300px;">
+                  <thead style="text-align: center;">
+                    <tr>
+                      <th style="border-bottom:0px solid black"></th>
+                      <th colspan="3" style="border-bottom:0px solid black;border-right:2px solid black;">{{ latest_month_label}} {{route_metric_sel}}</th>
+                      <th colspan="3" style="border-bottom:0px solid black">Year to Date {{route_metric_sel}}</th>
+                      
+                    </tr>
+                    <tr>
+                      <th>Destination Airport</th>
+                      <th>2019</th>
+                      <th>2020</th>
+                      <th style="border-right:2px solid black;">% Change</th>
+                      <th>2019</th>
+                      <th>2020</th>
+                      <th>% Change</th>
+                    </tr>
+                  </thead>
+                  <tbody style="text-align: center;">
+                    <tr v-for="(row, index) in routes_display.data" v-show="index<routeDisplay">
+                      <td style="text-align: left;">{{row[13]}} ({{row[0]}})</td>
+                      <template v-if="route_metric_sel=='Passengers'">
+                        <td>{{displayNum(row[7])}}</td>
+                        <td >{{displayNum(row[8])}}</td>
+                        <td class="colorCellValue">{{pctChange(row[7],row[8])}}</td>
+                        <td>{{displayNum(row[1])}}</td>
+                        <td>{{displayNum(row[2])}}</td>
+                        <td class="colorCellValue">{{pctChange(row[1],row[2])}}</td>
+                      </template>
+                      <template v-if="route_metric_sel=='Available Seats'">
+                        <td>{{displayNum(row[9])}}</td>
+                        <td>{{displayNum(row[10])}}</td>
+                        <td class="colorCellValue">{{pctChange(row[9],row[10])}}</td>
+                        <td>{{displayNum(row[3])}}</td>
+                        <td>{{displayNum(row[4])}}</td>
+                        <td class="colorCellValue">{{pctChange(row[3],row[4])}}</td>
+                      </template>
+                      <template v-if="route_metric_sel=='Flights'">
+                        <td>{{displayNum(row[11])}}</td>
+                        <td>{{displayNum(row[12])}}</td>
+                        <td class="colorCellValue">{{pctChange(row[11],row[12])}}</td>
+                        <td>{{displayNum(row[5])}}</td>
+                        <td>{{displayNum(row[6])}}</td>
+                        <td class="colorCellValue">{{pctChange(row[5],row[6])}}</td>
+                      </template>
+                      
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="btn flip-btn" v-on:click="routeDisplay+=30">Show More Routes</button>
+                <hr/>
+              </div>
+              <div class="col-lg-1">
+              </div>
+              <hr/>
+              
+            </div>
+            <div class="row dashboardFooter">
+              <div class="col-12">
+              </div>
+            </div>
           </div>
+          <div id="compDashboard" class="dashboardMain" v-show="dashboardShow=='comp'">
+            <br/>
+            <div  class="row" style="width:100%">
+              <div class="col-lg-2 col-md-1">
+              </div>
+              <div class="col-lg-8 col-md-10 col-sm-12">
+                <div>
+                  <h4>Comparing Airports</h4>
+                  <div class="row">
+                    <template v-for="(air,index) in comps">
+                      <div class="col-3">
+                        <h6>Airport {{index+1}}</h6>
+                        <select v-model="comps[index]" class="btn dropdown-toggle" style="width:100%; margin-left:8px; margin-right:8px;">
+                          <option value=""></option>
+                          <option class="dropdown-item" v-for="a in airport_list.data" :value=a[0]>{{a[0]}}-{{a[1]}}</option>
+                        </select>
+                      </div>  
+                    </template>
+                  </div>
+                  <br/>
+                  <h5>Year-to-Date Comparison</h5>
+                  <div class="air-table">
+                    <table class="table" style="max-width:1300px;">
+                      <thead style="text-align: center;">
+                        <tr>
+                          <th>Metric</th>
+                          <th>{{comps[0]}}</th>
+                          <th>{{comps[1]}}</th>
+                          <th>{{comps[2]}}</th>
+                          <th>{{comps[3]}}</th>
+                        </tr>
+                      </thead>
+                      <tbody style="text-align: center;">
+                        <tr v-for="(row, index) in metrics">
+                          <td style="text-align: left;">{{row}}</td>
+                          <td v-if="compDisplay[comps[0]]" class="colorCellValueComp">{{displayNum(compDisplay[comps[0]][row]) || ''}}</td>
+                          <td v-else></td>
+                          <td v-if="compDisplay[comps[1]]" class="colorCellValueComp">{{displayNum(compDisplay[comps[1]][row]) || ''}}</td>
+                          <td v-else></td>
+                          <td v-if="compDisplay[comps[2]]" class="colorCellValueComp">{{displayNum(compDisplay[comps[2]][row]) || ''}}</td>
+                          <td v-else></td>
+                          <td v-if="compDisplay[comps[3]]" class="colorCellValueComp">{{displayNum(compDisplay[comps[3]][row]) || ''}}</td>
+                          <td v-else></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div id="enterCompDiv" class="air-table">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-1">
+              </div>
+            </div>
+            <br/>
+            <div class="row dashboardFooter">
+              <div class="col-12">
+              </div>
+            </div>
+          </div>
+          <br/>
           <div class="col-lg-2 col-md-1">
             </div>
             <div class="col-lg-8 col-md-10 col-sm-12">
             <div class="blog-container left-group">
 
               <div id="commentary">
-              My new section
-              <br/>
-              Lots
-              <br/>
-              Lots
+              <h3>Commentary</h3>
+              Additional Commentary to be added for select airports.
               <br/>
               </div>  
               <hr/>
               <div id="aboutAnalysis">
-                Stuff
+                <h3>Methodology</h3>
+                <p>
+                  All data from the above statistics comes from the <a href="https://www.transtats.bts.gov/Tables.asp?DB_ID=110&DB_Name=Air%20Carrier%20Statistics%20%28Form%2041%20Traffic%29-%20%20U.S.%20Carriers&DB_Short_Name=Air%20Carriers">Bureau of Transportation Statistics T-100 Domestic Segment (U.S. Carriers) data set</a>. The data is reported for all domestic flight segments, so no International flight passengers are included. However, if a person has an itinerary with a domestic and international segment, the international segment is not included, but the domestic section would be included. For example, if I was flying from STL (St. Louis) to EWR (Newark) and then on to LHR (London), my flight from STL to EWR would be shown in the data, but my flight from EWR to LHR would not. This data is released publicly with a three month delay, so in early June, all of the data for March will be released.
+                </p>
+                <p>
+                  I aggregate the data to the Year-Month-Origin-Destination level and combined both departing and arriving statistics. This means that if you fly a round-trip from STL-ORD. You will be counted as a passenger for Lambert both when you depart and when you arrive and the round trip will count as two flights completed in the data above. The columns from the raw data used for the calculation are:
+                  <br/>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Metric</th>
+                        <th>T-100 Data Column</th>
+                        <th>Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Passengers</td>
+                        <td>PASSENGERS</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Seat Capacity</td>
+                        <td>SEATS</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Flights Completed</td>
+                        <td>DEPARTURES_PERFORMED</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </p>
+                <p>
+                  Total Airport Statistics are calculated for the month recent month of available data by aggregating all records from T-100 Segment data that contain the Airport (AIR) being viewed as either an ORIGIN or DEST. In order to do the aggregation for both arrival routes (where AIR is the DEST) and departure routes (where AIR is the ORIGIN), two new columns are created, AIRPORT is set as AIR and AIRPORT2 is the respective ORIGIN or DEST column. In the Charting section the same metrics are aggregated for each available month in 2019 and 2020. Data is plotted using bokeh charting tool and allows for hovering over the data to see the values for each month. The Individual Routes use the same T-100 Segment data grouped on AIRPORT2 which shows the statistics for each route. The embedded Tableau Dashboard accepts the AIR as a filter parameter and uses different tabs (passed via source URL) to look at the different statistics.
+                </p>
               </div>
               <hr/>
             </div>
@@ -158,24 +423,185 @@
 </div>
 
 
-
+    <<%seats_script|safe%>>
+    <<%pass_script|safe%>>
+    <<%dept_script|safe%>>
+    <<%canc_script|safe%>>
     <script>   
-      new Vue ({
+      var vm =new Vue ({
         el: '#aviationVue',
         data: {
           dests: 'x',
-          chart_sel: 'full'
+          chart_sel: 'full',
+          route_metric_sel: 'Passengers',
+          routeDisplay: 10,
+          airport_sel: '<<%air_sel|safe%>>',
+          totals_display: <<%totals_display|safe%>>,
+          airport_list: <<%airport_list|safe%>>,
+          routes_display:<<%routes_display|safe%>>,
+          latest_month_label:'<<% latest_month_label|safe%>>',
+          dashboardShow: 'detail',
+          comps: ['STL','','',''],
+          compDisplay: {"":{'2020 Passengers':'', '2020 Seat Capacity':'', '2020 Flights':'', '2019 Passengers':'','2019 Seat Capacity':'', '2019 Flights':'', 'Pct Chg YTD Pass':'','Pct Chg YTD Seats':'', 'Pct Chg YTD Flights':''}},
+          metrics:['2020 Passengers', '2020 Seat Capacity', '2020 Flights', '2019 Passengers','2019 Seat Capacity', '2019 Flights', 'Pct Chg YTD Pass','Pct Chg YTD Seats', 'Pct Chg YTD Flights']
           
+        },
+        mounted: function changeColors(){
+            this.getCompData(this.compDisplay,'STL');
+            this.formatTotalTable();
+            this.changeColorsMethod();
+            
+          }
+        ,
+        watch: {
+          route_metric_sel: function(val){
+            var tableauFrame = document.getElementById('viz1590371558671')
+            var iframeTab = tableauFrame.getElementsByTagName('iframe')
+            if (val=='Passengers'){
+              iframeTab[0].src='http://public.tableau.com/views/STLSeptember20192020PassengerComparison/September2020Pass?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableau.com%2F&:embed_code_version=3&:tabs=no&:toolbar=yes&:animate_transition=yes&:display_static_image=no&:display_spinner=no&:display_overlay=yes&:display_count=yes&publish=yes&:loadOrderID=0&AIRPORT='+this.airport_sel
+            }
+            else if (val=='Flights'){
+              iframeTab[0].src='http://public.tableau.com/views/STLSeptember20192020PassengerComparison/September2020Dept?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableau.com%2F&:embed_code_version=3&:tabs=no&:toolbar=yes&:animate_transition=yes&:display_static_image=no&:display_spinner=no&:display_overlay=yes&:display_count=yes&publish=yes&:loadOrderID=0&AIRPORT='+this.airport_sel
+            }
+            else if (val=='Available Seats'){
+              iframeTab[0].src='http://public.tableau.com/views/STLSeptember20192020PassengerComparison/September2020Seat?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableau.com%2F&:embed_code_version=3&:tabs=no&:toolbar=yes&:animate_transition=yes&:display_static_image=no&:display_spinner=no&:display_overlay=yes&:display_count=yes&publish=yes&:loadOrderID=0&AIRPORT='+this.airport_sel
+            }
+            Vue.nextTick(function () {
+              var cells=[].slice.call(document.getElementsByClassName('colorCellValue'),0)
+              console.log(cells)
+              cells.forEach(function(cell){
+                var cellValue=parseFloat(cell.innerText.slice(0,cell.innerText.length-1))
+                var cellValueAbs=Math.abs(cellValue)/80
+                if(cellValue<0){
+                  cell.style.backgroundColor='rgba(168, 50, 50, '+(cellValueAbs+0.2)+')'
+                }
+                else{
+                  cell.style.backgroundColor='rgba(50, 168, 81, '+(cellValueAbs+0.2)+')'
+                }
+              })
+            })
+            
+          },
+          comps: function(){
+            ap=this.comps.filter(x=>!Object.keys(this.compDisplay).includes(x))
+            if(ap.length>0){
+              this.getCompData(this.compDisplay,ap[0])
+              this.getCompChart(this.comps)
+            }
+            else{
+              this.setCellColor();
+            }
+          },
+          compDisplay: function(){
+            this.setCellColor();
+          }
+        },
+        methods:{
+          formatTotalTable(){
+            var totTab=document.getElementById('totalTable')
+            var trs=totTab.getElementsByTagName('tr')
+            var tds=[].slice.call(trs[2].getElementsByTagName('td'),1)
+            tds.forEach(function(cell){
+              var cellValue=parseFloat(cell.innerText.slice(0,cell.innerText.length-1))
+              var cellValueAbs=Math.abs(cellValue)/80
+              if(cellValue<0){
+                cell.style.backgroundColor='rgba(168, 50, 50, '+(cellValueAbs+0.2)+')'
+              }
+              else{
+                cell.style.backgroundColor='rgba(50, 168, 81, '+(cellValueAbs+0.2)+')'
+              }
+            })
+          },
+          changeColorsMethod(){
+            var cells=[].slice.call(document.getElementsByClassName('colorCellValue'),0)
+            console.log(cells)
+            cells.forEach(function(cell){
+              var cellValue=parseFloat(cell.innerText.slice(0,cell.innerText.length-1))
+              var cellValueAbs=Math.abs(cellValue)/80
+              if(cellValue<0){
+                cell.style.backgroundColor='rgba(168, 50, 50, '+(cellValueAbs+0.2)+')'
+              }
+              else{
+                cell.style.backgroundColor='rgba(50, 168, 81, '+(cellValueAbs+0.2)+')'
+              }
+            })
+          },
+          displayNum(val){
+            if (typeof val != 'string'){
+              if (val>1){
+                return val.toLocaleString()
+              }
+              else{
+                return parseFloat(val*100).toFixed(1)+'%'
+              }
+            }
+            else{
+              return val
+            }
+          },
+          pctChange(start,end){
+            return parseFloat((end-start)/start*100).toFixed(1)+'%'
+
+          },
+          chooseAirport(){
+            let form = document.createElement('form');
+            form.action = 'airlines_in_2020';
+            form.method = 'POST';
+            form.innerHTML = '<input class="hidden_submit" name="airport" value="'+this.airport_sel+'">';
+            document.body.append(form);
+            form.submit();
+          },
+          getCompData(display,airport){
+            var req = new XMLHttpRequest()
+            req.open("POST",'/api/airline_2020_comp' ,true);
+            var formData = new FormData();
+            formData.append('airport', airport);
+            req.send(formData)
+            req.onload=function(){
+              var data=JSON.parse(this.response)
+              var airKey = Object.keys(data)[0]
+              Vue.set(vm.compDisplay,airKey,data[airKey])
+            }
+          },
+          getCompChart(airports){
+            var req = new XMLHttpRequest()
+            req.open("POST",'/api/airline_2020_comp_chart' ,true);
+            var formData = new FormData();
+            formData.append('airports', airports);
+            req.send(formData)
+            req.onload=function(){
+              data=JSON.parse(this.response)
+              console.log(data)
+              var element = document.getElementById('enterCompDiv');
+              element.innerHTML=data.airport_comp_div
+              eval(data.airport_comp_script.slice(33,-9))
+            }
+          },
+          setCellColor(){
+            Vue.nextTick(function () {
+                var cells=[].slice.call(document.getElementsByClassName('colorCellValueComp'),0)
+                console.log(cells)
+                cells.forEach(function(cell){
+                  if(cell.innerText.slice(-1)=='%'){
+                    var cellValue=parseFloat(cell.innerText.slice(0,cell.innerText.length-1))
+                    var cellValueAbs=Math.abs(cellValue)/25
+                    if(cellValue<0){
+                      cell.style.backgroundColor='rgba(168, 50, 50, '+(cellValueAbs+0.15)+')'
+                    }
+                    else{
+                      cell.style.backgroundColor='rgba(50, 168, 81, '+(cellValueAbs+0.15)+')'
+                    }
+                  }
+                })
+              })
+          }
         }
       })
       </script>
         
 </center>
 
-	<script src="static/components/menu.vue">
-    </script>
-    <script src="static/components/header.vue">
-    </script>
+	
 
 
   </body>

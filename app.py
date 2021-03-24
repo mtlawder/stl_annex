@@ -189,6 +189,10 @@ def blog_cptc_results():
 def amtrak_timeline_scroll():
     return render_template('/amtrak_timeline_scroll.html')
 
+@app.route('/blog_stl_more_routes',methods=['GET','POST'])
+def blog_stl_more_routes():
+    return render_template('blogs_2021/blog_stl_more_routes.html')
+
 @app.route('/airlines_in_2020',methods=['GET','POST'])
 def airlines_in_2020():
     if request.method =='GET':

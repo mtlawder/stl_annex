@@ -7,6 +7,9 @@ from bokeh.plotting import ColumnDataSource
 from bokeh.models import HoverTool, Label, Legend, LegendItem, NumeralTickFormatter, FactorRange
 from bokeh.palettes import Category10, Category20
 from bokeh.transform import cumsum, dodge
+from bokeh.io import curdoc
+import holoviews as hv
+import panel as pn
 import pandas as pd
 from static.python.bokeh_plot import pop_pie_chart, pop_line_chart, pop_create_table
 from math import pi
@@ -19,7 +22,7 @@ import time
 from static.python.coronavirus_dashboard import coronavirus_dashboard_state_charts,coronavirus_dashboard_charts,coronavirus_national_charts
 from static.python.airlines_in_2020_functions import airline_2020_comp_chart, airline_2020_comp, airlines_in_2020_content
 from static.python.airline_project import airline_project_get,airline_project_post
-
+hv.extension('bokeh')
 
 
 app=Flask(__name__)
@@ -30,6 +33,51 @@ jinja_options.update(dict(
     variable_end_string='%>>'
 ))
 app.jinja_options = jinja_options
+
+@app.route('/airline_passenger_flow',methods=['GET','POST'])
+def airline_passenger_flow():
+    if request.method =='GET':
+        ap2='LIT'
+    else:
+        ap2=request.form['airport']
+        # ap2='DSM'
+    conn=sqlite3.connect('passenger_flow.db')
+    result=pd.read_sql(f'SELECT * FROM route_flow_summary WHERE carrier="WN" AND begin="{ap2}"',conn)
+    emon=[(0,1,result['passengers_total'][0]),(1,2,result['passengers_end'][0]),(1,3,result['passengers_continue'][0])]
+    elab=[ap2, "STL", "STL (final dest)", "Connecting via STL"]
+    con_det=pd.read_sql(f'SELECT * FROM connecting_detail WHERE carrier="WN" AND begin="{ap2}"',conn)
+    con_det=con_det[con_det['first_connect']==1]
+    con_det=con_det.groupby(['begin','end']).agg({'passengers':sum})
+    con_det=con_det.sort_values('passengers',ascending=False).reset_index()
+
+    num_detail=12
+    rest_cities=sum(con_det[num_detail:]['passengers'])
+    for i in range(0,num_detail):
+        emon+=[(3,4+i,con_det['passengers'][i])]
+        elab+=[con_det['end'][i]]
+    emon+=[(3,5+i,rest_cities)]
+    elab+=['Other']
+
+    nodes = hv.Dataset(enumerate(elab), 'index', 'label')
+    value_dim = hv.Dimension('Passengers')
+
+    h2=hv.Sankey((emon, nodes), ['From', 'To'], vdims=value_dim).options(
+        label_index='label', label_position='left', width=700, height=600, edge_color_index='To'
+    )
+    renderer = hv.renderer('bokeh')
+    def apply_style(plot, element):
+        plot.state.toolbar_location = None
+        plot.state.background_fill_alpha=0
+        plot.state.border_fill_alpha = 0
+
+    h2a=h2.opts(plot=dict(hooks=[apply_style]))
+    fp=pn.Row(h2a)
+    doc = curdoc()
+    script,div=components(fp.get_root(doc))
+    table_data=con_det.to_json(orient='split')
+    airport_list_df=pd.read_sql('SELECT begin FROM route_flow_summary WHERE carrier="WN"',conn)
+    airport_list=list(airport_list_df['begin'])
+    return render_template('/airline_passenger_flow.html',script=script,div=div,table_data=table_data,airport_list=airport_list,airport=ap2)
 
 @app.route('/')
 def main():

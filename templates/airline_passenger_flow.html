@@ -1,0 +1,158 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+
+      
+      
+        
+          
+        <link rel="stylesheet" href="https://unpkg.com/tabulator-tables@4.9.3/dist/css/tabulator_simple.min.css" type="text/css" />        
+        
+          
+        <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.9.3/dist/js/tabulator.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/moment@2.27.0/moment.js"></script>
+        <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-2.3.0.min.css" type="text/css" />
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-2.3.0.min.js"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@mtl_stl">
+    <meta name="twitter:creator" content="@mtl_stl">
+    <meta name="twitter:title" content="Following Connecting Passengers: Airline Passengers Flows">
+    <!-- <meta name="twitter:image" content="http://www.stlannex.com/static/images/STL_SW_routes_under 500 miles.PNG"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stlannex_style.css') %>>">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stl_pop_style.css') %>>">
+    <link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/airline_passenger_flow.css') %>>">
+    <title>Airline Passenger Flow</title> 
+
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.9.3/dist/js/tabulator.js"></script>
+      
+    
+  </head>
+  
+  
+  <body>
+    <body>
+      <div id="header-vue">
+        <header-bar></header-bar>
+      </div>
+      <div id="menu-vue">
+        <menu-bar></menu-bar>
+      </div>
+      
+      <div id="airline_pass">
+        <br>
+        <v-app>
+            <div class="selectionContainer">
+                <h3>Where do passengers fly to when connecting via STL</h3>
+            </div>
+            <div class="selectionContainer">
+                <div class="selectionSection">
+                    <v-select
+                        v-model="selectedAirport"
+                        :items="airportList"
+                        label="Departing Airport"
+                        outlined
+                    ></v-select>
+                </div>
+               
+            </div>
+        
+
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-12">
+              <br><br>
+              
+              <h4>Airline Passenger Flows</h4>
+              <br>
+
+                <<%div|safe%>>
+
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="air-table" style="max-width:300px">
+                    <table class="table" style="max-width:1300px;">
+                      <thead style="text-align: center;">
+                        <tr>
+                          <th>Destination</th>
+                          <th>Passengers</th>
+                        </tr>
+                      </thead>
+                      <tbody style="text-align: center;">
+                        <tr v-for="r in connectingDetail.data">
+                          <td style="text-align: left;">{{r[1]}}</td>
+                          <td style="text-align: center;">{{r[2]}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+
+            </div>
+          </div>
+          <hr/>        
+        </div> 
+    </v-app>          
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+      
+       <<%script|safe%>> 
+          
+    <script>   
+        var vm = new Vue ({
+        el: '#airline_pass',
+        vuetify: new Vuetify(),
+        data: {
+          dests: 'x',
+          items: ['a','b'],
+          selectedAirport: '<<%airport|safe%>>',
+          connectingDetail: <<%table_data|safe%>>,
+          airportList: <<%airport_list|safe%>>
+        },
+        watch:{
+            selectedAirport: function(){
+                console.log('dif air')
+                this.chooseAir();
+            }
+        },
+        methods: {
+            chooseAir() {
+                console.log('in choose)')
+                let form = document.createElement('form');
+                form.action = 'airline_passenger_flow';
+                form.method = 'POST';
+                form.innerHTML = '<input class="hidden_submit" name="airport" value="'+vm.selectedAirport+'">';
+                document.body.append(form);
+                form.submit();
+            }
+        }
+      })
+    </script>      
+        
+    <script src="<<% url_for('static', filename='components/menu.vue') %>>">
+    </script>
+    <script src="<<% url_for('static', filename='components/header.vue') %>>">
+    </script>
+    
+  </body>
+  
+</html>

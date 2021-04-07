@@ -8,8 +8,8 @@ from bokeh.models import HoverTool, Label, Legend, LegendItem, NumeralTickFormat
 from bokeh.palettes import Category10, Category20
 from bokeh.transform import cumsum, dodge
 from bokeh.io import curdoc
-# import holoviews as hv
-# import panel as pn
+import holoviews as hv
+import panel as pn
 import pandas as pd
 from static.python.bokeh_plot import pop_pie_chart, pop_line_chart, pop_create_table
 from math import pi
@@ -22,8 +22,8 @@ import time
 from static.python.coronavirus_dashboard import coronavirus_dashboard_state_charts,coronavirus_dashboard_charts,coronavirus_national_charts
 from static.python.airlines_in_2020_functions import airline_2020_comp_chart, airline_2020_comp, airlines_in_2020_content
 from static.python.airline_project import airline_project_get,airline_project_post
-# from static.python.passenger_flow_charts import passsenger_flow_all, pie_carrier_plots
-# hv.extension('bokeh')
+from static.python.passenger_flow_charts import passsenger_flow_all, pie_carrier_plots
+hv.extension('bokeh')
 
 
 app=Flask(__name__)
@@ -36,19 +36,19 @@ jinja_options.update(dict(
 ))
 app.jinja_options = jinja_options
 
-# @app.route('/airline_passenger_flow',methods=['GET','POST'])
-# def airline_passenger_flow():
-#     if request.method =='GET':
-#         ap2='LIT'
-#     else:
-#         ap2=request.form['airport']
-#     conn=sqlite3.connect('passenger_flow.db')
-#     airport_list_df=pd.read_sql('SELECT begin,airport_city,passengers_total FROM route_flow_summary WHERE \
-#         passengers_total>10000',conn)
-#     airport_list_df['airport_label']=airport_list_df['begin']+' - '+airport_list_df['airport_city']
-#     airport_list=airport_list_df[['begin','airport_label']].to_json(orient='split')
+@app.route('/airline_passenger_flow',methods=['GET','POST'])
+def airline_passenger_flow():
+    if request.method =='GET':
+        ap2='LIT'
+    else:
+        ap2=request.form['airport']
+    conn=sqlite3.connect('passenger_flow.db')
+    airport_list_df=pd.read_sql('SELECT begin,airport_city,passengers_total FROM route_flow_summary WHERE \
+        passengers_total>10000',conn)
+    airport_list_df['airport_label']=airport_list_df['begin']+' - '+airport_list_df['airport_city']
+    airport_list=airport_list_df[['begin','airport_label']].to_json(orient='split')
 
-#     return render_template('/airline_passenger_flow.html',airport_list=airport_list,airport=ap2)
+    return render_template('/airline_passenger_flow.html',airport_list=airport_list,airport=ap2)
 
 @app.route('/')
 def main():
@@ -282,25 +282,25 @@ def api_states():
     cases_log_script,cases_log_div,cases_script,cases_div=coronavirus_dashboard_charts(state_data)
     return jsonify({'cases_script':cases_script,'cases_div':cases_div,'cases_log_script':cases_log_script,'cases_log_div':cases_log_div})
 
-# @app.route('/api/passenger_flow',methods=['GET','POST'])
-# def passenger_flow():
-#     ap2 = request.form["airport"]
-#     reg = request.form["reg_main_select"]
-#     advanced = request.form["advanced"]
-#     car = request.form["carrier_select"]
-#     div,script,div_t100,script_t100,div_pie,script_pie,table_data,total_pass,od_pass,route_pass_end,t100_data,valid_data=passsenger_flow_all(ap2,reg,advanced,car)
-#     return jsonify({'sankeychartscript':script,'sankeychartdiv':div,'table_data':table_data,'total_pass':total_pass,'t100_data':t100_data,
-#         'script_t100':script_t100,'div_t100':div_t100,'script_pie':script_pie,'div_pie':div_pie,'valid_data':valid_data,'od_pass':od_pass,
-#         'route_pass_end':route_pass_end})
+@app.route('/api/passenger_flow',methods=['GET','POST'])
+def passenger_flow():
+    ap2 = request.form["airport"]
+    reg = request.form["reg_main_select"]
+    advanced = request.form["advanced"]
+    car = request.form["carrier_select"]
+    div,script,div_t100,script_t100,div_pie,script_pie,table_data,total_pass,od_pass,route_pass_end,t100_data,valid_data=passsenger_flow_all(ap2,reg,advanced,car)
+    return jsonify({'sankeychartscript':script,'sankeychartdiv':div,'table_data':table_data,'total_pass':total_pass,'t100_data':t100_data,
+        'script_t100':script_t100,'div_t100':div_t100,'script_pie':script_pie,'div_pie':div_pie,'valid_data':valid_data,'od_pass':od_pass,
+        'route_pass_end':route_pass_end})
 
-# @app.route('/api/passenger_flow_pie_carrier_only',methods=['GET','POST'])
-# def passenger_flow_pie_carrier_only():
-#     ap2 = request.form["airport"]
-#     reg = request.form["reg_main_select"]
-#     advanced = request.form["advanced"]
-#     car = request.form["carrier_select"]
-#     div_pie,script_pie=pie_carrier_plots(ap2,reg,advanced,car)
-#     return jsonify({'script_pie':script_pie,'div_pie':div_pie})
+@app.route('/api/passenger_flow_pie_carrier_only',methods=['GET','POST'])
+def passenger_flow_pie_carrier_only():
+    ap2 = request.form["airport"]
+    reg = request.form["reg_main_select"]
+    advanced = request.form["advanced"]
+    car = request.form["carrier_select"]
+    div_pie,script_pie=pie_carrier_plots(ap2,reg,advanced,car)
+    return jsonify({'script_pie':script_pie,'div_pie':div_pie})
 
 if __name__ == '__main__':
     app.run()

@@ -14,9 +14,10 @@ requests>=2.2.1
 
 simplejson==3.8.0
 
-bokeh==1.4.0
+bokeh==2.3.0
 
 numpy==1.16.1
 
 pandas==1.0.1
 
+holoviews==1.14.2

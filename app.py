@@ -8,7 +8,7 @@ from bokeh.models import HoverTool, Label, Legend, LegendItem, NumeralTickFormat
 from bokeh.palettes import Category10, Category20
 from bokeh.transform import cumsum, dodge
 from bokeh.io import curdoc
-import holoviews as hv
+# import holoviews as hv
 import panel as pn
 import pandas as pd
 from static.python.bokeh_plot import pop_pie_chart, pop_line_chart, pop_create_table
@@ -23,7 +23,7 @@ from static.python.coronavirus_dashboard import coronavirus_dashboard_state_char
 from static.python.airlines_in_2020_functions import airline_2020_comp_chart, airline_2020_comp, airlines_in_2020_content
 from static.python.airline_project import airline_project_get,airline_project_post
 from static.python.passenger_flow_charts import passsenger_flow_all, pie_carrier_plots
-hv.extension('bokeh')
+# hv.extension('bokeh')
 
 
 app=Flask(__name__)

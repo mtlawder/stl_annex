@@ -41,7 +41,7 @@
     <div id="menu-vue">
       <menu-bar></menu-bar>
     </div>
-    <div id="airline_pass">
+    <div id="airline_pass" v-cloak>
       <br>
       <v-app>
         <br>
@@ -94,18 +94,39 @@
           </div>
         </div>
         <div class="paragraphContainer">  
-          
           <div class="paragraphSection">
             <h3>Summary Statistics for {{selectedAirport}}-->STL ({{car_dict[selectedCarrier]}}) {{invalidData}}</h3>
           </div>
         </div>
         <div class="paragraphContainer">  
-          <div class="paragraphSection">
+          <div class="paragraphSection" v-show="sumShowText">
             <p>
               The USDOT collects several different types of airline and passenger information. The following charts and tables use two different data sets. The T-100 data set contains monthly statistics for all domestic commercial routes by carrier. The numbers of passengers reported in the T-100 data set are exact but only show the summary information at a route level.  The DB1B data set is a more granular look at how individual passengers get from their initial origin to their final destination. This data set is most frequently used to report on Origin and Destination (O&D) passengers between cities. The data set is a 10% sample of all airline tickets and provides information about how passengers might connect through airports to reach their final destination. Since the data set is only a sample (and only contains information about domestic flights), the total numbers for passengers on specific routes will generally be lower than the exact information provided in the T-100 data, but the data is very useful to provide information about how passengers flow through airports across the country. 
             </p>
             <p>
               T-100 data is used here to report on exact number of departures, passengers, and load factors for routes and DB1B data is used to report on passenger flows.
+            </p>
+            <p class="text-button">
+              <v-btn
+                class="ma-1"
+                color="blue"
+                plain
+                @click="sumShowText=false"
+              >
+                Show Less
+              </v-btn>
+            </p>
+          </div>
+          <div class="paragraphSection" style="width:100%" v-show="!sumShowText">
+            <p class="text-button">
+              <v-btn
+                class="ma-1"
+                color="blue"
+                plain
+                @click="sumShowText=true"
+              >
+                Show More
+              </v-btn>
             </p>
           </div>  
         </div>
@@ -229,17 +250,43 @@
           <br>
         </div>
         <hr/>
-        <div class="paragraphContainer">
+        <div class="paragraphContainer">  
           <div class="paragraphSection">
-            <h3>Passenger Flows for {{selectedAirport}}-->STL</h3>
+            <h3>Passenger Flows for {{selectedAirport}}-->STL ({{car_dict[selectedCarrier]}}) {{invalidData}}</h3>
             <h5>When passengers connect via STL from {{selectedAirport}}, where do they ultimately end up? (Domestic Only)</h5>
+          </div>
+        </div>
+        <div class="paragraphContainer">
+          <div class="paragraphSection" v-show="connectShowText">       
             <p>
               Charts below use <a href="https://www.transtats.bts.gov/Tables.asp?QO_VQ=EFI&QO_anzr=Nv4yv0r%FDb4vtv0%FDn0q%FDQr56v0n6v10%FDf748rB%FD%FLQOEO%FM&QO_fu146_anzr=b4vtv0%FDn0q%FDQr56v0n6v10%FDf748rB">DB1B data</a> to show how passengers using the {{selectedAirport}}-->STL route travel from their Origin in {{selectedAirport}} to their final Destination. Many passengers that flying to St. Louis, use Lambert to connect to a different airport. The chart and table below shows to which airports are the final landing spot for these travelers. On some routes to STL, over 70% of the passengers connect to different cities. For other routes the majority of the passengers will stay in St. Louis.
             </p>
             <p>
               Due to the data set being only a 10% sample of all airline tickets, all numbers shown here are approximate, but in general do a good job showing the distribution of where travelers are headed. One additional caveat to the chart and table below; they only account for passengers that are beginning their journey in the selected airport and do not account for passengers that are coming to STL via a previous connection. For many airports (like LIT or DSM) this will have a negligible impact, but for larger hub airports (like DAL or HOU) this could skew the numbers.
             </p>
+            <p class="text-button">
+              <v-btn
+                class="ma-1"
+                color="blue"
+                plain
+                @click="connectShowText=false"
+              >
+                Show Less
+              </v-btn>
+            </p>
           </div>
+          <div class="paragraphSection" style="width:100%" v-show="!connectShowText">
+            <p class="text-button">
+              <v-btn
+                class="ma-1"
+                color="blue"
+                plain
+                @click="connectShowText=true"
+              >
+                Show More
+              </v-btn>
+            </p>
+          </div> 
         </div>
         <div class="container">
           <div class="row">
@@ -280,15 +327,41 @@
           </div>
           <hr/>        
         </div>
-        <div class="paragraphContainer">
+        <div class="paragraphContainer">  
           <div class="paragraphSection">
-            <h3>Historical Route Stats</h3>
+            <h3>Historical Route Stats {{selectedAirport}}-->STL ({{car_dict[selectedCarrier]}}) {{invalidData}}</h3>
             <h5><a href="https://www.transtats.bts.gov/Tables.asp?QO_VQ=EFI&QO_anzr=Nv4yv0r%FDb4vtv0%FDn0q%FDQr56v0n6v10%FDf748rB%FD%FLQOEO%FM&QO_fu146_anzr=b4vtv0%FDn0q%FDQr56v0n6v10%FDf748rB">Uses T-100 data from USDOT (Origin & Destination data)</a></h5>
+          </div>
+        </div>
+        <div class="paragraphContainer">
+          <div class="paragraphSection"  v-show="t100ShowText">
             <p>
               The charts below show the exact number of total passengers served based on the T-100 data. The pie chart showing the breakdown of which airlines flew passengers on the route shows the exact numbers from the T-100 data when showing all regional airlines. When rolling up to Mainline carriers the numbers for any carrier that contracts with Regional airlines on routes will be approximate. Regional airlines usually fly passengers from a Mainline airline ticket (like United, Delta, or American), however the T-100 data does not show not record which Mainline carrier that a regional airline is flying a specific route for, but we can approximate how many passengers/flights by a regional airline flew for a specific Mainline carrier on each route by looking at the ticket data available in the DB1B dataset. For each ticket the DB1B data shows both the regional carrier flying a route and the ticketing carrier (which is usually the Mainline carrier that the regional airline affiliates with on the route). By linking these two data set, an approximate breakdown by Mainline carrier can be accomplished for each route.
             </p>
             <p>
               The passenger numbers shown below are only for flights going from the selected airport ({{selectedAirport}}) to STL. The chart does not include passengers flying back from STL to the selected airport ({{selectedAirport}}). Passenger counts for a airport will generally report both departing and arriving passengers together unless specifically noted.
+            </p>
+            <p class="text-button">
+              <v-btn
+                class="ma-1"
+                color="blue"
+                plain
+                @click="t100ShowText=false"
+              >
+                Show Less
+              </v-btn>
+            </p>
+          </div>
+          <div class="paragraphSection" style="width:100%" v-show="!t100ShowText">
+            <p class="text-button">
+              <v-btn
+                class="ma-1"
+                color="blue"
+                plain
+                @click="t100ShowText=true"
+              >
+                Show More
+              </v-btn>
             </p>
           </div>
         </div>
@@ -353,6 +426,9 @@
             'AS':'AS - Alaska','SY':'SY - Sun Country','F9':'F9 - Frontier'},
           selectedCarrier: 'ALL',
           invalidData: '',
+          sumShowText: true,
+          connectShowText: true,
+          t100ShowText: true
         },
         mounted: function changeColors(){
           this.chooseAir();

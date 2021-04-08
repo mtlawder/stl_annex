@@ -52,3 +52,13 @@
     background-color: gray;
     opacity: .8;
 }
+
+.text-button{
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.text-button:hover{
+    text-decoration: underline;
+}

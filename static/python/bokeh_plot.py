@@ -87,7 +87,7 @@ def pop_line_chart(nb,nbhood):
 def pop_pie_chart(nb):
     plots={}
     legend={}
-    for yr in [1990,2000,2010]:
+    for yr in [1990,2000,2010,2020]:
         x=collections.OrderedDict()
         if yr == 1990:
             vals=['Black Total','White Total','Other']
@@ -110,7 +110,7 @@ def pop_pie_chart(nb):
         data['angle']=data['value']/data['value'].sum()*2*pi
         data['color']=Category20[len(x)]
 
-        plots[yr]=figure(title="        "+str(yr)+" Pop: "+'{:,}'.format(tot),width=180,height=180,tools='')
+        plots[yr]=figure(title="        "+str(yr)+" Pop: "+'{:,}'.format(tot),width=134,height=134,tools='')
         plots[yr].outline_line_color = None
         legend[yr]=plots[yr].wedge(x=0,y=1,radius=0.8,start_angle=cumsum('angle', include_zero=True),\
             end_angle=cumsum('angle'),fill_color='color',line_color='white',source=data)
@@ -121,7 +121,7 @@ def pop_pie_chart(nb):
         plots[yr].border_fill_color ='white'
         # plot_comb=gridplot([[plots[1990],plots[2000],plots[2010]]])
         # plot_comb.toolbar_location=None
-    pie_script,pie_div=components(gridplot([[plots[1990],plots[2000],plots[2010]]],toolbar_options=dict(logo=None)))
+    pie_script,pie_div=components(gridplot([[plots[1990],plots[2000],plots[2010],plots[2020]]],toolbar_options=dict(logo=None)))
     return pie_script,pie_div
 
 def pop_pie_chart_w_legend(nb):

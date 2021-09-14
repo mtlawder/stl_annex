@@ -115,6 +115,7 @@
                   <button class="btn nonActivePop" v-on:click="table_yr_sel=1990" v-bind:class="{activePop: table_yr_sel===1990}">1990</button>
                   <button class="btn nonActivePop" v-on:click="table_yr_sel=2000" v-bind:class="{activePop: table_yr_sel===2000}">2000</button>
                   <button class="btn nonActivePop" v-on:click="table_yr_sel=2010" v-bind:class="{activePop: table_yr_sel===2010}">2010</button>
+                  <button class="btn nonActivePop" v-on:click="table_yr_sel=2020" v-bind:class="{activePop: table_yr_sel===2020}">2020</button>
                 </div>
                 <div>
                   <table class="table">
@@ -123,7 +124,16 @@
                         <th v-for="col in table_data_10['columns']" style="font-weight: bold">{{col}}</th>
                       </tr>
                     </thead>
-                    <tbody v-if="table_yr_sel===2010">
+                    <tbody v-if="table_yr_sel===2020">
+                      <tr v-for="row in table_data_20['data']">
+                        <td style="font-weight:bold">{{row[0]}}</td>
+                        <td>{{formatNum(row[1])}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{formatPct(row[3])}}</td>
+                        <td>{{row[4]}}</td>
+                      </tr>
+                    </tbody>
+                    <tbody v-else-if="table_yr_sel===2010">
                       <tr v-for="row in table_data_10['data']">
                         <td style="font-weight:bold">{{row[0]}}</td>
                         <td>{{formatNum(row[1])}}</td>
@@ -191,6 +201,7 @@
           dests: 'x',
           nbhoods: <<%neighbohoods|safe%>>,
           nbhoods_sel: '<<%nb_sel|safe%>>',
+          table_data_20: <<%table_data_20|safe%>>,
           table_data_10: <<%table_data_10|safe%>>,
           table_data_00: <<%table_data_00|safe%>>,
           table_data_90: <<%table_data_90|safe%>>,
@@ -210,6 +221,7 @@
             req.onload=function(){
               var data=JSON.parse(this.response)
               console.log(data)
+              vm.table_data_20=JSON.parse(data.table_data_20)
               vm.table_data_10=JSON.parse(data.table_data_10)
               vm.table_data_00=JSON.parse(data.table_data_00)
               vm.table_data_90=JSON.parse(data.table_data_90)

@@ -69,6 +69,8 @@ def stl_pop():
         scroll=1
     full_table=pd.read_sql('SELECT * FROM neighborhood_pop',conn)
     neighborhoods=list(set(full_table['Neighborhood']))
+    exclude_nb=['Belfontaine/Calvary Cemetery','Carondelet Park','Penrose Park','Fairground Park','Forest Park','Missouri Botanical Garden',"O'Fallon Park",'Tower Grove Park','Wilmore Park']
+    neighborhoods=[i for i in neighborhoods if i not in exclude_nb]
     neighborhoods.sort()
     dd=full_table
     nb=dd.loc[dd['Neighborhood']==nbhood]

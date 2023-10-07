@@ -1,0 +1,414 @@
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-142498774-1');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@mtl_stl">
+    <meta name="twitter:creator" content="@mtl_stl">
+    <meta name="twitter:title" content="Where will STL-Lambert expand to next?">
+    <meta name="twitter:image" content="http://www.stlannex.com/static/images/STL_SW_routes_under 500 miles.PNG">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stlannex_style.css') %>>">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stl_pop_style.css') %>>">
+    <title>STL Annex</title> 
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-2.3.0.min.css" type="text/css" />
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-2.3.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-2.3.0.min.js"></script>
+    <script type="text/javascript">
+      Bokeh.set_log_level("info");
+    </script>
+    <style>
+      .btn-group{
+        padding:5px !important;
+      }
+      .container{
+        padding:0px !important;
+        max-width:1240px;
+      }
+      .left-group{
+        padding-left:5px;
+      }
+      .route-titles{
+        text-decoration: underline;
+        font-weight: bold;
+      }
+      .route-poss-title{
+        font-weight: bold;
+      }
+      .route-sub-titles{
+        font-style: italic;
+      }
+      .air-table{
+        display: flex;
+      }
+      @media (min-width:500px){
+        .air-table{
+          justify-content: center;
+        }
+      }
+      
+    </style>
+  </head>
+  <body>
+      <div id="header-vue">
+        <header-bar></header-bar>
+      </div>
+      <div id="menu-vue">
+        <menu-bar></menu-bar>
+      </div>
+      <br>
+      <div id="stl_airport">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-2 col-md-1">
+            </div>
+            <div class="col-lg-8 col-md-10 col-sm-12">
+              <br><br>
+              <center>
+                <h3>Back to Europe: Comparing St. Louis's Lufthansa Route</h3>
+                <h4>International Route Analysis</h4>
+              </center>
+              <div class="blog-container left-group">
+                <p>
+                  With more than a year of flights completed between STL and FRA on Lufthansa, the recent announcement that Air Canada will be flying from St. Louis to Montreal beginning next Spring, and seemingly more options to Mexico each year, St. Louis - Lambert International is truly putting the International in its name to good use. I wanted to look at how these routes are performing and how they compare to other similar international routes. Let's start with a look through how St. Louis first flight to Europe over 15 years (excluding Iceland) has been performing. I'll hope to look at some of the other international routes in future posts.
+                </p>
+                <p>
+                  Lufthansa launched the service from STL with 3x weekly flights beginning in June of 2022, connecting the city to one of the busiest European airports (and busiest in Germany), Frankfurt. The flight has consistently used a 255 seat Airbus A330 for the journey which translates to around 3,300 available seat each way every month. The service received a warm welcome (along with some subsidies) and passengers filled up the planes from very first flights. I wanted to look more closely at how this launch compared with other recent International Routes launched by Lufthansa and others.
+                </p>
+                <hr/>
+                <h5>
+                  Comparing new Lufthansa US routes
+                </h5>
+                <p>
+                  Since 2015, the German carrier launched 7 different routes from Germany to the US. The 4 launched between 2015 and 2018 (see chart below) have all been cut. Some were cut due in part to the pandemic and never restarted, while others struggled prior to the pandemic. The most recent routes Austin-Frankfurt (2019), St. Louis-Frankfurt (2022), and San Diego-Munich (2022) are all still in service.
+                </p>
+                <div class="air-table">
+                  <table class="table"  style="text-align: center;">
+                    <thead>
+                      <tr>
+                        <th>USA City</th>
+                        <th>German City</th>
+                        <th>Year Started</th>
+                        <th>Operating Now?</th>
+                        </tr>
+                        </thead>
+                    <tbody>
+                      <tr>
+                        <td>TPA</td>
+                        <td>FRA</td>
+                        <td>2015</td>
+                        <td>No</td>
+                      </tr>
+                      <tr>
+                        <td>SJC</td>
+                        <td>FRA</td>
+                        <td>2016</td>
+                        <td>No</td>
+                      </tr>
+                      <tr>
+                        <td>JFK</td>
+                        <td>TXL</td>
+                        <td>2017</td>
+                        <td>No</td>
+                      </tr>
+                      <tr>
+                        <td>SAN</td>
+                        <td>FRA</td>
+                        <td>2018</td>
+                        <td>No</td>
+                      </tr>
+                      <tr>
+                        <td>AUS</td>
+                        <td>FRA</td>
+                        <td>2019</td>
+                        <td>Yes</td>
+                      </tr>
+                      <tr>
+                        <td>STL</td>
+                        <td>FRA</td>
+                        <td>2022</td>
+                        <td>Yes</td>
+                      </tr>
+                      <tr>
+                        <td>SAN</td>
+                        <td>MUC</td>
+                        <td>2022</td>
+                        <td>Yes</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>
+                  Comparing the Austin, San Diego, and St. Louis routes, St. Louis is carrying less total seats per week than the other two due to both using an A350 with 294 seats (Austin only upgraded in May of this year) and San Diego running up to 5xweek service. But St. Louis has consistently performed better on load factor (how full the flights are). In the first 3 months of service (June-August 2022) St. Louis's flight were 90.9% full while Austin's during the same period were 87.6% and San Diego's were 87.0%. You can see the monthly Load Factor's for the past year in the chart below and St. Louis has consistently outperformed the other two markets (although Austin and St. Louis have been neck and neck in 2023). The San Diego and Austin routes had a few more months to build up an audience in 2022 starting in April (and Austin also ran in parts of 2019 and 2020 before the pandemic).
+                </p>
+                <div class="air-table">
+                  <div class="bk-root" id="50b4e129-7912-4fbe-b0df-da09cf2e2d61" data-root-id="1401"></div>
+                </div>
+                <br/>
+                <hr/>
+                <h5>
+                  Comparing All Lufthansa's US routes
+                </h5>
+                <p>
+                  Looking at the most recent 3 months of data (April-June, 2023), I compared all of Lufthansa's routes to the USA for Load Factor. St. Louis ranked in the middle of the pack (16 out of 25) with it's 85.3% load factor over that period. However, every route above it from a Load Factor perspective has been one of Lufthansa's routes for over a decade (barring some breaks during the pandemic) and has between 6 and 14 flights per week. Additionally, most of those routes are from a United Hub (one of Lufthansa's Star Alliance partners which makes for easy code shares). When considering this lens, St. Louis has performed well during its first year for Lufthansa.
+                </p>
+                <p>
+                  Below, I've plotted all the Lufthansa routes that ran during April-June 2022 (MIA-MUC only ran in April). Each dot is a route with the number of seats flown on the x-axis and the load factor on the y-axis. Routes further to the right on the x-axis have more weekly flights or fly on larger aircraft (or some combination of the two) and routes high on the y-axis are doing a better job filling their planes. I have also color coded the dot to represent their hub status. St. Louis' route performs well on load factor, matching many of the hub routes after only a year of service and beating out AUS-FRA and SAN-MUC on load factor even though Lufthansa has given them more flights on larger aircraft. While, I do not have the O&D (demand) numbers for these international routes, on performance alone it's surprising that Lufthansa decided to <a href="https://www.afar.com/magazine/lufthansa-to-add-these-new-u-s-routes-and-flights-in-2024">increase frequency on both the Austin (to 5x weekly) and San Diego (to daily) service</a> while leaving St. Louis as its only route at 3xweek. There are a number of other factors like average fare and expected future demand that could also influence these decisions, but even if there are more expected flyers to Europe from AUS and SAN, their is also more competition from other European flights as well. San Diego has a British Airways flight to London and Austin currently has 4 European routes, with British Airways and Virgin Atlantic to London and KLM to Amsterdam along with the Lufthansa flight.
+                </p>
+                <div class="air-table">
+                  <div class="bk-root" id="9743851b-b687-428c-8273-27f2d9f1aad8" data-root-id="6400"></div>
+                </div>
+                <p>
+                  <em>
+                  Note that: PHL-FRA and MCO-FRA routes previously flown by Lufthansa did continue in 2023, but are now on Eurowings Discover, rather than Lufthansa. For reference, the PHL route had a 71.5% load factor for the time period while the MCO route was 92.3%
+                  </em>
+                </p>
+                <br/>
+                <p>
+                  Lufthansa is <a href="https://thepointsguy.com/news/lufthansa-raleigh-minneaplis-nonstop-flights/">launching two more routes next summer to Minneapolis and Raleigh-Durham both at 5xweek</a>, meaning that barring an update, St. Louis will be the only of 29 routes to the US that is only flown 3xweek. I am not sure what the plans are for Lufthansa long term with the route. On one hand, Lufthansa has made strong indications they enjoy the numbers on the route such as <a href="https://greaterstlinc.com/news/gsl-shares-story-st-louis-resurgence-lufthansas-global-executives">inviting Jason Hall from Greater St. Louis to present on St. Louis to the company executives at an annual meeting where he stated, "The route is an unquestioned success on the financial metrics"</a>. And the load factor number bear out those results, but on the other hand, St. Louis is likely to have only slightly more than half of the available seats to Europe that Lufthansa's next smallest route has next summer. I won't speculate any more, but will keep my fingers cross they move to 5xweek sometime soon.
+                </p>
+                <hr/>
+                <h5>
+                  Comparing to non-Lufthansa Europe-US route starts
+                </h5>
+                <p>
+                  While we've compared St. Louis' route to the other Lufthansa routes, there are not many equal comparisons since most of the routes are generally long standing routes to major hubs. So, I wanted to compare the service to some other US-Europe routes flown to non-hub airports. Below is a list of 5 routes that were launched in recent years from airports with either no or limited European connectivity by a major American or European airline that I thought were comparable to the St. Louis route. The Main Aircraft stats are based on the first 6 months of service for the route.
+                </p>
+                <div class="air-table">
+                  <table class="table"  style="text-align: center;">
+                    <thead>
+                      <tr>
+                        <th>USA City</th>
+                        <th>Europe City</th>
+                        <th>Airline</th>
+                        <th>Year Started</th>
+                        <th>Main Aircraft</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>STL</td>
+                        <td>FRA</td>
+                        <td>Lufthansa</td>
+                        <td>2022</td>
+                        <td>A330</td>
+                      </tr>
+                      <tr>
+                        <td>AUS</td>
+                        <td>FRA</td>
+                        <td>Lufthansa</td>
+                        <td>2019</td>
+                        <td>A330</td>
+                      </tr>
+                      <tr>
+                        <td>IND</td>
+                        <td>CDG</td>
+                        <td>Delta</td>
+                        <td>2018</td>
+                        <td>B767</td>
+                      </tr>
+                      <tr>
+                        <td>PIT</td>
+                        <td>LHR</td>
+                        <td>British Airways</td>
+                        <td>2019</td>
+                        <td>B787</td>
+                      </tr>
+                      <tr>
+                        <td>BNA</td>
+                        <td>LHR</td>
+                        <td>British Airways</td>
+                        <td>2018</td>
+                        <td>B787</td>
+                      </tr>
+                      <tr>
+                        <td>PDX</td>
+                        <td>LHR</td>
+                        <td>British Airways</td>
+                        <td>2022</td>
+                        <td>B787</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <br/>
+                <p>
+                  Below I've taken each of the routes and compared their initial launch years based on load factor. All the routes started in either April, May, or June of their given year. I've adjusted each of them on the x-axis below so that June of their launch year lines up at 0 to remove any seasonal impacts of the comparison. Zero and 12 on the x-axis align with the start of summer peak travel season while 8 is February, the historical low month for load factor. St. Louis' Lufthansa route is the top performing in terms of load factor for most of the months. St. Louis performed well right out of the gate in the summer of 2022 and maintained a high load factor into the fall. It is also starting off year 2 well, with June 2023 exceeding 2022 at 92.0%!
+                </p>
+                <div class="air-table">
+                  <div class="bk-root" id="3c312b57-8325-4061-a860-bdb64520cb90" data-root-id="6858"></div>
+                </div>
+                <p><em>Note that, both AUS and PIT's lines end after month line because they started in 2019 and were both paused during the pandemic. All routes that began before the pandemic restarted around 2022 except for IND which never returned.</em></p>
+                <br/>
+                <p>
+                  I'll walk through each of these routes in a little more detail. The Indianapolis route started in 2018 and unfortunately had poor load factors throughout most of it's first year. A lot of months in the 60%'s won't cut it outside of February. Even with arguably one of the nicest airports in the country, it was curious for Delta to add a flight to Paris so close geographically to Cincinnati which has it's own Delta flight to Paris. Ultimately this route ended during the start of the pandemic and never started back. We discussed the Austin route on Lufthansa a bit earlier in the piece, and it is performing well now at 3xweek and is planned for additional frequencies. But it is really interesting to look at the numbers from it's first year in 2019. It's numbers were pretty lackluster during it's first summer and fall, with load factor's often in the low to mid seventies before finally appearing to find it's footing at the end of the year (only then to be halted by COVID). It seems like a great example of needing to give a route some time to settle in before judging it too harshly.
+                </p>
+                <p>
+                  The British Airways flights from BNA and PIT are some of the closest analogues to the St. Louis route coming from a European carrier and being the only true European option when they started. Both had some great high months performing similar to St. Louis, but also had a few months where they fell off sharply. For example, BNA's route hit 93.2% in it's second month (June), only to drop all the way down to 75.6% in August two months later before hitting over 80% in September and October. One take away when comparing St. Louis' start to others is that it's first year was much more consistent (in a high way) than most routes. Portland's number were not as variable as the other BA routes, but stayed mostly in the middle during the summer months, but one of the worst winters of these routes. It seems like with British Airways making a concerted effort to grow in the US, they are willing to take some of that variability earlier on as these routes settle in. BNA and PIT are in their 4th and 5th year (not excluding COVID pauses) of service now.
+                </p>
+                <hr/>
+                <h5>
+                  Conclusions
+                </h5>
+                <p>
+                  By pretty much all of the analysis here, St. Louis has performed well in its first year of service. From a load factor perspective, it competes well with long standing routes Lufthansa, even though it does not benefit for boosting numbers with connecting service. While I do not have O&D numbers for international routes, based on performance alone, it seems like St. Louis (and Lufthansa) would benefit from adding additional frequencies on the route (at least in the summer). If they do not increase to 5xweek or more, they are definitely at risk of losing some of those European connectors to other hubs or international routes like the newly announced service to Montreal for next year. We know that additional service will also induce additional demand (although how much additional demand is hard to predict), so even if some demand seems light, it would be nice for the route to receive the chance to show it can support more. If 90%+ load factors keep rolling in, it'll be harder and harder to ignore.
+                </p>
+                <p>
+                  I'll wrap up just by noting that I took the STL-FRA flight in September of last year and was pleased overall with the service. I was in Economy and it was nothing more special than other international economy, but matched other legacy carrier service well. And it was so nice to depart straight from St. Louis on the service and not have to do any European connections. Frankfurt was also a fun airport to connect through. It is enormous and pretty cool to see 747 after 747 lined up to fly to pretty much all corners on the world. If you are looking for a good vacation on the medditerean, I definitely recommend the STL-FRA-NCE outbound and MSE-FRA-STL inbound itinerary. Hopefully STL travelers will have increased flexibility to make those types of trips more than three days per week. 
+                </p>
+                <hr/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </body>
+
+    <script>   
+      new Vue ({
+        el: '#stl_airport',
+        data: {
+          dests: 'x'
+        }
+      })
+    </script>
+
+<script type="application/json" id="1629">
+  {"640221f3-01db-4a94-b738-4c4743d0d0d5":{"defs":[{"extends":null,"module":null,"name":"DataModel","overrides":[],"properties":[]}],"roots":{"references":[{"attributes":{"background_fill_color":"#f7f7f7","below":[{"id":"1412"}],"border_fill_alpha":0,"center":[{"id":"1414"},{"id":"1418"},{"id":"1437"}],"height":425,"left":[{"id":"1415"}],"renderers":[{"id":"1426"},{"id":"1442"},{"id":"1457"}],"right":[{"id":"1437"}],"title":{"id":"1402"},"toolbar":{"id":"1420"},"toolbar_location":null,"width":800,"x_range":{"id":"1404"},"x_scale":{"id":"1408"},"y_range":{"id":"1406"},"y_scale":{"id":"1410"}},"id":"1401","subtype":"Figure","type":"Plot"},{"attributes":{"fill_alpha":{"value":0.5},"fill_color":{"value":"green"},"line_color":{"value":"green"},"line_width":{"value":2},"top":{"field":"lf3"},"width":{"value":0.25},"x":{"field":"yrmo3"}},"id":"1455","type":"VBar"},{"attributes":{},"id":"1435","type":"Selection"},{"attributes":{"formatter":{"id":"1431"},"major_label_policy":{"id":"1430"},"ticker":{"id":"1413"}},"id":"1412","type":"CategoricalAxis"},{"attributes":{"source":{"id":"1422"}},"id":"1443","type":"CDSView"},{"attributes":{"callback":null,"renderers":[{"id":"1457"}],"tooltips":[["Route","SAN-MUC"],["Load Factor","@lf3{0.%f}"]]},"id":"1473","type":"HoverTool"},{"attributes":{},"id":"1408","type":"CategoricalScale"},{"attributes":{"active_multi":null,"tools":[{"id":"1419"},{"id":"1469"},{"id":"1471"},{"id":"1473"}]},"id":"1420","type":"Toolbar"},{"attributes":{"source":{"id":"1422"}},"id":"1427","type":"CDSView"},{"attributes":{"text":"Load Factors for Newer Lufthansa Routes"},"id":"1402","type":"Title"},{"attributes":{"data_source":{"id":"1422"},"glyph":{"id":"1455"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1456"},"view":{"id":"1458"}},"id":"1457","type":"GlyphRenderer"},{"attributes":{"data_source":{"id":"1422"},"glyph":{"id":"1440"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1441"},"view":{"id":"1443"}},"id":"1442","type":"GlyphRenderer"},{"attributes":{"fill_alpha":{"value":0.5},"fill_color":{"value":"red"},"line_color":{"value":"red"},"line_width":{"value":2},"top":{"field":"lf2"},"width":{"value":0.25},"x":{"field":"yrmo2"}},"id":"1440","type":"VBar"},{"attributes":{"label":{"value":"STL-FRA"},"renderers":[{"id":"1426"}]},"id":"1438","type":"LegendItem"},{"attributes":{},"id":"1419","type":"ResetTool"},{"attributes":{"format":"0%"},"id":"1475","type":"NumeralTickFormatter"},{"attributes":{"label":{"value":"SAN-MUC"},"renderers":[{"id":"1457"}]},"id":"1468","type":"LegendItem"},{"attributes":{"callback":null,"renderers":[{"id":"1442"}],"tooltips":[["Route","AUS-FRA"],["Load Factor","@lf2{0.%f}"]]},"id":"1471","type":"HoverTool"},{"attributes":{},"id":"1433","type":"AllLabels"},{"attributes":{"source":{"id":"1422"}},"id":"1458","type":"CDSView"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"red"},"line_alpha":{"value":0.1},"line_color":{"value":"red"},"line_width":{"value":2},"top":{"field":"lf2"},"width":{"value":0.25},"x":{"field":"yrmo2"}},"id":"1441","type":"VBar"},{"attributes":{},"id":"1430","type":"AllLabels"},{"attributes":{"factors":["2022-6","2022-7","2022-8","2022-9","2022-10","2022-11","2022-12","2023-1","2023-2","2023-3","2023-4","2023-5","2023-6"]},"id":"1404","type":"FactorRange"},{"attributes":{"data_source":{"id":"1422"},"glyph":{"id":"1424"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1425"},"view":{"id":"1427"}},"id":"1426","type":"GlyphRenderer"},{"attributes":{"axis_label":"Load Factor","formatter":{"id":"1475"},"major_label_policy":{"id":"1433"},"ticker":{"id":"1416"}},"id":"1415","type":"LinearAxis"},{"attributes":{},"id":"1416","type":"BasicTicker"},{"attributes":{},"id":"1436","type":"UnionRenderers"},{"attributes":{"items":[{"id":"1438"},{"id":"1453"},{"id":"1468"}]},"id":"1437","type":"Legend"},{"attributes":{"axis":{"id":"1415"},"dimension":1,"ticker":null},"id":"1418","type":"Grid"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"blue"},"line_alpha":{"value":0.1},"line_color":{"value":"blue"},"line_width":{"value":2},"top":{"field":"load_factor"},"width":{"value":0.25},"x":{"field":"yrmo"}},"id":"1425","type":"VBar"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"green"},"line_alpha":{"value":0.1},"line_color":{"value":"green"},"line_width":{"value":2},"top":{"field":"lf3"},"width":{"value":0.25},"x":{"field":"yrmo3"}},"id":"1456","type":"VBar"},{"attributes":{"axis":{"id":"1412"},"grid_line_color":null,"ticker":null},"id":"1414","type":"Grid"},{"attributes":{"start":0},"id":"1406","type":"DataRange1d"},{"attributes":{"callback":null,"renderers":[{"id":"1426"}],"tooltips":[["Route","STL-FRA"],["Load Factor","@load_factor{0.%f}"]]},"id":"1469","type":"HoverTool"},{"attributes":{},"id":"1410","type":"LinearScale"},{"attributes":{"fill_alpha":{"value":0.5},"fill_color":{"value":"blue"},"line_color":{"value":"blue"},"line_width":{"value":2},"top":{"field":"load_factor"},"width":{"value":0.25},"x":{"field":"yrmo"}},"id":"1424","type":"VBar"},{"attributes":{"data":{"lf2":{"__ndarray__":"3SsY3SsY7T+B1iuB1ivtPxPpgcrZLeo/ExMTExMT6z+c+9sLLhPqPz+8JQg5j+o/an24aX246T+TA0FLIsbmP+x5XZYkCOE/+qRP+qRP6j+KO0+KO0/qPxmVURmVUek/+DGNrp9o7T8=","dtype":"float64","order":"little","shape":[13]},"lf3":{"__ndarray__":"8QfEBNwC7D+drUEOjwPtP+Fp7aXBluo/9tDMYLz/6j/3qy1nG3HoP7dZBm6JK+k/vq7YaOg+6D9u2g6Dok7mP18r6ikgPeQ/aRyDiCyW6D8WJoEvHH/oPyYSMvfir+c/J8B1KGYQ7D8=","dtype":"float64","order":"little","shape":[13]},"load_factor":{"__ndarray__":"7XYU7XYU7T+tSiOtSiPtPy2jBS2jBe0/8UWb8EWb7D9L/A9L/A/rP/o05vk05uk/u1gxu1gx6z/39vb29vbmP9+w9g1r3+A/+kLV+ULV6T8at48Zt4/pP/s15/o15+o/bW1tbW1t7T8=","dtype":"float64","order":"little","shape":[13]},"yrmo":[["2022-6",0.3],["2022-7",0.3],["2022-8",0.3],["2022-9",0.3],["2022-10",0.3],["2022-11",0.3],["2022-12",0.3],["2023-1",0.3],["2023-2",0.3],["2023-3",0.3],["2023-4",0.3],["2023-5",0.3],["2023-6",0.3]],"yrmo2":[["2022-6",-0.3],["2022-7",-0.3],["2022-8",-0.3],["2022-9",-0.3],["2022-10",-0.3],["2022-11",-0.3],["2022-12",-0.3],["2023-1",-0.3],["2023-2",-0.3],["2023-3",-0.3],["2023-4",-0.3],["2023-5",-0.3],["2023-6",-0.3]],"yrmo3":["2022-6","2022-7","2022-8","2022-9","2022-10","2022-11","2022-12","2023-1","2023-2","2023-3","2023-4","2023-5","2023-6"]},"selected":{"id":"1435"},"selection_policy":{"id":"1436"}},"id":"1422","type":"ColumnDataSource"},{"attributes":{},"id":"1431","type":"CategoricalTickFormatter"},{"attributes":{"label":{"value":"AUS-FRA"},"renderers":[{"id":"1442"}]},"id":"1453","type":"LegendItem"},{"attributes":{},"id":"1413","type":"CategoricalTicker"}],"root_ids":["1401"]},"title":"Bokeh Application","version":"2.3.0"}}
+</script>
+<script type="text/javascript">
+  (function() {
+    var fn = function() {
+      Bokeh.safely(function() {
+        (function(root) {
+          function embed_document(root) {
+            
+          var docs_json = document.getElementById('1629').textContent;
+          var render_items = [{"docid":"640221f3-01db-4a94-b738-4c4743d0d0d5","root_ids":["1401"],"roots":{"1401":"50b4e129-7912-4fbe-b0df-da09cf2e2d61"}}];
+          root.Bokeh.embed.embed_items(docs_json, render_items);
+        
+          }
+          if (root.Bokeh !== undefined) {
+            embed_document(root);
+          } else {
+            var attempts = 0;
+            var timer = setInterval(function(root) {
+              if (root.Bokeh !== undefined) {
+                clearInterval(timer);
+                embed_document(root);
+              } else {
+                attempts++;
+                if (attempts > 100) {
+                  clearInterval(timer);
+                  console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                }
+              }
+            }, 10, root)
+          }
+        })(window);
+      });
+    };
+    if (document.readyState != "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  })();
+</script>
+<script type="application/json" id="6848">
+  {"44340f8a-b209-4f05-a45e-7d6c8c18bea0":{"defs":[{"extends":null,"module":null,"name":"DataModel","overrides":[],"properties":[]}],"roots":{"references":[{"attributes":{"background_fill_color":"#f7f7f7","below":[{"id":"6411"}],"border_fill_alpha":0,"center":[{"id":"6414"},{"id":"6418"},{"id":"6437"},{"id":"6446"}],"height":425,"left":[{"id":"6415"}],"renderers":[{"id":"6426"}],"title":{"id":"6401"},"toolbar":{"id":"6420"},"toolbar_location":null,"width":800,"x_range":{"id":"6403"},"x_scale":{"id":"6407"},"y_range":{"id":"6405"},"y_scale":{"id":"6409"}},"id":"6400","subtype":"Figure","type":"Plot"},{"attributes":{"items":[{"id":"6438"}],"location":"top_left"},"id":"6437","type":"Legend"},{"attributes":{"format":"0k"},"id":"6441","type":"NumeralTickFormatter"},{"attributes":{},"id":"6419","type":"ResetTool"},{"attributes":{},"id":"6432","type":"AllLabels"},{"attributes":{"source":{"id":"6445"},"text":{"field":"l"},"x":{"field":"x"},"y":{"field":"y"}},"id":"6446","type":"LabelSet"},{"attributes":{},"id":"6711","type":"Selection"},{"attributes":{},"id":"6416","type":"BasicTicker"},{"attributes":{},"id":"6409","type":"LinearScale"},{"attributes":{"data":{"a_airport":["ATL","AUS","BOS","BOS","CLT","DEN","DEN","DFW","DTW","EWR","EWR","IAD","IAD","IAH","JFK","JFK","LAX","LAX","MIA","ORD","ORD","SAN","SEA","SFO","SFO","STL"],"departures":{"__ndarray__":"AAAAAACAZkAAAAAAAIBTQAAAAAAAQG5AAAAAAAAgZUAAAAAAAMBmQAAAAAAAYGRAAAAAAACgZkAAAAAAAOBmQAAAAAAAoGVAAAAAAADAZkAAAAAAAIBmQAAAAAAAoHJAAAAAAACAYUAAAAAAAOBmQAAAAAAAQHVAAAAAAADgZEAAAAAAALBwQAAAAAAAoGZAAAAAAACAZkAAAAAAAAB3QAAAAAAAgG1AAAAAAADAU0AAAAAAAEBjQAAAAAAAAGZAAAAAAACgZkAAAAAAAIBTQA==","dtype":"float64","order":"little","shape":[26]},"dot":{"__ndarray__":"SS7/If32KUCGONbFbbQlQAu1pnnHaS1AhA1Pr5SlK0C1pnnHKdoqQGKh1jTvOCpA8rBQa5oXK0CY3ZOHhTopQBueXinLsCpALPaX3ZNHLUDQRNjw9EorQFD8GHPXMjFABvAWSFCcKECdEaW9wZctQBgEVg4tUjBAcM6I0t4gKkApXI/C9fgwQDq0yHa+/ypAarx0kxhkLUDXo3A9CpcxQLIMcayLWy1AW0I+6NmsJUDpSC7/Id0oQDj4wmSqAC1AbJp3nKIDK0AUP8bctWQlQA==","dtype":"float64","order":"little","shape":[26]},"dot_color":["red","green","red","red","red","blue","blue","red","red","blue","blue","blue","blue","blue","red","red","blue","blue","red","blue","blue","green","red","blue","blue","green"],"g_airport":["FRA","FRA","FRA","MUC","MUC","FRA","MUC","FRA","FRA","FRA","MUC","FRA","MUC","FRA","FRA","MUC","FRA","MUC","FRA","FRA","MUC","MUC","FRA","FRA","MUC","FRA"],"legend":["Other Hub","non-Hub","Other Hub","Other Hub","Other Hub","United hub","United hub","Other Hub","Other Hub","United hub","United hub","United hub","United hub","United hub","Other Hub","Other Hub","United hub","United hub","Other Hub","United hub","United hub","non-Hub","Other Hub","United hub","United hub","non-Hub"],"load_factor":{"__ndarray__":"TgNRnE/u6D8bPJ07eAvrPx9zp1B18Os/PEU86ukb6j95+EkyzVzqP/PyIooR3+s/31D3rlpu6z9PMy2b3w/rP87WlDkQTes/mOUXaQwW7T901eHl+YjsP2ZLJ014p+s/MJ5zL/rP6j+kNH659tbrP4glzLX3U+s/KkR/cdW26z/ydmsxu1vsP3KTFwxfJus/Xj4vn5fP6z+Dyd35olzrPydNFuh0G+s/jDvobnxn6T8GGDrEvH7rPzb+bh6heus/rjutaRwy6z8rHkwrHkzrPw==","dtype":"float64","order":"little","shape":[26]},"passengers":{"__ndarray__":"AAAAAABy40AAAAAAABfSQAAAAABA3etAAAAAAECN50AAAAAAoJzlQAAAAAAAE+RAAAAAAKAy5kAAAAAA4KXhQAAAAACgN+VAAAAAAMCJ60AAAAAAALDmQAAAAAAgBPRAAAAAAKAj4EAAAAAAgE3sQAAAAACg3/FAAAAAAEDY40AAAAAA0HbzQAAAAABg+OVAAAAAAGDP60AAAAAAwPj0QAAAAACAuutAAAAAAADy0UAAAAAA4MHgQAAAAACg3OpAAAAAAOAB5kAAAAAAwJHQQA==","dtype":"float64","order":"little","shape":[26]},"seats":{"__ndarray__":"AAAAAID16EAAAAAAgGfVQAAAAAAA6u9AAAAAAKDd7EAAAAAAwDvqQAAAAABADOdAAAAAACDl6UAAAAAAQN7kQAAAAACA3uhAAAAAAABM7kAAAAAAQHHpQAAAAABgKfdAAAAAAABD40AAAAAAIETwQAAAAADg7fRAAAAAAODp5kAAAAAAsPb1QAAAAAAg5elAAAAAAMD/70AAAAAA0Ib4QAAAAADgXfBAAAAAAMCa1kAAAAAAwIDjQAAAAAAASO9AAAAAACDl6UAAAAAAgGzTQA==","dtype":"float64","order":"little","shape":[26]}},"selected":{"id":"6435"},"selection_policy":{"id":"6436"}},"id":"6422","type":"ColumnDataSource"},{"attributes":{"axis_label":"Seats","formatter":{"id":"6441"},"major_label_policy":{"id":"6432"},"ticker":{"id":"6412"}},"id":"6411","type":"LinearAxis"},{"attributes":{"active_multi":null,"tools":[{"id":"6419"},{"id":"6439"}]},"id":"6420","type":"Toolbar"},{"attributes":{"text":"Load Factors vs Seats"},"id":"6401","type":"Title"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"field":"dot_color"},"line_alpha":{"value":0.1},"line_color":{"field":"dot_color"},"line_width":{"value":2},"size":{"value":12},"x":{"field":"seats"},"y":{"field":"load_factor"}},"id":"6425","type":"Scatter"},{"attributes":{},"id":"6412","type":"BasicTicker"},{"attributes":{},"id":"6435","type":"Selection"},{"attributes":{"axis":{"id":"6415"},"dimension":1,"ticker":null},"id":"6418","type":"Grid"},{"attributes":{"data":{"l":["STL-FRA","AUS-FRA","SAN-MUC","EWR-FRA","JFK-FRA","ORD-FRA","ATL-FRA"],"x":[15200,17000,18100,56500,81500,94000,46800],"y":[0.857,0.834,0.797,0.898,0.843,0.845,0.782]},"selected":{"id":"6711"},"selection_policy":{"id":"6712"}},"id":"6445","type":"ColumnDataSource"},{"attributes":{"label":{"field":"legend"},"renderers":[{"id":"6426"}]},"id":"6438","type":"LegendItem"},{"attributes":{},"id":"6429","type":"AllLabels"},{"attributes":{},"id":"6712","type":"UnionRenderers"},{"attributes":{"start":0},"id":"6403","type":"DataRange1d"},{"attributes":{},"id":"6407","type":"LinearScale"},{"attributes":{"axis_label":"Load Factor","formatter":{"id":"6443"},"major_label_policy":{"id":"6429"},"ticker":{"id":"6416"}},"id":"6415","type":"LinearAxis"},{"attributes":{},"id":"6436","type":"UnionRenderers"},{"attributes":{"format":"0%"},"id":"6443","type":"NumeralTickFormatter"},{"attributes":{"data_source":{"id":"6422"},"glyph":{"id":"6424"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6425"},"view":{"id":"6427"}},"id":"6426","type":"GlyphRenderer"},{"attributes":{"callback":null,"renderers":[{"id":"6426"}],"tooltips":[["Route","@a_airport-@g_airport"],["Load Factor","@load_factor{0.%f}"]]},"id":"6439","type":"HoverTool"},{"attributes":{"fill_alpha":{"value":0.5},"fill_color":{"field":"dot_color"},"line_alpha":{"value":0.5},"line_color":{"field":"dot_color"},"line_width":{"value":2},"size":{"value":12},"x":{"field":"seats"},"y":{"field":"load_factor"}},"id":"6424","type":"Scatter"},{"attributes":{"axis":{"id":"6411"},"ticker":null},"id":"6414","type":"Grid"},{"attributes":{},"id":"6405","type":"DataRange1d"},{"attributes":{"source":{"id":"6422"}},"id":"6427","type":"CDSView"}],"root_ids":["6400"]},"title":"Bokeh Application","version":"2.3.0"}}
+</script>
+<script type="text/javascript">
+  (function() {
+    var fn = function() {
+      Bokeh.safely(function() {
+        (function(root) {
+          function embed_document(root) {
+            
+          var docs_json = document.getElementById('6848').textContent;
+          var render_items = [{"docid":"44340f8a-b209-4f05-a45e-7d6c8c18bea0","root_ids":["6400"],"roots":{"6400":"9743851b-b687-428c-8273-27f2d9f1aad8"}}];
+          root.Bokeh.embed.embed_items(docs_json, render_items);
+        
+          }
+          if (root.Bokeh !== undefined) {
+            embed_document(root);
+          } else {
+            var attempts = 0;
+            var timer = setInterval(function(root) {
+              if (root.Bokeh !== undefined) {
+                clearInterval(timer);
+                embed_document(root);
+              } else {
+                attempts++;
+                if (attempts > 100) {
+                  clearInterval(timer);
+                  console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                }
+              }
+            }, 10, root)
+          }
+        })(window);
+      });
+    };
+    if (document.readyState != "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  })();
+</script>
+<script type="application/json" id="7568">
+  {"9caca7a7-c406-4dd2-a2dc-5ecee3022626":{"defs":[{"extends":null,"module":null,"name":"DataModel","overrides":[],"properties":[]}],"roots":{"references":[{"attributes":{"background_fill_color":"#f7f7f7","below":[{"id":"6869"}],"border_fill_alpha":0,"center":[{"id":"6872"},{"id":"6876"},{"id":"6894"}],"height":425,"left":[{"id":"6873"}],"renderers":[{"id":"6883"},{"id":"6901"},{"id":"6920"},{"id":"6941"},{"id":"6964"},{"id":"6989"}],"title":{"id":"6859"},"toolbar":{"id":"6878"},"toolbar_location":null,"width":800,"x_range":{"id":"6861"},"x_scale":{"id":"6865"},"y_range":{"id":"6863"},"y_scale":{"id":"6867"}},"id":"6858","subtype":"Figure","type":"Plot"},{"attributes":{"data_source":{"id":"6880"},"glyph":{"id":"6881"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6882"},"view":{"id":"6884"}},"id":"6883","type":"GlyphRenderer"},{"attributes":{},"id":"6863","type":"DataRange1d"},{"attributes":{"source":{"id":"6938"}},"id":"6942","type":"CDSView"},{"attributes":{},"id":"6981","type":"Selection"},{"attributes":{"label":{"value":"IND"},"renderers":[{"id":"6941"}]},"id":"6958","type":"LegendItem"},{"attributes":{},"id":"6913","type":"UnionRenderers"},{"attributes":{},"id":"6934","type":"UnionRenderers"},{"attributes":{"line_color":"red","line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"6881","type":"Line"},{"attributes":{"line_alpha":0.5,"line_color":"brown","line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"6918","type":"Line"},{"attributes":{},"id":"6886","type":"AllLabels"},{"attributes":{"label":{"value":"PDX"},"renderers":[{"id":"6964"}]},"id":"6983","type":"LegendItem"},{"attributes":{"axis":{"id":"6873"},"dimension":1,"ticker":null},"id":"6876","type":"Grid"},{"attributes":{"label":{"value":"PIT"},"renderers":[{"id":"6920"}]},"id":"6935","type":"LegendItem"},{"attributes":{"data":{"x":[-1,0,1,2,3,4,5,6,7,8,9,10,11,12],"y":{"__ndarray__":"IPLqs7gy7D8QBQ1G/fjtPyjfrjzR7uo//OEZcbgw6D8sZwjQUcLqP/FN2ioGtOo/wWVX6fLm5T8N36HAPirmP+hkycuI3OM/aXxkAr1T4j+NFuvIoonpP4Q1rmKYueY/XMRm8Bax6z9gyPeYVtvsPw==","dtype":"float64","order":"little","shape":[14]}},"selected":{"id":"6912"},"selection_policy":{"id":"6913"}},"id":"6898","type":"ColumnDataSource"},{"attributes":{"line_alpha":0.1,"line_color":"blue","line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"6963","type":"Line"},{"attributes":{"items":[{"id":"6895"},{"id":"6914"},{"id":"6935"},{"id":"6958"},{"id":"6983"},{"id":"7010"}],"location":"bottom_left"},"id":"6894","type":"Legend"},{"attributes":{},"id":"7008","type":"Selection"},{"attributes":{},"id":"7009","type":"UnionRenderers"},{"attributes":{"axis":{"id":"6869"},"ticker":null},"id":"6872","type":"Grid"},{"attributes":{"source":{"id":"6880"}},"id":"6884","type":"CDSView"},{"attributes":{"data":{"x":[-1,0,1,2,3,4,5,6,7,8,9,10,11,12],"y":{"__ndarray__":"wWxapHEC5D+dKSe+fOjpPyqNlq9H3eY/WHs7EFVr5D/LCuzG42LkP/awU9sFEeU/h0ZTwWlo5D9TPBFOFnTlP0fsSXFqruQ/smjWsWjW4T9A3Omezz7pP/e8QPBPAeQ/CR/tnmrI6D+NHecvyjrrPw==","dtype":"float64","order":"little","shape":[14]}},"selected":{"id":"6956"},"selection_policy":{"id":"6957"}},"id":"6938","type":"ColumnDataSource"},{"attributes":{"line_alpha":0.5,"line_color":"gold","line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"6987","type":"Line"},{"attributes":{"axis_label":"Months since June of Launch Year","formatter":{"id":"6890"},"major_label_policy":{"id":"6889"},"ticker":{"id":"6870"}},"id":"6869","type":"LinearAxis"},{"attributes":{},"id":"6867","type":"LinearScale"},{"attributes":{"line_alpha":0.5,"line_color":"green","line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"6899","type":"Line"},{"attributes":{},"id":"6870","type":"BasicTicker"},{"attributes":{},"id":"6861","type":"DataRange1d"},{"attributes":{},"id":"6912","type":"Selection"},{"attributes":{},"id":"6933","type":"Selection"},{"attributes":{"data_source":{"id":"6938"},"glyph":{"id":"6939"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6940"},"view":{"id":"6942"}},"id":"6941","type":"GlyphRenderer"},{"attributes":{"data":{"x":[-2,-1,0,1,2,3,4,5,6,7,8,9],"y":{"__ndarray__":"3Z/JCUs/5T/1jc69kkjpP6/l4Ga/EO0/nyP+bKIf6z9ykaMbFznqP7GiND4yAeY/Y4OFFTIB6T+Bk7WRga3nPzTK8cupTuk/ZdyT4TK34z8X1NVdtR3eP3Nws1+IFd8/","dtype":"float64","order":"little","shape":[12]}},"selected":{"id":"6933"},"selection_policy":{"id":"6934"}},"id":"6917","type":"ColumnDataSource"},{"attributes":{},"id":"6889","type":"AllLabels"},{"attributes":{"label":{"value":"BNA"},"renderers":[{"id":"6901"}]},"id":"6914","type":"LegendItem"},{"attributes":{},"id":"6865","type":"LinearScale"},{"attributes":{"line_alpha":0.1,"line_color":"green","line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"6900","type":"Line"},{"attributes":{},"id":"6892","type":"Selection"},{"attributes":{},"id":"6956","type":"Selection"},{"attributes":{"data_source":{"id":"6917"},"glyph":{"id":"6918"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6919"},"view":{"id":"6921"}},"id":"6920","type":"GlyphRenderer"},{"attributes":{"line_alpha":0.5,"line_color":"blue","line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"6962","type":"Line"},{"attributes":{"line_alpha":0.1,"line_color":"gold","line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"6988","type":"Line"},{"attributes":{"label":{"value":"STL"},"renderers":[{"id":"6883"}]},"id":"6895","type":"LegendItem"},{"attributes":{"text":"New INTL Route Comparison"},"id":"6859","type":"Title"},{"attributes":{"callback":null,"renderers":[{"id":"6941"}],"tooltips":[["Route","IND-CDG"],["Airline","Delta"],["Load Factor","@y{0.%f}"]]},"id":"6959","type":"HoverTool"},{"attributes":{"source":{"id":"6961"}},"id":"6965","type":"CDSView"},{"attributes":{"data_source":{"id":"6898"},"glyph":{"id":"6899"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6900"},"view":{"id":"6902"}},"id":"6901","type":"GlyphRenderer"},{"attributes":{"line_alpha":0.1,"line_color":"red","line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"6882","type":"Line"},{"attributes":{"line_alpha":0.1,"line_color":"purple","line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"6940","type":"Line"},{"attributes":{},"id":"6957","type":"UnionRenderers"},{"attributes":{"data":{"x":[0,1,2,3,4,5,6,7,8,9,10,11,12],"y":{"__ndarray__":"HC/umPVC6D8lr7xYjWnqP1uFlu0kAek/1YZMjFbJ6j8gZh5KSvfoP5EGFH29juY/ve/xP5HX5z8BrqyL/RPjP8gaoU1fOd4/tt7AkdvW5z/kTwwPvZHmP8VBePEjjOk/sxsPThM57D8=","dtype":"float64","order":"little","shape":[13]}},"selected":{"id":"6981"},"selection_policy":{"id":"6982"}},"id":"6961","type":"ColumnDataSource"},{"attributes":{},"id":"6874","type":"BasicTicker"},{"attributes":{"source":{"id":"6986"}},"id":"6990","type":"CDSView"},{"attributes":{"source":{"id":"6917"}},"id":"6921","type":"CDSView"},{"attributes":{"data":{"x":[0,1,2,3,4,5,6,7,8,9,10,11,12],"y":{"__ndarray__":"7XYU7XYU7T+tSiOtSiPtPy2jBS2jBe0/8UWb8EWb7D9L/A9L/A/rP/o05vk05uk/u1gxu1gx6z/39vb29vbmP9+w9g1r3+A/+kLV+ULV6T8at48Zt4/pP/s15/o15+o/bW1tbW1t7T8=","dtype":"float64","order":"little","shape":[13]}},"selected":{"id":"6892"},"selection_policy":{"id":"6893"}},"id":"6880","type":"ColumnDataSource"},{"attributes":{"line_alpha":0.1,"line_color":"brown","line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"6919","type":"Line"},{"attributes":{},"id":"6982","type":"UnionRenderers"},{"attributes":{"callback":null,"renderers":[{"id":"6901"}],"tooltips":[["Route","BNA-LHR"],["Airline","British"],["Load Factor","@y{0.%f}"]]},"id":"6915","type":"HoverTool"},{"attributes":{"callback":null,"renderers":[{"id":"6989"}],"tooltips":[["Route","AUS-FRA"],["Airline","Lufthansa"],["Load Factor","@y{0.%f}"]]},"id":"7011","type":"HoverTool"},{"attributes":{},"id":"6890","type":"BasicTickFormatter"},{"attributes":{"active_multi":null,"tools":[{"id":"6877"},{"id":"6896"},{"id":"6915"},{"id":"6936"},{"id":"6959"},{"id":"6984"},{"id":"7011"}]},"id":"6878","type":"Toolbar"},{"attributes":{"axis_label":"Load Factor","formatter":{"id":"7013"},"major_label_policy":{"id":"6886"},"ticker":{"id":"6874"}},"id":"6873","type":"LinearAxis"},{"attributes":{"data_source":{"id":"6961"},"glyph":{"id":"6962"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6963"},"view":{"id":"6965"}},"id":"6964","type":"GlyphRenderer"},{"attributes":{"callback":null,"renderers":[{"id":"6964"}],"tooltips":[["Route","PDX-LHR"],["Airline","British"],["Load Factor","@y{0.%f}"]]},"id":"6984","type":"HoverTool"},{"attributes":{},"id":"6877","type":"ResetTool"},{"attributes":{"callback":null,"renderers":[{"id":"6920"}],"tooltips":[["Route","PIT-LHR"],["Airline","British"],["Load Factor","@y{0.%f}"]]},"id":"6936","type":"HoverTool"},{"attributes":{"format":"0%"},"id":"7013","type":"NumeralTickFormatter"},{"attributes":{},"id":"6893","type":"UnionRenderers"},{"attributes":{"line_alpha":0.5,"line_color":"purple","line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"6939","type":"Line"},{"attributes":{"callback":null,"renderers":[{"id":"6883"}],"tooltips":[["Route","STL-FRA"],["Airline","Lufthansa"],["Load Factor","@y{0.%f}"]]},"id":"6896","type":"HoverTool"},{"attributes":{"source":{"id":"6898"}},"id":"6902","type":"CDSView"},{"attributes":{"data":{"x":[-1,0,1,2,3,4,5,6,7,8,9],"y":{"__ndarray__":"BFUQI9gD5T+eT8f8qo/qP5ZQOdxnlug/uV2tp0yc5j+eSnTfqUTnP9cT49YT4+Y/VYsf90em6T/bbJHabJHqP8ahWMahWOY/gizXgSzX4T+sq6urq6vbPw==","dtype":"float64","order":"little","shape":[11]}},"selected":{"id":"7008"},"selection_policy":{"id":"7009"}},"id":"6986","type":"ColumnDataSource"},{"attributes":{"label":{"value":"AUS"},"renderers":[{"id":"6989"}]},"id":"7010","type":"LegendItem"},{"attributes":{"data_source":{"id":"6986"},"glyph":{"id":"6987"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6988"},"view":{"id":"6990"}},"id":"6989","type":"GlyphRenderer"}],"root_ids":["6858"]},"title":"Bokeh Application","version":"2.3.0"}}
+</script>
+<script type="text/javascript">
+  (function() {
+    var fn = function() {
+      Bokeh.safely(function() {
+        (function(root) {
+          function embed_document(root) {
+            
+          var docs_json = document.getElementById('7568').textContent;
+          var render_items = [{"docid":"9caca7a7-c406-4dd2-a2dc-5ecee3022626","root_ids":["6858"],"roots":{"6858":"3c312b57-8325-4061-a860-bdb64520cb90"}}];
+          root.Bokeh.embed.embed_items(docs_json, render_items);
+        
+          }
+          if (root.Bokeh !== undefined) {
+            embed_document(root);
+          } else {
+            var attempts = 0;
+            var timer = setInterval(function(root) {
+              if (root.Bokeh !== undefined) {
+                clearInterval(timer);
+                embed_document(root);
+              } else {
+                attempts++;
+                if (attempts > 100) {
+                  clearInterval(timer);
+                  console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                }
+              }
+            }, 10, root)
+          }
+        })(window);
+      });
+    };
+    if (document.readyState != "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  })();
+</script>
+        
+    <script src="<<% url_for('static', filename='components/menu.vue') %>>">
+    </script>
+    <script src="<<% url_for('static', filename='components/header.vue') %>>">
+    </script>
+  </body>
+</html>

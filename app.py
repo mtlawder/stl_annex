@@ -167,6 +167,10 @@ def coronavirus_dashboard():
     return render_template('/coronavirus_dashboard.html',today_vals=today_vals,national_div=national_div,national_script=national_script,
         national_log_div=national_log_div,national_log_script=national_log_script)
 
+@app.route('/blogs_2023/<blog_title>',methods=['GET','POST'])
+def blog2023(blog_title):
+    return render_template(f'/blogs_2023/{blog_title}.html')
+
 @app.route('/blogs_2022/<blog_title>',methods=['GET','POST'])
 def blog2022(blog_title):
     return render_template(f'/blogs_2022/{blog_title}.html')

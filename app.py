@@ -9,7 +9,7 @@ from bokeh.palettes import Category10, Category20
 from bokeh.transform import cumsum, dodge
 from bokeh.io import curdoc
 # import holoviews as hv
-import panel as pn
+# import panel as pn
 import pandas as pd
 from static.python.bokeh_plot import pop_pie_chart, pop_line_chart, pop_create_table
 from math import pi

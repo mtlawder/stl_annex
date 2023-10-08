@@ -18,6 +18,6 @@ bokeh==2.3.0
 
 numpy==1.23.2
 
-pandas==2.1.1
+pandas==1.5.3
 
 holoviews==1.14.2

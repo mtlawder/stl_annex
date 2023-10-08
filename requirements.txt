@@ -16,7 +16,7 @@ simplejson==3.8.0
 
 bokeh==2.3.0
 
-numpy==1.16.1
+numpy==1.25.2
 
 pandas==1.0.1
 

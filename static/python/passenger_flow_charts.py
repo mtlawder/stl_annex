@@ -6,10 +6,10 @@ from bokeh.palettes import Category20
 from bokeh.io import curdoc
 from bokeh.transform import cumsum
 from bokeh.models import HoverTool
-import holoviews as hv
-import panel as pn
+# import holoviews as hv
+# import panel as pn
 from math import pi
-hv.extension('bokeh')
+# hv.extension('bokeh')
 
 def apply_style(plot, element):
     plot.state.toolbar_location = None
@@ -55,19 +55,19 @@ def passsenger_flow_all(ap2,reg_main_select,advanced_select,carrier_select):
     emon+=[(3,5+i,rest_cities)]
     elab+=['Other']
 
-    nodes = hv.Dataset(enumerate(elab), 'index', 'label')
-    value_dim = hv.Dimension('Passengers')
+    # nodes = hv.Dataset(enumerate(elab), 'index', 'label')
+    # value_dim = hv.Dimension('Passengers')
 
-    h2=hv.Sankey((emon, nodes), ['From', 'To'], vdims=value_dim).options(
-        label_index='label', label_position='left', width=700, height=600, edge_color_index='To',tools=['reset']
-    )
-    renderer = hv.renderer('bokeh')
+    # h2=hv.Sankey((emon, nodes), ['From', 'To'], vdims=value_dim).options(
+    #     label_index='label', label_position='left', width=700, height=600, edge_color_index='To',tools=['reset']
+    # )
+    # renderer = hv.renderer('bokeh')
     
-    h2.opts(default_tools = ['hover'])
-    h2a=h2.opts(plot=dict(hooks=[apply_style]))
-    fp=pn.Row(h2a)
-    doc = curdoc()
-    script,div=components(fp.get_root(doc))
+    # h2.opts(default_tools = ['hover'])
+    # h2a=h2.opts(plot=dict(hooks=[apply_style]))
+    # fp=pn.Row(h2a)
+    # doc = curdoc()
+    # script,div=components(fp.get_root(doc))
     table_data=con_det.to_json(orient='split')
     od_market_pass=pd.read_sql(f'SELECT PASSENGERS from od_market_totals WHERE ORIGIN="{ap2}"',conn)
     od_pass=od_market_pass['PASSENGERS'][0]
@@ -96,7 +96,8 @@ def passsenger_flow_all(ap2,reg_main_select,advanced_select,carrier_select):
 
     # reg_main_select='x'
     div_pie,script_pie=pie_carrier_plots(ap2,reg_main_select,advanced_select,carrier_select)
-
+    div=''
+    script=''
     return div,script,div_t100,script_t100,div_pie,script_pie,table_data,total_pass,od_pass,route_pass_end,t100_data,valid_data
 
 def pie_carrier_plots(ap2,reg_main_select,advanced_select,carrier_select):

@@ -20,4 +20,4 @@ numpy==1.25.2
 
 pandas==2.1.1
 
-holoviews==1.14.2
+holoviews==1.17.1

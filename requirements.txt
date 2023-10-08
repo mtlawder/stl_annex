@@ -1,6 +1,6 @@
 panel==1.2.1
 
-dill==0.8.1
+dill==0.2.1
 
 Flask==1.0
 

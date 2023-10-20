@@ -1,0 +1,188 @@
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-142498774-1');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@mtl_stl">
+    <meta name="twitter:creator" content="@mtl_stl">
+    <meta name="twitter:title" content="Where will STL-Lambert expand to next?">
+    <meta name="twitter:image" content="http://www.stlannex.com/static/images/STL_SW_routes_under 500 miles.PNG">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stlannex_style.css') %>>">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stl_pop_style.css') %>>">
+    <title>STL Annex</title> 
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-2.3.0.min.css" type="text/css" />
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-2.3.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-2.3.0.min.js"></script>
+    <script type="text/javascript">
+      Bokeh.set_log_level("info");
+    </script>
+    <style>
+      .btn-group{
+        padding:5px !important;
+      }
+      .container{
+        padding:0px !important;
+        max-width:1240px;
+      }
+      .left-group{
+        padding-left:5px;
+      }
+      .route-titles{
+        text-decoration: underline;
+        font-weight: bold;
+      }
+      .route-poss-title{
+        font-weight: bold;
+      }
+      .route-sub-titles{
+        font-style: italic;
+      }
+      .air-table{
+        display: flex;
+      }
+      @media (min-width:500px){
+        .air-table{
+          justify-content: center;
+        }
+      }
+      
+    </style>
+  </head>
+  <body>
+      <div id="header-vue">
+        <header-bar></header-bar>
+      </div>
+      <div id="menu-vue">
+        <menu-bar></menu-bar>
+      </div>
+      <br>
+      <div id="stl_airport">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-2 col-md-1">
+            </div>
+            <div class="col-lg-8 col-md-10 col-sm-12">
+              <br><br>
+              <center>
+                <h3>St. Louis visits Iceland: Analysis of the short-lived Wow route</h3>
+                <h4>International Route Analysis</h4>
+              </center>
+              <div class="blog-container left-group">
+                <p>
+                  Before there was Lufthansa, there was Wow. The Budget Icelandic carrier entered the St. Louis market in 2018 with a flight to Reykjavik (KEF) to much fanfare offering a new International destination. Wow and other budget international carriers were rapidly expanding in the US, but the expansion would soon become a contraction. St. Louis' flight did not make it to the end of 2018, lasting a total of 261 flights (departures and returns). Wow as an airline ceased functioning completely in March 2019, so it was always hard to know how the route performed during it's short lived run because there were many issues surrounding the airline itself. In this post,  I'll try to shows some of the numbers around the route and offer a couple points of for the few months it operated.
+                </p>
+                <h4>Basic Route Stats</h4>
+                <div class="air-table">
+                  <table class="table"  style="text-align: center;">
+                    <tbody>
+                      <tr>
+                        <td>Total Flights</td>
+                        <td>261</td>
+                      </tr>
+                      <tr>
+                        <td>Available Seats</td>
+                        <td>57,130</td>
+                      </tr>
+                      <tr>
+                        <td>Passengers Flown</td>
+                        <td>39,420</td>
+                      </tr>
+                      <tr>
+                        <td>Overall Load Factor</td>
+                        <td>69.0%</td>
+                      </tr>
+                    </tbody>
+                    </table>  
+                </div>
+                <p>
+                  Wow did not fly most of it's routes to the US with widebody (two-aisle) aircraft like most other transatlantic service. They were trying to take advantage of the proximity of iceland being a shorter flight from the US and used mostly A320's and A321 aircraft on their Midwest and East Coast routes. The St. Louis route was flown mostly with the A321 aircraft with a little over 200 seats in a single aisle configuration (although a couple of times they traded out for a 180 seat A320). While across all flights STL averaged 69.0% load factor, the numbers bounce around a lot month to month peaking at 85.3% in August and dropping as low as 43.9% in November. Those are the combine departures and arrival numbers, when breaking up those groups separately there are some large differences in how full the flights coming in for a month were with the flights going out. While you sometimes have predictable differences between arrival and departure load factors (possibly caused by the different timings of the inbound and outbound schedule), the Wow numbers were not all that predictable. In August for example STL-KEF averaged 98.2% full, but KEF-STL was only 67.8% full. In October, STL-KEF was only 62.0%, but KEF-STL was 73.8%. I'm not really sure what the cause for such wild swings was. St. Louis wasn't the only route that saw large differences inbound and outbound (Wow's PIT in Aug 2018 filled outbound flights at 89.6%, but inbound flights at only 53.7%), but none were as consistently inconsistent as STL's. It's possible some of those big swings were behind what felt like some mixed messaging throughout the flight's lifetime around performance. It was mostly anecdotal, but certainly felt like you would hear some people talk about packed flights and others half full ones.
+                </p>
+                <p>
+                  Comparing all of the Wow US routes from June 2018 through the end of the year, St. Louis started out okay in terms of load factor although on the low side excluding the astonishingly low early numbers out of New York/Newark and Chicago. Below shows the STL route combined Load Factor (red) with the other 12 Wow US routes in gray (hover over each for more detail). It's best month was in August, but even then it was still in the bottom half of the 13 total routes. From there it was a steady decline until being cut off abruptly in December. The one bright spot was that STL at least got routes through December, while Cincinnati, Cleveland, and Dallas all stopped flying in October. Those last two months, STL was lowest performing flight out of Wow's remaining bunch. 
+                </p>
+                <div class="air-table">
+                  <div class="bk-root" id="0829a39f-471e-46f7-a435-dbe7611f4eed" data-root-id="6526"></div>
+                </div>
+                <p>
+                  While I don't think I would count the route as successful from a performance standpoint, I also would not blame the airport as much as the circumstances surrounding a route on an airline that would shortly be in the graveyard. I will say for those that were able to take one of the flights (myself included), it was a remarkable cheap way to get to Europe. I believe my 1-way STL-LGW in November 2018 was somewhere around $250 if I recall. The KEF airport worked well for myself to do a quick transfer (although after being delayed about 90 minutes or so, I did have to run to the next gate). I may have contributed to some of those odd discrepancies in Load Factor inbound vs outbound those, since I came back from London on Norwegian to complete my low cost carrier combo. The route definitely does not come close to being as beneficial as something like Lufthansa's route to Frankfurt, but a low cost leisure option was nice while it lasted.
+                </p>
+                <hr/>
+              </div>
+                
+            </div>
+          </div>
+        </div>
+      </div>
+  </body>
+
+    <script>   
+      new Vue ({
+        el: '#stl_airport',
+        data: {
+          dests: 'x'
+        }
+      })
+    </script>
+
+<script type="application/json" id="7445">
+  {"f29d572b-f63e-4245-8847-5f9b64414741":{"defs":[{"extends":null,"module":null,"name":"DataModel","overrides":[],"properties":[]}],"roots":{"references":[{"attributes":{"background_fill_color":"#f7f7f7","below":[{"id":"6537"}],"border_fill_alpha":0,"center":[{"id":"6540"},{"id":"6544"}],"height":425,"left":[{"id":"6541"}],"renderers":[{"id":"6551"},{"id":"6558"},{"id":"6565"},{"id":"6572"},{"id":"6579"},{"id":"6586"},{"id":"6593"},{"id":"6600"},{"id":"6607"},{"id":"6614"},{"id":"6621"},{"id":"6628"},{"id":"6635"}],"title":{"id":"6527"},"toolbar":{"id":"6546"},"toolbar_location":null,"width":700,"x_range":{"id":"6529"},"x_scale":{"id":"6533"},"y_range":{"id":"6531"},"y_scale":{"id":"6535"}},"id":"6526","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"6949","type":"Selection"},{"attributes":{},"id":"6950","type":"UnionRenderers"},{"attributes":{"axis":{"id":"6537"},"ticker":null},"id":"6540","type":"Grid"},{"attributes":{"data":{"x":[6,7,8,9,10,11,12],"y":{"__ndarray__":"A7pK/R+m1T9fiAZQ1CjUP3ZtomTXJuw/IxShCEUo6j/5S5a/ZPnrP/UxVx9z9ek/y0+Is/IT6D8=","dtype":"float64","order":"little","shape":[7]}},"selected":{"id":"6955"},"selection_policy":{"id":"6956"}},"id":"6604","type":"ColumnDataSource"},{"attributes":{},"id":"6952","type":"UnionRenderers"},{"attributes":{"axis_label":"Load Factor","formatter":{"id":"6639"},"major_label_policy":{"id":"6935"},"ticker":{"id":"6542"}},"id":"6541","type":"LinearAxis"},{"attributes":{"axis":{"id":"6541"},"dimension":1,"ticker":null},"id":"6544","type":"Grid"},{"attributes":{},"id":"6951","type":"Selection"},{"attributes":{"line_alpha":0.3,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6605","type":"Line"},{"attributes":{},"id":"6545","type":"ResetTool"},{"attributes":{},"id":"6954","type":"UnionRenderers"},{"attributes":{"callback":null,"renderers":[{"id":"6621"}],"tooltips":[["Route","LAX"],["Load Factor","@y{0.%f}"]]},"id":"6623","type":"HoverTool"},{"attributes":{"active_multi":null,"tools":[{"id":"6545"},{"id":"6553"},{"id":"6560"},{"id":"6567"},{"id":"6574"},{"id":"6581"},{"id":"6588"},{"id":"6595"},{"id":"6602"},{"id":"6609"},{"id":"6616"},{"id":"6623"},{"id":"6630"},{"id":"6637"}]},"id":"6546","type":"Toolbar"},{"attributes":{"line_alpha":0.1,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6592","type":"Line"},{"attributes":{"line_alpha":0.3,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6619","type":"Line"},{"attributes":{},"id":"6953","type":"Selection"},{"attributes":{},"id":"6956","type":"UnionRenderers"},{"attributes":{"data":{"x":[6,7,8,9,10],"y":{"__ndarray__":"uytow05V7D/YrAA+E2fsP0NN9oaROus/mcbybT/c5D/Xqy5//+vkPw==","dtype":"float64","order":"little","shape":[5]}},"selected":{"id":"6951"},"selection_policy":{"id":"6952"}},"id":"6590","type":"ColumnDataSource"},{"attributes":{},"id":"6538","type":"BasicTicker"},{"attributes":{},"id":"6955","type":"Selection"},{"attributes":{"axis_label":"Month","formatter":{"id":"6938"},"major_label_policy":{"id":"6937"},"ticker":{"id":"6538"}},"id":"6537","type":"LinearAxis"},{"attributes":{},"id":"6958","type":"UnionRenderers"},{"attributes":{"data":{"x":[6,7,8,9,10,11,12],"y":{"__ndarray__":"Yo5ML1sZ7D84qV5KWIHrP26s2saqbew/U+vTwyje6j+7RfXteCjoP9GwRAhuLu4/0fgUVB906j8=","dtype":"float64","order":"little","shape":[7]}},"selected":{"id":"6959"},"selection_policy":{"id":"6960"}},"id":"6618","type":"ColumnDataSource"},{"attributes":{},"id":"6957","type":"Selection"},{"attributes":{"data_source":{"id":"6590"},"glyph":{"id":"6591"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6592"},"view":{"id":"6594"}},"id":"6593","type":"GlyphRenderer"},{"attributes":{},"id":"6960","type":"UnionRenderers"},{"attributes":{"line_alpha":0.3,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6591","type":"Line"},{"attributes":{"line_alpha":0.1,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6606","type":"Line"},{"attributes":{},"id":"6937","type":"AllLabels"},{"attributes":{},"id":"6959","type":"Selection"},{"attributes":{"line_alpha":0.3,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6598","type":"Line"},{"attributes":{},"id":"6962","type":"UnionRenderers"},{"attributes":{"line_alpha":0.3,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6584","type":"Line"},{"attributes":{"source":{"id":"6590"}},"id":"6594","type":"CDSView"},{"attributes":{"line_alpha":0.1,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6620","type":"Line"},{"attributes":{"callback":null,"renderers":[{"id":"6593"}],"tooltips":[["Route","DFW"],["Load Factor","@y{0.%f}"]]},"id":"6595","type":"HoverTool"},{"attributes":{},"id":"6961","type":"Selection"},{"attributes":{"data_source":{"id":"6604"},"glyph":{"id":"6605"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6606"},"view":{"id":"6608"}},"id":"6607","type":"GlyphRenderer"},{"attributes":{"data":{"x":[6,7,8,9,10],"y":{"__ndarray__":"x/8qaotZ7D80JObtDInpP58oIETr5Ok/N6Aqipy95j/frerdqt7lPw==","dtype":"float64","order":"little","shape":[5]}},"selected":{"id":"6949"},"selection_policy":{"id":"6950"}},"id":"6583","type":"ColumnDataSource"},{"attributes":{"line_alpha":0.3,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6612","type":"Line"},{"attributes":{"source":{"id":"6618"}},"id":"6622","type":"CDSView"},{"attributes":{},"id":"6964","type":"UnionRenderers"},{"attributes":{"source":{"id":"6604"}},"id":"6608","type":"CDSView"},{"attributes":{"data_source":{"id":"6618"},"glyph":{"id":"6619"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6620"},"view":{"id":"6622"}},"id":"6621","type":"GlyphRenderer"},{"attributes":{},"id":"6963","type":"Selection"},{"attributes":{"callback":null,"renderers":[{"id":"6600"}],"tooltips":[["Route","DTW"],["Load Factor","@y{0.%f}"]]},"id":"6602","type":"HoverTool"},{"attributes":{},"id":"6935","type":"AllLabels"},{"attributes":{"callback":null,"renderers":[{"id":"6614"}],"tooltips":[["Route","JFK"],["Load Factor","@y{0.%f}"]]},"id":"6616","type":"HoverTool"},{"attributes":{"line_alpha":0.1,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6613","type":"Line"},{"attributes":{"callback":null,"renderers":[{"id":"6628"}],"tooltips":[["Route","ORD"],["Load Factor","@y{0.%f}"]]},"id":"6630","type":"HoverTool"},{"attributes":{"data":{"x":[6,7,8,9,10,11,12],"y":{"__ndarray__":"ZcI2CE5l6j8vuuiiiy7oP0WYmxbesus/Ri7RXItF6j+tzAe2g7PnP4krt+WfiOM/BXlKkKdE4z8=","dtype":"float64","order":"little","shape":[7]}},"selected":{"id":"6953"},"selection_policy":{"id":"6954"}},"id":"6597","type":"ColumnDataSource"},{"attributes":{"line_alpha":0.3,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6626","type":"Line"},{"attributes":{"data":{"x":[6,7,8,9,10],"y":{"__ndarray__":"6nWkXkfq3T/fSfSdRN/hP0YXXXTRRd8/VWdLdbZU6T8n7DUeOMvqPw==","dtype":"float64","order":"little","shape":[5]}},"selected":{"id":"6957"},"selection_policy":{"id":"6958"}},"id":"6611","type":"ColumnDataSource"},{"attributes":{},"id":"6533","type":"LinearScale"},{"attributes":{"line_alpha":0.1,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6599","type":"Line"},{"attributes":{"data":{"x":[6,7,8,9,10,11,12],"y":{"__ndarray__":"uB6F61G44D965plnnnnmP/gngX8S+Ow/t0tsu8S26z/YRjaQzDvqP1lCc9dJuOg/eUqQpwR55z8=","dtype":"float64","order":"little","shape":[7]}},"selected":{"id":"6961"},"selection_policy":{"id":"6962"}},"id":"6625","type":"ColumnDataSource"},{"attributes":{"source":{"id":"6597"}},"id":"6601","type":"CDSView"},{"attributes":{"data_source":{"id":"6597"},"glyph":{"id":"6598"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6599"},"view":{"id":"6601"}},"id":"6600","type":"GlyphRenderer"},{"attributes":{"source":{"id":"6625"}},"id":"6629","type":"CDSView"},{"attributes":{"source":{"id":"6611"}},"id":"6615","type":"CDSView"},{"attributes":{},"id":"6542","type":"BasicTicker"},{"attributes":{"line_alpha":0.1,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6627","type":"Line"},{"attributes":{"end":12,"start":6},"id":"6529","type":"DataRange1d"},{"attributes":{"data_source":{"id":"6625"},"glyph":{"id":"6626"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6627"},"view":{"id":"6629"}},"id":"6628","type":"GlyphRenderer"},{"attributes":{"data_source":{"id":"6611"},"glyph":{"id":"6612"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6613"},"view":{"id":"6615"}},"id":"6614","type":"GlyphRenderer"},{"attributes":{"line_alpha":0.1,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6578","type":"Line"},{"attributes":{"data":{"x":[6,7,8,9,10],"y":{"__ndarray__":"eTMcv0p56z8vuuiiiy7oP2EIDYbQYOg/1dz7d2gq5j9QPWZZSTXkPw==","dtype":"float64","order":"little","shape":[5]}},"selected":{"id":"6947"},"selection_policy":{"id":"6948"}},"id":"6576","type":"ColumnDataSource"},{"attributes":{"line_alpha":0.1,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6557","type":"Line"},{"attributes":{"callback":null,"renderers":[{"id":"6635"}],"tooltips":[["Route","SFO"],["Load Factor","@y{0.%f}"]]},"id":"6637","type":"HoverTool"},{"attributes":{"data":{"x":[6,7,8,9,10,11,12],"y":{"__ndarray__":"Ds82Q4qV5z/EurmAQaznP+VjqZfIS+s/qgysGO4D5D/5Tx8ur8rlPxPkKUGeEtw/gGEqx0cv4z8=","dtype":"float64","order":"little","shape":[7]}},"selected":{"id":"6939"},"selection_policy":{"id":"6940"}},"id":"6548","type":"ColumnDataSource"},{"attributes":{"callback":null,"renderers":[{"id":"6579"}],"tooltips":[["Route","CLE"],["Load Factor","@y{0.%f}"]]},"id":"6581","type":"HoverTool"},{"attributes":{"line_alpha":0.3,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6633","type":"Line"},{"attributes":{"line_alpha":0.1,"line_color":"red","line_width":4,"x":{"field":"x"},"y":{"field":"y"}},"id":"6550","type":"Line"},{"attributes":{"data_source":{"id":"6576"},"glyph":{"id":"6577"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6578"},"view":{"id":"6580"}},"id":"6579","type":"GlyphRenderer"},{"attributes":{"text":"WOW 2018 H2 Load Factors"},"id":"6527","type":"Title"},{"attributes":{"data":{"x":[6,7,8,9,10,11,12],"y":{"__ndarray__":"d3d3d3d36z+Z+C6Xie/qP6gHhXpQqOs/lvNnOX+W6T89Ws+j9TzqPwcxchAjB+k/oI8oQxtX6D8=","dtype":"float64","order":"little","shape":[7]}},"selected":{"id":"6941"},"selection_policy":{"id":"6942"}},"id":"6555","type":"ColumnDataSource"},{"attributes":{"callback":null,"renderers":[{"id":"6551"}],"tooltips":[["Route","STL"],["Load Factor","@y{0.%f}"]]},"id":"6553","type":"HoverTool"},{"attributes":{"line_alpha":0.3,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6577","type":"Line"},{"attributes":{"source":{"id":"6548"}},"id":"6552","type":"CDSView"},{"attributes":{"source":{"id":"6576"}},"id":"6580","type":"CDSView"},{"attributes":{"data_source":{"id":"6555"},"glyph":{"id":"6556"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6557"},"view":{"id":"6559"}},"id":"6558","type":"GlyphRenderer"},{"attributes":{"callback":null,"renderers":[{"id":"6607"}],"tooltips":[["Route","EWR"],["Load Factor","@y{0.%f}"]]},"id":"6609","type":"HoverTool"},{"attributes":{"line_color":"red","line_width":4,"x":{"field":"x"},"y":{"field":"y"}},"id":"6549","type":"Line"},{"attributes":{},"id":"6944","type":"UnionRenderers"},{"attributes":{"line_alpha":0.3,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6556","type":"Line"},{"attributes":{"data":{"x":[6,7,8,9,10],"y":{"__ndarray__":"nbTEX6rt6z/WEWYdYdbpP2VxLc1Erus/8N6SniZ06T87zupCfUboPw==","dtype":"float64","order":"little","shape":[5]}},"selected":{"id":"6963"},"selection_policy":{"id":"6964"}},"id":"6632","type":"ColumnDataSource"},{"attributes":{},"id":"6939","type":"Selection"},{"attributes":{"data_source":{"id":"6548"},"glyph":{"id":"6549"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6550"},"view":{"id":"6552"}},"id":"6551","type":"GlyphRenderer"},{"attributes":{"source":{"id":"6555"}},"id":"6559","type":"CDSView"},{"attributes":{"callback":null,"renderers":[{"id":"6558"}],"tooltips":[["Route","BOS"],["Load Factor","@y{0.%f}"]]},"id":"6560","type":"HoverTool"},{"attributes":{"line_alpha":0.1,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6571","type":"Line"},{"attributes":{"data":{"x":[6,7,8,9,10,11,12],"y":{"__ndarray__":"uVEcDuCr7D/7jOpY9VHsP8dlIfj7y+s/pZDx3KoM6T8lLErCoiTsP4XiVihuheo/rH3D2jes6D8=","dtype":"float64","order":"little","shape":[7]}},"selected":{"id":"6945"},"selection_policy":{"id":"6946"}},"id":"6569","type":"ColumnDataSource"},{"attributes":{"line_alpha":0.1,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6634","type":"Line"},{"attributes":{},"id":"6938","type":"BasicTickFormatter"},{"attributes":{"source":{"id":"6632"}},"id":"6636","type":"CDSView"},{"attributes":{"data_source":{"id":"6632"},"glyph":{"id":"6633"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6634"},"view":{"id":"6636"}},"id":"6635","type":"GlyphRenderer"},{"attributes":{"data_source":{"id":"6569"},"glyph":{"id":"6570"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6571"},"view":{"id":"6573"}},"id":"6572","type":"GlyphRenderer"},{"attributes":{"callback":null,"renderers":[{"id":"6586"}],"tooltips":[["Route","CVG"],["Load Factor","@y{0.%f}"]]},"id":"6588","type":"HoverTool"},{"attributes":{"line_alpha":0.3,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6570","type":"Line"},{"attributes":{"source":{"id":"6569"}},"id":"6573","type":"CDSView"},{"attributes":{"data_source":{"id":"6583"},"glyph":{"id":"6584"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6585"},"view":{"id":"6587"}},"id":"6586","type":"GlyphRenderer"},{"attributes":{"callback":null,"renderers":[{"id":"6572"}],"tooltips":[["Route","BWI"],["Load Factor","@y{0.%f}"]]},"id":"6574","type":"HoverTool"},{"attributes":{},"id":"6942","type":"UnionRenderers"},{"attributes":{},"id":"6941","type":"Selection"},{"attributes":{},"id":"6943","type":"Selection"},{"attributes":{"format":"0%"},"id":"6639","type":"NumeralTickFormatter"},{"attributes":{"source":{"id":"6583"}},"id":"6587","type":"CDSView"},{"attributes":{"line_alpha":0.1,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6564","type":"Line"},{"attributes":{"line_alpha":0.1,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6585","type":"Line"},{"attributes":{},"id":"6940","type":"UnionRenderers"},{"attributes":{"data":{"x":[6,7,8,9,10,11,12],"y":{"__ndarray__":"3MrEi0BK6j9mZmZmZgbpP+k1mB2e7OY/YPMZZwE25z+WTUdzP6rqPwn/ON0DHOc/ochFGEC94z8=","dtype":"float64","order":"little","shape":[7]}},"selected":{"id":"6943"},"selection_policy":{"id":"6944"}},"id":"6562","type":"ColumnDataSource"},{"attributes":{},"id":"6946","type":"UnionRenderers"},{"attributes":{},"id":"6945","type":"Selection"},{"attributes":{"start":0},"id":"6531","type":"DataRange1d"},{"attributes":{"data_source":{"id":"6562"},"glyph":{"id":"6563"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"6564"},"view":{"id":"6566"}},"id":"6565","type":"GlyphRenderer"},{"attributes":{},"id":"6535","type":"LinearScale"},{"attributes":{"line_alpha":0.3,"line_color":"gray","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"6563","type":"Line"},{"attributes":{},"id":"6947","type":"Selection"},{"attributes":{"callback":null,"renderers":[{"id":"6565"}],"tooltips":[["Route","PIT"],["Load Factor","@y{0.%f}"]]},"id":"6567","type":"HoverTool"},{"attributes":{},"id":"6948","type":"UnionRenderers"},{"attributes":{"source":{"id":"6562"}},"id":"6566","type":"CDSView"}],"root_ids":["6526"]},"title":"Bokeh Application","version":"2.3.0"}}
+</script>
+<script type="text/javascript">
+  (function() {
+    var fn = function() {
+      Bokeh.safely(function() {
+        (function(root) {
+          function embed_document(root) {
+            
+          var docs_json = document.getElementById('7445').textContent;
+          var render_items = [{"docid":"f29d572b-f63e-4245-8847-5f9b64414741","root_ids":["6526"],"roots":{"6526":"0829a39f-471e-46f7-a435-dbe7611f4eed"}}];
+          root.Bokeh.embed.embed_items(docs_json, render_items);
+        
+          }
+          if (root.Bokeh !== undefined) {
+            embed_document(root);
+          } else {
+            var attempts = 0;
+            var timer = setInterval(function(root) {
+              if (root.Bokeh !== undefined) {
+                clearInterval(timer);
+                embed_document(root);
+              } else {
+                attempts++;
+                if (attempts > 100) {
+                  clearInterval(timer);
+                  console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                }
+              }
+            }, 10, root)
+          }
+        })(window);
+      });
+    };
+    if (document.readyState != "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  })();
+</script>
+        
+    <script src="<<% url_for('static', filename='components/menu.vue') %>>">
+    </script>
+    <script src="<<% url_for('static', filename='components/header.vue') %>>">
+    </script>
+  </body>
+</html>

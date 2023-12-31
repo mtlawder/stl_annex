@@ -1,0 +1,441 @@
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142498774-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-142498774-1');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@mtl_stl">
+    <meta name="twitter:creator" content="@mtl_stl">
+    <meta name="twitter:title" content="STL to Canada Routes">
+    <meta name="twitter:image" content="http://www.stlannex.com/static/images/STL_SW_routes_under 500 miles.PNG">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stlannex_style.css') %>>">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="<<% url_for('static', filename='styles/stl_pop_style.css') %>>">
+    <title>STL Annex - Canada Routes</title> 
+    <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-2.3.0.min.css" type="text/css" />
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-2.3.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-2.3.0.min.js"></script>
+    <script type="text/javascript">
+      Bokeh.set_log_level("info");
+    </script>
+    <style>
+      .btn-group{
+        padding:5px !important;
+      }
+      .container{
+        padding:0px !important;
+        max-width:1240px;
+      }
+      .left-group{
+        padding-left:5px;
+      }
+      .route-titles{
+        text-decoration: underline;
+        font-weight: bold;
+      }
+      .route-poss-title{
+        font-weight: bold;
+      }
+      .route-sub-titles{
+        font-style: italic;
+      }
+      .air-table{
+        display: flex;
+      }
+      @media (min-width:500px){
+        .air-table{
+          justify-content: center;
+        }
+      }
+      
+    </style>
+  </head>
+  <body>
+      <div id="header-vue">
+        <header-bar></header-bar>
+      </div>
+      <div id="menu-vue">
+        <menu-bar></menu-bar>
+      </div>
+      <br>
+      <div id="stl_airport">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-2 col-md-1">
+            </div>
+            <div class="col-lg-8 col-md-10 col-sm-12">
+              <br>
+              <center>
+                <h3>Heading North: St. Louis Routes to Canada</h3>
+                <h4>International Route Analysis</h4>
+              </center>
+              <br/>
+              <div class="blog-container left-group">
+                <p>
+                  The International portion of the St. Louis Lambert International Airport's (STL) name has had its ups and downs over the last 3 decades. But even at the airport's low point for international travel (around 2008-2009), Canada and specifically Toronto (YYZ) always maintained status as an important international destination. From 2007-2012, the 3,569 flights from STL to YYZ accounted for over half on all commercial international flights flown out St. Louis. Yes, Cancun had more total seats because larger aircraft were flown on the route, but in terms of flights, Air Canada's (then twice daily) route could not be topped. As St. Louis gets ready to welcome Air Canada service to Montreal (YUL) for the first time, I wanted to look through the some of the stats over the past few decades for routes from STL to Canada.
+                </p>
+                <p>
+                  With service to Montreal, St. Louis will now have two Canadian destinations with non-stops, but it will not be the first time that's been the case for Lambert. From 1999 through 2003, TWA (<a href="https://airlinegeeks.com/2016/12/01/merger-miscarry-the-trans-world-american-merger-15-years-later/">and post-takeover American</a>) flew to Vancouver (YVR) in addition to Toronto. In fact, for a few years, TWA/American competing on the STL-YYZ route with Air Canada plus aa TWA/American nonstop to YVR (see the notes at the end for some more tidbits on the YVR route). 
+                </p>
+                <p>
+                  The available data for STL-YYZ goes back to 1996. And in late 90's, TWA was the main carrier to Canada for STL. In 1998, it flew 87.7k passengers on the route between St. Louis and Toronto, a peak that has not been reached since. While the passenger total was high, load factor that year was an abysmal 47.6%. It really is hard now to imagine a time when an airline would continue to run service where over half of its seats were empty. Of course, the company was only a few years away from being bankrupt/bought at that point. But even when Air Canada started on the route, it was not much better at filling its seats. In 2003, AC had a 39.3% load factor while flying 20k passengers! I don't have any data for the fares (or the costs for that matter) on these routes, so maybe they were able to make some money even at lower numbers.
+                 </p>
+                 <h4>Grouping the Eras of STL-YYZ</h4>
+                 <p> 
+                  The chart below shows the total number of passengers on the route since 1996 (a load factor chart is further down). Data for 2023 only goes through the first half of this year.
+                </p>
+                <p>
+                  <div class="air-table">
+                    <div class="bk-root" id="75b10651-fd39-4940-ba8a-f5122038eeb5" data-root-id="3112"></div>
+                  </div>
+                  <em>*Data for Air Canada on the YYZ-STL route is missing for Dec 2019 and the first three months of 2020. Total 2019 would be slightly higher and the totals for 2020 were not zero.*</em>
+                </p>
+                <p>
+                  Looking at the total passengers on the route, there appears to be 5 different eras for flights to YYZ from STL:
+                  <ol>
+                    <li><em style="font-weight:bold">TWA dominates (1996-2000):</em> The highest passenger numbers come from this time period when TWA ran multiple daily flights on large planes, but often at low capacity.</li>
+                    <li><em style="font-weight:bold">Who wants this route? (2001-2003):</em> American drastically shrinks capacity on the route, but does not cut it yet. Air Canada enters, but even with two carriers serving the route, total seats are still well below there peak from only a few years before.</li>
+                    <li><em style="font-weight:bold">Air Canada keeps the lights on (2004-2013):</em> American exits the route and AC (<a href="https://en.wikipedia.org/wiki/Jazz_Aviation">via Jazz</a>) keeps flying twice daily, but on smaller planes. Load Factors hover around 60% and yearly passengers are less than half of previous peak.</li>
+                    <li><em style="font-weight:bold">STL shows Canada the love (2014-2019):</em> AC load factors head into the 70%'s, passenger growth is 10-20% each year, and a third daily flight is added in 2017. With 3 flights per day, yearly passengers begins to approach TWA levels.</li>
+                    <li><em style="font-weight:bold">Pandemic and the aftermath (2020-today):</em> The pandemic halts all flights in 2020. The route is restarted in 2022, but only with a single daily round trip. Load Factors are their highest ever, but total seats on the route remain lower.</li>
+                  </ol>
+                </p>
+                <p>
+                  <div class="air-table">
+                    <div class="bk-root" id="6fb9d273-e9eb-4667-9a77-78fd03bc1866" data-root-id="2808"></div>
+                  </div>
+                </p>
+                <p>
+                  The transition from TWA to American is really fascinating and seeing how quickly service levels change between 1999 and 2002 is pretty stark. When American took over, TWA stated that <a href="https://www.nytimes.com/2001/01/10/business/twa-agrees-to-buyout-offer-from-american-airlines.html">"The agreement will protect air service in St. Louis and maintain St. Louis's role as a major transportation center."</a> But to see the nearly immediate service drops on a route with demand like Toronto, tells a different story. It was nice to at least have Air Canada enter the market and absorb some of the demand and eventually grow the route back to similar levels of passengers.
+                </p>
+                <p>
+                  The STL-YYZ route will be back up to twice daily later this year and it's interesting to see them adding Montreal as seasonal service instead of adding additional frequency to Toronto. In 2019, the third frequency for the STL-YYZ appeared to perform well. While I do not have the O&D numbers between St. Louis and Montreal to know the exact demand, it seems like Air Canada feels that YUL will be able to draw a balance of travelers directly to the city and also passengers using it to connect onward to Europe (or elsewhere). While not quite the size of its YYZ hub, YUL offers lots connection opportunities. Overall, it sounds like a solid strategy to me to add the Montreal route instead of a third Toronto route, since the new route is not likely to hamper the twice daily Toronto route, but could add a few more incremental passengers via O&D growth between STL-YUL. Additionally, the route allows more flexible connection options than just using YYZ.
+                </p>
+                <p>
+                  One point to watch as the route starts up will be the price point for these flights. Anecdotally, the STL-YYZ route always felt a bit high priced compared other flights within North America. Although it was an international route and therefore had some additional costs, I was always a little surprised to see $600 plus round trip tickets even when the planes were not full. I flew the route in May 2013 and it appeared the short flight was filled mostly with business travel or Canadian+Transatlantic travel and less leisure travel to Toronto. I'm not sure if that plan has changed some since the pandemic and there is a little more attention to the leisure travelers. Just taking a quick look at some of the fares for next summer, many STL-YYZ roundtrip on cheaper days are starting around $500 and the STL-YYZ route at around $600 in Standard Economy. That is still a bit higher than traveling nonstop to other East Coast non-Canadian hubs, like New York or Boston, but honestly feels a lot closer in price to me than it used to.
+                </p>
+                <h4>Comparing to other Toronto Routes</h4>
+                <p>
+                  The last thing I looked at for the St. Louis to Toronto route was comparing it to some other similarly distanced routes that Air Canada flies to the US. I looked at the following airports and compared the number of Air Canada departures (counting outbound and inbound) and their load factors in 2014 and 2019:
+                  <ul>
+                    <li>MCI - Kansas City</li>
+                    <li>MKE - Milwaukee</li>
+                    <li>CVG - Cincinnati</li>
+                    <li>IND - Indianapolis</li>
+                    <li>BNA - Nashville</li>
+                    <li>RDU - Raleigh</li>
+                    <li>BWI - Baltimore</li>
+                  </ul>
+                  The chart below shows, total yearly Departures (outbound and inbound) on the x-axis and Load Factor on the y-axis. Dots further to the right in the chart mean Air Canada is flying more frequently on the route and dots higher up mean that more of the seats on those flights were being filled. Ideally, you would like to see dots more to the right and up for better performance. Use the buttons below to toggle between the years.
+                </p>
+                <p>
+                  <div class="air-table">
+                    <div class="btn-group" role="group">
+                      <button class="btn btn-selector" v-on:click="chart_sel='comb'" v-bind:class="{active: chart_sel==='comb'}">Combined 2014+2019</button>
+                      <button class="btn btn-selector" v-on:click="chart_sel='2014'" v-bind:class="{active: chart_sel==='2014'}">2014 only</button>
+                      <button class="btn btn-selector" v-on:click="chart_sel='2019'" v-bind:class="{active: chart_sel==='2019'}">2019 only</button>
+                    </div>
+                  </div>
+                    <br>
+                  <div class="air-table">
+                    <div class="bk-root" id="4dc8e00d-9e06-45a8-9f21-beedfc85e683" data-root-id="9041" v-show="chart_sel==='comb'"></div>
+                    <div class="bk-root" id="00670db7-a82c-4180-919e-42d957434d63" data-root-id="9540" v-show="chart_sel==='2014'"></div>
+                    <div class="bk-root" id="942b1a42-561a-49ad-9607-a6db1e8faf98" data-root-id="11598" v-show="chart_sel==='2019'"></div>
+                  </div>
+                </p>
+                <p>
+                  In 2014, Air Canada seemed to have similar strategies throughout the non-hub Midwest cities with twice daily flights to MKE, CVG, IND and BNA, with MCI only having a single daily roundtrip. STL's load factor in 2014 at 67.7% was actually one of the higher ones of the group. There was not much competition on these routes with Air Canada being the only operator other than WestJet serving BNA and Delta flying to Toronto out of CVG. RDU and BWI had a little more service in terms of departures in 2014, but similar load factors at 65.9% and 71.1%, respectively. 
+                </p>
+                <p>
+                  Over the next 5 years (to 2019), Air Canada mostly added service and improved their load factors pretty much across the board. MCI, MKE, and RDU had similar departure numbers, but higher load factors with MCI up at almost 80%. CVG, IND, BNA, and STL all added third daily frequencies and still increased their load factors. BWI did drop a few departures, but still was filling 74% of their seats, an increase from 2014. Air Canada seemed poised to continue to operate a set ofsolid routes to these mostly non-hub cities and possibly continue to expand before the pandemic stalled the service. Luckily, by 2022 all the of the above routes were back in some capacity even if total departures were still below their pre-pandemic peak. Load Factors have been performing well on the lowered service levels, so it seems like it was just a matter of time before more service returned on these routes. That some of that service will add a new pin to  STL's route map in 2024 is an extra bonus.
+                </p>
+                <h4>Side Notes and Bonus Content</h4>
+                <p>
+                  For the few years that TWA and American flew to Vancouver, they had load factors ranging from 57.9% up to 78.1% by the time the route was dropped (although they had slowed service by 2003). Below are the load factors for the 5 years the route was flown.
+                </p>
+                <p>
+                  <div class="air-table">
+                    <div class="bk-root" id="4421b9d2-0a46-40e8-9eb8-236febbf6006" data-root-id="1186"></div>
+                  </div>
+                </p>
+                <p>
+                  Side Notes on AC service in 1996 to 1998: I'm really not sure what was going on in these year. It doesn't look like there was much regular service, but in Jan 1996, AC flew 75 round trips STL-YYZ on a CRJ-100 and then didn't fly the rest of the year. Then in Dec 1997 they pick back up service flying 20 round trips that month. Then in 1998, they flew for about once a week on either the CRJ-100 or a DC-9, they had between 1 and 6 departures a month until December when they stopped any "regular" service until July 2021. I'm not sure if these we real service or some type of charter set up or a data issue, but an interesting aside either way.
+                </p>
+                <p>
+                  All the data used in the blog post and charts above was aggregated from the T-100 international segment data available from the <a href="https://www.transtats.bts.gov/Tables.asp?QO_VQ=EEE&QO_anzr=Nv4%FDPn44vr4%FDf6n6v56vp5%FD%FLS14z%FDHE%FDg4nssvp%FM-%FDNyy%FDPn44vr45&QO_fu146_anzr=Nv4%FDPn44vr45">Bureau of Transportation Statistics.</a>
+                </p>
+                
+                <hr/>
+              </div>
+                
+            </div>
+          </div>
+        </div>
+      </div>
+  </body>
+
+  <script type="application/json" id="3414">
+    {"19088225-be7c-4e1a-875c-6e029018458a":{"defs":[{"extends":null,"module":null,"name":"DataModel","overrides":[],"properties":[]}],"roots":{"references":[{"attributes":{"background_fill_alpha":0,"below":[{"id":"3123"}],"border_fill_alpha":0,"center":[{"id":"3125"},{"id":"3129"},{"id":"3148"}],"height":320,"left":[{"id":"3126"}],"renderers":[{"id":"3137"},{"id":"3156"},{"id":"3174"}],"title":{"id":"3113"},"toolbar":{"id":"3131"},"toolbar_location":null,"x_range":{"id":"3115"},"x_scale":{"id":"3119"},"y_range":{"id":"3117"},"y_scale":{"id":"3121"}},"id":"3112","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"3140","type":"AllLabels"},{"attributes":{"data_source":{"id":"3111"},"glyph":{"id":"3135"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"3136"},"view":{"id":"3138"}},"id":"3137","type":"GlyphRenderer"},{"attributes":{"data_source":{"id":"3111"},"glyph":{"id":"3172"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"3173"},"view":{"id":"3175"}},"id":"3174","type":"GlyphRenderer"},{"attributes":{"label":{"value":"TWA"},"renderers":[{"id":"3137"}]},"id":"3149","type":"LegendItem"},{"attributes":{"text":"St. Louis-Toronto Passengers"},"id":"3113","type":"Title"},{"attributes":{"start":0},"id":"3117","type":"DataRange1d"},{"attributes":{"formatter":{"id":"3188"},"major_label_policy":{"id":"3143"},"ticker":{"id":"3127"}},"id":"3126","type":"LinearAxis"},{"attributes":{"callback":null,"renderers":[{"id":"3156"}],"tooltips":[["Airline","AA"],["Year","@year"],["Passengers","@lf_aa{0,}"]]},"id":"3168","type":"HoverTool"},{"attributes":{"factors":["1996","1997","1998","1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023"]},"id":"3115","type":"FactorRange"},{"attributes":{"axis":{"id":"3123"},"grid_line_color":null,"ticker":null},"id":"3125","type":"Grid"},{"attributes":{},"id":"3147","type":"Selection"},{"attributes":{},"id":"3143","type":"AllLabels"},{"attributes":{"formatter":{"id":"3142"},"major_label_orientation":1,"major_label_policy":{"id":"3140"},"ticker":{"id":"3124"}},"id":"3123","type":"CategoricalAxis"},{"attributes":{},"id":"3119","type":"CategoricalScale"},{"attributes":{"fill_alpha":{"value":0.5},"fill_color":{"value":"red"},"line_color":{"value":"red"},"top":{"field":"lf_ac"},"width":{"value":0.4},"x":{"field":"year","transform":{"id":"3170"}}},"id":"3172","type":"VBar"},{"attributes":{"items":[{"id":"3149"},{"id":"3167"},{"id":"3185"}],"location":"top"},"id":"3148","type":"Legend"},{"attributes":{"range":{"id":"3115"},"value":0.2},"id":"3152","type":"Dodge"},{"attributes":{"range":{"id":"3115"},"value":-0.2},"id":"3170","type":"Dodge"},{"attributes":{"source":{"id":"3111"}},"id":"3138","type":"CDSView"},{"attributes":{},"id":"3124","type":"CategoricalTicker"},{"attributes":{"fill_alpha":{"value":0.5},"fill_color":{"value":"blue"},"top":{"field":"lf_aa"},"width":{"value":0.4},"x":{"field":"year","transform":{"id":"3152"}}},"id":"3154","type":"VBar"},{"attributes":{"axis":{"id":"3126"},"dimension":1,"ticker":null},"id":"3129","type":"Grid"},{"attributes":{},"id":"3121","type":"LinearScale"},{"attributes":{"data":{"lf_aa":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2t0AAAAAAAMHTQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","dtype":"float64","order":"little","shape":[28]},"lf_ac":{"__ndarray__":"AAAAAADyqUAAAAAAAMyQQAAAAAAA3J9AAAAAAAAAAAAAAAAAAAAAAAAAAACActNAAAAAAGD34kAAAAAAAHzUQAAAAABgVeJAAAAAACBI40AAAAAA4EfjQAAAAAAgpuRAAAAAAKC14UAAAAAAQNPbQAAAAAAg1uBAAAAAAOAn4EAAAAAAIO7gQAAAAABgduFAAAAAAAAT40AAAAAAABLlQAAAAAAAsOdAAAAAAIA77EAAAAAAoJTwQAAAAACguPFAAAAAAAAAAAAAAAAAAAAAAAAAAABAt+FAAAAAAMDX2EA=","dtype":"float64","order":"little","shape":[28]},"lf_twa":{"__ndarray__":"AAAAACCN6EAAAAAA0JLxQAAAAACgbvVAAAAAAEAW9UAAAAAAYNTxQAAAAAAAhcFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","dtype":"float64","order":"little","shape":[28]},"year":["1996","1997","1998","1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023"]},"selected":{"id":"3147"},"selection_policy":{"id":"3146"}},"id":"3111","type":"ColumnDataSource"},{"attributes":{"source":{"id":"3111"}},"id":"3175","type":"CDSView"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"red"},"line_alpha":{"value":0.1},"line_color":{"value":"red"},"top":{"field":"lf_ac"},"width":{"value":0.4},"x":{"field":"year","transform":{"id":"3170"}}},"id":"3173","type":"VBar"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"blue"},"line_alpha":{"value":0.1},"line_color":{"value":"gold"},"top":{"field":"lf_twa"},"width":{"value":0.4},"x":{"field":"year","transform":{"id":"3133"}}},"id":"3136","type":"VBar"},{"attributes":{},"id":"3146","type":"UnionRenderers"},{"attributes":{"callback":null,"renderers":[{"id":"3174"}],"tooltips":[["Airline","AC"],["Year","@year"],["Passengers","@lf_ac{0,}"]]},"id":"3186","type":"HoverTool"},{"attributes":{"label":{"value":"American"},"renderers":[{"id":"3156"}]},"id":"3167","type":"LegendItem"},{"attributes":{},"id":"3142","type":"CategoricalTickFormatter"},{"attributes":{"format":"0,"},"id":"3188","type":"NumeralTickFormatter"},{"attributes":{"callback":null,"renderers":[{"id":"3137"}],"tooltips":[["Airline","TWA"],["Year","@year"],["Passengers","@lf_twa{0,}"]]},"id":"3150","type":"HoverTool"},{"attributes":{"range":{"id":"3115"},"value":0.2},"id":"3133","type":"Dodge"},{"attributes":{"source":{"id":"3111"}},"id":"3157","type":"CDSView"},{"attributes":{},"id":"3127","type":"BasicTicker"},{"attributes":{"data_source":{"id":"3111"},"glyph":{"id":"3154"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"3155"},"view":{"id":"3157"}},"id":"3156","type":"GlyphRenderer"},{"attributes":{},"id":"3130","type":"ResetTool"},{"attributes":{"fill_alpha":{"value":0.5},"fill_color":{"value":"blue"},"line_color":{"value":"gold"},"top":{"field":"lf_twa"},"width":{"value":0.4},"x":{"field":"year","transform":{"id":"3133"}}},"id":"3135","type":"VBar"},{"attributes":{"active_multi":null,"tools":[{"id":"3130"},{"id":"3150"},{"id":"3168"},{"id":"3186"}]},"id":"3131","type":"Toolbar"},{"attributes":{"label":{"value":"Air Canada"},"renderers":[{"id":"3174"}]},"id":"3185","type":"LegendItem"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"blue"},"line_alpha":{"value":0.1},"top":{"field":"lf_aa"},"width":{"value":0.4},"x":{"field":"year","transform":{"id":"3152"}}},"id":"3155","type":"VBar"}],"root_ids":["3112"]},"title":"Bokeh Application","version":"2.3.0"}}
+  </script>
+  <script type="text/javascript">
+    (function() {
+      var fn = function() {
+        Bokeh.safely(function() {
+          (function(root) {
+            function embed_document(root) {
+              
+            var docs_json = document.getElementById('3414').textContent;
+            var render_items = [{"docid":"19088225-be7c-4e1a-875c-6e029018458a","root_ids":["3112"],"roots":{"3112":"75b10651-fd39-4940-ba8a-f5122038eeb5"}}];
+            root.Bokeh.embed.embed_items(docs_json, render_items);
+          
+            }
+            if (root.Bokeh !== undefined) {
+              embed_document(root);
+            } else {
+              var attempts = 0;
+              var timer = setInterval(function(root) {
+                if (root.Bokeh !== undefined) {
+                  clearInterval(timer);
+                  embed_document(root);
+                } else {
+                  attempts++;
+                  if (attempts > 100) {
+                    clearInterval(timer);
+                    console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                  }
+                }
+              }, 10, root)
+            }
+          })(window);
+        });
+      };
+      if (document.readyState != "loading") fn();
+      else document.addEventListener("DOMContentLoaded", fn);
+    })();
+  </script>
+  <script type="application/json" id="3102">
+    {"bc7a9b11-4592-44ec-9edd-35c64d7a8c9b":{"defs":[{"extends":null,"module":null,"name":"DataModel","overrides":[],"properties":[]}],"roots":{"references":[{"attributes":{"background_fill_alpha":0,"below":[{"id":"2819"}],"border_fill_alpha":0,"center":[{"id":"2821"},{"id":"2825"},{"id":"2844"}],"height":320,"left":[{"id":"2822"}],"renderers":[{"id":"2833"},{"id":"2852"},{"id":"2870"}],"title":{"id":"2809"},"toolbar":{"id":"2827"},"toolbar_location":null,"x_range":{"id":"2811"},"x_scale":{"id":"2815"},"y_range":{"id":"2813"},"y_scale":{"id":"2817"}},"id":"2808","subtype":"Figure","type":"Plot"},{"attributes":{"axis":{"id":"2819"},"grid_line_color":null,"ticker":null},"id":"2821","type":"Grid"},{"attributes":{"end":1,"start":0},"id":"2813","type":"DataRange1d"},{"attributes":{},"id":"2836","type":"AllLabels"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"blue"},"line_alpha":{"value":0.1},"top":{"field":"lf_aa"},"width":{"value":0.4},"x":{"field":"year","transform":{"id":"2848"}}},"id":"2851","type":"VBar"},{"attributes":{"source":{"id":"2807"}},"id":"2853","type":"CDSView"},{"attributes":{"factors":["1996","1997","1998","1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023"]},"id":"2811","type":"FactorRange"},{"attributes":{"data_source":{"id":"2807"},"glyph":{"id":"2850"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"2851"},"view":{"id":"2853"}},"id":"2852","type":"GlyphRenderer"},{"attributes":{"range":{"id":"2811"},"value":-0.2},"id":"2866","type":"Dodge"},{"attributes":{"formatter":{"id":"2838"},"major_label_orientation":1,"major_label_policy":{"id":"2836"},"ticker":{"id":"2820"}},"id":"2819","type":"CategoricalAxis"},{"attributes":{"active_multi":null,"tools":[{"id":"2826"},{"id":"2846"},{"id":"2864"},{"id":"2882"}]},"id":"2827","type":"Toolbar"},{"attributes":{"data":{"lf_aa":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuRvs3nSa1T88TmGPcEDePwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","dtype":"float64","order":"little","shape":[28]},"lf_ac":{"__ndarray__":"erArOgF52T8IeIAHeIDPPwLL24cr+dQ/AAAAAAAAAAAAAAAAAAAAAK89CWEZY94/NzFQMELX3T++UBR8UCbZP0CJDlT8p+E/uLjY786P5T/OR6c9yqjlP/zhhol2LeU/Se+f5ZbL4j+dK2w9lBffP7KqAf2GGOI/k/ZWop6w4j+fC2jIZ/fiPwCmNrTqnOM/BIcpnFal5T9Gev8st1zmP3Vinqk/geg/uO+0O/oG5z+gjtDr5VXmPwkPJSWn9eY/AAAAAAAAAAAAAAAAAAAAAHpYbtVvkOk/1NaHgy/J5z8=","dtype":"float64","order":"little","shape":[28]},"lf_twa":{"__ndarray__":"lUSsgcF03D/Adaka6WrgP00qKP6Hdd4/AQZgaW2F3D99+Pyw7/DiPwyK4WwIOdg/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=","dtype":"float64","order":"little","shape":[28]},"year":["1996","1997","1998","1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023"]},"selected":{"id":"2843"},"selection_policy":{"id":"2842"}},"id":"2807","type":"ColumnDataSource"},{"attributes":{"source":{"id":"2807"}},"id":"2834","type":"CDSView"},{"attributes":{},"id":"2815","type":"CategoricalScale"},{"attributes":{"label":{"value":"Air Canada"},"renderers":[{"id":"2870"}]},"id":"2881","type":"LegendItem"},{"attributes":{},"id":"2842","type":"UnionRenderers"},{"attributes":{},"id":"2838","type":"CategoricalTickFormatter"},{"attributes":{},"id":"2817","type":"LinearScale"},{"attributes":{"callback":null,"renderers":[{"id":"2870"}],"tooltips":[["Airline","AC"],["Year","@year"],["Load Factor","@lf_ac{0.f%}"]]},"id":"2882","type":"HoverTool"},{"attributes":{"label":{"value":"American"},"renderers":[{"id":"2852"}]},"id":"2863","type":"LegendItem"},{"attributes":{"range":{"id":"2811"},"value":0.2},"id":"2848","type":"Dodge"},{"attributes":{"fill_alpha":{"value":0.5},"fill_color":{"value":"red"},"line_color":{"value":"red"},"top":{"field":"lf_ac"},"width":{"value":0.4},"x":{"field":"year","transform":{"id":"2866"}}},"id":"2868","type":"VBar"},{"attributes":{},"id":"2820","type":"CategoricalTicker"},{"attributes":{},"id":"2843","type":"Selection"},{"attributes":{},"id":"2839","type":"AllLabels"},{"attributes":{"formatter":{"id":"2884"},"major_label_policy":{"id":"2839"},"ticker":{"id":"2823"}},"id":"2822","type":"LinearAxis"},{"attributes":{},"id":"2823","type":"BasicTicker"},{"attributes":{"callback":null,"renderers":[{"id":"2833"}],"tooltips":[["Airline","TWA"],["Year","@year"],["Load Factor","@lf_twa{0.f%}"]]},"id":"2846","type":"HoverTool"},{"attributes":{"label":{"value":"TWA"},"renderers":[{"id":"2833"}]},"id":"2845","type":"LegendItem"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"blue"},"line_alpha":{"value":0.1},"line_color":{"value":"gold"},"top":{"field":"lf_twa"},"width":{"value":0.4},"x":{"field":"year","transform":{"id":"2829"}}},"id":"2832","type":"VBar"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"red"},"line_alpha":{"value":0.1},"line_color":{"value":"red"},"top":{"field":"lf_ac"},"width":{"value":0.4},"x":{"field":"year","transform":{"id":"2866"}}},"id":"2869","type":"VBar"},{"attributes":{"items":[{"id":"2845"},{"id":"2863"},{"id":"2881"}],"location":"top_left"},"id":"2844","type":"Legend"},{"attributes":{"data_source":{"id":"2807"},"glyph":{"id":"2831"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"2832"},"view":{"id":"2834"}},"id":"2833","type":"GlyphRenderer"},{"attributes":{"source":{"id":"2807"}},"id":"2871","type":"CDSView"},{"attributes":{"callback":null,"renderers":[{"id":"2852"}],"tooltips":[["Airline","AA"],["Year","@year"],["Load Factor","@lf_aa{0.f%}"]]},"id":"2864","type":"HoverTool"},{"attributes":{"data_source":{"id":"2807"},"glyph":{"id":"2868"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"2869"},"view":{"id":"2871"}},"id":"2870","type":"GlyphRenderer"},{"attributes":{"axis":{"id":"2822"},"dimension":1,"ticker":null},"id":"2825","type":"Grid"},{"attributes":{"range":{"id":"2811"},"value":0.2},"id":"2829","type":"Dodge"},{"attributes":{},"id":"2826","type":"ResetTool"},{"attributes":{"fill_alpha":{"value":0.5},"fill_color":{"value":"blue"},"top":{"field":"lf_aa"},"width":{"value":0.4},"x":{"field":"year","transform":{"id":"2848"}}},"id":"2850","type":"VBar"},{"attributes":{"text":"St. Louis-Toronto Load Factors"},"id":"2809","type":"Title"},{"attributes":{"fill_alpha":{"value":0.5},"fill_color":{"value":"blue"},"line_color":{"value":"gold"},"top":{"field":"lf_twa"},"width":{"value":0.4},"x":{"field":"year","transform":{"id":"2829"}}},"id":"2831","type":"VBar"},{"attributes":{"format":"0 %"},"id":"2884","type":"NumeralTickFormatter"}],"root_ids":["2808"]},"title":"Bokeh Application","version":"2.3.0"}}
+  </script>
+  <script type="text/javascript">
+    (function() {
+      var fn = function() {
+        Bokeh.safely(function() {
+          (function(root) {
+            function embed_document(root) {
+              
+            var docs_json = document.getElementById('3102').textContent;
+            var render_items = [{"docid":"bc7a9b11-4592-44ec-9edd-35c64d7a8c9b","root_ids":["2808"],"roots":{"2808":"6fb9d273-e9eb-4667-9a77-78fd03bc1866"}}];
+            root.Bokeh.embed.embed_items(docs_json, render_items);
+          
+            }
+            if (root.Bokeh !== undefined) {
+              embed_document(root);
+            } else {
+              var attempts = 0;
+              var timer = setInterval(function(root) {
+                if (root.Bokeh !== undefined) {
+                  clearInterval(timer);
+                  embed_document(root);
+                } else {
+                  attempts++;
+                  if (attempts > 100) {
+                    clearInterval(timer);
+                    console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                  }
+                }
+              }, 10, root)
+            }
+          })(window);
+        });
+      };
+      if (document.readyState != "loading") fn();
+      else document.addEventListener("DOMContentLoaded", fn);
+    })();
+  </script>
+   <script type="application/json" id="9529">
+    {"912c4c8e-b00c-4c07-b953-611bc42f35dc":{"defs":[{"extends":null,"module":null,"name":"DataModel","overrides":[],"properties":[]}],"roots":{"references":[{"attributes":{"background_fill_alpha":0,"below":[{"id":"9052"}],"border_fill_alpha":0,"center":[{"id":"9055"},{"id":"9059"},{"id":"9077"}],"height":320,"left":[{"id":"9056"}],"renderers":[{"id":"9066"},{"id":"9073"}],"title":{"id":"9042"},"toolbar":{"id":"9061"},"toolbar_location":null,"x_range":{"id":"9044"},"x_scale":{"id":"9048"},"y_range":{"id":"9046"},"y_scale":{"id":"9050"}},"id":"9041","subtype":"Figure","type":"Plot"},{"attributes":{"data_source":{"id":"9040"},"glyph":{"id":"9064"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"9065"},"view":{"id":"9067"}},"id":"9066","type":"GlyphRenderer"},{"attributes":{},"id":"9050","type":"LinearScale"},{"attributes":{"active_multi":null,"tools":[{"id":"9060"},{"id":"9068"},{"id":"9075"}]},"id":"9061","type":"Toolbar"},{"attributes":{"callback":null,"renderers":[{"id":"9073"}],"tooltips":[["Route","@airport2"],["Departures","@depts2{0,f}"],["Load Factor","@lf2{0.%f}"]]},"id":"9075","type":"HoverTool"},{"attributes":{"data":{"airport":["BNA","BWI","CVG","IND","MCI","MKE","RDU","STL"],"airport2":["BNA","BWI","CVG","IND","MCI","MKE","RDU","STL"],"color":["black","purple","orange","blue","green","gold","brown","red"],"color2":["black","purple","orange","blue","green","gold","brown","red"],"depts":{"__ndarray__":"AAAAAAC0nUAAAAAAALCfQAAAAAAA6J1AAAAAAADImUAAAAAAAHiGQAAAAAAA+JFAAAAAAADYm0AAAAAAAHifQA==","dtype":"float64","order":"little","shape":[8]},"depts2":{"__ndarray__":"AAAAAAAclEAAAAAAALKjQAAAAAAAUJFAAAAAAADsk0AAAAAAABCGQAAAAAAAaJBAAAAAAACcnUAAAAAAAAiSQA==","dtype":"float64","order":"little","shape":[8]},"lf":{"__ndarray__":"RZt6Jkhw6z8/rR3ja6vnP6yMD2nQ8OU/nNdVPFPu5z/zRd5kHFfpPwc/xSrz/uQ/VUPmc6jK5j8JDyUlp/XmPw==","dtype":"float64","order":"little","shape":[8]},"lf2":{"__ndarray__":"Gf4IRRjO6D+t2Z7jtsPmP5AjtoWbleE/gPAtOA+z4z8QzjQHDyflP6zHFceZCOE/+rXRMMcU5T+PlVUjjaflPw==","dtype":"float64","order":"little","shape":[8]},"year":[2019,2019,2019,2019,2019,2019,2019,2019]},"selected":{"id":"9393"},"selection_policy":{"id":"9392"}},"id":"9040","type":"ColumnDataSource"},{"attributes":{"axis_label":"Departures","formatter":{"id":"9390"},"major_label_policy":{"id":"9391"},"ticker":{"id":"9053"}},"id":"9052","type":"LinearAxis"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"field":"color2"},"line_alpha":{"value":0.1},"line_color":{"field":"color"},"line_width":{"value":2},"marker":{"value":"square"},"size":{"value":12},"x":{"field":"depts2"},"y":{"field":"lf2"}},"id":"9072","type":"Scatter"},{"attributes":{},"id":"9391","type":"AllLabels"},{"attributes":{},"id":"9387","type":"BasicTickFormatter"},{"attributes":{"start":0},"id":"9044","type":"DataRange1d"},{"attributes":{},"id":"9048","type":"LinearScale"},{"attributes":{},"id":"9392","type":"UnionRenderers"},{"attributes":{},"id":"9057","type":"BasicTicker"},{"attributes":{"source":{"id":"9040"},"text":{"field":"airport2"},"text_font_size":{"value":"9pt"},"x":{"field":"depts2"},"x_offset":{"value":-10},"y":{"field":"lf2"},"y_offset":{"value":-20}},"id":"9077","type":"LabelSet"},{"attributes":{"fill_alpha":{"value":0.5},"fill_color":{"field":"color"},"line_alpha":{"value":0.5},"line_color":{"field":"color"},"line_width":{"value":2},"size":{"value":12},"x":{"field":"depts"},"y":{"field":"lf"}},"id":"9064","type":"Scatter"},{"attributes":{"text":"Air Canada selected Toronto Routes (Squares-2014, Circles-2019)"},"id":"9042","type":"Title"},{"attributes":{"axis_label":"Load Factor","formatter":{"id":"9387"},"major_label_policy":{"id":"9388"},"ticker":{"id":"9057"}},"id":"9056","type":"LinearAxis"},{"attributes":{"end":1,"start":0},"id":"9046","type":"DataRange1d"},{"attributes":{"fill_alpha":{"value":0.5},"fill_color":{"field":"color2"},"line_alpha":{"value":0.5},"line_color":{"field":"color"},"line_width":{"value":2},"marker":{"value":"square"},"size":{"value":12},"x":{"field":"depts2"},"y":{"field":"lf2"}},"id":"9071","type":"Scatter"},{"attributes":{},"id":"9053","type":"BasicTicker"},{"attributes":{"source":{"id":"9040"}},"id":"9067","type":"CDSView"},{"attributes":{"data_source":{"id":"9040"},"glyph":{"id":"9071"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"9072"},"view":{"id":"9074"}},"id":"9073","type":"GlyphRenderer"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"field":"color"},"line_alpha":{"value":0.1},"line_color":{"field":"color"},"line_width":{"value":2},"size":{"value":12},"x":{"field":"depts"},"y":{"field":"lf"}},"id":"9065","type":"Scatter"},{"attributes":{},"id":"9393","type":"Selection"},{"attributes":{"axis":{"id":"9056"},"dimension":1,"ticker":null},"id":"9059","type":"Grid"},{"attributes":{},"id":"9388","type":"AllLabels"},{"attributes":{},"id":"9390","type":"BasicTickFormatter"},{"attributes":{"callback":null,"renderers":[{"id":"9066"}],"tooltips":[["Route","@airport"],["Departures","@depts{0,f}"],["Load Factor","@lf{0.%f}"]]},"id":"9068","type":"HoverTool"},{"attributes":{"source":{"id":"9040"}},"id":"9074","type":"CDSView"},{"attributes":{},"id":"9060","type":"ResetTool"},{"attributes":{"axis":{"id":"9052"},"grid_line_color":null,"ticker":null},"id":"9055","type":"Grid"}],"root_ids":["9041"]},"title":"Bokeh Application","version":"2.3.0"}}
+  </script>
+  <script type="text/javascript">
+    (function() {
+      var fn = function() {
+        Bokeh.safely(function() {
+          (function(root) {
+            function embed_document(root) {
+              
+            var docs_json = document.getElementById('9529').textContent;
+            var render_items = [{"docid":"912c4c8e-b00c-4c07-b953-611bc42f35dc","root_ids":["9041"],"roots":{"9041":"4dc8e00d-9e06-45a8-9f21-beedfc85e683"}}];
+            root.Bokeh.embed.embed_items(docs_json, render_items);
+          
+            }
+            if (root.Bokeh !== undefined) {
+              embed_document(root);
+            } else {
+              var attempts = 0;
+              var timer = setInterval(function(root) {
+                if (root.Bokeh !== undefined) {
+                  clearInterval(timer);
+                  embed_document(root);
+                } else {
+                  attempts++;
+                  if (attempts > 100) {
+                    clearInterval(timer);
+                    console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                  }
+                }
+              }, 10, root)
+            }
+          })(window);
+        });
+      };
+      if (document.readyState != "loading") fn();
+      else document.addEventListener("DOMContentLoaded", fn);
+    })();
+  </script>
+  <script type="application/json" id="10030">
+    {"62a2cf00-f430-4fec-af9d-fc2610d94c84":{"defs":[{"extends":null,"module":null,"name":"DataModel","overrides":[],"properties":[]}],"roots":{"references":[{"attributes":{"background_fill_alpha":0,"below":[{"id":"9551"}],"border_fill_alpha":0,"center":[{"id":"9554"},{"id":"9558"},{"id":"9569"}],"height":320,"left":[{"id":"9555"}],"renderers":[{"id":"9565"}],"title":{"id":"9541"},"toolbar":{"id":"9560"},"toolbar_location":null,"x_range":{"id":"9543"},"x_scale":{"id":"9547"},"y_range":{"id":"9545"},"y_scale":{"id":"9549"}},"id":"9540","subtype":"Figure","type":"Plot"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"field":"color2"},"line_alpha":{"value":0.1},"line_color":{"field":"color"},"line_width":{"value":2},"marker":{"value":"square"},"size":{"value":12},"x":{"field":"depts2"},"y":{"field":"lf2"}},"id":"9564","type":"Scatter"},{"attributes":{"axis":{"id":"9551"},"grid_line_color":null,"ticker":null},"id":"9554","type":"Grid"},{"attributes":{},"id":"9559","type":"ResetTool"},{"attributes":{"axis_label":"Load Factor","formatter":{"id":"9888"},"major_label_policy":{"id":"9889"},"ticker":{"id":"9556"}},"id":"9555","type":"LinearAxis"},{"attributes":{},"id":"9891","type":"BasicTickFormatter"},{"attributes":{},"id":"9893","type":"UnionRenderers"},{"attributes":{"active_multi":null,"tools":[{"id":"9559"},{"id":"9567"}]},"id":"9560","type":"Toolbar"},{"attributes":{},"id":"9547","type":"LinearScale"},{"attributes":{},"id":"9552","type":"BasicTicker"},{"attributes":{"axis":{"id":"9555"},"dimension":1,"ticker":null},"id":"9558","type":"Grid"},{"attributes":{},"id":"9894","type":"Selection"},{"attributes":{"fill_alpha":{"value":0.5},"fill_color":{"field":"color2"},"line_alpha":{"value":0.5},"line_color":{"field":"color"},"line_width":{"value":2},"marker":{"value":"square"},"size":{"value":12},"x":{"field":"depts2"},"y":{"field":"lf2"}},"id":"9563","type":"Scatter"},{"attributes":{"axis_label":"Departures","formatter":{"id":"9891"},"major_label_policy":{"id":"9892"},"ticker":{"id":"9552"}},"id":"9551","type":"LinearAxis"},{"attributes":{"data":{"airport":["BNA","BWI","CVG","IND","MCI","MKE","RDU","STL"],"airport2":["BNA","BWI","CVG","IND","MCI","MKE","RDU","STL"],"color":["black","purple","orange","blue","green","gold","brown","red"],"color2":["black","purple","orange","blue","green","gold","brown","red"],"depts":{"__ndarray__":"AAAAAAC0nUAAAAAAALCfQAAAAAAA6J1AAAAAAADImUAAAAAAAHiGQAAAAAAA+JFAAAAAAADYm0AAAAAAAHifQA==","dtype":"float64","order":"little","shape":[8]},"depts2":{"__ndarray__":"AAAAAAAclEAAAAAAALKjQAAAAAAAUJFAAAAAAADsk0AAAAAAABCGQAAAAAAAaJBAAAAAAACcnUAAAAAAAAiSQA==","dtype":"float64","order":"little","shape":[8]},"lf":{"__ndarray__":"RZt6Jkhw6z8/rR3ja6vnP6yMD2nQ8OU/nNdVPFPu5z/zRd5kHFfpPwc/xSrz/uQ/VUPmc6jK5j8JDyUlp/XmPw==","dtype":"float64","order":"little","shape":[8]},"lf2":{"__ndarray__":"Gf4IRRjO6D+t2Z7jtsPmP5AjtoWbleE/gPAtOA+z4z8QzjQHDyflP6zHFceZCOE/+rXRMMcU5T+PlVUjjaflPw==","dtype":"float64","order":"little","shape":[8]},"year":[2019,2019,2019,2019,2019,2019,2019,2019]},"selected":{"id":"9894"},"selection_policy":{"id":"9893"}},"id":"9539","type":"ColumnDataSource"},{"attributes":{},"id":"9888","type":"BasicTickFormatter"},{"attributes":{"data_source":{"id":"9539"},"glyph":{"id":"9563"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"9564"},"view":{"id":"9566"}},"id":"9565","type":"GlyphRenderer"},{"attributes":{"callback":null,"renderers":[{"id":"9565"}],"tooltips":[["Route","@airport2"],["Departures","@depts2{0,f}"],["Load Factor","@lf2{0.%f}"]]},"id":"9567","type":"HoverTool"},{"attributes":{},"id":"9549","type":"LinearScale"},{"attributes":{},"id":"9892","type":"AllLabels"},{"attributes":{"source":{"id":"9539"},"text":{"field":"airport2"},"text_font_size":{"value":"9pt"},"x":{"field":"depts2"},"x_offset":{"value":-10},"y":{"field":"lf2"},"y_offset":{"value":-20}},"id":"9569","type":"LabelSet"},{"attributes":{"end":1,"start":0},"id":"9545","type":"DataRange1d"},{"attributes":{"source":{"id":"9539"}},"id":"9566","type":"CDSView"},{"attributes":{"text":"Air Canada selected Toronto Routes (Squares-2014, Circles-2019)"},"id":"9541","type":"Title"},{"attributes":{},"id":"9556","type":"BasicTicker"},{"attributes":{"start":0},"id":"9543","type":"DataRange1d"},{"attributes":{},"id":"9889","type":"AllLabels"}],"root_ids":["9540"]},"title":"Bokeh Application","version":"2.3.0"}}
+  </script>
+  <script type="text/javascript">
+    (function() {
+      var fn = function() {
+        Bokeh.safely(function() {
+          (function(root) {
+            function embed_document(root) {
+              
+            var docs_json = document.getElementById('10030').textContent;
+            var render_items = [{"docid":"62a2cf00-f430-4fec-af9d-fc2610d94c84","root_ids":["9540"],"roots":{"9540":"00670db7-a82c-4180-919e-42d957434d63"}}];
+            root.Bokeh.embed.embed_items(docs_json, render_items);
+          
+            }
+            if (root.Bokeh !== undefined) {
+              embed_document(root);
+            } else {
+              var attempts = 0;
+              var timer = setInterval(function(root) {
+                if (root.Bokeh !== undefined) {
+                  clearInterval(timer);
+                  embed_document(root);
+                } else {
+                  attempts++;
+                  if (attempts > 100) {
+                    clearInterval(timer);
+                    console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                  }
+                }
+              }, 10, root)
+            }
+          })(window);
+        });
+      };
+      if (document.readyState != "loading") fn();
+      else document.addEventListener("DOMContentLoaded", fn);
+    })();
+  </script>
+  <script type="application/json" id="12124">
+    {"7c6f4440-488e-4292-a372-246b789a2120":{"defs":[{"extends":null,"module":null,"name":"DataModel","overrides":[],"properties":[]}],"roots":{"references":[{"attributes":{"background_fill_alpha":0,"below":[{"id":"11609"}],"border_fill_alpha":0,"center":[{"id":"11612"},{"id":"11616"},{"id":"11627"}],"height":320,"left":[{"id":"11613"}],"renderers":[{"id":"11623"}],"title":{"id":"11599"},"toolbar":{"id":"11618"},"toolbar_location":null,"x_range":{"id":"11601"},"x_scale":{"id":"11605"},"y_range":{"id":"11603"},"y_scale":{"id":"11607"}},"id":"11598","subtype":"Figure","type":"Plot"},{"attributes":{"data":{"airport":["BNA","BWI","CVG","IND","MCI","MKE","RDU","STL"],"airport2":["BNA","BWI","CVG","IND","MCI","MKE","RDU","STL"],"color":["black","purple","orange","blue","green","gold","brown","red"],"color2":["black","purple","orange","blue","green","gold","brown","red"],"depts":{"__ndarray__":"AAAAAAC0nUAAAAAAALCfQAAAAAAA6J1AAAAAAADImUAAAAAAAHiGQAAAAAAA+JFAAAAAAADYm0AAAAAAAHifQA==","dtype":"float64","order":"little","shape":[8]},"depts2":{"__ndarray__":"AAAAAAAclEAAAAAAALKjQAAAAAAAUJFAAAAAAADsk0AAAAAAABCGQAAAAAAAaJBAAAAAAACcnUAAAAAAAAiSQA==","dtype":"float64","order":"little","shape":[8]},"lf":{"__ndarray__":"RZt6Jkhw6z8/rR3ja6vnP6yMD2nQ8OU/nNdVPFPu5z/zRd5kHFfpPwc/xSrz/uQ/VUPmc6jK5j8JDyUlp/XmPw==","dtype":"float64","order":"little","shape":[8]},"lf2":{"__ndarray__":"Gf4IRRjO6D+t2Z7jtsPmP5AjtoWbleE/gPAtOA+z4z8QzjQHDyflP6zHFceZCOE/+rXRMMcU5T+PlVUjjaflPw==","dtype":"float64","order":"little","shape":[8]},"year":[2019,2019,2019,2019,2019,2019,2019,2019]},"selected":{"id":"11988"},"selection_policy":{"id":"11987"}},"id":"11597","type":"ColumnDataSource"},{"attributes":{"axis":{"id":"11613"},"dimension":1,"ticker":null},"id":"11616","type":"Grid"},{"attributes":{"text":"Air Canada selected Toronto Routes (Squares-2014, Circles-2019)"},"id":"11599","type":"Title"},{"attributes":{"active_multi":null,"tools":[{"id":"11617"},{"id":"11625"}]},"id":"11618","type":"Toolbar"},{"attributes":{"source":{"id":"11597"}},"id":"11624","type":"CDSView"},{"attributes":{"fill_alpha":{"value":0.5},"fill_color":{"field":"color"},"line_alpha":{"value":0.5},"line_color":{"field":"color"},"line_width":{"value":2},"size":{"value":12},"x":{"field":"depts"},"y":{"field":"lf"}},"id":"11621","type":"Scatter"},{"attributes":{},"id":"11986","type":"AllLabels"},{"attributes":{},"id":"11614","type":"BasicTicker"},{"attributes":{},"id":"11988","type":"Selection"},{"attributes":{"source":{"id":"11597"},"text":{"field":"airport"},"text_font_size":{"value":"9pt"},"x":{"field":"depts"},"x_offset":{"value":-10},"y":{"field":"lf"},"y_offset":{"value":-20}},"id":"11627","type":"LabelSet"},{"attributes":{},"id":"11617","type":"ResetTool"},{"attributes":{"axis_label":"Departures","formatter":{"id":"11985"},"major_label_policy":{"id":"11986"},"ticker":{"id":"11610"}},"id":"11609","type":"LinearAxis"},{"attributes":{},"id":"11985","type":"BasicTickFormatter"},{"attributes":{"end":2650,"start":0},"id":"11601","type":"DataRange1d"},{"attributes":{},"id":"11987","type":"UnionRenderers"},{"attributes":{},"id":"11983","type":"AllLabels"},{"attributes":{"data_source":{"id":"11597"},"glyph":{"id":"11621"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"11622"},"view":{"id":"11624"}},"id":"11623","type":"GlyphRenderer"},{"attributes":{},"id":"11982","type":"BasicTickFormatter"},{"attributes":{"axis":{"id":"11609"},"grid_line_color":null,"ticker":null},"id":"11612","type":"Grid"},{"attributes":{},"id":"11607","type":"LinearScale"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"field":"color"},"line_alpha":{"value":0.1},"line_color":{"field":"color"},"line_width":{"value":2},"size":{"value":12},"x":{"field":"depts"},"y":{"field":"lf"}},"id":"11622","type":"Scatter"},{"attributes":{"callback":null,"renderers":[{"id":"11623"}],"tooltips":[["Route","@airport"],["Departures","@depts{0,f}"],["Load Factor","@lf{0.%f}"]]},"id":"11625","type":"HoverTool"},{"attributes":{},"id":"11605","type":"LinearScale"},{"attributes":{"end":1,"start":0},"id":"11603","type":"DataRange1d"},{"attributes":{"axis_label":"Load Factor","formatter":{"id":"11982"},"major_label_policy":{"id":"11983"},"ticker":{"id":"11614"}},"id":"11613","type":"LinearAxis"},{"attributes":{},"id":"11610","type":"BasicTicker"}],"root_ids":["11598"]},"title":"Bokeh Application","version":"2.3.0"}}
+  </script>
+  <script type="text/javascript">
+    (function() {
+      var fn = function() {
+        Bokeh.safely(function() {
+          (function(root) {
+            function embed_document(root) {
+              
+            var docs_json = document.getElementById('12124').textContent;
+            var render_items = [{"docid":"7c6f4440-488e-4292-a372-246b789a2120","root_ids":["11598"],"roots":{"11598":"942b1a42-561a-49ad-9607-a6db1e8faf98"}}];
+            root.Bokeh.embed.embed_items(docs_json, render_items);
+          
+            }
+            if (root.Bokeh !== undefined) {
+              embed_document(root);
+            } else {
+              var attempts = 0;
+              var timer = setInterval(function(root) {
+                if (root.Bokeh !== undefined) {
+                  clearInterval(timer);
+                  embed_document(root);
+                } else {
+                  attempts++;
+                  if (attempts > 100) {
+                    clearInterval(timer);
+                    console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                  }
+                }
+              }, 10, root)
+            }
+          })(window);
+        });
+      };
+      if (document.readyState != "loading") fn();
+      else document.addEventListener("DOMContentLoaded", fn);
+    })();
+  </script>
+  <script type="application/json" id="1363">
+    {"6060af3a-335f-461f-948f-c3c03a200068":{"defs":[{"extends":null,"module":null,"name":"DataModel","overrides":[],"properties":[]}],"roots":{"references":[{"attributes":{"background_fill_alpha":0,"below":[{"id":"1197"}],"border_fill_alpha":0,"center":[{"id":"1200"},{"id":"1204"}],"height":320,"left":[{"id":"1201"}],"renderers":[{"id":"1211"}],"title":{"id":"1187"},"toolbar":{"id":"1206"},"toolbar_location":null,"width":500,"x_range":{"id":"1189"},"x_scale":{"id":"1193"},"y_range":{"id":"1191"},"y_scale":{"id":"1195"}},"id":"1186","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1189","type":"DataRange1d"},{"attributes":{"axis":{"id":"1197"},"grid_line_color":null,"ticker":null},"id":"1200","type":"Grid"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"blue"},"line_alpha":{"value":0.1},"line_color":{"value":"blue"},"top":{"field":"lf"},"width":{"value":0.4},"x":{"field":"year"}},"id":"1210","type":"VBar"},{"attributes":{"source":{"id":"1185"}},"id":"1212","type":"CDSView"},{"attributes":{"callback":null,"renderers":[{"id":"1211"}],"tooltips":[["Year","@year"],["Load Factor","@lf{0.f%}"]]},"id":"1213","type":"HoverTool"},{"attributes":{},"id":"1205","type":"ResetTool"},{"attributes":{"end":1,"start":0},"id":"1191","type":"DataRange1d"},{"attributes":{},"id":"1195","type":"LinearScale"},{"attributes":{},"id":"1202","type":"BasicTicker"},{"attributes":{"text":"St. Louis-Vancouver Load Factors"},"id":"1187","type":"Title"},{"attributes":{"formatter":{"id":"1215"},"major_label_policy":{"id":"1240"},"ticker":{"id":"1202"}},"id":"1201","type":"LinearAxis"},{"attributes":{},"id":"1241","type":"UnionRenderers"},{"attributes":{"axis":{"id":"1201"},"dimension":1,"ticker":null},"id":"1204","type":"Grid"},{"attributes":{},"id":"1240","type":"AllLabels"},{"attributes":{},"id":"1242","type":"Selection"},{"attributes":{},"id":"1198","type":"BasicTicker"},{"attributes":{"active_multi":null,"tools":[{"id":"1205"},{"id":"1213"}]},"id":"1206","type":"Toolbar"},{"attributes":{"format":"0 %"},"id":"1215","type":"NumeralTickFormatter"},{"attributes":{"data_source":{"id":"1185"},"glyph":{"id":"1209"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1210"},"view":{"id":"1212"}},"id":"1211","type":"GlyphRenderer"},{"attributes":{"formatter":{"id":"1236"},"major_label_policy":{"id":"1238"},"ticker":{"id":"1198"}},"id":"1197","type":"LinearAxis"},{"attributes":{"data":{"lf":{"__ndarray__":"Kvw6yDx/5j8VtMY9sProP5y1TSdPbOc/bLWpk8m34j8VoBZGI4niPw==","dtype":"float64","order":"little","shape":[5]},"year":[2002,2003,1999,2000,2001]},"selected":{"id":"1242"},"selection_policy":{"id":"1241"}},"id":"1185","type":"ColumnDataSource"},{"attributes":{},"id":"1236","type":"BasicTickFormatter"},{"attributes":{},"id":"1193","type":"LinearScale"},{"attributes":{"fill_alpha":{"value":0.5},"fill_color":{"value":"blue"},"line_color":{"value":"blue"},"top":{"field":"lf"},"width":{"value":0.4},"x":{"field":"year"}},"id":"1209","type":"VBar"},{"attributes":{},"id":"1238","type":"AllLabels"}],"root_ids":["1186"]},"title":"Bokeh Application","version":"2.3.0"}}
+  </script>
+  <script type="text/javascript">
+    (function() {
+      var fn = function() {
+        Bokeh.safely(function() {
+          (function(root) {
+            function embed_document(root) {
+              
+            var docs_json = document.getElementById('1363').textContent;
+            var render_items = [{"docid":"6060af3a-335f-461f-948f-c3c03a200068","root_ids":["1186"],"roots":{"1186":"4421b9d2-0a46-40e8-9eb8-236febbf6006"}}];
+            root.Bokeh.embed.embed_items(docs_json, render_items);
+          
+            }
+            if (root.Bokeh !== undefined) {
+              embed_document(root);
+            } else {
+              var attempts = 0;
+              var timer = setInterval(function(root) {
+                if (root.Bokeh !== undefined) {
+                  clearInterval(timer);
+                  embed_document(root);
+                } else {
+                  attempts++;
+                  if (attempts > 100) {
+                    clearInterval(timer);
+                    console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                  }
+                }
+              }, 10, root)
+            }
+          })(window);
+        });
+      };
+      if (document.readyState != "loading") fn();
+      else document.addEventListener("DOMContentLoaded", fn);
+    })();
+  </script>
+
+    <script>   
+      new Vue ({
+        el: '#stl_airport',
+        data: {
+          dests: 'x',
+          chart_sel: 'comb'
+        }
+      })
+    </script>
+        
+    <script src="<<% url_for('static', filename='components/menu.vue') %>>">
+    </script>
+    <script src="<<% url_for('static', filename='components/header.vue') %>>">
+    </script>
+  </body>
+</html>
